@@ -19,6 +19,7 @@ set(QLT_QUANTLIB_SOURCES
     ql/processes/hestonprocess.cpp
     ql/cashflow.cpp
     ql/cashflows/dividend.cpp
+    ql/discretizedasset.cpp
     ql/errors.cpp
     ql/event.cpp
     ql/exercise.cpp
