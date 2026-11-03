@@ -49,7 +49,7 @@ def inspect_wheel(wheel):
         require(len(metadata_paths) == 1, "Expected exactly one wheel METADATA")
         info = metadata_paths[0].removesuffix("METADATA")
         allowed_info = {"METADATA", "WHEEL", "RECORD", "top_level.txt", "LICENSE",
-                        "QuantLib.txt", "Boost.txt", "PyTorch.txt", "NOTICE.txt"}
+                        "QuantLib.txt", "Boost.txt", "PyTorch.txt", "JSON.txt", "Abseil.txt", "NOTICE.txt"}
         private_path = rb"(?i)(?:[A-Z]:[\\/]+Users[\\/]|/(?:home|Users)/)"
         for name in names:
             parts = name.split("/")
@@ -71,7 +71,7 @@ def inspect_wheel(wheel):
         require(metadata.get_all("Requires-Dist", []).count("torch==2.10.0+cu126") == 1,
                 "Wheel must pin the validated Torch CUDA variant")
         notices = {}
-        for filename in ("LICENSE", "QuantLib.txt", "Boost.txt", "PyTorch.txt", "NOTICE.txt"):
+        for filename in ("LICENSE", "QuantLib.txt", "Boost.txt", "PyTorch.txt", "JSON.txt", "Abseil.txt", "NOTICE.txt"):
             entries = [name for name in names if ".dist-info/" in name and name.endswith("/" + filename)]
             require(len(entries) == 1, f"Required license/notice missing or duplicated: {filename}")
             contents = archive.read(entries[0])

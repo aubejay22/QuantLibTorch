@@ -12,6 +12,12 @@ option(QLT_PATCH_MATH "Enable minimal ADL math compatibility overlay" ON)
 if(NOT EXISTS "${QLT_QUANTLIB_DIR}/ql/version.hpp")
     message(FATAL_ERROR "QuantLib sources missing. Run python scripts/bootstrap.py")
 endif()
+# Official PyTorch wheels omit this transitive functorch header dependency.
+# Verify its pinned bytes even when CMake is invoked without scripts/build.py.
+execute_process(COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/scripts/bootstrap.py" --check-json
+    OUTPUT_VARIABLE QLT_JSON_INCLUDE_DIR OUTPUT_STRIP_TRAILING_WHITESPACE
+    COMMAND_ERROR_IS_FATAL ANY)
+file(TO_CMAKE_PATH "${QLT_JSON_INCLUDE_DIR}" QLT_JSON_INCLUDE_DIR)
 
 # Use the libraries shipped with the active Python's torch. This CPU-only
 # extension does not need a CUDA toolkit, even when torch is a CUDA wheel.
@@ -77,7 +83,7 @@ foreach(SOURCE IN LISTS QLT_QUANTLIB_SOURCES)
 endforeach()
 target_include_directories(quantlibtorch_native PRIVATE cpp/include "${QLT_QUANTLIB_DIR}")
 target_include_directories(quantlibtorch_native SYSTEM PRIVATE
-    "${QLT_BOOST_INCLUDE_DIR}" "${TORCH_ROOT}/include" "${TORCH_ROOT}/include/torch/csrc/api/include")
+    "${QLT_JSON_INCLUDE_DIR}" "${QLT_BOOST_INCLUDE_DIR}" "${TORCH_ROOT}/include" "${TORCH_ROOT}/include/torch/csrc/api/include")
 foreach(LIBRARY torch torch_cpu c10)
     # The active Python can change between configurations; never reuse an old
     # torch library path with headers from a new environment.
@@ -92,14 +98,16 @@ if(MSVC)
     target_compile_options(quantlibtorch_native PRIVATE /experimental:deterministic
         "/pathmap:${CMAKE_CURRENT_SOURCE_DIR}=QuantLibTorch"
         "/pathmap:${TORCH_ROOT}=torch"
-        "/pathmap:${QLT_BOOST_INCLUDE_DIR}=boost-headers")
+        "/pathmap:${QLT_BOOST_INCLUDE_DIR}=boost-headers"
+        "/pathmap:${QLT_JSON_INCLUDE_DIR}=nlohmann-json")
     set_property(TARGET quantlibtorch_native PROPERTY MSVC_RUNTIME_LIBRARY MultiThreadedDLL)
 else()
     target_compile_definitions(quantlibtorch_native PRIVATE _GLIBCXX_USE_CXX11_ABI=${TORCH_ABI})
     target_compile_options(quantlibtorch_native PRIVATE -fvisibility=hidden
         "-ffile-prefix-map=${CMAKE_CURRENT_SOURCE_DIR}=QuantLibTorch"
         "-ffile-prefix-map=${TORCH_ROOT}=torch"
-        "-ffile-prefix-map=${QLT_BOOST_INCLUDE_DIR}=boost-headers")
+        "-ffile-prefix-map=${QLT_BOOST_INCLUDE_DIR}=boost-headers"
+        "-ffile-prefix-map=${QLT_JSON_INCLUDE_DIR}=nlohmann-json")
     # The installed torch dependency supplies LibTorch. Never embed a developer
     # machine's absolute environment path into the distributed shared library.
     set_property(TARGET quantlibtorch_native PROPERTY BUILD_RPATH_USE_ORIGIN TRUE)

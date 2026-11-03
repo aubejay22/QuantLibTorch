@@ -6,7 +6,8 @@ import hashlib
 def native_source_digest(root: Path) -> str:
     paths = [root / "CMakeLists.txt", root / "scripts" / "prepare_quantlib.py",
              root / "scripts" / "prepare_packed.py",
-             root / "scripts" / "native_metadata.py", root / "_build_support.py"]
+             root / "scripts" / "native_metadata.py", root / "scripts" / "bootstrap.py",
+             root / "scripts" / "build.py", root / "_build_support.py"]
     paths.extend((root / "cmake").rglob("*.cmake"))
     paths.extend(p for p in (root / "cpp").rglob("*")
                  if p.suffix in {".cpp", ".hpp", ".inc"})

@@ -1,19 +1,19 @@
 {
   "release": "0.3.0",
   "status": "release-in-progress",
-  "reason": "GitHub authentication resolved through existing Git credential; remote CI and registry gates next",
+  "reason": "Clean-runner CI exposed implicit JSON header dependency and missing notices; corrected artifacts undergoing new validation",
   "authenticated_connector_account": "aubejay22",
   "intended_repository": "aubejay22/QuantLibTorch",
   "original_candidate_revision": "1002f78",
   "reviewed_preparation_revision": "29dfb0ec0be349009c0f0c6f49d786afaf769e4e",
   "sanitized_public_source_root": "cc6d7e71427334fbe256a75e25831d6af54d0272",
   "original_local_history_preserved": true,
-  "public_repository_verified": false,
+  "public_repository_verified": true,
   "github_v0_3_0_release_verified": false,
   "testpypi_upload_verified": false,
   "production_pypi_upload_verified": false,
-  "remote_linux_ci_executed": false,
-  "remote_windows_ci_executed": false,
+  "remote_linux_ci_executed": true,
+  "remote_windows_ci_executed": true,
   "wheel_sha256": "3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de",
   "local_gates": {
     "security_and_provenance": "passed",
@@ -39,14 +39,16 @@
     "production_environment": "pypi"
   },
   "remaining_steps": [
-    "Create audited personal repository and verify public access",
-    "Execute remote Windows candidate and Linux experiment workflows",
+    "Complete corrected native and hosted Windows validation",
+    "Complete Linux experiment and accurately constrain support",
     "Validate exact hosted Windows wheel on CUDA host",
-    "Configure both pending Trusted Publishers and environment restrictions",
+    "Configure both pending Trusted Publishers",
     "Publish to TestPyPI and verify actual index-delivered wheel",
     "Tag exact validated revision v0.3.0 and publish GitHub release",
     "Promote identical artifact to PyPI and validate actual production download"
   ],
   "github_authenticated": true,
-  "repository_created_private": true
+  "repository_created_private": true,
+  "public_repository_url": "https://github.com/aubejay22/QuantLibTorch",
+  "earlier_wheel_superseded": true
 }

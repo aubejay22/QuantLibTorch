@@ -27,7 +27,7 @@ def make_wheel(tmp_path, *, missing_notice=None, binary=b"synthetic native paylo
         archive.writestr(info + "METADATA", "Metadata-Version: 2.1\nName: quantlibtorch\nVersion: 0.3.0\n"
                          f"Requires-Python: {python_requirement}\nLicense: BSD 3-Clause License\n"
                          "Requires-Dist: torch==2.10.0+cu126\n\n")
-        for name in ("LICENSE", "QuantLib.txt", "Boost.txt", "PyTorch.txt", "NOTICE.txt"):
+        for name in ("LICENSE", "QuantLib.txt", "Boost.txt", "PyTorch.txt", "JSON.txt", "Abseil.txt", "NOTICE.txt"):
             if name != missing_notice:
                 archive.writestr(info + name, "Test fixture notice\n")
         archive.writestr("quantlibtorch/_native/build_info.json", json.dumps(native))
@@ -40,11 +40,11 @@ def test_manifest_covers_wheel_native_abi_python_and_notices(tmp_path):
     result = release.inspect_wheel(wheel)
     assert result["sha256"] == hashlib.sha256(wheel.read_bytes()).hexdigest()
     assert result["requires_python"] == "<3.14,>=3.13"
-    assert len(result["notices_sha256"]) == 5
+    assert len(result["notices_sha256"]) == 7
     assert result["native"]["platform"] == "win-amd64"
 
 
-@pytest.mark.parametrize("notice", ["LICENSE", "QuantLib.txt", "Boost.txt", "PyTorch.txt", "NOTICE.txt"])
+@pytest.mark.parametrize("notice", ["LICENSE", "QuantLib.txt", "Boost.txt", "PyTorch.txt", "JSON.txt", "Abseil.txt", "NOTICE.txt"])
 def test_missing_notice_blocks_promotion(tmp_path, notice):
     with pytest.raises(SystemExit, match="Required license/notice"):
         release.inspect_wheel(make_wheel(tmp_path, missing_notice=notice))

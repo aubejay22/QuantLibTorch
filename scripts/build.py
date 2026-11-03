@@ -26,7 +26,7 @@ def main():
     if str(torch.__version__).split("+")[0] != "2.10.0":
         parser.error("QuantLibTorch requires the pinned torch==2.10.0 build")
     source_digest = native_source_digest(ROOT)
-    # Validate provenance without fetching or modifying existing sources.
+    # Fetch missing pinned dependencies and validate existing dependency bytes.
     subprocess.run([sys.executable, str(ROOT / "scripts" / "bootstrap.py")], check=True)
     command = ["cmake", "-S", str(ROOT), "-B", str(args.build_dir),
                f"-DPython3_EXECUTABLE={sys.executable}",

@@ -4,6 +4,16 @@ Audit date: 2026-11-02. Baseline: local release-candidate checkpoint
 `1002f78`. This review covers source publication and license eligibility;
 native and registry validation are additional gates in [release.md](release.md).
 
+**Inventory correction after actual remote CI:** the first Linux build found
+an implicit nlohmann/json 3.11.2 header dependency supplied locally by Conda and
+absent from the official torch wheel. The initial inventory and prior wheel
+license approval are superseded by this finding. The previously audited wheel
+`3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de`
+must not be published: it omits the JSON MIT notice. Its native and numerical
+measurements remain historical evidence, not authorization to distribute it.
+The dependency is being made explicit and rebuilt with the complete notices;
+the replacement wheel requires a fresh artifact and installed-package audit.
+
 ## Scope and measured findings
 
 The baseline has 21 reachable commits, 153 trees and 992 distinct file blobs.
@@ -68,6 +78,18 @@ those upstream obligations. No QuantLibAAD/XAD implementation or dependency was
 found; historical design comparisons are not redistribution.
 
 Boost's license and the matching PyTorch distribution's notices are retained.
+The corrected inventory also includes nlohmann/json 3.11.2, whose single header
+is included by PyTorch functorch headers. `LICENSES/JSON.txt` preserves the
+exact upstream `v3.11.2/LICENSE.MIT` bytes (1,076 bytes), SHA256
+`86b998c792894ccb911a1cb7994f7a9652894e7a094c0b5e45be2f553f45cf14`.
+The header also identifies MIT-licensed portions by Bjorn Hoehrmann, Florian
+Loitsch and Evan Nemerson; their attribution is retained in `NOTICE.txt`.
+An explicit inner comment identifies a pre-C++14 Abseil integer-sequence
+fallback as Apache-2.0 despite the enclosing MIT SPDX line. The C++17 build
+excludes that fallback; its attribution and original license from upstream
+commit `10cb35e459f5ecca5b2ff107635da0bfa41011b4` are nevertheless retained in
+`NOTICE.txt` and `Abseil.txt`. These permissive terms are compatible with
+distribution of original BSD-3-Clause work while retaining upstream terms.
 The QuantLibTorch wheel must include the project LICENSE and all notice files,
 and must not bundle torch DLLs, CUDA/NVIDIA libraries, build logs, source
 snapshots or local environments. [licensing.md](licensing.md) gives the inventory.

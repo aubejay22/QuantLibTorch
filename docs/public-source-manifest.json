@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "local_source_revision": "407e4b10e9731bd7118a5591f1152011b9e92385",
-  "tracked_file_count": 856,
+  "local_source_revision": "fa29764b2b73a610ffacc1d61f8290e5513b10ba",
+  "tracked_file_count": 860,
   "scanned_payload_counts": {
-    "payloads": 4195,
+    "payloads": 4199,
     "zip_archives": 40,
     "gzip_archives": 2
   },

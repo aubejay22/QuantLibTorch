@@ -23,6 +23,27 @@ Source: https://www.boost.org/
 See Boost.txt for the Boost Software License 1.0. Boost is a build dependency;
 its headers are not redistributed as a separate header tree in the wheel.
 
+nlohmann/json 3.11.2 (JSON for Modern C++)
+Source: https://github.com/nlohmann/json/tree/v3.11.2
+The extension includes the pinned single header through PyTorch's functorch
+headers. See JSON.txt for the exact upstream MIT license. This dependency is
+fetched explicitly at build time; no separate header tree is bundled in the
+wheel. The single header retains these additional MIT copyright notices:
+  Copyright (c) 2008-2009 Björn Hoehrmann <bjoern@hoehrmann.de> (UTF-8 decoder)
+  Copyright (c) 2009 Florian Loitsch (Grisu2 conversion)
+  Copyright (c) 2016-2021 Evan Nemerson <evan@nemerson.com> (Hedley)
+The MIT permission grant and disclaimer in JSON.txt also apply to these
+upstream portions, which carry SPDX-License-Identifier: MIT in the header.
+
+Abseil C++ compatibility fallback within nlohmann/json
+Copyright 2018 The Abseil Authors
+Source: https://github.com/abseil/abseil-cpp/blob/10cb35e459f5ecca5b2ff107635da0bfa41011b4/absl/utility/utility.h
+The JSON header explicitly attributes its pre-C++14 integer_sequence fallback
+to this Apache-2.0 source, notwithstanding its broader MIT header identifier.
+Our C++17 build uses the standard-library definitions and excludes that fallback.
+Abseil.txt preserves its original Apache License 2.0 terms for completeness;
+neither the project BSD license nor JSON.txt replaces those upstream terms.
+
 PyTorch 2.10.0
 Source: https://github.com/pytorch/pytorch/tree/v2.10.0
 The extension compiles against PyTorch headers and links to libraries supplied

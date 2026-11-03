@@ -51,6 +51,11 @@ for the correct environment; editing metadata to bypass checks is unsupported.
 
 A checkout is for maintainers and users intentionally compiling the library.
 QuantLib 1.40 is pinned to `06edddbdb85f006c43a449b5fc846a00c67477f3`.
+The bootstrap also fetches nlohmann/json 3.11.2, SHA256
+`665fa14b8af3837966949e8eb0052d583e2ac105d3438baba9951785512cf921`.
+It supplies a header dependency omitted from the official PyTorch wheels.
+The build verifies and explicitly includes it; ambient Conda headers are not
+used as a substitute. Its applicable notices are retained in `LICENSES/`.
 The stock `QuantLib==1.40` Python package is only an independent test oracle;
 it is never linked into QuantLibTorch.
 

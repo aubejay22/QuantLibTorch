@@ -20,7 +20,7 @@ PACKAGING = runpy.run_path(str(ROOT / "setup.py"))
 def native_fixture(tmp_path):
     (tmp_path / "scripts").mkdir()
     for filename in ("CMakeLists.txt", "scripts/prepare_quantlib.py", "scripts/prepare_packed.py",
-                     "scripts/native_metadata.py", "_build_support.py"):
+                     "scripts/native_metadata.py", "scripts/bootstrap.py", "scripts/build.py", "_build_support.py"):
         (tmp_path / filename).write_text("fixed build input", encoding="utf-8")
     native = tmp_path / "python" / "quantlibtorch" / "_native"
     native.mkdir(parents=True)
@@ -61,9 +61,10 @@ def test_native_changed_since_build_is_rejected(native_fixture):
         PACKAGING["validate_native"](root)
 
 
-def test_native_source_changed_since_build_is_rejected(native_fixture):
+@pytest.mark.parametrize("changed_source", ["CMakeLists.txt", "scripts/bootstrap.py", "scripts/build.py"])
+def test_native_source_changed_since_build_is_rejected(native_fixture, changed_source):
     root, _, _, _ = native_fixture
-    (root / "CMakeLists.txt").write_text("new native sources", encoding="utf-8")
+    (root / changed_source).write_text("new native sources", encoding="utf-8")
     with pytest.raises(SetupError, match="native_source_sha256"):
         PACKAGING["validate_native"](root)
 

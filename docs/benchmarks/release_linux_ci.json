@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "platform": "Ubuntu 24.04 x86_64",
+  "support_status": "experimental; no validated Linux wheel",
+  "runs": [
+    {
+      "run_id": 41573206987,
+      "url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41573206987",
+      "revision": "d492f33db124b24b00249d71a0448dba168bd6e6",
+      "job_id": 125710661491,
+      "workflow_conclusion": "success",
+      "job_conclusion": "failure",
+      "last_step": "Fetch the same pinned Boost headers as Windows",
+      "finding": "Boost archive checksum passed; unzip failed because build/boost parent directory did not exist.",
+      "remediation": "Create build/boost before unzip; applied on ci/linux-bootstrap.",
+      "native_build_attempted": false,
+      "tests_executed": false,
+      "wheel_built": false,
+      "isolated_installation": false
+    },
+    {
+      "run_id": 41573498759,
+      "url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41573498759",
+      "revision": "80768769c8afc18f6275a29f5225ad3dec9092ea",
+      "job_id": 125711603219,
+      "workflow_conclusion": "success",
+      "job_conclusion": "failure",
+      "last_step": "Build native Linux package",
+      "finding": "CMake configure and initial GCC compilation succeeded; compilation stopped at ATen/functorch/Interpreter.h include nlohmann/json.hpp, which the Torch wheel does not supply. The prior local Windows environment supplied nlohmann/json 3.11.2 through ambient Conda include headers.",
+      "remediation": "Pin and verify nlohmann/json 3.11.2 as an explicit shared build dependency, include its MIT notice, rebuild and repeat CI.",
+      "native_build_attempted": true,
+      "tests_executed": false,
+      "wheel_built": false,
+      "isolated_installation": false,
+      "toolchain": {
+        "python": "3.13.17",
+        "torch": "2.10.0+cpu",
+        "compiler": "GCC 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1)",
+        "cmake": "3.31.6",
+        "glibc": "2.39 (Ubuntu GLIBC 2.39-0ubuntu8.9)",
+        "boost": "1.82.0"
+      },
+      "downloaded_evidence_sha256": {
+        "build.log": "1aabb56440ab34aa5b329190ec73314b139af22a66e1be4b0fbab26d6777804e",
+        "toolchain.txt": "a3f3cac96952c7f1a81a5a399e4adf6ddca870d9fa303eed8b7112c3fc413898"
+      }
+    }
+  ],
+  "interpretation": "The workflow uses continue-on-error to keep Linux exploration independent of the Windows release. Its overall green result is not evidence of a successful Linux job. No Linux wheel has passed compilation, full tests, auditwheel, or clean installation.",
+  "next_step": "Run both platform jobs at the revision containing the shared pinned JSON dependency; Windows-only release may proceed once its own mandatory gates pass."
+}

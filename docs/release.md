@@ -132,16 +132,24 @@ Native path remapping prevents developer home paths in shipped assertion strings
 Deterministic wheel packaging from the same binary does not establish identical
 compiler output across hosts. Exact-artifact hashes remain authoritative.
 
-## Measured local stable artifact
+## Earlier local artifact (superseded)
 
-`build/release_final/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl` is
+Clean-runner CI subsequently exposed an implicit nlohmann/json header dependency
+and missing third-party notices. The artifact described here is preserved as
+historical local evidence and **must not be published**. The corrected build pins
+nlohmann/json 3.11.2, verifies its SHA256, explicitly includes its headers and
+ships its applicable notices. New native, wheel and hosted checks are required.
+
+The earlier `build/release_final/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl` is
 1,389,778 bytes, SHA256
 `3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de`.
 It was packaged from clean preparation checkpoint
 `29dfb0ec0be349009c0f0c6f49d786afaf769e4e` and repackaged byte-identically.
 Its package source, native inputs, README and metadata match the separately
 sanitized source root `cc6d7e71427334fbe256a75e25831d6af54d0272`.
-The public source currently exists locally only, under `build/public-release`.
+The source is public at https://github.com/aubejay22/QuantLibTorch; its separate
+local checkout remains under `build/public-release`. Original local history is
+not part of the public ancestry.
 
 The wheel passes strict Twine checks and independent contents/licensing/privacy
 audit. Its 28 members include all five project/upstream notices and no extra
@@ -162,6 +170,7 @@ local artifact; it is not evidence of a TestPyPI or production-index download.
 
 ## Current publication status
 
+The public GitHub repository is verified through unauthenticated API reads.
 No GitHub release, TestPyPI upload or production PyPI upload is yet verified.
 The native rebuild, source/history and wheel audits, and external installation
 have passed locally. The full rebuilt native regression passed 2,256 tests, one intentional skip and
@@ -170,6 +179,11 @@ check covers the three gate tests added after that suite was collected. All
 seven notebooks and eleven bounded examples passed in the independent wheel
 environment. See [regression evidence](benchmarks/release_final_regression.json)
 and [tutorial evidence](benchmarks/release_final_examples.json).
-Actual remote CI and index-delivered artifact validation remain unperformed. Pending Trusted Publisher registration still requires owner account configuration.
+Actual Linux CI reached compilation and exposed the missing JSON header;
+[Linux evidence](benchmarks/release_linux_ci.json) records both runs. The first
+Windows candidate was cancelled to include the dependency and license fixes.
+Corrected native and hosted validation is in progress. The earlier local test
+counts above do not validate the corrected artifact. Index-delivered artifact
+validation remains unperformed. Pending Trusted Publisher registration still requires owner account configuration.
 The release remains blocked from publication until these requirements pass;
 local release preparation alone is not success.

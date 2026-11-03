@@ -173,3 +173,18 @@ as the intended account; no additional GitHub login is required. Actual
 remote Windows/Linux CI, TestPyPI installation and production PyPI installation
 have not run. These are explicit next steps after account authentication and
 publisher configuration; local tests do not certify publication success.
+
+
+### Clean-runner dependency correction
+
+Actual Ubuntu 24.04 CI reached GCC 13.3 compilation and found that official
+PyTorch 2.10.0 wheels omit `nlohmann/json.hpp`, included by functorch's Interpreter
+header. The local Conda environment had supplied JSON 3.11.2 implicitly. The
+build now pins and checksum-verifies that exact version, checks the cached bytes
+again at CMake configuration and includes the verified directory explicitly.
+Build/bootstrap scripts are covered by the native source fingerprint. Applicable
+upstream notices are included in the distribution. This is a build/provenance
+correction, without numerical algorithm changes. The earlier local wheel is
+superseded; corrected native, wheel and remote validation must pass before any
+publication. Real Linux failure evidence is in
+[release_linux_ci.json](benchmarks/release_linux_ci.json).
