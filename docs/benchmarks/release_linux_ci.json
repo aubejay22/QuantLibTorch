@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "platform": "Ubuntu 24.04 x86_64",
-  "support_status": "experimental; no validated Linux wheel",
+  "support_status": "Ubuntu 24.04 CPU build and clean wheel installation validated on isolated compatibility branch; no portable Linux PyPI wheel or CUDA claim",
   "runs": [
     {
       "run_id": 41573206987,
@@ -44,8 +44,172 @@
         "build.log": "1aabb56440ab34aa5b329190ec73314b139af22a66e1be4b0fbab26d6777804e",
         "toolchain.txt": "a3f3cac96952c7f1a81a5a399e4adf6ddca870d9fa303eed8b7112c3fc413898"
       }
+    },
+    {
+      "run_id": 41574723981,
+      "url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41574723981",
+      "revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+      "job_id": 125715461796,
+      "workflow_conclusion": "success",
+      "job_conclusion": "failure",
+      "last_step": "Build native Linux package",
+      "finding": "Pinned JSON 3.11.2 download/hash verification and CMake configure succeeded. GCC reached 6 percent native compilation, then rejected unqualified QuantLib parameter types in generated cross-namespace friend declarations in triplebandlinearop.hpp. Errors include FdmLinearOpComposite, BoundaryConditionSchemeHelper, Array, Time and Real not declared.",
+      "remediation": "A separate Linux compatibility experiment can qualify generated friend parameter types; no numerical algorithm change is indicated. Current supported scope remains Windows only.",
+      "native_build_attempted": true,
+      "tests_executed": false,
+      "wheel_built": false,
+      "isolated_installation": false,
+      "toolchain": {
+        "python": "3.13.17",
+        "torch": "2.10.0+cpu",
+        "compiler": "GCC 13.3.0",
+        "cmake": "3.31.6",
+        "glibc": "2.39",
+        "boost": "1.82.0",
+        "nlohmann_json": "3.11.2"
+      },
+      "downloaded_evidence_sha256": {
+        "build.log": "b9857b7c7a549180e518f2398e0384b1fff71cb223ca51790e8db6aa2a6d69f2",
+        "toolchain.txt": "a3f3cac96952c7f1a81a5a399e4adf6ddca870d9fa303eed8b7112c3fc413898"
+      }
+    },
+    {
+      "run_id": 41575287072,
+      "url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41575287072",
+      "revision": "9b5cd01120c6e295d71be37326b01e40fa2aaa66",
+      "branch": "ci/linux-compat",
+      "job_id": 125717242499,
+      "workflow_conclusion": "success",
+      "job_conclusion": "failure",
+      "last_step": "Build native Linux package (post-build import probe)",
+      "finding": "Isolated namespace qualification fixed GCC compilation. Native target compiled and linked at 100 percent. Mandatory load probe then failed with undefined symbol QuantLib::DiscretizedOption::postAdjustValuesImpl(), implemented in omitted upstream source ql/discretizedasset.cpp.",
+      "remediation": "Review adding the original pinned source translation unit to the explicit source closure on the isolated Linux branch; do not link a stock QuantLib library.",
+      "native_build_attempted": true,
+      "native_compilation_and_link": true,
+      "native_import": false,
+      "tests_executed": false,
+      "wheel_built": false,
+      "isolated_installation": false,
+      "generated_overlay_check": "All 84 generated files match the prior output after removing only the added namespace qualifiers in four friend declarations across three headers; compatibility diff emitted separately.",
+      "downloaded_evidence_sha256": {
+        "build.log": "811eb156f20c879404f6e50db736847566565c57786e122cf3f5b7387965e2c8",
+        "toolchain.txt": "a3f3cac96952c7f1a81a5a399e4adf6ddca870d9fa303eed8b7112c3fc413898"
+      }
+    },
+    {
+      "run_id": 41575865212,
+      "url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41575865212",
+      "revision": "f565a2f64d1ecd010cf4b0a8d6babdf8dd290da7",
+      "branch": "ci/linux-compat",
+      "job_id": 125719102356,
+      "workflow_conclusion": "success",
+      "job_conclusion": "success",
+      "finding": "Generated friend namespace qualification and inclusion of original pinned ql/discretizedasset.cpp permit complete Linux native compilation, import, full regression, wheel packaging, dependency inspection and isolated installation. Changes remain isolated from the Windows release candidate.",
+      "native_build_attempted": true,
+      "native_compilation_and_link": true,
+      "native_import": true,
+      "tests_executed": true,
+      "pytest": {
+        "passed": 2171,
+        "skipped": 98,
+        "failures": 0,
+        "errors": 0,
+        "seconds": 134.422
+      },
+      "wheel_built": true,
+      "wheel_filename": "quantlibtorch-0.3.0-cp313-cp313-linux_x86_64.whl",
+      "wheel_sha256": "9c55bb6d5fcb9efc4d193e390c627a23a6bb1e9081557d4ebc765acfa86109c3",
+      "isolated_installation": true,
+      "system_site_packages": false,
+      "native": {
+        "cxx11_abi": true,
+        "native_source_sha256": "572ee802dc39d720227676a573959b7f2b86f4cfd7858d5c79fb22d35a4b2665",
+        "platform": "linux-x86_64",
+        "python_tag": "cpython-313",
+        "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+        "torch_version": "2.10.0+cpu"
+      },
+      "analytic": {
+        "price": 8.827321225352126,
+        "delta": 0.573495979027775,
+        "vega": 38.71517541592269
+      },
+      "exercise": {
+        "european": {
+          "price": 6.8601411536327905,
+          "vega": 38.67907129700746
+        },
+        "american": {
+          "price": 7.025755592428881,
+          "vega": 38.57447195794177
+        },
+        "bermudan": {
+          "price": 6.941290231426916,
+          "vega": 38.63850185732577
+        }
+      },
+      "heston": {
+        "price": 8.973315753997898,
+        "gradients": [
+          53.87286130797464,
+          0.17432669540693688,
+          52.23472319962225,
+          -2.265184833882229,
+          0.2975858391052562
+        ]
+      },
+      "shout": {
+        "price": 11.08334427775533,
+        "vega": 52.06796739020142
+      },
+      "packed_cpu": {
+        "prices": [
+          [
+            11.558993546719249,
+            6.697852042102854
+          ],
+          [
+            11.558993546719249,
+            6.697852042102854
+          ]
+        ],
+        "vega": 149.94915601934693
+      },
+      "cuda": null,
+      "auditwheel": {
+        "current_tag": "linux_x86_64",
+        "reported_symbol_constraint": "manylinux_2_34_x86_64",
+        "repaired": false,
+        "oldest_distribution_tested": false
+      },
+      "runtime_dependencies": "libtorch_cpu.so and libc10.so are supplied by the declared torch package. Development-tree ldd reports not found because installed relative RPATH does not point into the build interpreter; independent installed package import and pricing passed.",
+      "toolchain": {
+        "os": "Ubuntu 24.04",
+        "python": "3.13.17",
+        "torch": "2.10.0+cpu",
+        "compiler": "GCC 13.3.0",
+        "cmake": "3.31.6",
+        "glibc": "2.39",
+        "boost": "1.82.0",
+        "nlohmann_json": "3.11.2"
+      },
+      "downloaded_evidence_sha256": {
+        "auditwheel.txt": "dad4cf7b8b4fb1e73af97887da865c3e73c8db3aaa14f0b10454a198078135fe",
+        "build.log": "1532387fde93ef5c7e63b9618ef2caeff330b089b539f619b0fbbaf4132eb063",
+        "clean_install.json": "f3722dc50e239bd32d282b0af4bfab397e0f08d04d0d1743e4745e6f6d534269",
+        "dynamic.txt": "62032fdd15a807d3f1b11892aa26fa21a027b2d474099dee3d59f7e97d35dfe4",
+        "ldd.txt": "c4073d5ff6f95794b4afa614b664708d4b435c6296c09defce6bcbf1073a906c",
+        "tests.xml": "fdbf898103f6c3f3a73fafd01e69057a37064e12bff8fb1936d218beafb6bfc6",
+        "toolchain.txt": "a3f3cac96952c7f1a81a5a399e4adf6ddca870d9fa303eed8b7112c3fc413898"
+      },
+      "limitations": [
+        "Validated only on the build distribution, Ubuntu 24.04.",
+        "No manylinux container build, repair, or oldest claimed distribution check.",
+        "No Linux CUDA execution tested.",
+        "Workflow retains validation evidence only; experimental wheel was not uploaded or published."
+      ]
     }
   ],
-  "interpretation": "The workflow uses continue-on-error to keep Linux exploration independent of the Windows release. Its overall green result is not evidence of a successful Linux job. No Linux wheel has passed compilation, full tests, auditwheel, or clean installation.",
-  "next_step": "Run both platform jobs at the revision containing the shared pinned JSON dependency; Windows-only release may proceed once its own mandatory gates pass."
+  "interpretation": "The workflow uses continue-on-error, so job outcomes must be inspected separately from the workflow badge. The first four jobs failed as recorded. The fifth isolated-branch job passed all configured native, regression, wheel, auditwheel and external-installation steps. This establishes Ubuntu 24.04 CPU development compatibility only; no portable Linux distribution is published or advertised.",
+  "next_step": "Review the two isolated compatibility commits before integrating. Preserve the Windows-only initial PyPI wheel scope unless a pinned manylinux build, dependency policy, and oldest-distribution clean install are completed separately. Keep Linux CUDA unsupported until measured."
 }

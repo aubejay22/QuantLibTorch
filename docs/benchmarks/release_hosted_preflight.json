@@ -1,0 +1,8 @@
+{
+  "candidate_run_id": 41574726134,
+  "git_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "wheel_sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+  "exact_artifact_cuda_validation": true,
+  "remote_candidate_gate_passed": true,
+  "uploaded": false
+}

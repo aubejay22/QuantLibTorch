@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "audited_git_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "candidate_run_id": 41574726134,
+  "candidate_run_url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41574726134",
+  "repository": "aubejay22/QuantLibTorch",
+  "wheel_filename": "quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+  "wheel_sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+  "wheel_size": 1395361,
+  "wheel_member_count": 30,
+  "manifest_matches_inspected_wheel": true,
+  "manifest_revision_matches": true,
+  "notices": {
+    "Abseil.txt": {
+      "wheel_sha256": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+      "git_blob_sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "Boost.txt": {
+      "wheel_sha256": "beb8e42e9d6b4284e03304d05a81a0755200a965fc8d0a5e0aea1e84cf805d6e",
+      "git_blob_sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "JSON.txt": {
+      "wheel_sha256": "6f48a03625699eea99e599744efea0bf9c9dd67a669e65554df1cd726b8a2477",
+      "git_blob_sha256": "86b998c792894ccb911a1cb7994f7a9652894e7a094c0b5e45be2f553f45cf14",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "LICENSE": {
+      "wheel_sha256": "00234f3c2491ec26807205639027b9b59c926af289d8a4113bf6b84a2a5dca35",
+      "git_blob_sha256": "9d8185109e3083928c27336f271b5085c955cb31ae32c20eef7d70749d154706",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "NOTICE.txt": {
+      "wheel_sha256": "f6bf9252c4537ec8d6d03e456c8d23c37dce242d3635955bc358f43b81ea0b7b",
+      "git_blob_sha256": "d3837bd67dbe6fa047575b117dba87cd7d317fb317c06911d01e4b209aba92fb",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "PyTorch.txt": {
+      "wheel_sha256": "114a3bebc194e8d5b1518f69a5406b5608835f0f5c8478b55744e19a4b3517e2",
+      "git_blob_sha256": "114a3bebc194e8d5b1518f69a5406b5608835f0f5c8478b55744e19a4b3517e2",
+      "exact_git_bytes": true,
+      "eol_only_difference": false,
+      "normalized_matches": true
+    },
+    "QuantLib.txt": {
+      "wheel_sha256": "33a785cdb16936a5cc598c5c2115661cc3289f88eac8b4116ba6e18d1deed833",
+      "git_blob_sha256": "33a785cdb16936a5cc598c5c2115661cc3289f88eac8b4116ba6e18d1deed833",
+      "exact_git_bytes": true,
+      "eol_only_difference": false,
+      "normalized_matches": true
+    }
+  },
+  "python_sources": {
+    "quantlibtorch/__init__.py": {
+      "wheel_sha256": "10768f84c104304409fef8af704af3eafb84165af0cf645067fb2a27b7828ca7",
+      "git_blob_sha256": "4c5f311ef92a2d0c94d1d341108d5a0dddd9567f422eb2b068ddbb7902829377",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/_version.py": {
+      "wheel_sha256": "d3cc4e42fe986d54a95e045dd664b7455d46cfb75f6f0d3f77452751b217a923",
+      "git_blob_sha256": "32bb8fb0b0606623be43c6c70c68c0924bb7ad26b89e9156aa422a2f582524a0",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/analytic.py": {
+      "wheel_sha256": "3812ec84ba494f3c693440e2d4a75556db55863736be1d36113e9c1f74b772b2",
+      "git_blob_sha256": "79f925990aac30e2aa4a33a16660736bbf6e6b4e6d5abd8dd367a76eeaa4640d",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/api.py": {
+      "wheel_sha256": "a6c66728da617642c06d65309299dc2e8d36c34707138d1a9596f1f1a168b594",
+      "git_blob_sha256": "1243cda31686c4ca94e6f1e4705df72401b0b59904f00d4e90687be9e3f97d46",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/batch.py": {
+      "wheel_sha256": "45f4853f9f2377e0c1619d9e198d3e84bdf84daed3ec017829ecb4312f227cd8",
+      "git_blob_sha256": "19fa22809b24af1a80bc788cfe18764eb29950e569668377329e0b2c47020100",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/calibration.py": {
+      "wheel_sha256": "81d07f9463df254dd8c228847be711234c43570f5fb9b64b34b365ad470bd35a",
+      "git_blob_sha256": "6a042b91065f7409fcf79c2435dc20ed9dee9be3d2d7e88de2072f73bad8dd19",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/conventions.py": {
+      "wheel_sha256": "c506b3b44733ceb29793c55c93011170b652907575e49cd82fdb260deea736af",
+      "git_blob_sha256": "ce4867ee02b32f57a8eec0bd9179b2fa8bc8588489d5c390ff4b1bbaf253fd89",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/fd.py": {
+      "wheel_sha256": "80f6cfb8e1a6ebe61f1fc54efaea1df8bd0aacf1ea73937accb2a16ccf40d7d6",
+      "git_blob_sha256": "f41b310c353baa22e912010704204a82995f1c553546b1c8ed5e8d56e47eab7f",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/fd_basket.py": {
+      "wheel_sha256": "8375eedb9a017865efe271625f13f42e5b39a11d04fa579d923d511184b9056a",
+      "git_blob_sha256": "9e893ef4d60e7dfa21101ed8ba12306ffa8c202a12dc662eaf96d3d6f1f2674f",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/financial.py": {
+      "wheel_sha256": "4ccf7a405b5cbe64269449af6a5cab5165cdacca171625af39ebb2d0835f8a5f",
+      "git_blob_sha256": "40c9f631aa72a1cb041897bc7290af6f58294a3b61be6b3c3a2cb5839c714f7b",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/heston.py": {
+      "wheel_sha256": "065e49d8ffa70dd8c9248bd9bb2c1176b282d7774b36da8521a065196ccf738f",
+      "git_blob_sha256": "c92bdf1b82e4ecdee95379df1e928dd40ea5a5f8f1b0da07598684914a31e971",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/kernels.py": {
+      "wheel_sha256": "d6a5e791cc08e5f766bb9625de24a23ebd28d7425cbffa6a688ef43698f56858",
+      "git_blob_sha256": "d1d5180fbd5159f3e9513c9a992d63f8581e9b63fc93dc66645ac4390b4d41a4",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/latent.py": {
+      "wheel_sha256": "6611df65f72083e611fcd5ee73fccc07094fa09af497487232df647ce65c1f08",
+      "git_blob_sha256": "cad826f9b1276a24a76fcf0e5107f58cdb483b3815190ef8c7d1cdda38bf43e0",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/multi_asset.py": {
+      "wheel_sha256": "c7074270befc68e6e733f6a0f7f697b3f5879c24a884a9a2f891f9aa3cdd4de2",
+      "git_blob_sha256": "a56bac414633098a831c23533fa5ec6f483f8ba3e92aba1617f82cb8dc0bbffb",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/pricing.py": {
+      "wheel_sha256": "6b8f67fb2b3037e6a23b3ad8ee9f5488b0e8c7bd09dfeec59ef7ac3598783adf",
+      "git_blob_sha256": "2ca74eed444761e6f290ca5bfaf0f2bdfe3b9272aacf1258dbc13af3dd7601a3",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/shout.py": {
+      "wheel_sha256": "c4d0ae13d734d05be620a1dfdf10411190f8eab400e849701aad2b2638773a01",
+      "git_blob_sha256": "b0aacfcfd259c8bd7f4f259ffb0a57dc8edc275a7093ac1334de9150265c46ea",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    },
+    "quantlibtorch/solver.py": {
+      "wheel_sha256": "4719e7533e6f5bac7ba66f483685bb8c73e702c259505929bef21d2c83987c80",
+      "git_blob_sha256": "3e34664c388618a39bb7e5cc14698d699ca5b167becbdc92fbbfa2b45ce9ce8c",
+      "exact_git_bytes": false,
+      "eol_only_difference": true,
+      "normalized_matches": true
+    }
+  },
+  "scan_issues": [],
+  "native_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "native_source_sha256": "da42aa58f2a2f0a7f64e0e967aaf2dbfa1ce81a964651cd919cd2124370b45ae",
+    "library_sha256": "c45a898bc856771d34ea30ca37d6fddd5a8ff72c06a74463a8c0593816f240f7"
+  },
+  "recomputed_source_fingerprints": {
+    "git_blobs": "09bcec90b69db2551647957c11bb0b3e87a19b0bc6cb8c29663a0f3eb189541b",
+    "windows_checkout_crlf": "da42aa58f2a2f0a7f64e0e967aaf2dbfa1ce81a964651cd919cd2124370b45ae"
+  },
+  "windows_checkout_fingerprint_matches_native": true,
+  "metadata": {
+    "Name": "quantlibtorch",
+    "Version": "0.3.0",
+    "Requires-Python": "<3.14,>=3.13",
+    "Requires-Dist": [
+      "torch==2.10.0+cu126",
+      "build==1.2.2.post1; extra == \"release\"",
+      "twine==6.1.0; extra == \"release\"",
+      "pytest>=8; extra == \"test\"",
+      "QuantLib==1.40; extra == \"test\"",
+      "matplotlib>=3.10; extra == \"tutorials\"",
+      "nbformat>=5.10; extra == \"tutorials\"",
+      "nbclient>=0.10; extra == \"tutorials\"",
+      "ipykernel>=6.29; extra == \"tutorials\""
+    ],
+    "Project-URL": [
+      "Homepage, https://github.com/aubejay22/QuantLibTorch",
+      "Repository, https://github.com/aubejay22/QuantLibTorch",
+      "Documentation, https://github.com/aubejay22/QuantLibTorch/blob/master/docs/user-guide.md",
+      "Issues, https://github.com/aubejay22/QuantLibTorch/issues"
+    ]
+  },
+  "interpretation": "Seven license files and package modules preserve exact reviewed Git content after newline normalization. GitHub Windows checkout uses CRLF; this explains content-hash differences from local mixed-newline files. The hosted compiler produces a different DLL; its digest is verified against hosted manifest and native metadata, not required to equal a separate local build. GPU and registry validation are separate gates.",
+  "binary_and_record_validation": {
+    "wheel_record_valid": true,
+    "wheel_record_member_count": 30,
+    "wheel_tag": "cp313-cp313-win_amd64",
+    "wheel_tag_verified": true,
+    "pe_machine": "x86_64",
+    "native_import_dlls": [
+      "torch_cpu.dll",
+      "c10.dll",
+      "MSVCP140.dll",
+      "VCRUNTIME140.dll",
+      "VCRUNTIME140_1.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-environment-l1-1-0.dll",
+      "api-ms-win-crt-math-l1-1-0.dll",
+      "api-ms-win-crt-time-l1-1-0.dll",
+      "api-ms-win-crt-locale-l1-1-0.dll",
+      "KERNEL32.dll"
+    ],
+    "no_stock_quantlib_dynamic_import": true
+  }
+}

@@ -1,65 +1,85 @@
 # QuantLibTorch 0.3.0 release record
 
-The owner has authorized public GitHub, BSD-3-Clause for eligible original code,
-TestPyPI and the first production PyPI release. Publication is **not complete**.
-Authentication and validation gates below must pass before any production upload.
-The preserved release-candidate baseline is `1002f78`; its measured results and
-artifact hashes remain in [the candidate record](history/release-candidate.md).
+**Publication is blocked on TestPyPI/PyPI Trusted Publisher registration.** The
+owner authorized the release and confirmed that account configuration cannot be
+completed during this session. No further general publication approval is needed.
+No `v0.3.0` tag, GitHub release or registry upload has been created.
 
-## Repository and licensing
+The [official public repository](https://github.com/aubejay22/QuantLibTorch) is
+owned by the verified personal account `aubejay22`. Unauthenticated reads verify
+the repository, BSD-3-Clause license, documentation and existing notebooks.
+Original project code uses BSD-3-Clause; upstream code retains its own terms.
+[Licensing](licensing.md) and [the security audit](release-audit.md) explain the
+seven included notices and retained algorithm attribution.
 
-The connected GitHub account is `aubejay22` (user ID `149632864`). The intended
-repository is [aubejay22/QuantLibTorch](https://github.com/aubejay22/QuantLibTorch),
-created privately after verifying the personal account. Public access is verified
-separately after the audited source is pushed. No unrelated account or organization may
-be substituted. Original project code uses [BSD-3-Clause](../LICENSE).
-[Licensing](licensing.md) records upstream exceptions and included notices.
+## Exact validated release artifact
 
-The original local history contains personal author email and workstation paths.
-Keep it intact locally. The public export starts a separate history, preserves
-numerical source and notebooks, and sanitizes personal metadata in reports and
-archives. Never push the original local refs to the public repository. The
-[security audit](release-audit.md) records the export procedure and its limits.
-
-## Supported configuration
-
-| Component | Release scope |
+| Field | Value |
 | --- | --- |
-| OS / architecture | Windows x86-64; local Windows 11 validation |
-| Python | CPython 3.13; local Anaconda 3.13.5, hosted interpreter validation required |
-| PyTorch / LibTorch | Exactly `2.10.0+cu126`, including CUDA variant and checked C++ ABI |
-| CPU | Documented float64 APIs; full regression and external wheel smoke |
-| CUDA | Documented packed float64 APIs; exact uploaded wheel must pass local GPU validation |
-| Build | Visual Studio 2022, Boost 1.82 headers, pinned QuantLib 1.40 |
-| Linux | CI experiment; no portable Linux binary support until its checks pass |
-| Other variants | Other Python/Torch variants, macOS and ARM are unsupported |
+| Public source revision | `291a09ebe024a47bf4d917f0f57fbbddf7bde5ba` |
+| Successful Windows candidate | [Actions run 41574726134](https://github.com/aubejay22/QuantLibTorch/actions/runs/41574726134) |
+| Wheel | `quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl` |
+| Bytes | 1,395,361 |
+| SHA256 | `b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded` |
+| Local preserved download | `build/hosted-candidate-41574726134/` |
 
-PyTorch is installed separately from its official cu126 wheel index. The
-CUDA-enabled build supports CPU execution without a GPU. GPU execution needs a
-compatible NVIDIA driver. Users need the Microsoft Visual C++ x64 runtime, but
-no compiler, CUDA toolkit or QuantLib source checkout for wheel installation.
-No stock-double QuantLib library is linked into the TorchReal extension.
+This wheel was downloaded from the successful GitHub Actions run. A fresh
+external environment then validated those exact bytes on the CUDA host. The
+release workflow's remote candidate verification also passes against the real
+run, revision, manifest and CUDA-validated digest. This is **not** a TestPyPI or
+production-index installation; those gates remain outstanding.
 
-Only validated wheels are published. Source-distribution builds deliberately
-fail with an actionable message; source development follows [install.md](install.md).
-Compiled build provenance, native SHA256, Python/platform tags, exact Torch
-variant and C++ ABI are checked at load time. Never edit metadata to bypass them.
+Keep public `master` at this revision until the TestPyPI stage completes. The
+promotion workflow requires its dispatch revision to match the candidate run.
+Final evidence documentation is prepared separately on `docs/release-0.3-evidence`;
+merge it only after the staged publication sequence, updating the status first.
+The original local repository retains private history and must not be pushed.
+Use the separate public checkout at `build/public-release` for public Git work.
 
-## Account configuration
+## Compatibility and measured validation
 
-GitHub CLI must authenticate as `aubejay22` with permission to create the personal
-repository, push workflows, configure Actions environments and publish releases.
-The connector identifies the account but does not expose repository creation,
-environment administration or workflow dispatch. No credentials belong in source. Although a device-login attempt timed out, an
-existing credential in the Windows user credential manager subsequently verified
-as `aubejay22`. It supplies CLI authentication only in process memory; no new
-GitHub login is required for this release session.
+| Configuration | Evidence |
+| --- | --- |
+| Windows Server 2022, official CPython 3.13.17 | Hosted native build; 2,171 tests passed, 98 skipped; independent wheel install |
+| Windows 11, Anaconda CPython 3.13.5 | Corrected local native build; 2,268 tests passed, one intentional skip, 23 existing warnings in 1,092.43 s |
+| Exact PyTorch/LibTorch | `2.10.0+cu126`, checked C++ ABI and Python/platform/native provenance |
+| Hosted native compiler | Visual Studio 2022, MSVC 19.44.35229.0, Windows SDK 10.0.26100.0 |
+| CPU | Documented float64 APIs; hosted full suite and independent installed pricing/gradients |
+| CUDA | Exact hosted wheel passes packed float64 price/VJP checks on NVIDIA RTX 4060 Laptop |
+| Teaching materials | Hosted wheel passes all seven notebooks and ten CPU scripts; prior CUDA-enabled example validation also retained |
+| Linux | Isolated Ubuntu 24.04 CPU experiment passes; no portable Linux release wheel claimed |
 
-After source and artifact audit, set the repository variable
-`RELEASE_AUDIT_PASSED=true`. This enables the guarded publishing workflow; it
-is not a substitute for any of its validation checks.
+The hosted skips are 97 unavailable-CUDA cases and the existing CPU Thomas
+strict-dominance exception. All CUDA cases run in the corrected local native
+suite. The exact hosted wheel separately passes GPU installation and financial
+smoke checks. See [hosted Windows evidence](benchmarks/release_hosted_windows.json),
+[hosted GPU evidence](benchmarks/release_hosted_cuda.json),
+[artifact audit](benchmarks/release_hosted_audit.json),
+[remote promotion preflight](benchmarks/release_hosted_preflight.json), and
+[corrected local regression](benchmarks/release_json_regression.json).
 
-Create pending GitHub Trusted Publishers through each account's Publishing page:
+From the independently installed hosted wheel, the README example produces:
+
+| Quantity | Result |
+| --- | --- |
+| Option price | 8.827321225352126 |
+| Spot delta | 0.573495979027775 |
+| Volatility vega | 38.71517541592269 |
+
+Heston, shout, European/American/Bermudan exercise, full/adjoint agreement and
+packed CPU/CUDA prices and gradients also pass. Prices and gradients retain the
+financial and differentiation restrictions in [capabilities.md](capabilities.md).
+
+Wheel users need the matching PyTorch build and compatible Microsoft Visual C++
+x64 runtime, but no compiler, QuantLib checkout or CUDA toolkit. CUDA execution
+requires a compatible NVIDIA GPU/driver. A CUDA-enabled Torch wheel can execute
+CPU workloads without a GPU. Other Python/Torch variants, macOS and ARM are not
+validated. Source distributions are disabled; use the explicit source-build
+procedure in [install.md](install.md). No stock-double QuantLib library is linked.
+
+## Account setup still required
+
+Register pending GitHub Trusted Publishers using the two account Publishing pages:
 
 | Field | TestPyPI | Production PyPI |
 | --- | --- | --- |
@@ -68,122 +88,79 @@ Create pending GitHub Trusted Publishers through each account's Publishing page:
 | Owner | `aubejay22` | `aubejay22` |
 | Repository | `QuantLibTorch` | `QuantLibTorch` |
 | Workflow filename | `release.yml` | `release.yml` |
-| GitHub environment | `testpypi` | `pypi` |
+| Environment | `testpypi` | `pypi` |
 
-These are separate registry accounts/configurations. Configure GitHub environment
-branch/tag restrictions to the trusted release branch and `v0.3.0` respectively.
-If an environment requires manual review, its reviewer must approve the actual
-run. The owner's general publication authorization does not bypass that control.
-Pending publishers do not reserve a name. Read-only JSON checks for `quantlibtorch`
-on both registries returned 404 on 2026-11-02.
+GitHub authentication is already available through the owner's existing Git
+credential. The GitHub environments are configured separately: `testpypi`
+permits the `master` branch, and `pypi` permits only the `v0.3.0` tag. Actions
+default to read-only repository permissions. `RELEASE_AUDIT_PASSED=true` enables
+the audited release workflow; it does not replace artifact or registry checks.
+No permanent PyPI credentials are stored in the repository or workflow.
 
-## Build and promotion gates
+The owner confirmed that publisher registration is unavailable for now. Standard
+Twine credential-store entries are also absent. No authentication control is
+bypassed, and no upload is attempted. Both project JSON endpoints returned 404;
+a pending publisher does not reserve a package name.
 
-1. Audit the sanitized public source and history, create the personal repository,
-   push reviewed source and verify public access. Preserve the original history
-   locally without rewriting or publishing it.
-2. Run `release-candidate.yml` at an identified clean public revision. Its Windows
-   job builds, runs the full test suite, builds a wheel, checks metadata/notices
-   and performs an independent installed-wheel CPU smoke. Run Linux CI as an
-   experiment; unsupported Linux does not block the Windows release.
-3. Download that run's wheel and manifest. Validate the exact wheel on the CUDA
-   host using `scripts/validate_wheel.py --require-cuda`; retain its SHA256 and
-   report. A local rebuild's result cannot stand in for the hosted artifact.
-4. Dispatch `release.yml` for the TestPyPI stage with the successful candidate
-   run ID and locally validated wheel SHA256. The workflow uploads using OIDC,
-   downloads from TestPyPI, checks the hash, and tests a fresh installation.
-   Download the actual index wheel for local CUDA validation as well.
-5. After all preceding gates pass, create `v0.3.0` at the candidate's exact
-   public revision. Dispatch the production stage on that tag with candidate and
-   successful rehearsal run IDs. The workflow validates the TestPyPI artifact
-   again, publishes the GitHub release and promotes identical bytes to PyPI.
-6. Verify the public project pages, download from production PyPI into a fresh
-   environment, test CPU/CUDA pricing and gradients, and record the final public
-   revision, workflow URLs, wheel hashes and evidence. Only then mark complete.
+## Resume publication after registration
 
-The release workflow is manual and restricted to trusted refs. Untrusted pull
-requests receive no publishing credentials. Build jobs have read-only permissions;
-OIDC permission is confined to the upload jobs, and GitHub release write permission
-to its release job. Actions and dependency inputs are pinned. Production artifacts
-are downloaded and hash-checked, never rebuilt during promotion.
+1. Verify `master` is still the exact candidate revision and preserve the wheel
+   digest above. Dispatch the already authorized rehearsal:
 
-## Local reproduction
+   ```text
+   gh workflow run release.yml --repo aubejay22/QuantLibTorch --ref master -f stage=testpypi -f candidate_run_id=41574726134 -f cuda_validated_sha256=b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded
+   ```
 
-Follow [source development](install.md#source-development), then:
+2. Require the TestPyPI upload and actual index-download installation jobs to
+   succeed. Download the TestPyPI wheel separately, compare its SHA256, and run
+   `scripts/validate_wheel.py --require-cuda` on that downloaded artifact.
+3. Only after all those gates pass, create `v0.3.0` at the exact public revision
+   above. Dispatch `release.yml` on that tag with `stage=production`, the same
+   candidate run/digest, and the actual successful `testpypi_run_id`.
+4. The workflow revalidates the TestPyPI download, creates the public GitHub
+   release, promotes identical bytes to production PyPI using OIDC, then tests
+   the production download in a new environment. Validate the production wheel
+   on the GPU host and test normal pip installation from the production index.
+5. Verify actual GitHub/PyPI project and release links, update the documentation
+   with both publication runs and final installed results, then merge the evidence
+   documentation. Only then is the release goal complete.
 
-```powershell
-python scripts/build.py --boost-include C:/path/to/boost_1_82_0
-python -m pytest
-$env:SOURCE_DATE_EPOCH = '1793577600'
-python -m build --wheel --no-isolation --outdir build/release_final
-python -m twine check --strict build/release_final/*.whl
-python scripts/validate_wheel.py build/release_final/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl --require-cuda
-```
+The workflows cannot publish from pull requests. Publishing jobs have only
+OIDC permission; the GitHub release job has repository write permission. Action
+revisions and build dependencies are pinned. GitHub Actions artifacts have a
+30-day retention period; exact local copies and manifests are preserved. If the
+candidate artifact is no longer downloadable from Actions, rebuild and revalidate
+at the reviewed revision before using the guarded promotion workflow.
 
-`validate_wheel.py` creates a venv outside the checkout without system packages,
-removes Python path overrides, copies its smoke script out of the source tree,
-and verifies installed package location, dependencies, version, analytic Greeks,
-European/American/Bermudan FD, Heston, shout, full/adjoint agreement and packed
-CPU/CUDA price/VJP parity. `--wheelhouse DIR` allows offline dependencies.
+## Dependency and Linux findings
 
-The seven existing notebooks and eleven bounded example runs are retained.
-`validate_examples.py` exercises them using the independent wheel environment.
-Native path remapping prevents developer home paths in shipped assertion strings.
-Deterministic wheel packaging from the same binary does not establish identical
-compiler output across hosts. Exact-artifact hashes remain authoritative.
+Clean-runner CI exposed an implicit nlohmann/json dependency previously supplied
+by Conda. The corrected bootstrap pins version 3.11.2 and verifies SHA256
+`665fa14b8af3837966949e8eb0052d583e2ac105d3438baba9951785512cf921`.
+CMake checks those bytes and explicitly includes the verified header. Its MIT
+notice and the Apache-2.0 notice for an excluded pre-C++14 compatibility fallback
+are retained. The earlier local `396250...` wheel is superseded and must not be
+published. The corrected local wheel is documented in
+[release_json_packaging.json](benchmarks/release_json_packaging.json); production
+promotion uses the separately validated hosted artifact above.
 
-## Earlier local artifact (superseded)
+The isolated [Linux experiment](https://github.com/aubejay22/QuantLibTorch/actions/runs/41575865212)
+at `f565a2f64d1ecd010cf4b0a8d6babdf8dd290da7` qualifies four generated friend
+declarations and adds unchanged upstream `ql/discretizedasset.cpp` to the source
+closure. It passes compilation/import, 2,171 tests with 98 skips, packaging,
+dependency inspection and external installed pricing/gradients on Ubuntu 24.04,
+CPython 3.13.17 and Torch 2.10.0+cpu. This branch remains unmerged.
 
-Clean-runner CI subsequently exposed an implicit nlohmann/json header dependency
-and missing third-party notices. The artifact described here is preserved as
-historical local evidence and **must not be published**. The corrected build pins
-nlohmann/json 3.11.2, verifies its SHA256, explicitly includes its headers and
-ships its applicable notices. New native, wheel and hosted checks are required.
+Auditwheel reports a raw `linux_x86_64` wheel with a manylinux_2_34 symbol
+constraint. A manylinux build/repair and oldest-distribution installation have
+not been validated, and Linux CUDA has not run. These findings do not establish
+a portable Linux PyPI artifact. The initial production scope remains Windows.
+[Complete Linux evidence](benchmarks/release_linux_ci.json) records successful
+and failed jobs; an overall green experimental workflow alone is not proof.
 
-The earlier `build/release_final/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl` is
-1,389,778 bytes, SHA256
-`3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de`.
-It was packaged from clean preparation checkpoint
-`29dfb0ec0be349009c0f0c6f49d786afaf769e4e` and repackaged byte-identically.
-Its package source, native inputs, README and metadata match the separately
-sanitized source root `cc6d7e71427334fbe256a75e25831d6af54d0272`.
-The source is public at https://github.com/aubejay22/QuantLibTorch; its separate
-local checkout remains under `build/public-release`. Original local history is
-not part of the public ancestry.
-
-The wheel passes strict Twine checks and independent contents/licensing/privacy
-audit. Its 28 members include all five project/upstream notices and no extra
-binaries. Compiler mapping reduced detected personal home paths in the native
-DLL from 174 to zero. A fresh environment outside the repository, without system
-packages, passes pricing/backward, full/adjoint, exercise, Heston, shout and
-CPU/CUDA smoke checks plus `pip check`. With the README's market inputs:
-
-| Quantity | Independently installed result |
-| --- | --- |
-| Option price | 8.827321225352126 |
-| Spot delta | 0.573495979027775 |
-| Volatility vega | 38.71517541592269 |
-
-[Stable packaging evidence](benchmarks/release_final_packaging.json) records
-source bindings, hashes, CPU/CUDA output and the tested environment. This is a
-local artifact; it is not evidence of a TestPyPI or production-index download.
-
-## Current publication status
-
-The public GitHub repository is verified through unauthenticated API reads.
-No GitHub release, TestPyPI upload or production PyPI upload is yet verified.
-The native rebuild, source/history and wheel audits, and external installation
-have passed locally. The full rebuilt native regression passed 2,256 tests, one intentional skip and
-23 existing warnings in 739.20 seconds. A subsequent 30-test release/export
-check covers the three gate tests added after that suite was collected. All
-seven notebooks and eleven bounded examples passed in the independent wheel
-environment. See [regression evidence](benchmarks/release_final_regression.json)
-and [tutorial evidence](benchmarks/release_final_examples.json).
-Actual Linux CI reached compilation and exposed the missing JSON header;
-[Linux evidence](benchmarks/release_linux_ci.json) records both runs. The first
-Windows candidate was cancelled to include the dependency and license fixes.
-Corrected native and hosted validation is in progress. The earlier local test
-counts above do not validate the corrected artifact. Index-delivered artifact
-validation remains unperformed. Pending Trusted Publisher registration still requires owner account configuration.
-The release remains blocked from publication until these requirements pass;
-local release preparation alone is not success.
+Cross-host native bit reproducibility is not claimed. The hosted wheel's source
+fingerprint differs from the local build only because of Windows checkout line
+endings; it was independently reconstructed from the exact Git revision. Compiler
+output and wheel hashes are validated per artifact, rather than assumed equal.
+The original 0.3.0rc1 record remains in
+[history/release-candidate.md](history/release-candidate.md).

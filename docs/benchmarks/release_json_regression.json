@@ -1,0 +1,53 @@
+{
+  "release": "0.3.0",
+  "created_utc": "2026-11-03T04:13:29.325559+00:00",
+  "validated_local_source_checkpoint": "fa29764b2b73a610ffacc1d61f8290e5513b10ba",
+  "matching_public_source_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.10.0+cu126",
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "environment": "development venv inherits system packages; separate exact-wheel CPU/CUDA validation uses new external venv without system packages",
+  "full_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest -q --junitxml=build/release_json_pytest.xml",
+    "passed": 2268,
+    "skipped": 1,
+    "warnings": 23,
+    "seconds": 1092.43,
+    "junit": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "1",
+      "tests": "2269",
+      "time": "1092.377",
+      "timestamp": "2026-11-02T22:54:35.208111-05:00"
+    },
+    "skip_reason": "CPU Thomas is not restricted to strict dominance",
+    "coverage": "Includes final 27 release gates, five public-export tests, five bootstrap dependency tests and 18 packaging cases"
+  },
+  "native_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "native_source_sha256": "09bcec90b69db2551647957c11bb0b3e87a19b0bc6cb8c29663a0f3eb189541b",
+    "library_sha256": "c9d07203a5ea69a4fa940ed413044df013e1f1e1ee652636c848a76c8c630648"
+  },
+  "files_sha256": {
+    "build/release_json_pytest.xml": "fcb3071bdc1d67187b0c095e38ec3e9b24cff700e1e5bde1fd62db2e1618a170",
+    "build/logs/release_json_pytest.log": "43dd19ea1f93bae924bf9615352ab84f76c685d9893ed5f108ebde768f419c99",
+    "build/logs/release_json_build.log": "dd0a3fd3c824e2bc24452697fb999a9232cdf8e4db6ef0625a335cf7e2f70d8e",
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "c9d07203a5ea69a4fa940ed413044df013e1f1e1ee652636c848a76c8c630648"
+  },
+  "native_dependency_change": "Pinned checksum-verified nlohmann/json3.11.2 single header replaces implicit Conda header3.11.2; compiler trace verifies the pinned header is actually used",
+  "numerical_algorithms_changed": false,
+  "public_apis_removed": [],
+  "tests_removed": [],
+  "performance_claim": "Suite elapsed time is validation duration, not a controlled performance comparison",
+  "new_wheel_sha256": "3c27bdefb078d0337e45666d3626383207d5ea132324c88d67fcb92fb4585662",
+  "testpypi_uploaded": false,
+  "production_pypi_uploaded": false
+}

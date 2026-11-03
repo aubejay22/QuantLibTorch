@@ -141,50 +141,64 @@ engines are not part of this release preparation.
 
 ### Authorized stable release
 
-The stable target is 0.3.0 from preserved local candidate checkpoint `1002f78`.
-Security review found personal author metadata and absolute workstation paths
-in historical evidence. Original local history is retained; publication uses a
-separate sanitized export with numerical source and teaching materials preserved.
-Original code receives BSD-3-Clause, while QuantLib-derived code and included
-third-party notices retain their original attribution. Native compiler path
-mapping removes personal paths from assertion strings without numerical changes.
-The supported binary scope remains Windows CPython 3.13 / Torch 2.10.0+cu126.
-Measured final results and pending external gates are recorded in [release.md](release.md).
+The official [public repository](https://github.com/aubejay22/QuantLibTorch)
+belongs to the authenticated personal account `aubejay22`. Original local history
+remains intact and private. A separate sanitized public history retains numerical
+source, source archives, documentation and notebooks, replacing private report
+paths and author metadata. Original code uses BSD-3-Clause; third-party code keeps
+its own licenses and attribution. No QuantLibAAD/XAD code was introduced.
 
+Real clean-runner CI exposed a header dependency omitted from the official Torch
+wheels: local Conda had supplied nlohmann/json 3.11.2 implicitly. The build now
+pins and verifies that header, includes it explicitly before ambient directories,
+and checks its digest again at CMake configuration. The build and bootstrap
+scripts are covered by the native source fingerprint. Seven license/notice files
+include JSON's MIT attribution and the Apache-2.0 notice for a pre-C++14 fallback
+excluded by this C++17 build. This is a build/provenance correction without any
+numerical algorithm change. The earlier local wheel is superseded.
 
-The final mapped Windows native build passes **2,256 tests**, one intentional
-skip and 23 existing warnings in **739.20 seconds**. A 30-test follow-up covers
-the final publishing/export safeguards, including three tests added after full
-suite collection. The 0.3.0 wheel passes independent external CPU/CUDA pricing
-and gradients; all seven notebooks and eleven script configurations pass in
-that installed environment. The wheel SHA256 is
-`3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de`.
-Repeated packaging is byte-identical. The native compiler mapping reduces
-private home-path findings from 174 to zero; no numerical algorithm changed.
-See [stable packaging](benchmarks/release_final_packaging.json),
-[regression](benchmarks/release_final_regression.json) and
-[examples](benchmarks/release_final_examples.json) for measured evidence.
+The corrected local Windows build passes **2,268 tests**, one intentional skip
+and 23 existing warnings in **1,092.43 seconds**. Actual hosted Windows Server
+2022 / official CPython 3.13.17 / MSVC 19.44.35229.0 validation passes **2,171
+tests**, with 97 CUDA-unavailable skips and the same intentional skip. Its wheel
+also passes seven notebooks, ten CPU example runs and an outside-checkout
+installation. The exact downloaded hosted wheel then passes fresh independent
+CPU/CUDA pricing and gradients on the RTX 4060 Laptop host. No stock QuantLib
+library appears in its native imports.
 
-The local public export starts at `cc6d7e71427334fbe256a75e25831d6af54d0272`
-with no original ancestry and a verified GitHub noreply identity. A separate
-scan of 4,192 expanded payloads passes, preserving numerical/source-archive and
-license bytes. An existing Git credential in the Windows user credential manager now verifies
-as the intended account; no additional GitHub login is required. Actual
-remote Windows/Linux CI, TestPyPI installation and production PyPI installation
-have not run. These are explicit next steps after account authentication and
-publisher configuration; local tests do not certify publication success.
+The release candidate is public revision
+`291a09ebe024a47bf4d917f0f57fbbddf7bde5ba`, built by
+[Actions run 41574726134](https://github.com/aubejay22/QuantLibTorch/actions/runs/41574726134).
+Its wheel SHA256 is
+`b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded`.
+Runtime support remains Windows x86-64, CPython 3.13 and exactly Torch
+2.10.0+cu126. CUDA execution is limited to the documented packed float64 APIs.
+The hosted source fingerprint was independently reconstructed from Git with
+Windows line endings. Different compiler output across hosts is not assumed
+bit-identical. The native/private-path audit, notices, RECORD hashes and exact
+artifact/source binding all pass.
 
+An isolated Linux branch qualifies four generated friend declarations for GCC
+namespace lookup and adds unchanged pinned `ql/discretizedasset.cpp` to the
+source closure. [Its actual CI](https://github.com/aubejay22/QuantLibTorch/actions/runs/41575865212)
+passes build/import, 2,171 tests with 98 skips, wheel inspection and a new
+installed-package price/gradient check on Ubuntu 24.04 / CPython 3.13.17 /
+Torch 2.10.0+cpu. These compatibility changes remain outside the Windows release
+revision. The raw Linux wheel's symbol constraint is manylinux_2_34, but a
+manylinux build/repair, oldest-distribution install and Linux CUDA have not been
+validated. Linux portability therefore remains outside the initial PyPI claim.
 
-### Clean-runner dependency correction
+The owner has authorized TestPyPI and production uploads, but confirmed that
+Trusted Publisher account registration cannot be completed now. Publishing is
+blocked on that external requirement. The next steps are registration, actual
+TestPyPI upload/download validation, the exact `v0.3.0` tag and GitHub release,
+then production upload/download validation. No registry upload or release tag
+has been created. Public master remains at the tested revision so the guarded
+promotion workflow can consume its exact artifact; evidence docs are prepared
+separately for publication afterward.
 
-Actual Ubuntu 24.04 CI reached GCC 13.3 compilation and found that official
-PyTorch 2.10.0 wheels omit `nlohmann/json.hpp`, included by functorch's Interpreter
-header. The local Conda environment had supplied JSON 3.11.2 implicitly. The
-build now pins and checksum-verifies that exact version, checks the cached bytes
-again at CMake configuration and includes the verified directory explicitly.
-Build/bootstrap scripts are covered by the native source fingerprint. Applicable
-upstream notices are included in the distribution. This is a build/provenance
-correction, without numerical algorithm changes. The earlier local wheel is
-superseded; corrected native, wheel and remote validation must pass before any
-publication. Real Linux failure evidence is in
-[release_linux_ci.json](benchmarks/release_linux_ci.json).
+See [the release record](release.md), [hosted build evidence](benchmarks/release_hosted_windows.json),
+[exact hosted GPU evidence](benchmarks/release_hosted_cuda.json),
+[artifact audit](benchmarks/release_hosted_audit.json),
+[local regression](benchmarks/release_json_regression.json), and
+[Linux evidence](benchmarks/release_linux_ci.json) for measurements and limits.

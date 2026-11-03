@@ -1,7 +1,7 @@
 {
   "release": "0.3.0",
-  "status": "release-in-progress",
-  "reason": "Clean-runner CI exposed implicit JSON header dependency and missing notices; corrected artifacts undergoing new validation",
+  "status": "release-blocked",
+  "reason": "Owner confirmed TestPyPI and production PyPI pending Trusted Publishers cannot be configured now; no existing Twine upload credentials found",
   "authenticated_connector_account": "aubejay22",
   "intended_repository": "aubejay22/QuantLibTorch",
   "original_candidate_revision": "1002f78",
@@ -14,21 +14,24 @@
   "production_pypi_upload_verified": false,
   "remote_linux_ci_executed": true,
   "remote_windows_ci_executed": true,
-  "wheel_sha256": "3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de",
+  "wheel_sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
   "local_gates": {
-    "security_and_provenance": "passed",
-    "licensing": "BSD-3-Clause original code with upstream exceptions and notices",
-    "native_build": "passed",
-    "pytest": {
-      "passed": 2256,
+    "corrected_native_pytest": {
+      "passed": 2268,
       "skipped": 1,
       "warnings": 23,
-      "seconds": 739.2
+      "seconds": 1092.43
     },
-    "final_release_export_tests": 30,
-    "independent_cpu_cuda_install": "passed",
-    "notebooks": 7,
-    "script_runs": 11
+    "hosted_windows_pytest": {
+      "passed": 2171,
+      "skipped": 98,
+      "seconds": 193.6
+    },
+    "hosted_notebooks": 7,
+    "hosted_cpu_scripts": 10,
+    "exact_hosted_artifact_cpu_cuda_install": "passed",
+    "seven_notice_artifact_audit": "passed",
+    "remote_candidate_verification": "passed"
   },
   "trusted_publisher": {
     "project": "quantlibtorch",
@@ -39,16 +42,31 @@
     "production_environment": "pypi"
   },
   "remaining_steps": [
-    "Complete corrected native and hosted Windows validation",
-    "Complete Linux experiment and accurately constrain support",
-    "Validate exact hosted Windows wheel on CUDA host",
-    "Configure both pending Trusted Publishers",
-    "Publish to TestPyPI and verify actual index-delivered wheel",
-    "Tag exact validated revision v0.3.0 and publish GitHub release",
-    "Promote identical artifact to PyPI and validate actual production download"
+    "Register TestPyPI and PyPI pending Trusted Publishers",
+    "Publish exact candidate to TestPyPI and validate actual index download including CUDA",
+    "Create v0.3.0 at the validated public revision after rehearsal gates pass",
+    "Publish GitHub release and promote identical wheel to production PyPI",
+    "Validate actual production-index installation, pricing and gradients; verify public cross-links",
+    "Update and merge evidence documentation; mark goal complete only after all publication gates pass"
   ],
   "github_authenticated": true,
   "repository_created_private": true,
   "public_repository_url": "https://github.com/aubejay22/QuantLibTorch",
-  "earlier_wheel_superseded": true
+  "earlier_wheel_superseded": true,
+  "validated_public_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "candidate_run_id": 41574726134,
+  "candidate_run_url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41574726134",
+  "github_cli_authenticated": true,
+  "tag_created": false,
+  "master_frozen_for_exact_revision_promotion": true,
+  "documentation_evidence_branch": "docs/release-0.3-evidence",
+  "linux_experiment": {
+    "branch": "ci/linux-compat",
+    "revision": "f565a2f64d1ecd010cf4b0a8d6babdf8dd290da7",
+    "run_id": 41575865212,
+    "cpu_build_tests_install": "passed",
+    "portable_pypi_wheel_validated": false,
+    "cuda_validated": false,
+    "merged_into_release": false
+  }
 }
