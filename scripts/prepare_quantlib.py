@@ -398,6 +398,26 @@ def engine_mesh_hooks(name: str, content: str) -> str:
     return content
 
 
+def qualify_friend_parameters(name: str, content: str) -> str:
+    # GCC resolves qualified friend declarators in the friend's namespace.
+    # Spell out QuantLib parameter types; this changes no function signature
+    # or numerical body. Keep the compatibility diff separate from AD hooks.
+    expected = {
+        "ql/methods/finitedifferences/operators/triplebandlinearop.hpp": 2,
+        "ql/methods/finitedifferences/operators/fdmblackscholesop.hpp": 1,
+        "ql/methods/finitedifferences/schemes/boundaryconditionschemehelper.hpp": 1,
+    }
+    if name not in expected:
+        return content
+    pattern = r"(friend bool quantlibtorch::(?:try_step_adjoint|try_diffusion_assembly)\()([^;]+)(\);)"
+    types = r"(?<![:\w])(?:TripleBandLinearOp|FdmLinearOpComposite|BoundaryConditionSchemeHelper|Array|Time|Real)\b"
+    content, count = re.subn(pattern, lambda match: match[1] + re.sub(
+        types, lambda item: "QuantLib::" + item[0], match[2]) + match[3], content)
+    if count != expected[name]:
+        raise RuntimeError(f"Expected {expected[name]} friend declarations in {name}, found {count}")
+    return content
+
+
 def prepare(source: Path, output: Path) -> None:
     source = source.resolve()
     output = output.resolve()
@@ -434,6 +454,7 @@ def prepare(source: Path, output: Path) -> None:
     profiling = []
     heston_compatibility = []
     engine_meshes = []
+    friend_compatibility = []
     generated = []
     for name in closure(source):
         original = (source / name).read_text(encoding="utf-8")
@@ -602,6 +623,10 @@ def prepare(source: Path, output: Path) -> None:
         updated = engine_mesh_hooks(name, updated)
         engine_meshes.extend(difflib.unified_diff(before_mesh.splitlines(True), updated.splitlines(True),
                                           fromfile="a/" + name, tofile="b/" + name))
+        before_friends = updated
+        updated = qualify_friend_parameters(name, updated)
+        friend_compatibility.extend(difflib.unified_diff(before_friends.splitlines(True), updated.splitlines(True),
+                                          fromfile="a/" + name, tofile="b/" + name))
         if updated == original:
             continue
         target = (output / name).resolve()
@@ -630,6 +655,7 @@ def prepare(source: Path, output: Path) -> None:
     (output / "profiling-scopes.patch").write_text("".join(profiling), encoding="utf-8")
     (output / "heston-process-compatibility.patch").write_text("".join(heston_compatibility), encoding="utf-8")
     (output / "engine-mesh-hooks.patch").write_text("".join(engine_meshes), encoding="utf-8")
+    (output / "friend-namespace-compatibility.patch").write_text("".join(friend_compatibility), encoding="utf-8")
     for name in set(previous) - set(generated):
         target = (output / name).resolve()
         if not target.is_relative_to(output / "ql"):
