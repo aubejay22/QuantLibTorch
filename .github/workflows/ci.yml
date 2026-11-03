@@ -29,6 +29,7 @@ jobs:
         run: |
           curl --fail --location --output boost.zip https://archives.boost.io/release/1.82.0/source/boost_1_82_0.zip
           echo 'f7c9e28d242abcd7a2c1b962039fcdd463ca149d1883c3a950bbcc0ce6f7c6d9  boost.zip' | sha256sum --check
+          mkdir -p build/boost
           unzip -q boost.zip -d build/boost
       - run: python -m pip install torch==2.10.0+cpu --index-url https://download.pytorch.org/whl/cpu
       - run: python -m pip install setuptools==72.1.0 wheel==0.45.1 build==1.2.2.post1 twine==6.1.0 pytest==8.3.4 QuantLib==1.40 auditwheel==6.4.2
