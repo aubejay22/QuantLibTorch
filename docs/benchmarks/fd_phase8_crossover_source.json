@@ -1,0 +1,37 @@
+{
+  "path": "docs/benchmarks/fd_phase8_crossover_source.zip",
+  "sha256": "f72cce2b99b69e827514ec6a6428d0d4f2acc65f7ea330f7e76881de4dee8fea",
+  "native_source_sha256": {
+    "CMakeLists.txt": "8c61751128c6898b39e676dec04c6aa825e9d553fd34e4dd325d1a67efe8dcfc",
+    "scripts/prepare_quantlib.py": "70caf909867b60b522fcb456e31757476623dd5c9ea40527ce81ea5e3e2bc60f",
+    "cpp/adjoint.cpp": "ff7c39251a702a1760ba32cd97a4aaf78a304b255dac168bec98bb94fa2a9253",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "96a29d77038bad48ce7388092b6e4d7c4b161f52cc674f4a85be4d80eaf761b7",
+    "cpp/kernel_checks.cpp": "440b6858e7750905c421d0ab6a1b2d60f47ede6f73e6a34fcf84c1a4aebe68c2",
+    "cpp/parallel_solve.cpp": "73aa07808744a4c497880f711c494433a1f51b14f4353970eec7fcda70f4c981",
+    "cpp/pcr_stage.cpp": "5b7cddd6ea3cd3f41bc049a3b12e2fb1b42643482cc93079402a3d49e3aade23",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "8b9969574df9a0ee0b05392bdfba89cf8accbdceb55e0e96c2d4e54eb82e56a1",
+    "cpp/tensor_kernels.cpp": "12567db803db59af925e2a87f8cad3319455bab7cde7fa9a701bf17bbfcfc090",
+    "cpp/include/quantlibtorch/adjoint.hpp": "c0289beafcca10881f54a7b7e5eab0a62b639e2e8a52e695b9b109eecefa3c27",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "4d83be79de075f51c1741e993f5285d4a825515bad1194dc297c831db498777b",
+    "cpp/include/quantlibtorch/pcr_stage.hpp": "d686518c01f68adc16a864e779beb7051b00d248f74a8cff5a22c62a09a58411",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "b7c18bddb9b912e902fcb4dcafb33d455409be0b12183b9d108f2de66abbc3b8",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "files": 62,
+  "notes": [
+    "Reconstructed the one-file native revision preceding the single-RHS row cutoff.",
+    "Every native-source hash matches both crossover reports and dispatch single-RHS reports.",
+    "The cutoff-specific tests are removed; other Python files are from the selected workspace.",
+    "The source was checked against recorded hashes; this reconstruction does not assert a fresh build/test run."
+  ]
+}

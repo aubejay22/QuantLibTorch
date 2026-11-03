@@ -1,0 +1,1908 @@
+{
+  "command": [
+    "scripts/benchmark_fd_optimizations.py",
+    "--levels",
+    "phase13,full_tensor_step",
+    "--kernels",
+    "auto",
+    "--variants",
+    "optimized",
+    "--warmup",
+    "32",
+    "--repeats",
+    "15",
+    "--windows-qos",
+    "high",
+    "--no-stock",
+    "--grids",
+    "30x61",
+    "--surfaces",
+    "surface",
+    "--modes",
+    "full",
+    "--tasks",
+    "profile",
+    "--output",
+    "docs/benchmarks/fd_phase14_tensor_step_profile.json"
+  ],
+  "levels": {
+    "phase13": {
+      "measured_at_utc": "2026-11-01T12:57:30.941005+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "windows_qos": "high",
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1,
+        "QLT_SPLINE_KERNELS": 1,
+        "QLT_TRIDIAGONAL_ADJOINT": 1,
+        "QLT_PCR_ROLL": 1,
+        "QLT_SPATIAL_CACHE": 1,
+        "QLT_OPERATOR_ADJOINT": 1,
+        "QLT_STEP_ADJOINT": 1,
+        "QLT_ASSEMBLY_ADJOINT": 1,
+        "QLT_PCR_FUSED": 0,
+        "QLT_PCR_NATIVE_STAGE": 1,
+        "QLT_NATIVE_SOLVE_CHECKS": 1,
+        "QLT_ASSEMBLY_ARITHMETIC": 1,
+        "QLT_OPERATOR_ARITHMETIC": 1,
+        "QLT_ARITHMETIC_NATIVE_FORWARD": 1,
+        "QLT_THOMAS_ARITHMETIC": 1,
+        "QLT_THOMAS_VECTOR_BACKWARD": 1,
+        "QLT_ADJOINT_ARITHMETIC_FORWARD": 1,
+        "QLT_STEP_NATIVE_ARITHMETIC": 1,
+        "QLT_BASIS_CACHE": 1,
+        "QLT_FULL_TENSOR_STEP": 0
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Process CPU times include all worker threads and may have coarse platform clock resolution; they supplement elapsed wall time.",
+        "Optional high Windows QoS affects only each benchmark worker; no machine power plan or pricing-library policy changes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "full_tensor_step": {
+      "measured_at_utc": "2026-11-01T12:57:42.076244+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "windows_qos": "high",
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1,
+        "QLT_SPLINE_KERNELS": 1,
+        "QLT_TRIDIAGONAL_ADJOINT": 1,
+        "QLT_PCR_ROLL": 1,
+        "QLT_SPATIAL_CACHE": 1,
+        "QLT_OPERATOR_ADJOINT": 1,
+        "QLT_STEP_ADJOINT": 1,
+        "QLT_ASSEMBLY_ADJOINT": 1,
+        "QLT_PCR_FUSED": 0,
+        "QLT_PCR_NATIVE_STAGE": 1,
+        "QLT_NATIVE_SOLVE_CHECKS": 1,
+        "QLT_ASSEMBLY_ARITHMETIC": 1,
+        "QLT_OPERATOR_ARITHMETIC": 1,
+        "QLT_ARITHMETIC_NATIVE_FORWARD": 1,
+        "QLT_THOMAS_ARITHMETIC": 1,
+        "QLT_THOMAS_VECTOR_BACKWARD": 1,
+        "QLT_ADJOINT_ARITHMETIC_FORWARD": 1,
+        "QLT_STEP_NATIVE_ARITHMETIC": 1,
+        "QLT_BASIS_CACHE": 1,
+        "QLT_FULL_TENSOR_STEP": 1
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Process CPU times include all worker threads and may have coarse platform clock resolution; they supplement elapsed wall time.",
+        "Optional high Windows QoS affects only each benchmark worker; no machine power plan or pricing-library policy changes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    }
+  },
+  "results": [
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "profile",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase13"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "scopes": [
+        {
+          "name": "phase3::forward",
+          "calls": 1,
+          "self_cpu_us": 375.59999999999854,
+          "inclusive_cpu_us": 17314.3
+        },
+        {
+          "name": "qlt::bridge",
+          "calls": 1,
+          "self_cpu_us": 59.60000000000582,
+          "inclusive_cpu_us": 16770.0
+        },
+        {
+          "name": "qlt::engine",
+          "calls": 1,
+          "self_cpu_us": 2028.4000000000015,
+          "inclusive_cpu_us": 16611.6
+        },
+        {
+          "name": "qlt::rollback_and_interpolation",
+          "calls": 1,
+          "self_cpu_us": 403.9999999999782,
+          "inclusive_cpu_us": 14553.0
+        },
+        {
+          "name": "qlt::rollback",
+          "calls": 1,
+          "self_cpu_us": 605.7000000000044,
+          "inclusive_cpu_us": 12192.5
+        },
+        {
+          "name": "qlt::operator_assembly",
+          "calls": 33,
+          "self_cpu_us": 1165.7000000000285,
+          "inclusive_cpu_us": 4029.699999999998
+        },
+        {
+          "name": "qlt::sample_grid",
+          "calls": 33,
+          "self_cpu_us": 258.0999999999849,
+          "inclusive_cpu_us": 1308.6999999999944
+        },
+        {
+          "name": "qlt::spatial_row",
+          "calls": 3,
+          "self_cpu_us": 49.100000000000364,
+          "inclusive_cpu_us": 191.900000000001
+        },
+        {
+          "name": "qlt::unpack_array",
+          "calls": 359,
+          "self_cpu_us": 1186.2999999999847,
+          "inclusive_cpu_us": 1186.2999999999847
+        },
+        {
+          "name": "qlt::pack_array",
+          "calls": 624,
+          "self_cpu_us": 341.400000000006,
+          "inclusive_cpu_us": 1276.4000000000146
+        },
+        {
+          "name": "qlt::diffusion_basis_pack",
+          "calls": 1,
+          "self_cpu_us": 14.600000000000364,
+          "inclusive_cpu_us": 60.80000000000018
+        },
+        {
+          "name": "qlt::diffusion_arithmetic_forward",
+          "calls": 33,
+          "self_cpu_us": 42.19999999999436,
+          "inclusive_cpu_us": 324.69999999999663
+        },
+        {
+          "name": "qlt::diffusion_arithmetic_native_forward",
+          "calls": 33,
+          "self_cpu_us": 123.300000000002,
+          "inclusive_cpu_us": 282.5000000000023
+        },
+        {
+          "name": "qlt::band_solve",
+          "calls": 33,
+          "self_cpu_us": 1705.6999999999816,
+          "inclusive_cpu_us": 4011.499999999997
+        },
+        {
+          "name": "qlt::auto_domain_native",
+          "calls": 34,
+          "self_cpu_us": 78.00000000000091,
+          "inclusive_cpu_us": 78.00000000000091
+        },
+        {
+          "name": "qlt::thomas_arithmetic_forward",
+          "calls": 34,
+          "self_cpu_us": 286.2000000000039,
+          "inclusive_cpu_us": 356.80000000000246
+        },
+        {
+          "name": "qlt::auto_residual_native",
+          "calls": 34,
+          "self_cpu_us": 43.49999999999909,
+          "inclusive_cpu_us": 43.49999999999909
+        },
+        {
+          "name": "qlt::events",
+          "calls": 33,
+          "self_cpu_us": 38.099999999988995,
+          "inclusive_cpu_us": 38.099999999988995
+        },
+        {
+          "name": "qlt::diffusion_basis_reuse",
+          "calls": 32,
+          "self_cpu_us": 5.099999999993543,
+          "inclusive_cpu_us": 5.099999999993543
+        },
+        {
+          "name": "qlt::band_apply",
+          "calls": 62,
+          "self_cpu_us": 1243.1999999999944,
+          "inclusive_cpu_us": 1881.1
+        },
+        {
+          "name": "qlt::apply_arithmetic_forward",
+          "calls": 62,
+          "self_cpu_us": 73.30000000000837,
+          "inclusive_cpu_us": 247.7000000000071
+        },
+        {
+          "name": "qlt::apply_arithmetic_native_forward",
+          "calls": 62,
+          "self_cpu_us": 137.49999999999318,
+          "inclusive_cpu_us": 174.39999999999873
+        },
+        {
+          "name": "qlt::array_scalar",
+          "calls": 62,
+          "self_cpu_us": 198.90000000000055,
+          "inclusive_cpu_us": 935.9000000000042
+        },
+        {
+          "name": "qlt::array_binary",
+          "calls": 62,
+          "self_cpu_us": 182.50000000000819,
+          "inclusive_cpu_us": 690.5000000000073
+        },
+        {
+          "name": "qlt::spline_slopes",
+          "calls": 1,
+          "self_cpu_us": 14.300000000001091,
+          "inclusive_cpu_us": 63.29999999999927
+        },
+        {
+          "name": "qlt::spline_rhs",
+          "calls": 1,
+          "self_cpu_us": 9.400000000001455,
+          "inclusive_cpu_us": 41.600000000000364
+        },
+        {
+          "name": "qlt::spline_filter",
+          "calls": 1,
+          "self_cpu_us": 157.19999999998436,
+          "inclusive_cpu_us": 812.7000000000007
+        },
+        {
+          "name": "qlt::spline_coefficients",
+          "calls": 1,
+          "self_cpu_us": 15.299999999999272,
+          "inclusive_cpu_us": 65.79999999999927
+        },
+        {
+          "name": "qlt::spline_primitive_increments",
+          "calls": 1,
+          "self_cpu_us": 15.400000000005093,
+          "inclusive_cpu_us": 71.0
+        },
+        {
+          "name": "phase3::backward",
+          "calls": 1,
+          "self_cpu_us": 5270.0999999999985,
+          "inclusive_cpu_us": 17559.200000000004
+        },
+        {
+          "name": "qlt::thomas_arithmetic_backward",
+          "calls": 34,
+          "self_cpu_us": 585.3000000000138,
+          "inclusive_cpu_us": 1502.700000000008
+        },
+        {
+          "name": "qlt::apply_arithmetic_backward",
+          "calls": 62,
+          "self_cpu_us": 403.6000000000422,
+          "inclusive_cpu_us": 501.6000000000204
+        },
+        {
+          "name": "qlt::diffusion_arithmetic_backward",
+          "calls": 33,
+          "self_cpu_us": 171.1000000000313,
+          "inclusive_cpu_us": 267.3999999999942
+        }
+      ],
+      "outermost_scopes": [
+        {
+          "phase": "forward",
+          "name": "qlt::bridge",
+          "calls": 1,
+          "inclusive_cpu_us": 16770.0
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::engine",
+          "calls": 1,
+          "inclusive_cpu_us": 16611.6
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::rollback_and_interpolation",
+          "calls": 1,
+          "inclusive_cpu_us": 14553.0
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::rollback",
+          "calls": 1,
+          "inclusive_cpu_us": 12192.5
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::operator_assembly",
+          "calls": 33,
+          "inclusive_cpu_us": 4029.699999999998
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::sample_grid",
+          "calls": 33,
+          "inclusive_cpu_us": 1308.6999999999944
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spatial_row",
+          "calls": 3,
+          "inclusive_cpu_us": 191.900000000001
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::unpack_array",
+          "calls": 359,
+          "inclusive_cpu_us": 1186.2999999999847
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::pack_array",
+          "calls": 624,
+          "inclusive_cpu_us": 1276.4000000000146
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_basis_pack",
+          "calls": 1,
+          "inclusive_cpu_us": 60.80000000000018
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_arithmetic_forward",
+          "calls": 33,
+          "inclusive_cpu_us": 324.69999999999663
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_arithmetic_native_forward",
+          "calls": 33,
+          "inclusive_cpu_us": 282.5000000000023
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::band_solve",
+          "calls": 33,
+          "inclusive_cpu_us": 4011.499999999997
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::auto_domain_native",
+          "calls": 34,
+          "inclusive_cpu_us": 78.00000000000091
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::thomas_arithmetic_forward",
+          "calls": 34,
+          "inclusive_cpu_us": 356.80000000000246
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::auto_residual_native",
+          "calls": 34,
+          "inclusive_cpu_us": 43.49999999999909
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::events",
+          "calls": 33,
+          "inclusive_cpu_us": 38.099999999988995
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_basis_reuse",
+          "calls": 32,
+          "inclusive_cpu_us": 5.099999999993543
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::band_apply",
+          "calls": 62,
+          "inclusive_cpu_us": 1881.1
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::apply_arithmetic_forward",
+          "calls": 62,
+          "inclusive_cpu_us": 247.7000000000071
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::apply_arithmetic_native_forward",
+          "calls": 62,
+          "inclusive_cpu_us": 174.39999999999873
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::array_scalar",
+          "calls": 62,
+          "inclusive_cpu_us": 935.9000000000042
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::array_binary",
+          "calls": 62,
+          "inclusive_cpu_us": 690.5000000000073
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_slopes",
+          "calls": 1,
+          "inclusive_cpu_us": 63.29999999999927
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_rhs",
+          "calls": 1,
+          "inclusive_cpu_us": 41.600000000000364
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_filter",
+          "calls": 1,
+          "inclusive_cpu_us": 812.7000000000007
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_coefficients",
+          "calls": 1,
+          "inclusive_cpu_us": 65.79999999999927
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_primitive_increments",
+          "calls": 1,
+          "inclusive_cpu_us": 71.0
+        },
+        {
+          "phase": "backward",
+          "name": "qlt::thomas_arithmetic_backward",
+          "calls": 34,
+          "inclusive_cpu_us": 1502.700000000008
+        },
+        {
+          "phase": "backward",
+          "name": "qlt::apply_arithmetic_backward",
+          "calls": 62,
+          "inclusive_cpu_us": 501.6000000000204
+        },
+        {
+          "phase": "backward",
+          "name": "qlt::diffusion_arithmetic_backward",
+          "calls": 33,
+          "inclusive_cpu_us": 267.3999999999942
+        }
+      ],
+      "operators": [
+        {
+          "phase": "forward",
+          "name": "aten::mul",
+          "calls": 317,
+          "self_cpu_us": 1812.3000000000068
+        },
+        {
+          "phase": "backward",
+          "name": "aten::mul",
+          "calls": 341,
+          "self_cpu_us": 1010.2999999999665
+        },
+        {
+          "phase": "forward",
+          "name": "aten::select",
+          "calls": 226,
+          "self_cpu_us": 917.9999999999932
+        },
+        {
+          "phase": "backward",
+          "name": "aten::add_",
+          "calls": 507,
+          "self_cpu_us": 760.1000000001222
+        },
+        {
+          "phase": "forward",
+          "name": "aten::add",
+          "calls": 174,
+          "self_cpu_us": 667.5000000000182
+        },
+        {
+          "phase": "backward",
+          "name": "aten::zeros",
+          "calls": 258,
+          "self_cpu_us": 662.4000000000233
+        },
+        {
+          "phase": "forward",
+          "name": "aten::slice",
+          "calls": 102,
+          "self_cpu_us": 588.0999999999963
+        },
+        {
+          "phase": "backward",
+          "name": "aten::copy_",
+          "calls": 360,
+          "self_cpu_us": 567.5000000000109
+        },
+        {
+          "phase": "backward",
+          "name": "aten::select_backward",
+          "calls": 167,
+          "self_cpu_us": 562.9000000000451
+        },
+        {
+          "phase": "forward",
+          "name": "aten::unsqueeze",
+          "calls": 95,
+          "self_cpu_us": 380.2000000000048
+        },
+        {
+          "phase": "forward",
+          "name": "aten::empty",
+          "calls": 419,
+          "self_cpu_us": 350.49999999999625
+        },
+        {
+          "phase": "backward",
+          "name": "aten::slice_backward",
+          "calls": 91,
+          "self_cpu_us": 347.5999999999731
+        },
+        {
+          "phase": "backward",
+          "name": "aten::empty",
+          "calls": 709,
+          "self_cpu_us": 339.6999999999607
+        },
+        {
+          "phase": "backward",
+          "name": "aten::select",
+          "calls": 228,
+          "self_cpu_us": 324.5
+        },
+        {
+          "phase": "backward",
+          "name": "aten::clone",
+          "calls": 102,
+          "self_cpu_us": 309.70000000003347
+        },
+        {
+          "phase": "forward",
+          "name": "aten::as_strided",
+          "calls": 469,
+          "self_cpu_us": 254.59999999999604
+        },
+        {
+          "phase": "backward",
+          "name": "aten::zeros_like",
+          "calls": 68,
+          "self_cpu_us": 207.00000000001455
+        },
+        {
+          "phase": "forward",
+          "name": "aten::scalar_tensor",
+          "calls": 198,
+          "self_cpu_us": 187.100000000004
+        },
+        {
+          "phase": "backward",
+          "name": "aten::where",
+          "calls": 56,
+          "self_cpu_us": 180.6999999999971
+        },
+        {
+          "phase": "forward",
+          "name": "aten::abs",
+          "calls": 48,
+          "self_cpu_us": 172.60000000000434
+        },
+        {
+          "phase": "forward",
+          "name": "aten::sub",
+          "calls": 42,
+          "self_cpu_us": 170.09999999999945
+        },
+        {
+          "phase": "backward",
+          "name": "aten::as_strided",
+          "calls": 393,
+          "self_cpu_us": 162.79999999995925
+        },
+        {
+          "phase": "forward",
+          "name": "aten::squeeze",
+          "calls": 34,
+          "self_cpu_us": 155.50000000000318
+        },
+        {
+          "phase": "backward",
+          "name": "aten::slice",
+          "calls": 98,
+          "self_cpu_us": 151.90000000001965
+        },
+        {
+          "phase": "backward",
+          "name": "aten::neg",
+          "calls": 38,
+          "self_cpu_us": 112.40000000000873
+        },
+        {
+          "phase": "backward",
+          "name": "aten::empty_strided",
+          "calls": 171,
+          "self_cpu_us": 85.40000000000146
+        },
+        {
+          "phase": "backward",
+          "name": "aten::unsqueeze",
+          "calls": 34,
+          "self_cpu_us": 83.59999999997672
+        },
+        {
+          "phase": "forward",
+          "name": "aten::where",
+          "calls": 16,
+          "self_cpu_us": 81.70000000000255
+        },
+        {
+          "phase": "backward",
+          "name": "aten::squeeze",
+          "calls": 33,
+          "self_cpu_us": 80.90000000001237
+        },
+        {
+          "phase": "forward",
+          "name": "aten::item",
+          "calls": 80,
+          "self_cpu_us": 80.49999999999955
+        },
+        {
+          "phase": "backward",
+          "name": "aten::empty_like",
+          "calls": 69,
+          "self_cpu_us": 79.19999999996799
+        },
+        {
+          "phase": "forward",
+          "name": "aten::all",
+          "calls": 13,
+          "self_cpu_us": 75.60000000001128
+        },
+        {
+          "phase": "forward",
+          "name": "aten::stack",
+          "calls": 3,
+          "self_cpu_us": 72.20000000001392
+        },
+        {
+          "phase": "backward",
+          "name": "aten::zero_",
+          "calls": 332,
+          "self_cpu_us": 59.19999999997526
+        },
+        {
+          "phase": "forward",
+          "name": "aten::isfinite",
+          "calls": 11,
+          "self_cpu_us": 58.199999999988336
+        },
+        {
+          "phase": "backward",
+          "name": "aten::item",
+          "calls": 66,
+          "self_cpu_us": 57.39999999996144
+        },
+        {
+          "phase": "forward",
+          "name": "aten::ne",
+          "calls": 13,
+          "self_cpu_us": 54.099999999996044
+        },
+        {
+          "phase": "forward",
+          "name": "aten::_local_scalar_dense",
+          "calls": 80,
+          "self_cpu_us": 45.70000000000141
+        },
+        {
+          "phase": "forward",
+          "name": "aten::div",
+          "calls": 10,
+          "self_cpu_us": 39.39999999999418
+        },
+        {
+          "phase": "forward",
+          "name": "aten::cat",
+          "calls": 6,
+          "self_cpu_us": 37.39999999999873
+        },
+        {
+          "phase": "forward",
+          "name": "aten::gt",
+          "calls": 10,
+          "self_cpu_us": 37.00000000000614
+        },
+        {
+          "phase": "forward",
+          "name": "aten::index_select",
+          "calls": 6,
+          "self_cpu_us": 31.90000000000009
+        },
+        {
+          "phase": "backward",
+          "name": "aten::sgn",
+          "calls": 13,
+          "self_cpu_us": 28.399999999997817
+        },
+        {
+          "phase": "forward",
+          "name": "aten::eq",
+          "calls": 11,
+          "self_cpu_us": 27.100000000006958
+        },
+        {
+          "phase": "backward",
+          "name": "aten::div",
+          "calls": 9,
+          "self_cpu_us": 23.299999999995634
+        },
+        {
+          "phase": "backward",
+          "name": "aten::scalar_tensor",
+          "calls": 28,
+          "self_cpu_us": 23.19999999999345
+        },
+        {
+          "phase": "backward",
+          "name": "aten::_local_scalar_dense",
+          "calls": 66,
+          "self_cpu_us": 22.100000000002183
+        },
+        {
+          "phase": "backward",
+          "name": "aten::index_select_backward",
+          "calls": 6,
+          "self_cpu_us": 19.10000000000946
+        },
+        {
+          "phase": "forward",
+          "name": "aten::lt",
+          "calls": 9,
+          "self_cpu_us": 19.0
+        },
+        {
+          "phase": "backward",
+          "name": "aten::index_add_",
+          "calls": 6,
+          "self_cpu_us": 17.999999999992724
+        },
+        {
+          "phase": "forward",
+          "name": "aten::fill_",
+          "calls": 16,
+          "self_cpu_us": 17.49999999999409
+        },
+        {
+          "phase": "forward",
+          "name": "aten::sub_",
+          "calls": 3,
+          "self_cpu_us": 16.499999999999545
+        },
+        {
+          "phase": "forward",
+          "name": "aten::empty_like",
+          "calls": 7,
+          "self_cpu_us": 15.199999999998454
+        },
+        {
+          "phase": "forward",
+          "name": "aten::copy_",
+          "calls": 3,
+          "self_cpu_us": 13.900000000002137
+        },
+        {
+          "phase": "backward",
+          "name": "aten::new_zeros",
+          "calls": 6,
+          "self_cpu_us": 12.899999999997817
+        },
+        {
+          "phase": "forward",
+          "name": "aten::bitwise_and",
+          "calls": 4,
+          "self_cpu_us": 11.100000000002183
+        },
+        {
+          "phase": "backward",
+          "name": "aten::narrow",
+          "calls": 7,
+          "self_cpu_us": 10.700000000000728
+        },
+        {
+          "phase": "forward",
+          "name": "aten::_to_copy",
+          "calls": 2,
+          "self_cpu_us": 10.400000000000205
+        },
+        {
+          "phase": "forward",
+          "name": "aten::empty_strided",
+          "calls": 9,
+          "self_cpu_us": 10.300000000000637
+        },
+        {
+          "phase": "forward",
+          "name": "aten::zeros_like",
+          "calls": 3,
+          "self_cpu_us": 9.299999999999272
+        },
+        {
+          "phase": "forward",
+          "name": "aten::view",
+          "calls": 3,
+          "self_cpu_us": 6.59999999999809
+        },
+        {
+          "phase": "forward",
+          "name": "aten::neg",
+          "calls": 1,
+          "self_cpu_us": 5.900000000001455
+        },
+        {
+          "phase": "forward",
+          "name": "aten::to",
+          "calls": 3,
+          "self_cpu_us": 5.400000000000546
+        },
+        {
+          "phase": "backward",
+          "name": "aten::new_empty",
+          "calls": 6,
+          "self_cpu_us": 5.19999999999709
+        },
+        {
+          "phase": "forward",
+          "name": "aten::is_nonzero",
+          "calls": 2,
+          "self_cpu_us": 4.800000000000182
+        },
+        {
+          "phase": "forward",
+          "name": "aten::ones_like",
+          "calls": 1,
+          "self_cpu_us": 3.400000000001455
+        },
+        {
+          "phase": "backward",
+          "name": "aten::to",
+          "calls": 28,
+          "self_cpu_us": 3.1000000000094587
+        },
+        {
+          "phase": "backward",
+          "name": "aten::ones_like",
+          "calls": 1,
+          "self_cpu_us": 2.600000000002183
+        },
+        {
+          "phase": "forward",
+          "name": "aten::view_as",
+          "calls": 1,
+          "self_cpu_us": 1.8000000000029104
+        },
+        {
+          "phase": "forward",
+          "name": "aten::zero_",
+          "calls": 3,
+          "self_cpu_us": 0.8000000000010914
+        },
+        {
+          "phase": "backward",
+          "name": "aten::fill_",
+          "calls": 1,
+          "self_cpu_us": 0.3999999999978172
+        }
+      ],
+      "aten_calls": {
+        "forward": 2453,
+        "backward": 4298
+      }
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "profile",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "full_tensor_step"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "scopes": [
+        {
+          "name": "phase3::forward",
+          "calls": 1,
+          "self_cpu_us": 384.1999999999989,
+          "inclusive_cpu_us": 12690.4
+        },
+        {
+          "name": "qlt::bridge",
+          "calls": 1,
+          "self_cpu_us": 59.30000000000291,
+          "inclusive_cpu_us": 12134.0
+        },
+        {
+          "name": "qlt::engine",
+          "calls": 1,
+          "self_cpu_us": 2022.4000000000015,
+          "inclusive_cpu_us": 11979.3
+        },
+        {
+          "name": "qlt::rollback_and_interpolation",
+          "calls": 1,
+          "self_cpu_us": 198.0,
+          "inclusive_cpu_us": 9927.699999999999
+        },
+        {
+          "name": "qlt::rollback",
+          "calls": 1,
+          "self_cpu_us": 384.80000000000837,
+          "inclusive_cpu_us": 7754.9
+        },
+        {
+          "name": "qlt::operator_assembly",
+          "calls": 33,
+          "self_cpu_us": 1081.399999999992,
+          "inclusive_cpu_us": 3554.499999999999
+        },
+        {
+          "name": "qlt::sample_grid",
+          "calls": 33,
+          "self_cpu_us": 326.1000000000063,
+          "inclusive_cpu_us": 1233.7999999999997
+        },
+        {
+          "name": "qlt::spatial_row",
+          "calls": 3,
+          "self_cpu_us": 55.00000000000091,
+          "inclusive_cpu_us": 209.30000000000064
+        },
+        {
+          "name": "qlt::unpack_array",
+          "calls": 173,
+          "self_cpu_us": 518.5000000000127,
+          "inclusive_cpu_us": 518.5000000000127
+        },
+        {
+          "name": "qlt::pack_array",
+          "calls": 190,
+          "self_cpu_us": 136.89999999999054,
+          "inclusive_cpu_us": 578.3999999999919
+        },
+        {
+          "name": "qlt::diffusion_basis_pack",
+          "calls": 1,
+          "self_cpu_us": 11.200000000000728,
+          "inclusive_cpu_us": 55.30000000000018
+        },
+        {
+          "name": "qlt::diffusion_arithmetic_forward",
+          "calls": 33,
+          "self_cpu_us": 38.10000000000355,
+          "inclusive_cpu_us": 255.00000000000182
+        },
+        {
+          "name": "qlt::diffusion_arithmetic_native_forward",
+          "calls": 33,
+          "self_cpu_us": 111.59999999999309,
+          "inclusive_cpu_us": 216.89999999999827
+        },
+        {
+          "name": "qlt::full_tensor_step",
+          "calls": 33,
+          "self_cpu_us": 1279.7999999999984,
+          "inclusive_cpu_us": 3641.899999999998
+        },
+        {
+          "name": "qlt::auto_domain_native",
+          "calls": 34,
+          "self_cpu_us": 71.59999999999854,
+          "inclusive_cpu_us": 71.59999999999854
+        },
+        {
+          "name": "qlt::thomas_arithmetic_forward",
+          "calls": 34,
+          "self_cpu_us": 210.700000000003,
+          "inclusive_cpu_us": 301.5
+        },
+        {
+          "name": "qlt::auto_residual_native",
+          "calls": 34,
+          "self_cpu_us": 40.50000000000091,
+          "inclusive_cpu_us": 40.50000000000091
+        },
+        {
+          "name": "qlt::events",
+          "calls": 33,
+          "self_cpu_us": 37.89999999999782,
+          "inclusive_cpu_us": 37.89999999999782
+        },
+        {
+          "name": "qlt::diffusion_basis_reuse",
+          "calls": 32,
+          "self_cpu_us": 5.400000000002819,
+          "inclusive_cpu_us": 5.400000000002819
+        },
+        {
+          "name": "qlt::apply_arithmetic_forward",
+          "calls": 31,
+          "self_cpu_us": 159.20000000000937,
+          "inclusive_cpu_us": 243.30000000000337
+        },
+        {
+          "name": "qlt::apply_arithmetic_native_forward",
+          "calls": 31,
+          "self_cpu_us": 69.29999999999518,
+          "inclusive_cpu_us": 84.099999999994
+        },
+        {
+          "name": "qlt::spline_slopes",
+          "calls": 1,
+          "self_cpu_us": 13.899999999997817,
+          "inclusive_cpu_us": 39.69999999999891
+        },
+        {
+          "name": "qlt::spline_rhs",
+          "calls": 1,
+          "self_cpu_us": 9.900000000003274,
+          "inclusive_cpu_us": 40.600000000000364
+        },
+        {
+          "name": "qlt::spline_filter",
+          "calls": 1,
+          "self_cpu_us": 154.60000000000036,
+          "inclusive_cpu_us": 829.3999999999996
+        },
+        {
+          "name": "qlt::spline_coefficients",
+          "calls": 1,
+          "self_cpu_us": 90.899999999996,
+          "inclusive_cpu_us": 141.39999999999964
+        },
+        {
+          "name": "qlt::spline_primitive_increments",
+          "calls": 1,
+          "self_cpu_us": 15.299999999999272,
+          "inclusive_cpu_us": 72.89999999999964
+        },
+        {
+          "name": "phase3::backward",
+          "calls": 1,
+          "self_cpu_us": 4590.200000000015,
+          "inclusive_cpu_us": 16028.1
+        },
+        {
+          "name": "qlt::thomas_arithmetic_backward",
+          "calls": 34,
+          "self_cpu_us": 729.4999999999818,
+          "inclusive_cpu_us": 1467.2999999999993
+        },
+        {
+          "name": "qlt::apply_arithmetic_backward",
+          "calls": 31,
+          "self_cpu_us": 215.0,
+          "inclusive_cpu_us": 266.70000000000437
+        },
+        {
+          "name": "qlt::diffusion_arithmetic_backward",
+          "calls": 33,
+          "self_cpu_us": 166.70000000000437,
+          "inclusive_cpu_us": 258.10000000001673
+        }
+      ],
+      "outermost_scopes": [
+        {
+          "phase": "forward",
+          "name": "qlt::bridge",
+          "calls": 1,
+          "inclusive_cpu_us": 12134.0
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::engine",
+          "calls": 1,
+          "inclusive_cpu_us": 11979.3
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::rollback_and_interpolation",
+          "calls": 1,
+          "inclusive_cpu_us": 9927.699999999999
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::rollback",
+          "calls": 1,
+          "inclusive_cpu_us": 7754.9
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::operator_assembly",
+          "calls": 33,
+          "inclusive_cpu_us": 3554.499999999999
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::sample_grid",
+          "calls": 33,
+          "inclusive_cpu_us": 1233.7999999999997
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spatial_row",
+          "calls": 3,
+          "inclusive_cpu_us": 209.30000000000064
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::unpack_array",
+          "calls": 173,
+          "inclusive_cpu_us": 518.5000000000127
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::pack_array",
+          "calls": 190,
+          "inclusive_cpu_us": 578.3999999999919
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_basis_pack",
+          "calls": 1,
+          "inclusive_cpu_us": 55.30000000000018
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_arithmetic_forward",
+          "calls": 33,
+          "inclusive_cpu_us": 255.00000000000182
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_arithmetic_native_forward",
+          "calls": 33,
+          "inclusive_cpu_us": 216.89999999999827
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::full_tensor_step",
+          "calls": 33,
+          "inclusive_cpu_us": 3641.899999999998
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::auto_domain_native",
+          "calls": 34,
+          "inclusive_cpu_us": 71.59999999999854
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::thomas_arithmetic_forward",
+          "calls": 34,
+          "inclusive_cpu_us": 301.5
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::auto_residual_native",
+          "calls": 34,
+          "inclusive_cpu_us": 40.50000000000091
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::events",
+          "calls": 33,
+          "inclusive_cpu_us": 37.89999999999782
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::diffusion_basis_reuse",
+          "calls": 32,
+          "inclusive_cpu_us": 5.400000000002819
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::apply_arithmetic_forward",
+          "calls": 31,
+          "inclusive_cpu_us": 243.30000000000337
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::apply_arithmetic_native_forward",
+          "calls": 31,
+          "inclusive_cpu_us": 84.099999999994
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_slopes",
+          "calls": 1,
+          "inclusive_cpu_us": 39.69999999999891
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_rhs",
+          "calls": 1,
+          "inclusive_cpu_us": 40.600000000000364
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_filter",
+          "calls": 1,
+          "inclusive_cpu_us": 829.3999999999996
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_coefficients",
+          "calls": 1,
+          "inclusive_cpu_us": 141.39999999999964
+        },
+        {
+          "phase": "forward",
+          "name": "qlt::spline_primitive_increments",
+          "calls": 1,
+          "inclusive_cpu_us": 72.89999999999964
+        },
+        {
+          "phase": "backward",
+          "name": "qlt::thomas_arithmetic_backward",
+          "calls": 34,
+          "inclusive_cpu_us": 1467.2999999999993
+        },
+        {
+          "phase": "backward",
+          "name": "qlt::apply_arithmetic_backward",
+          "calls": 31,
+          "inclusive_cpu_us": 266.70000000000437
+        },
+        {
+          "phase": "backward",
+          "name": "qlt::diffusion_arithmetic_backward",
+          "calls": 33,
+          "inclusive_cpu_us": 258.10000000001673
+        }
+      ],
+      "operators": [
+        {
+          "phase": "forward",
+          "name": "aten::mul",
+          "calls": 317,
+          "self_cpu_us": 1431.2999999999997
+        },
+        {
+          "phase": "backward",
+          "name": "aten::mul",
+          "calls": 341,
+          "self_cpu_us": 1116.799999999983
+        },
+        {
+          "phase": "forward",
+          "name": "aten::select",
+          "calls": 226,
+          "self_cpu_us": 838.7000000000007
+        },
+        {
+          "phase": "forward",
+          "name": "aten::add",
+          "calls": 174,
+          "self_cpu_us": 760.699999999998
+        },
+        {
+          "phase": "backward",
+          "name": "aten::select_backward",
+          "calls": 167,
+          "self_cpu_us": 613.6999999999298
+        },
+        {
+          "phase": "backward",
+          "name": "aten::add_",
+          "calls": 383,
+          "self_cpu_us": 598.3999999999633
+        },
+        {
+          "phase": "backward",
+          "name": "aten::select",
+          "calls": 228,
+          "self_cpu_us": 581.7999999999993
+        },
+        {
+          "phase": "backward",
+          "name": "aten::zeros",
+          "calls": 258,
+          "self_cpu_us": 577.400000000016
+        },
+        {
+          "phase": "backward",
+          "name": "aten::copy_",
+          "calls": 360,
+          "self_cpu_us": 546.4000000000597
+        },
+        {
+          "phase": "forward",
+          "name": "aten::slice",
+          "calls": 102,
+          "self_cpu_us": 378.6999999999948
+        },
+        {
+          "phase": "backward",
+          "name": "aten::slice_backward",
+          "calls": 91,
+          "self_cpu_us": 332.9000000000142
+        },
+        {
+          "phase": "backward",
+          "name": "aten::empty",
+          "calls": 585,
+          "self_cpu_us": 276.20000000002074
+        },
+        {
+          "phase": "forward",
+          "name": "aten::empty",
+          "calls": 326,
+          "self_cpu_us": 201.30000000000064
+        },
+        {
+          "phase": "backward",
+          "name": "aten::clone",
+          "calls": 102,
+          "self_cpu_us": 187.39999999999418
+        },
+        {
+          "phase": "forward",
+          "name": "aten::as_strided",
+          "calls": 469,
+          "self_cpu_us": 179.10000000001548
+        },
+        {
+          "phase": "backward",
+          "name": "aten::where",
+          "calls": 56,
+          "self_cpu_us": 178.09999999998945
+        },
+        {
+          "phase": "forward",
+          "name": "aten::abs",
+          "calls": 48,
+          "self_cpu_us": 169.8000000000003
+        },
+        {
+          "phase": "backward",
+          "name": "aten::zeros_like",
+          "calls": 68,
+          "self_cpu_us": 157.19999999998618
+        },
+        {
+          "phase": "backward",
+          "name": "aten::as_strided",
+          "calls": 393,
+          "self_cpu_us": 156.00000000000546
+        },
+        {
+          "phase": "backward",
+          "name": "aten::slice",
+          "calls": 98,
+          "self_cpu_us": 150.39999999998872
+        },
+        {
+          "phase": "forward",
+          "name": "aten::unsqueeze",
+          "calls": 95,
+          "self_cpu_us": 138.400000000001
+        },
+        {
+          "phase": "forward",
+          "name": "aten::sub",
+          "calls": 42,
+          "self_cpu_us": 138.39999999999873
+        },
+        {
+          "phase": "backward",
+          "name": "aten::index_select_backward",
+          "calls": 6,
+          "self_cpu_us": 137.200000000008
+        },
+        {
+          "phase": "forward",
+          "name": "aten::squeeze",
+          "calls": 34,
+          "self_cpu_us": 110.29999999999518
+        },
+        {
+          "phase": "backward",
+          "name": "aten::neg",
+          "calls": 38,
+          "self_cpu_us": 93.00000000000728
+        },
+        {
+          "phase": "forward",
+          "name": "aten::where",
+          "calls": 16,
+          "self_cpu_us": 90.59999999999854
+        },
+        {
+          "phase": "backward",
+          "name": "aten::empty_strided",
+          "calls": 171,
+          "self_cpu_us": 84.39999999999964
+        },
+        {
+          "phase": "backward",
+          "name": "aten::empty_like",
+          "calls": 69,
+          "self_cpu_us": 80.20000000000255
+        },
+        {
+          "phase": "backward",
+          "name": "aten::unsqueeze",
+          "calls": 34,
+          "self_cpu_us": 77.30000000000473
+        },
+        {
+          "phase": "forward",
+          "name": "aten::all",
+          "calls": 13,
+          "self_cpu_us": 75.4999999999983
+        },
+        {
+          "phase": "backward",
+          "name": "aten::add",
+          "calls": 31,
+          "self_cpu_us": 75.49999999999636
+        },
+        {
+          "phase": "forward",
+          "name": "aten::stack",
+          "calls": 3,
+          "self_cpu_us": 75.39999999999054
+        },
+        {
+          "phase": "backward",
+          "name": "aten::squeeze",
+          "calls": 33,
+          "self_cpu_us": 75.30000000000655
+        },
+        {
+          "phase": "forward",
+          "name": "aten::item",
+          "calls": 80,
+          "self_cpu_us": 72.59999999999593
+        },
+        {
+          "phase": "forward",
+          "name": "aten::scalar_tensor",
+          "calls": 66,
+          "self_cpu_us": 59.79999999999882
+        },
+        {
+          "phase": "forward",
+          "name": "aten::isfinite",
+          "calls": 11,
+          "self_cpu_us": 58.59999999999741
+        },
+        {
+          "phase": "backward",
+          "name": "aten::zero_",
+          "calls": 332,
+          "self_cpu_us": 56.19999999999891
+        },
+        {
+          "phase": "backward",
+          "name": "aten::item",
+          "calls": 66,
+          "self_cpu_us": 55.20000000001164
+        },
+        {
+          "phase": "forward",
+          "name": "aten::ne",
+          "calls": 13,
+          "self_cpu_us": 53.40000000000191
+        },
+        {
+          "phase": "forward",
+          "name": "aten::div",
+          "calls": 10,
+          "self_cpu_us": 49.69999999999709
+        },
+        {
+          "phase": "forward",
+          "name": "aten::cat",
+          "calls": 6,
+          "self_cpu_us": 36.999999999997726
+        },
+        {
+          "phase": "forward",
+          "name": "aten::gt",
+          "calls": 10,
+          "self_cpu_us": 36.70000000000107
+        },
+        {
+          "phase": "forward",
+          "name": "aten::index_select",
+          "calls": 6,
+          "self_cpu_us": 33.399999999999636
+        },
+        {
+          "phase": "backward",
+          "name": "aten::sgn",
+          "calls": 13,
+          "self_cpu_us": 27.99999999999818
+        },
+        {
+          "phase": "forward",
+          "name": "aten::eq",
+          "calls": 11,
+          "self_cpu_us": 27.90000000000032
+        },
+        {
+          "phase": "forward",
+          "name": "aten::_local_scalar_dense",
+          "calls": 80,
+          "self_cpu_us": 27.800000000002683
+        },
+        {
+          "phase": "backward",
+          "name": "aten::scalar_tensor",
+          "calls": 28,
+          "self_cpu_us": 22.900000000005093
+        },
+        {
+          "phase": "backward",
+          "name": "aten::div",
+          "calls": 9,
+          "self_cpu_us": 21.399999999999636
+        },
+        {
+          "phase": "backward",
+          "name": "aten::_local_scalar_dense",
+          "calls": 66,
+          "self_cpu_us": 20.40000000000873
+        },
+        {
+          "phase": "forward",
+          "name": "aten::lt",
+          "calls": 9,
+          "self_cpu_us": 18.80000000000109
+        },
+        {
+          "phase": "backward",
+          "name": "aten::index_add_",
+          "calls": 6,
+          "self_cpu_us": 17.399999999997817
+        },
+        {
+          "phase": "forward",
+          "name": "aten::fill_",
+          "calls": 16,
+          "self_cpu_us": 16.60000000000116
+        },
+        {
+          "phase": "forward",
+          "name": "aten::sub_",
+          "calls": 3,
+          "self_cpu_us": 15.400000000000546
+        },
+        {
+          "phase": "forward",
+          "name": "aten::_to_copy",
+          "calls": 2,
+          "self_cpu_us": 14.800000000000182
+        },
+        {
+          "phase": "forward",
+          "name": "aten::empty_like",
+          "calls": 7,
+          "self_cpu_us": 14.400000000001455
+        },
+        {
+          "phase": "forward",
+          "name": "aten::copy_",
+          "calls": 3,
+          "self_cpu_us": 13.999999999999886
+        },
+        {
+          "phase": "backward",
+          "name": "aten::new_zeros",
+          "calls": 6,
+          "self_cpu_us": 12.89999999999418
+        },
+        {
+          "phase": "backward",
+          "name": "aten::narrow",
+          "calls": 7,
+          "self_cpu_us": 10.900000000003274
+        },
+        {
+          "phase": "forward",
+          "name": "aten::bitwise_and",
+          "calls": 4,
+          "self_cpu_us": 10.699999999998909
+        },
+        {
+          "phase": "forward",
+          "name": "aten::empty_strided",
+          "calls": 9,
+          "self_cpu_us": 10.599999999998204
+        },
+        {
+          "phase": "forward",
+          "name": "aten::zeros_like",
+          "calls": 3,
+          "self_cpu_us": 9.0
+        },
+        {
+          "phase": "forward",
+          "name": "aten::to",
+          "calls": 3,
+          "self_cpu_us": 5.799999999999272
+        },
+        {
+          "phase": "backward",
+          "name": "aten::new_empty",
+          "calls": 6,
+          "self_cpu_us": 5.799999999999272
+        },
+        {
+          "phase": "forward",
+          "name": "aten::neg",
+          "calls": 1,
+          "self_cpu_us": 5.700000000000728
+        },
+        {
+          "phase": "forward",
+          "name": "aten::view",
+          "calls": 3,
+          "self_cpu_us": 4.700000000000728
+        },
+        {
+          "phase": "forward",
+          "name": "aten::is_nonzero",
+          "calls": 2,
+          "self_cpu_us": 4.699999999999932
+        },
+        {
+          "phase": "backward",
+          "name": "aten::to",
+          "calls": 28,
+          "self_cpu_us": 3.100000000002183
+        },
+        {
+          "phase": "forward",
+          "name": "aten::ones_like",
+          "calls": 1,
+          "self_cpu_us": 3.0
+        },
+        {
+          "phase": "backward",
+          "name": "aten::ones_like",
+          "calls": 1,
+          "self_cpu_us": 2.3000000000010914
+        },
+        {
+          "phase": "forward",
+          "name": "aten::view_as",
+          "calls": 1,
+          "self_cpu_us": 1.6999999999989086
+        },
+        {
+          "phase": "forward",
+          "name": "aten::zero_",
+          "calls": 3,
+          "self_cpu_us": 0.8999999999996362
+        },
+        {
+          "phase": "backward",
+          "name": "aten::fill_",
+          "calls": 1,
+          "self_cpu_us": 0.5
+        }
+      ],
+      "aten_calls": {
+        "forward": 2228,
+        "backward": 4081
+      }
+    }
+  ],
+  "stock": [],
+  "native_source_sha256": {
+    "CMakeLists.txt": "4c35f483b87bbb4850afd99620211966a0067a81d9d38b43f5d7fb69e71f5b6a",
+    "scripts/prepare_quantlib.py": "7b8d761fb45f43c217e5ebe8d661980740a697bea6f9e60cb14a159eada8a58b",
+    "cpp/adjoint.cpp": "a46c20f943a3932d621866f771c711edb7e2ca3ac764baee9163109ca4f43fb7",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "93b66be99625332b94bc314a4f1739f8a49e1783652112832c5ec57a2ebf60fa",
+    "cpp/kernel_checks.cpp": "cbe10a5b0ef8793f32ffe016f4475c28d0ab45146a95377ce60b3ff742e2cea0",
+    "cpp/operator_arithmetic.cpp": "596663385edca810432c5d9128ded8582d83987a16aa1cf9407feaf126e0ddbf",
+    "cpp/parallel_solve.cpp": "088f6f384c79f8c556f6d989049ed75827b4eb4be6febbb62d39240210d3972f",
+    "cpp/pcr_stage.cpp": "4b86c6d63ed87d967bdaaf12064e73da2cc4644b26a66038904f271471f4a766",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/solve_checks.cpp": "94d60e16d108d2016a659cd75b894cab594f25e4c392199d25945b08119c72c2",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "6e7fcff1bef569c74fc893fef69648a7f8a9cf5117b3279eaf37b0763aebac36",
+    "cpp/step_arithmetic.cpp": "47a69f3801cdf6cd57ab83fb8961cde5f24bcc775f0134ad44e98fc1db93036f",
+    "cpp/tensor_kernels.cpp": "2c1fac02bc7cda6535ddd661c33a0883fe8b696c28bb8c9c20a9389cfcc5c211",
+    "cpp/thomas_arithmetic.cpp": "6c993871ab6c542b0dc68d408d045df4872e2577342fbd67e0688a97badfe38b",
+    "cpp/include/quantlibtorch/adjoint.hpp": "b1e931ef035117b0155ad9374e26087c8a10447f7eb75da68d969c570a687186",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/operator_arithmetic.hpp": "f3c384afacc93cbe6431a5b5b8c189c6f707f9a9c1432a99f211e02535985f31",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "17d85de3e63876b37a985b0c2e6e31d828f4b58037cf11037caad01fbf0a3afb",
+    "cpp/include/quantlibtorch/pcr_stage.hpp": "d686518c01f68adc16a864e779beb7051b00d248f74a8cff5a22c62a09a58411",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/solve_checks.hpp": "4270af1c4cf34d7495eb8c06c0a0c2fd5c275fcf4d96a9cefd0ce1147c7a6553",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "2a6b99d2174265e66e53c5bbd7d5c9c1e3d385287bbb523a96974f43ab065eb1",
+    "cpp/include/quantlibtorch/step_arithmetic.hpp": "b2ce9b0c863c4471d9e3c428adfcea47894d2963934d9e2486a4e7f7f80596ee",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/thomas_arithmetic.hpp": "9a1777e1e46a6a250e7d992a981112078e4ae00ffa96f5246c3cdc9978ff353a",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "validation": {
+    "comparisons": 0,
+    "max_price_difference": 0.0,
+    "max_gradient_difference": 0.0
+  }
+}

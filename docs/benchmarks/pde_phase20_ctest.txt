@@ -1,0 +1,8 @@
+Internal ctest changing into directory: <USER_HOME>/Documents/QuantLibTorch/build/native
+Test project <USER_HOME>/Documents/QuantLibTorch/build/native
+    Start 1: python-tests
+1/1 Test #1: python-tests .....................   Passed  172.27 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) = 172.30 sec

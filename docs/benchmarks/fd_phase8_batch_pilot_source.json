@@ -1,0 +1,11 @@
+{
+  "path": "docs/benchmarks/fd_phase8_batch_pilot_source.zip",
+  "sha256": "23e605e75b753e0039bd739009d6e38d6ee1ad88d2c06cbb1e852849d05db648",
+  "files": 61,
+  "notes": [
+    "Batch-capable opt-in PCR stage source before enabling the default.",
+    "Reproduces fd_phase8_batch_stage{0,1}_{independent,shared}.json; each report embeds its command.",
+    "The earlier single-system stage pricing pilot has a different fingerprint.",
+    "Dependencies and native binary excluded; pinned dependencies are fetched by bootstrap.py."
+  ]
+}

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools==72.1.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantlibtorch"
+dynamic = ["version", "dependencies"]
+description = "Differentiable QuantLib finite-difference pricing with PyTorch"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: C++",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+Homepage = "https://github.com/aubejay22/QuantLibTorch"
+Repository = "https://github.com/aubejay22/QuantLibTorch"
+Documentation = "https://github.com/aubejay22/QuantLibTorch/blob/master/docs/user-guide.md"
+Issues = "https://github.com/aubejay22/QuantLibTorch/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "QuantLib==1.40"]
+tutorials = ["matplotlib>=3.10", "nbformat>=5.10", "nbclient>=0.10", "ipykernel>=6.29"]
+release = ["build==1.2.2.post1", "twine==6.1.0"]
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools.dynamic]
+version = {attr = "quantlibtorch._version.__version__"}
+
+[tool.setuptools]
+include-package-data = false
+license-files = ["LICENSE", "LICENSES/*.txt"]
+
+[tool.setuptools.package-data]
+quantlibtorch = ["_native/quantlibtorch_native.dll", "_native/quantlibtorch_native.so", "_native/quantlibtorch_native.dylib", "_native/build_info.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["python"]
+addopts = "-ra"

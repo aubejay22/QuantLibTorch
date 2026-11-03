@@ -1,0 +1,146 @@
+{
+  "measured_at_utc": "2026-11-01T04:37:57.080892+00:00",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cu126",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cuda": "12.6",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "torch_threads": 1,
+    "torch_interop_threads": 1,
+    "dtype": "float64"
+  },
+  "native_source_sha256": {
+    "CMakeLists.txt": "bc82c3fe9a4f02d5ce5af8a8a1ab77d561583895f8bb2052a7ce0a9c13135f23",
+    "scripts/prepare_quantlib.py": "a293cc7ffd66d13977e6ba8c8ec098c7280c9f2b8c6b0d589291cd0a22f699d7",
+    "cpp/adjoint.cpp": "d791660cb6d694b79c32f2b33f4ecc720a959193b458901c3f4a3ab95f8f899f",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "20bc4796e7575b14c0a2f71d2cd993cffc888af3129ea3426eadfd92a0ef2c90",
+    "cpp/kernel_checks.cpp": "fccd8e2150f543c4ebe5260964c2e0586d3ed827a261498bc24f837ee7e9cd1f",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/tensor_kernels.cpp": "bdea718f12ede9f163d00d7ce66c2b1ab13c128783ac769205deea5714a36ab7",
+    "cpp/include/quantlibtorch/adjoint.hpp": "d5b77b95400439c9eec7f3d6fbedb0f94e1f67aa381750b602e41dd63db1dcd0",
+    "cpp/include/quantlibtorch/performance.hpp": "48b800436466f1c4159b9edf5bd2234292b979bf3624a3f80b71e2388b55387f",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "2dc3d0990ac254d5af92ff2438a4af3400acea30db39f255085514363620b6b1",
+    "cpp/include/quantlibtorch/torch_real.hpp": "69720f226f37d7f184a71cc303a74cb1ac7522371d5bbcfe90f2fc2ff8b2cf0b"
+  },
+  "notes": [
+    "Kernel pipeline only: row-band assembly followed by application; no solve, rollback, or pricing.",
+    "B independent numerical systems, one shared stencil, R right-hand sides; no contract loop in batched path.",
+    "Inputs device-resident; synchronized wall times include Python dispatch, forward, backward and cleanup.",
+    "Reference is a loop of the same tensor kernels, not stock QuantLib; dense-reference checks live in tests.",
+    "Each timing backend/grad mode has a fresh process; validation and memory also use separate workers.",
+    "Memory workers have no warmups or correctness graphs.",
+    "CUDA transfer inference includes pageable host inputs and returning all output values, measured separately.",
+    "Bridge tests include constructing a test QuantLib operator; roundtrip isolates unbind plus stack, not the complete bridge."
+  ],
+  "results": [
+    {
+      "case": {
+        "device": "cpu",
+        "batch": 256,
+        "nodes": 257,
+        "rhs": 8,
+        "task": "memory",
+        "backend": "batched",
+        "inference": false,
+        "warmup": 3,
+        "repeats": 7
+      },
+      "before": {
+        "rss_bytes": 525631488,
+        "peak_rss_bytes": 525631488,
+        "private_bytes": 812314624
+      },
+      "after": {
+        "rss_bytes": 612364288,
+        "peak_rss_bytes": 612364288,
+        "private_bytes": 892559360
+      },
+      "peak_rss_growth_bytes": 86732800
+    },
+    {
+      "case": {
+        "device": "cpu",
+        "batch": 256,
+        "nodes": 257,
+        "rhs": 8,
+        "task": "memory",
+        "backend": "loop",
+        "inference": false,
+        "warmup": 3,
+        "repeats": 7
+      },
+      "before": {
+        "rss_bytes": 524972032,
+        "peak_rss_bytes": 524972032,
+        "private_bytes": 811778048
+      },
+      "after": {
+        "rss_bytes": 620654592,
+        "peak_rss_bytes": 620654592,
+        "private_bytes": 901906432
+      },
+      "peak_rss_growth_bytes": 95682560
+    },
+    {
+      "case": {
+        "device": "cuda",
+        "batch": 256,
+        "nodes": 257,
+        "rhs": 8,
+        "task": "memory",
+        "backend": "batched",
+        "inference": false,
+        "warmup": 3,
+        "repeats": 7
+      },
+      "cuda_before_allocated_bytes": 10535424,
+      "before": {
+        "rss_bytes": 629911552,
+        "peak_rss_bytes": 629911552,
+        "private_bytes": 1036451840
+      },
+      "after": {
+        "rss_bytes": 770711552,
+        "peak_rss_bytes": 770711552,
+        "private_bytes": 1266774016
+      },
+      "peak_rss_growth_bytes": 140800000,
+      "cuda_peak_allocated_bytes": 42658304,
+      "cuda_peak_reserved_bytes": 67108864,
+      "cuda_peak_growth_bytes": 32122880
+    },
+    {
+      "case": {
+        "device": "cuda",
+        "batch": 256,
+        "nodes": 257,
+        "rhs": 8,
+        "task": "memory",
+        "backend": "loop",
+        "inference": false,
+        "warmup": 3,
+        "repeats": 7
+      },
+      "cuda_before_allocated_bytes": 10535424,
+      "before": {
+        "rss_bytes": 629702656,
+        "peak_rss_bytes": 629702656,
+        "private_bytes": 1034620928
+      },
+      "after": {
+        "rss_bytes": 764669952,
+        "peak_rss_bytes": 764669952,
+        "private_bytes": 1234259968
+      },
+      "peak_rss_growth_bytes": 134967296,
+      "cuda_peak_allocated_bytes": 37851136,
+      "cuda_peak_reserved_bytes": 60817408,
+      "cuda_peak_growth_bytes": 27315712
+    }
+  ],
+  "validation_results": [],
+  "bridge": []
+}

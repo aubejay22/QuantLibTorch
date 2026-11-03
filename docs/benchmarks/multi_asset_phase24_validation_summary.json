@@ -1,0 +1,251 @@
+{
+  "maximum_cpu_cuda_price_difference": 1.5987211554602254e-13,
+  "maximum_cpu_cuda_sensitivity_difference": 4.092726157978177e-12,
+  "neural_refinement": [
+    {
+      "mesh": "coarse",
+      "nodes": [
+        21,
+        9
+      ],
+      "steps": 12,
+      "price_change_to_finest": 0.13337006688053377,
+      "neural_sensitivity_change_to_finest": 0.001241349046405535,
+      "initial_sensitivity_change_to_finest": 0.0019624976267738
+    },
+    {
+      "mesh": "stock",
+      "nodes": [
+        41,
+        9
+      ],
+      "steps": 12,
+      "price_change_to_finest": 0.029819535616312898,
+      "neural_sensitivity_change_to_finest": 0.0002785632925267796,
+      "initial_sensitivity_change_to_finest": 0.0004375549232937398
+    },
+    {
+      "mesh": "latent",
+      "nodes": [
+        21,
+        17
+      ],
+      "steps": 12,
+      "price_change_to_finest": 0.13337374821795223,
+      "neural_sensitivity_change_to_finest": 0.0012402435167099789,
+      "initial_sensitivity_change_to_finest": 0.0019667767999536553
+    },
+    {
+      "mesh": "time",
+      "nodes": [
+        21,
+        9
+      ],
+      "steps": 24,
+      "price_change_to_finest": 0.1335542481720271,
+      "neural_sensitivity_change_to_finest": 0.0012391587277565258,
+      "initial_sensitivity_change_to_finest": 0.0019600204413649652
+    },
+    {
+      "mesh": "combined",
+      "nodes": [
+        41,
+        17
+      ],
+      "steps": 24,
+      "price_change_to_finest": 0.03004345018245358,
+      "neural_sensitivity_change_to_finest": 0.00027683894365524916,
+      "initial_sensitivity_change_to_finest": 0.0004420310723287635
+    },
+    {
+      "mesh": "fine",
+      "nodes": [
+        81,
+        33
+      ],
+      "steps": 48,
+      "price_change_to_finest": 0.005622389580602238,
+      "neural_sensitivity_change_to_finest": 5.082253648589288e-05,
+      "initial_sensitivity_change_to_finest": 8.167147097547234e-05
+    },
+    {
+      "mesh": "finest",
+      "nodes": [
+        161,
+        65
+      ],
+      "steps": 96,
+      "price_change_to_finest": 0.0,
+      "neural_sensitivity_change_to_finest": 0.0,
+      "initial_sensitivity_change_to_finest": 0.0
+    }
+  ],
+  "heston_refinement": [
+    {
+      "mesh": "small",
+      "max_price_error": 0.12587833988363073,
+      "max_sensitivity_error": [
+        0.591024003231853,
+        0.07305110614229482,
+        5.979643369176962
+      ],
+      "max_existing_cpu_price_difference": 7.105427357601002e-15
+    },
+    {
+      "mesh": "training",
+      "max_price_error": 0.010133439578041248,
+      "max_sensitivity_error": [
+        0.10336040626666287,
+        0.033300061378015444,
+        0.2365661863303572
+      ],
+      "max_existing_cpu_price_difference": 4.884981308350689e-15
+    },
+    {
+      "mesh": "time",
+      "max_price_error": 0.010387312021094885,
+      "max_sensitivity_error": [
+        0.10519220301144871,
+        0.03427828422860246,
+        0.2350330395775373
+      ],
+      "max_existing_cpu_price_difference": 7.105427357601002e-14
+    },
+    {
+      "mesh": "variance",
+      "max_price_error": 0.008758192211884896,
+      "max_sensitivity_error": [
+        0.025447010150074334,
+        0.0049770986866610745,
+        0.0776924880326888
+      ],
+      "max_existing_cpu_price_difference": 1.0658141036401503e-14
+    },
+    {
+      "mesh": "stock",
+      "max_price_error": 0.011006555186581668,
+      "max_sensitivity_error": [
+        0.097821115400897,
+        0.038066392716629815,
+        0.19156631813482505
+      ],
+      "max_existing_cpu_price_difference": 2.1316282072803006e-14
+    },
+    {
+      "mesh": "refined",
+      "max_price_error": 0.008465962741153632,
+      "max_sensitivity_error": [
+        0.027084245484393588,
+        0.005820571118820839,
+        0.07455734586282148
+      ],
+      "max_existing_cpu_price_difference": 6.750155989720952e-14
+    },
+    {
+      "mesh": "fine",
+      "max_price_error": 0.0022814255356182755,
+      "max_sensitivity_error": [
+        0.006388110430621374,
+        0.001073768877225767,
+        0.016504575292437096
+      ],
+      "max_existing_cpu_price_difference": 1.5987211554602254e-13
+    }
+  ],
+  "gradient_checks": {
+    "cpu": [
+      {
+        "group": "network",
+        "bump": 0.001,
+        "ad": -0.04464653893967968,
+        "finite_difference": -0.04464653858415879,
+        "absolute_error": 3.555208905048346e-10
+      },
+      {
+        "group": "network",
+        "bump": 0.0003,
+        "ad": -0.04464653893967968,
+        "finite_difference": -0.04464653890997224,
+        "absolute_error": 2.970743789854069e-11
+      },
+      {
+        "group": "asset_embeddings",
+        "bump": 0.001,
+        "ad": 0.0003263625168332553,
+        "finite_difference": 0.0003263625167893025,
+        "absolute_error": 4.395279713104161e-14
+      },
+      {
+        "group": "asset_embeddings",
+        "bump": 0.0003,
+        "ad": 0.0003263625168332553,
+        "finite_difference": 0.0003263625175664587,
+        "absolute_error": 7.332033743166766e-13
+      },
+      {
+        "group": "initial_states",
+        "bump": 0.001,
+        "ad": 0.00027036100315219627,
+        "finite_difference": 0.00027036100325172896,
+        "absolute_error": 9.953268678003502e-14
+      },
+      {
+        "group": "initial_states",
+        "bump": 0.0003,
+        "ad": 0.00027036100315219627,
+        "finite_difference": 0.00027036100210449854,
+        "absolute_error": 1.047697735859221e-12
+      }
+    ],
+    "cuda": [
+      {
+        "group": "network",
+        "bump": 0.001,
+        "ad": -0.044646538939679764,
+        "finite_difference": -0.044646538585380036,
+        "absolute_error": 3.5429972844447377e-10
+      },
+      {
+        "group": "network",
+        "bump": 0.0003,
+        "ad": -0.044646538939679764,
+        "finite_difference": -0.044646538907196685,
+        "absolute_error": 3.248307872683043e-11
+      },
+      {
+        "group": "asset_embeddings",
+        "bump": 0.001,
+        "ad": 0.0003263625168332444,
+        "finite_difference": 0.000326362516234191,
+        "absolute_error": 5.990534132117864e-13
+      },
+      {
+        "group": "asset_embeddings",
+        "bump": 0.0003,
+        "ad": 0.0003263625168332444,
+        "finite_difference": 0.0003263625186766817,
+        "absolute_error": 1.8434372951736666e-12
+      },
+      {
+        "group": "initial_states",
+        "bump": 0.001,
+        "ad": 0.0002703610031521248,
+        "finite_difference": 0.00027036100314070666,
+        "absolute_error": 1.1418166759313841e-14
+      },
+      {
+        "group": "initial_states",
+        "bump": 0.0003,
+        "ad": 0.0002703610031521248,
+        "finite_difference": 0.0002703610028446472,
+        "absolute_error": 3.074776219226527e-13
+      }
+    ]
+  },
+  "qualifications": [
+    "Two independent Heston assets, three strikes each; analytic prices and central bumps from an isolated stock QuantLib 1.40 process.",
+    "Frozen joint-state neural network and raw initial parameters; changes relative to finest tested grid, not certified continuous-model errors.",
+    "Separate price and per-price network-direction/raw-initial sensitivity refinements; time-only refinement need not improve spatial errors.",
+    "No financially converged two-latent calibration or real-market fit is claimed."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "baseline_git": "27ba330",
+  "implementation_checkpoint": "43d6113",
+  "platform": "Windows x64",
+  "torch": "2.10.0+cu126",
+  "dtype": "float64",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "gpu_total_memory_mib_nvidia_smi": 8188,
+  "driver": "566.36",
+  "cpu_threads": 1,
+  "interop_threads": 1,
+  "windows_qos": "high",
+  "logical_processor_affinity": 8,
+  "timing_warmups": 1,
+  "timing_repetitions": 3,
+  "baseline_binary_sha256": "e6549f5a153d6695d3fa21b1366acf1edee94684c5f929413eba9f8911401b02",
+  "notes": "Benchmark workers run sequentially. Correctness-only workers may run concurrently; their durations are not performance evidence. Setup is separate. Runtime controls and source/binary fingerprints accompany every workload. Memory/profiler workers are separate from timing workers. CPU model was not recorded."
+}

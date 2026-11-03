@@ -1,0 +1,1571 @@
+{
+  "runtime": {
+    "requested": "high",
+    "before": {
+      "version": 1,
+      "control_mask": 0,
+      "state_mask": 0
+    },
+    "after": {
+      "version": 1,
+      "control_mask": 1,
+      "state_mask": 0
+    },
+    "affinity": {
+      "requested": 8,
+      "before": {
+        "mask": 16777215,
+        "system_mask": 16777215,
+        "processor": 8
+      },
+      "after": {
+        "mask": 256,
+        "system_mask": 16777215,
+        "processor": 8
+      }
+    }
+  },
+  "source_sha256": {
+    "scripts\\profile_calibration.py": "6e90eef44cb942200aec9e6d96dd45ac554f755129359718c545dbf0cc84acbc",
+    "python\\quantlibtorch\\calibration.py": "bae59be39695bf7a85261bea301e8425a3072ae59e6d9cf6d46ccc3fa7732c8e",
+    "examples\\calibrate_neural_sde.py": "a0579010e8f89a8538e17acadc04f285b5092d85455c8deccf6cd8143360a200",
+    "cpp\\coefficient_pde.cpp": "8c30546568c28503f3ff7caa52689d12ad38e25c06bb39db01dc316ada397d95",
+    "docs\\benchmarks\\calibration_phase22_market.json": "0689fdb762b1cda064246ccf6251ea16f0687c570b79d276a7995c418a95ca40",
+    "docs\\benchmarks\\calibration_phase22_fit.json": "ed4795694b67e8f3705aea3dd1d1510f3260cbb13c135cb3c65fa99fd8ff5a73"
+  },
+  "binary_sha256": "871e84c8f187fcf73448930d1c8f7472456d31b5d0d185af489de716f67c262d",
+  "evaluation": {
+    "prices": [
+      15.765623087634603,
+      4.322678548511374,
+      0.3078943918239845,
+      16.875463365287164,
+      6.1511567899206625,
+      1.0912399775052912,
+      18.84383625809543,
+      8.792944751021745,
+      2.8754931395618772
+    ],
+    "scaled_loss": 0.02195810233404879,
+    "penalty": 0.0002093681952752864,
+    "gradients": {
+      "raw_initial": [
+        1.0216229805736554
+      ],
+      "net.0.weight": [
+        [
+          0.020507561515469445,
+          -0.005794026516696064,
+          0.02678088360930711
+        ],
+        [
+          -0.002233641710620462,
+          0.0008078705013920416,
+          -0.0029996225106445544
+        ],
+        [
+          0.004979037476462086,
+          -0.0010702560752029965,
+          0.004074266117033302
+        ],
+        [
+          0.005381198178610119,
+          -0.002265706524935326,
+          0.007428913424904301
+        ]
+      ],
+      "net.0.bias": [
+        0.0942228161467008,
+        -0.012886343387717764,
+        0.017960313703917645,
+        0.027207112695245925
+      ],
+      "net.2.weight": [
+        [
+          -0.6095943893756137,
+          0.3607558402865658,
+          -0.1333052885435727,
+          0.5068631723770933
+        ],
+        [
+          -0.02657758182655729,
+          0.014473905675220193,
+          -0.004302449730013454,
+          0.023061199920283992
+        ],
+        [
+          -0.04235610054844925,
+          0.027181879288563682,
+          -0.016625848216759123,
+          0.020698971365231546
+        ],
+        [
+          0.003646468447347671,
+          0.00102686467445761,
+          -0.0036779530340863937,
+          0.014260977795408969
+        ]
+      ],
+      "net.2.bias": [
+        1.2018223153145937,
+        0.05415479791996148,
+        0.0637401141160739,
+        0.012846503182896119
+      ]
+    }
+  },
+  "events": [
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\scripts\\profile_calibration.py",
+      "line": 28,
+      "function": "evaluate",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 0.00047620000000000003,
+      "inclusive_seconds": 33.6754302
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\calibration.py",
+      "line": 119,
+      "function": "backward",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 1.1028013,
+      "inclusive_seconds": 33.6744841
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_tensor.py",
+      "line": 575,
+      "function": "backward",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 7.99e-05,
+      "inclusive_seconds": 23.930848100000002
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\autograd\\__init__.py",
+      "line": 252,
+      "function": "backward",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 0.00012,
+      "inclusive_seconds": 23.9307646
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\autograd\\graph.py",
+      "line": 856,
+      "function": "_engine_run_backward",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 8.98e-05,
+      "inclusive_seconds": 23.930229100000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'run_backward' of 'torch._C._EngineBase' objects>",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 23.930127000000002,
+      "inclusive_seconds": 23.930127000000002
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\calibration.py",
+      "line": 103,
+      "function": "_price",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.00023270000000000002,
+      "inclusive_seconds": 8.6214937
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\latent.py",
+      "line": 123,
+      "function": "fd_latent",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.00019270000000000002,
+      "inclusive_seconds": 8.6203207
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1197,
+      "function": "__call__",
+      "calls": 36,
+      "primitive_calls": 36,
+      "self_seconds": 4.22e-05,
+      "inclusive_seconds": 8.615239500000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._ops.quantlibtorch._latent_price>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 8.614206000000001,
+      "inclusive_seconds": 8.614206000000001
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\calibration.py",
+      "line": 93,
+      "function": "_fields",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 9.750000000000001e-05,
+      "inclusive_seconds": 0.0169908
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 1772,
+      "function": "_wrapped_call_impl",
+      "calls": 45,
+      "primitive_calls": 9,
+      "self_seconds": 8.64e-05,
+      "inclusive_seconds": 0.015310500000000001
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 1780,
+      "function": "_call_impl",
+      "calls": 45,
+      "primitive_calls": 9,
+      "self_seconds": 0.0001676,
+      "inclusive_seconds": 0.015278900000000002
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\examples\\calibrate_neural_sde.py",
+      "line": 46,
+      "function": "forward",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.0039549,
+      "inclusive_seconds": 0.015173700000000002
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\container.py",
+      "line": 248,
+      "function": "forward",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 5.61e-05,
+      "inclusive_seconds": 0.0049204
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.tanh>",
+      "calls": 45,
+      "primitive_calls": 45,
+      "self_seconds": 0.0031748,
+      "inclusive_seconds": 0.0031748
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\latent.py",
+      "line": 16,
+      "function": "_tensor",
+      "calls": 36,
+      "primitive_calls": 36,
+      "self_seconds": 0.00033830000000000004,
+      "inclusive_seconds": 0.0031295000000000003
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\linear.py",
+      "line": 130,
+      "function": "forward",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 3.41e-05,
+      "inclusive_seconds": 0.0029337
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._nn.linear>",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 0.0028787,
+      "inclusive_seconds": 0.0028787
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\latent.py",
+      "line": 54,
+      "function": "_fields",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 8.64e-05,
+      "inclusive_seconds": 0.002689
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\fd.py",
+      "line": 35,
+      "function": "_axis",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 0.00026680000000000003,
+      "inclusive_seconds": 0.0025374
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\latent.py",
+      "line": 26,
+      "function": "_axes",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 5.2000000000000004e-05,
+      "inclusive_seconds": 0.0023848000000000003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.isfinite>",
+      "calls": 36,
+      "primitive_calls": 36,
+      "self_seconds": 0.0022702,
+      "inclusive_seconds": 0.0022702
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\autograd\\profiler.py",
+      "line": 806,
+      "function": "__exit__",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 0.00045430000000000004,
+      "inclusive_seconds": 0.0021955
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\pricing.py",
+      "line": 20,
+      "function": "_finite_number",
+      "calls": 990,
+      "primitive_calls": 990,
+      "self_seconds": 0.0008026000000000001,
+      "inclusive_seconds": 0.0021391
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\activation.py",
+      "line": 425,
+      "function": "forward",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 1.81e-05,
+      "inclusive_seconds": 0.0017906
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.cat>",
+      "calls": 36,
+      "primitive_calls": 36,
+      "self_seconds": 0.0017745,
+      "inclusive_seconds": 0.0017745
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1031,
+      "function": "__call__",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 5.56e-05,
+      "inclusive_seconds": 0.0017254000000000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.isinstance>",
+      "calls": 2576,
+      "primitive_calls": 2576,
+      "self_seconds": 0.0005175000000000001,
+      "inclusive_seconds": 0.0013894
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.any>",
+      "calls": 65,
+      "primitive_calls": 64,
+      "self_seconds": 0.0001942,
+      "inclusive_seconds": 0.0011179
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\autograd\\profiler.py",
+      "line": 800,
+      "function": "__enter__",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 8.54e-05,
+      "inclusive_seconds": 0.0010942
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\calibration.py",
+      "line": 97,
+      "function": "_initial",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 5.16e-05,
+      "inclusive_seconds": 0.0010366000000000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._ops.profiler._record_function_enter_new>",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 0.0009913,
+      "inclusive_seconds": 0.0009913
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1081,
+      "function": "_must_dispatch_in_python",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 8.690000000000001e-05,
+      "inclusive_seconds": 0.0009818000000000001
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\utils\\_pytree.py",
+      "line": 1784,
+      "function": "tree_any",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 7.950000000000001e-05,
+      "inclusive_seconds": 0.0008949
+    },
+    {
+      "file": "<frozen abc>",
+      "line": 117,
+      "function": "__instancecheck__",
+      "calls": 999,
+      "primitive_calls": 999,
+      "self_seconds": 0.00015110000000000001,
+      "inclusive_seconds": 0.0008719000000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.stack>",
+      "calls": 11,
+      "primitive_calls": 11,
+      "self_seconds": 0.000772,
+      "inclusive_seconds": 0.000772
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _abc._abc_instancecheck>",
+      "calls": 999,
+      "primitive_calls": 999,
+      "self_seconds": 0.00034480000000000003,
+      "inclusive_seconds": 0.0007208000000000001
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\utils\\_pytree.py",
+      "line": 1462,
+      "function": "tree_iter",
+      "calls": 189,
+      "primitive_calls": 54,
+      "self_seconds": 0.0002253,
+      "inclusive_seconds": 0.000697
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._ops.profiler.>",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 0.000688,
+      "inclusive_seconds": 0.000688
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'all' of 'torch._C.TensorBase' objects>",
+      "calls": 36,
+      "primitive_calls": 36,
+      "self_seconds": 0.0005173,
+      "inclusive_seconds": 0.0005173
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'sqrt' of 'torch._C.TensorBase' objects>",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 0.0005104,
+      "inclusive_seconds": 0.0005104
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'mean' of 'torch._C.TensorBase' objects>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.0004336,
+      "inclusive_seconds": 0.0004336
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_tensor.py",
+      "line": 40,
+      "function": "wrapped",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 5.6000000000000006e-05,
+      "inclusive_seconds": 0.00040720000000000003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'square' of 'torch._C.TensorBase' objects>",
+      "calls": 22,
+      "primitive_calls": 22,
+      "self_seconds": 0.0004059,
+      "inclusive_seconds": 0.0004059
+    },
+    {
+      "file": "<frozen abc>",
+      "line": 121,
+      "function": "__subclasscheck__",
+      "calls": 999,
+      "primitive_calls": 999,
+      "self_seconds": 0.00015120000000000002,
+      "inclusive_seconds": 0.00037600000000000003
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_tensor.py",
+      "line": 1114,
+      "function": "__rsub__",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 2.6700000000000002e-05,
+      "inclusive_seconds": 0.0003444
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.rsub>",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 0.0003177,
+      "inclusive_seconds": 0.0003177
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 426,
+      "function": "inner",
+      "calls": 48,
+      "primitive_calls": 47,
+      "self_seconds": 0.00012440000000000002,
+      "inclusive_seconds": 0.00031340000000000003
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\autograd\\profiler.py",
+      "line": 787,
+      "function": "__init__",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 0.00010290000000000001,
+      "inclusive_seconds": 0.0003104
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\autograd\\__init__.py",
+      "line": 89,
+      "function": "_make_grads",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 0.0001366,
+      "inclusive_seconds": 0.00030050000000000004
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\utils\\_pytree.py",
+      "line": 1048,
+      "function": "_get_node_type",
+      "calls": 189,
+      "primitive_calls": 189,
+      "self_seconds": 8.11e-05,
+      "inclusive_seconds": 0.0002994
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\utils\\_pytree.py",
+      "line": 1060,
+      "function": "tree_is_leaf",
+      "calls": 108,
+      "primitive_calls": 108,
+      "self_seconds": 6.720000000000001e-05,
+      "inclusive_seconds": 0.0002818
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.zeros>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.00026890000000000003,
+      "inclusive_seconds": 0.00026890000000000003
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1304,
+      "function": "__getattr__",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 6.4000000000000006e-06,
+      "inclusive_seconds": 0.00023950000000000002
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\examples\\calibrate_neural_sde.py",
+      "line": 43,
+      "function": "initial_latent",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 9.09e-05,
+      "inclusive_seconds": 0.0002269
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _abc._abc_subclasscheck>",
+      "calls": 999,
+      "primitive_calls": 999,
+      "self_seconds": 0.00022480000000000002,
+      "inclusive_seconds": 0.00022480000000000002
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\utils\\_pytree.py",
+      "line": 694,
+      "function": "is_namedtuple_class",
+      "calls": 189,
+      "primitive_calls": 189,
+      "self_seconds": 0.00011470000000000001,
+      "inclusive_seconds": 0.00021830000000000002
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\examples\\calibrate_neural_sde.py",
+      "line": 68,
+      "function": "penalty",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 1.84e-05,
+      "inclusive_seconds": 0.000199
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 574,
+      "function": "__getitem__",
+      "calls": 4,
+      "primitive_calls": 3,
+      "self_seconds": 3.9e-06,
+      "inclusive_seconds": 0.0001912
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'detach' of 'torch._C.TensorBase' objects>",
+      "calls": 28,
+      "primitive_calls": 28,
+      "self_seconds": 0.0001799,
+      "inclusive_seconds": 0.0001799
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.sum>",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 5.5700000000000005e-05,
+      "inclusive_seconds": 0.00017790000000000001
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1341,
+      "function": "_get_packet",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 3.7e-06,
+      "inclusive_seconds": 0.00016490000000000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._jit_get_operation>",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 0.0001582,
+      "inclusive_seconds": 0.0001582
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'expand' of 'torch._C.TensorBase' objects>",
+      "calls": 36,
+      "primitive_calls": 36,
+      "self_seconds": 0.00015450000000000001,
+      "inclusive_seconds": 0.00015450000000000001
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_tensor.py",
+      "line": 1203,
+      "function": "__iter__",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 2.2400000000000002e-05,
+      "inclusive_seconds": 0.0001454
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.len>",
+      "calls": 142,
+      "primitive_calls": 142,
+      "self_seconds": 3.7300000000000005e-05,
+      "inclusive_seconds": 0.0001297
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.eye>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.0001287,
+      "inclusive_seconds": 0.0001287
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 753,
+      "function": "Union",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 1.8e-05,
+      "inclusive_seconds": 0.00012790000000000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.sigmoid>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.00012790000000000002,
+      "inclusive_seconds": 0.00012790000000000002
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\examples\\calibrate_neural_sde.py",
+      "line": 70,
+      "function": "<genexpr>",
+      "calls": 5,
+      "primitive_calls": 5,
+      "self_seconds": 8.000000000000001e-06,
+      "inclusive_seconds": 0.00012220000000000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.sqrt>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.00011750000000000001,
+      "inclusive_seconds": 0.00011750000000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'new_tensor' of 'torch._C.TensorBase' objects>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.00010640000000000001,
+      "inclusive_seconds": 0.00010640000000000001
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 806,
+      "function": "Optional",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 6e-06,
+      "inclusive_seconds": 0.00010630000000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.ones_like>",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 0.00010410000000000001,
+      "inclusive_seconds": 0.00010410000000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'unbind' of 'torch._C.TensorBase' objects>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 0.00010080000000000001,
+      "inclusive_seconds": 0.00010080000000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'sum' of 'torch._C.TensorBase' objects>",
+      "calls": 5,
+      "primitive_calls": 5,
+      "self_seconds": 9.66e-05,
+      "inclusive_seconds": 9.66e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 2687,
+      "function": "named_parameters",
+      "calls": 17,
+      "primitive_calls": 17,
+      "self_seconds": 9.9e-06,
+      "inclusive_seconds": 9.42e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_tensor.py",
+      "line": 1187,
+      "function": "__len__",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 6.0700000000000005e-05,
+      "inclusive_seconds": 9.240000000000001e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 2642,
+      "function": "_named_members",
+      "calls": 17,
+      "primitive_calls": 17,
+      "self_seconds": 2.9400000000000003e-05,
+      "inclusive_seconds": 8.43e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method math.isfinite>",
+      "calls": 990,
+      "primitive_calls": 990,
+      "self_seconds": 7.8e-05,
+      "inclusive_seconds": 7.8e-05
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\fd.py",
+      "line": 45,
+      "function": "<genexpr>",
+      "calls": 963,
+      "primitive_calls": 963,
+      "self_seconds": 7.69e-05,
+      "inclusive_seconds": 7.69e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 2662,
+      "function": "parameters",
+      "calls": 11,
+      "primitive_calls": 11,
+      "self_seconds": 7.3e-06,
+      "inclusive_seconds": 7.54e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._get_tracing_state>",
+      "calls": 72,
+      "primitive_calls": 72,
+      "self_seconds": 7.22e-05,
+      "inclusive_seconds": 7.22e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1423,
+      "function": "__init__",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 1.52e-05,
+      "inclusive_seconds": 7.060000000000001e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\utils\\_pytree.py",
+      "line": 801,
+      "function": "_dict_flatten",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 4.6800000000000006e-05,
+      "inclusive_seconds": 6.93e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 173,
+      "function": "_type_check",
+      "calls": 7,
+      "primitive_calls": 7,
+      "self_seconds": 1.66e-05,
+      "inclusive_seconds": 6.790000000000001e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1099,
+      "function": "__init__",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 3.3e-06,
+      "inclusive_seconds": 6.75e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 1952,
+      "function": "__getattr__",
+      "calls": 56,
+      "primitive_calls": 56,
+      "self_seconds": 5.9600000000000005e-05,
+      "inclusive_seconds": 5.9600000000000005e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1083,
+      "function": "<lambda>",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 4.2800000000000004e-05,
+      "inclusive_seconds": 5.5900000000000004e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1113,
+      "function": "<genexpr>",
+      "calls": 2,
+      "primitive_calls": 2,
+      "self_seconds": 1.4000000000000001e-06,
+      "inclusive_seconds": 5.36e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1090,
+      "function": "_has_script_object_arg",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 1.48e-05,
+      "inclusive_seconds": 5.22e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 2941,
+      "function": "zero_grad",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 6.5000000000000004e-06,
+      "inclusive_seconds": 5.02e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 164,
+      "function": "_type_convert",
+      "calls": 7,
+      "primitive_calls": 7,
+      "self_seconds": 4.6e-06,
+      "inclusive_seconds": 4.5e-05
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\latent.py",
+      "line": 168,
+      "function": "<genexpr>",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 4.5e-05,
+      "inclusive_seconds": 4.5e-05
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\fd.py",
+      "line": 19,
+      "function": "_serial",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 4.47e-05,
+      "inclusive_seconds": 4.47e-05
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\latent.py",
+      "line": 70,
+      "function": "_config",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 1.4900000000000001e-05,
+      "inclusive_seconds": 3.99e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1023,
+      "function": "__init__",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 2.7e-06,
+      "inclusive_seconds": 3.82e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\utils\\_pytree.py",
+      "line": 771,
+      "function": "_tuple_flatten",
+      "calls": 54,
+      "primitive_calls": 54,
+      "self_seconds": 3.58e-05,
+      "inclusive_seconds": 3.58e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.compile>",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 3.5000000000000004e-05,
+      "inclusive_seconds": 3.5000000000000004e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.getattr>",
+      "calls": 115,
+      "primitive_calls": 115,
+      "self_seconds": 2.9100000000000003e-05,
+      "inclusive_seconds": 3.32e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1091,
+      "function": "<genexpr>",
+      "calls": 22,
+      "primitive_calls": 22,
+      "self_seconds": 2.71e-05,
+      "inclusive_seconds": 3.27e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 2829,
+      "function": "named_modules",
+      "calls": 45,
+      "primitive_calls": 17,
+      "self_seconds": 2.7400000000000002e-05,
+      "inclusive_seconds": 3.26e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1368,
+      "function": "__setattr__",
+      "calls": 20,
+      "primitive_calls": 20,
+      "self_seconds": 1.79e-05,
+      "inclusive_seconds": 3.19e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\container.py",
+      "line": 240,
+      "function": "__iter__",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 1.6000000000000003e-05,
+      "inclusive_seconds": 2.6600000000000003e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1307,
+      "function": "__init__",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 4.5e-06,
+      "inclusive_seconds": 2.6000000000000002e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method math.log>",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 2.5900000000000003e-05,
+      "inclusive_seconds": 2.5900000000000003e-05
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\fd.py",
+      "line": 27,
+      "function": "_integer",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 7.000000000000001e-06,
+      "inclusive_seconds": 2.5e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.issubclass>",
+      "calls": 189,
+      "primitive_calls": 189,
+      "self_seconds": 2.3e-05,
+      "inclusive_seconds": 2.3e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'dim' of 'torch._C.TensorBase' objects>",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 2.29e-05,
+      "inclusive_seconds": 2.29e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 789,
+      "function": "<genexpr>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 3.3e-06,
+      "inclusive_seconds": 2.1400000000000002e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'values' of 'dict' objects>",
+      "calls": 37,
+      "primitive_calls": 37,
+      "self_seconds": 2.1400000000000002e-05,
+      "inclusive_seconds": 2.1400000000000002e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'append' of 'list' objects>",
+      "calls": 63,
+      "primitive_calls": 63,
+      "self_seconds": 2.12e-05,
+      "inclusive_seconds": 2.12e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 260,
+      "function": "_collect_type_parameters",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 6.5000000000000004e-06,
+      "inclusive_seconds": 1.72e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 379,
+      "function": "_remove_dups_flatten",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 8.6e-06,
+      "inclusive_seconds": 1.67e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1294,
+      "function": "_is_dunder",
+      "calls": 20,
+      "primitive_calls": 20,
+      "self_seconds": 8.6e-06,
+      "inclusive_seconds": 1.4000000000000001e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 1.4000000000000001e-05,
+      "inclusive_seconds": 1.4000000000000001e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method math.prod>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 1.3800000000000002e-05,
+      "inclusive_seconds": 1.3800000000000002e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._are_functorch_transforms_active>",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 1.34e-05,
+      "inclusive_seconds": 1.34e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'numel' of 'torch._C.TensorBase' objects>",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 1.32e-05,
+      "inclusive_seconds": 1.32e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\logging\\__init__.py",
+      "line": 1758,
+      "function": "getEffectiveLevel",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 1.23e-05,
+      "inclusive_seconds": 1.23e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\overrides.py",
+      "line": 1982,
+      "function": "is_tensor_like",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 1.2e-05,
+      "inclusive_seconds": 1.2e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'add' of 'set' objects>",
+      "calls": 28,
+      "primitive_calls": 28,
+      "self_seconds": 8.1e-06,
+      "inclusive_seconds": 1.1000000000000001e-05
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'tolist' of 'torch._C.TensorBase' objects>",
+      "calls": 6,
+      "primitive_calls": 6,
+      "self_seconds": 1.0700000000000001e-05,
+      "inclusive_seconds": 1.0700000000000001e-05
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_tensor.py",
+      "line": 1225,
+      "function": "__hash__",
+      "calls": 28,
+      "primitive_calls": 28,
+      "self_seconds": 6.200000000000001e-06,
+      "inclusive_seconds": 9.5e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method '__exit__' of 'torch._C.DisableTorchFunctionSubclass' objects>",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 9.5e-06,
+      "inclusive_seconds": 9.5e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\autograd\\__init__.py",
+      "line": 242,
+      "function": "_tensor_or_tensors_to_tuple",
+      "calls": 10,
+      "primitive_calls": 10,
+      "self_seconds": 8.7e-06,
+      "inclusive_seconds": 8.7e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1136,
+      "function": "_schemas",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 2.0000000000000003e-06,
+      "inclusive_seconds": 8.7e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1389,
+      "function": "__getattr__",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 3.7e-06,
+      "inclusive_seconds": 8.6e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\nn\\modules\\module.py",
+      "line": 2712,
+      "function": "<lambda>",
+      "calls": 14,
+      "primitive_calls": 14,
+      "self_seconds": 5.600000000000001e-06,
+      "inclusive_seconds": 7.9e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._has_torch_function_unary>",
+      "calls": 28,
+      "primitive_calls": 28,
+      "self_seconds": 7.7e-06,
+      "inclusive_seconds": 7.7e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.iter>",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 7.4e-06,
+      "inclusive_seconds": 7.4e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._has_torch_function>",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 6.8e-06,
+      "inclusive_seconds": 6.8e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._get_schema>",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 6.7e-06,
+      "inclusive_seconds": 6.7e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'keys' of 'dict' objects>",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 6.4000000000000006e-06,
+      "inclusive_seconds": 6.4000000000000006e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_jit_internal.py",
+      "line": 98,
+      "function": "is_scripting",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 6.300000000000001e-06,
+      "inclusive_seconds": 6.300000000000001e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 351,
+      "function": "_deduplicate",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 2.4000000000000003e-06,
+      "inclusive_seconds": 5.600000000000001e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.hasattr>",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 5.2e-06,
+      "inclusive_seconds": 5.2e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1096,
+      "function": "__eq__",
+      "calls": 17,
+      "primitive_calls": 17,
+      "self_seconds": 2.6e-06,
+      "inclusive_seconds": 5e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\contextlib.py",
+      "line": 786,
+      "function": "__init__",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 4.4e-06,
+      "inclusive_seconds": 4.4e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'items' of 'dict' objects>",
+      "calls": 28,
+      "primitive_calls": 28,
+      "self_seconds": 4.3e-06,
+      "inclusive_seconds": 4.3e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.max>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 4.1000000000000006e-06,
+      "inclusive_seconds": 4.1000000000000006e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\_ops.py",
+      "line": 1296,
+      "function": "__init__",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 3.9e-06,
+      "inclusive_seconds": 3.9e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\contextlib.py",
+      "line": 789,
+      "function": "__enter__",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 3.8e-06,
+      "inclusive_seconds": 3.8e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'startswith' of 'str' objects>",
+      "calls": 21,
+      "primitive_calls": 21,
+      "self_seconds": 3.8e-06,
+      "inclusive_seconds": 3.8e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.id>",
+      "calls": 29,
+      "primitive_calls": 29,
+      "self_seconds": 3.8e-06,
+      "inclusive_seconds": 3.8e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method math.ceil>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 3.6000000000000003e-06,
+      "inclusive_seconds": 3.6000000000000003e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1122,
+      "function": "_is_unpacked_typevartuple",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 1.4000000000000001e-06,
+      "inclusive_seconds": 3.5000000000000004e-06
+    },
+    {
+      "file": "<USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\fd.py",
+      "line": 50,
+      "function": "_curve",
+      "calls": 18,
+      "primitive_calls": 18,
+      "self_seconds": 3.5000000000000004e-06,
+      "inclusive_seconds": 3.5000000000000004e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\contextlib.py",
+      "line": 792,
+      "function": "__exit__",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 3.3e-06,
+      "inclusive_seconds": 3.3e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method fromkeys>",
+      "calls": 3,
+      "primitive_calls": 3,
+      "self_seconds": 2.7e-06,
+      "inclusive_seconds": 3.2000000000000003e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_builtins.py",
+      "line": 199,
+      "function": "_register_builtin",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 2.2e-06,
+      "inclusive_seconds": 3e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\__init__.py",
+      "line": 129,
+      "function": "annotate",
+      "calls": 27,
+      "primitive_calls": 27,
+      "self_seconds": 2.5e-06,
+      "inclusive_seconds": 2.5e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'endswith' of 'str' objects>",
+      "calls": 14,
+      "primitive_calls": 14,
+      "self_seconds": 2.0000000000000003e-06,
+      "inclusive_seconds": 2.0000000000000003e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 2371,
+      "function": "cast",
+      "calls": 20,
+      "primitive_calls": 20,
+      "self_seconds": 1.8000000000000001e-06,
+      "inclusive_seconds": 1.8000000000000001e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1105,
+      "function": "__hash__",
+      "calls": 2,
+      "primitive_calls": 2,
+      "self_seconds": 1.1e-06,
+      "inclusive_seconds": 1.5e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 1427,
+      "function": "<genexpr>",
+      "calls": 9,
+      "primitive_calls": 9,
+      "self_seconds": 1.5e-06,
+      "inclusive_seconds": 1.5e-06
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.setattr>",
+      "calls": 2,
+      "primitive_calls": 2,
+      "self_seconds": 1.2000000000000002e-06,
+      "inclusive_seconds": 1.2000000000000002e-06
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\typing.py",
+      "line": 553,
+      "function": "__repr__",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 4.0000000000000003e-07,
+      "inclusive_seconds": 4.0000000000000003e-07
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.hash>",
+      "calls": 2,
+      "primitive_calls": 2,
+      "self_seconds": 4.0000000000000003e-07,
+      "inclusive_seconds": 4.0000000000000003e-07
+    },
+    {
+      "file": "<USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_builtins.py",
+      "line": 159,
+      "function": "_get_builtin_table",
+      "calls": 1,
+      "primitive_calls": 1,
+      "self_seconds": 3.0000000000000004e-07,
+      "inclusive_seconds": 3.0000000000000004e-07
+    }
+  ],
+  "total_seconds": 33.675444199999994,
+  "total_calls": 12967,
+  "note": "One streamed adjoint objective/VJP, fitted model, all nine contracts, 81 x 17, 24 steps/year. cProfile overhead included; no tensor event retention."
+}

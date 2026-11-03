@@ -1,0 +1,37 @@
+{
+  "conclusion": "Disabling passive constants makes fake tracing fail even with the cache disabled and the pre-existing assembly probe. The mesher control flow extracts tensor-valued constants. This diagnostic combination remains unsupported.",
+  "records": [
+    {
+      "command": [
+        "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_basis_cache.py::test_series_transform_fallback[fake]"
+      ],
+      "environment": {
+        "QLT_BASIS_CACHE": "0",
+        "QLT_PASSIVE_CONSTANTS": "0"
+      },
+      "exit_code": 1,
+      "log": "build/phase13_fake_cache_disabled.log",
+      "sha256": "f2849f3681a4db150d6c2fffde33f244d8b073054ad1e09bfc932becde3eae70"
+    },
+    {
+      "command": [
+        "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_diffusion_arithmetic.py::test_full_assembly_fake_tensor_trace_preserves_real_values_and_vjps"
+      ],
+      "environment": {
+        "QLT_BASIS_CACHE": "0",
+        "QLT_PASSIVE_CONSTANTS": "0"
+      },
+      "exit_code": 1,
+      "log": "build/phase13_fake_original_probe.log",
+      "sha256": "91aa9cd910c07340e42db979ab6e5068b9e3863d16c9cb0c81cd42683d6de515"
+    }
+  ]
+}

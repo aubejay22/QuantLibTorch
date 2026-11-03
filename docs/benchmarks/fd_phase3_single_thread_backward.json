@@ -1,0 +1,217 @@
+{
+  "measured_at_utc": "2026-11-01T02:30:43.648663+00:00",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cu126",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "torch_threads": 1,
+    "torch_interop_threads": 1,
+    "dtype": "float64",
+    "device": "cpu"
+  },
+  "native_source_sha256": {
+    "CMakeLists.txt": "bbf07413c880bb0e55eaf8f5c14745750675098e8e57ef999f89d13a320379c2",
+    "scripts/prepare_quantlib.py": "2d389dae49c0dd60d116b5bc9d38c51779fa0a543ff8eb306ddf34c4e6473ad2",
+    "cpp/adjoint.cpp": "d791660cb6d694b79c32f2b33f4ecc720a959193b458901c3f4a3ab95f8f899f",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "abdce379f8220af452bb30e223dd50f580b1646a215f76b697e39e9a32f96a6c",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/include/quantlibtorch/adjoint.hpp": "d5b77b95400439c9eec7f3d6fbedb0f94e1f67aa381750b602e41dd63db1dcd0",
+    "cpp/include/quantlibtorch/performance.hpp": "48b800436466f1c4159b9edf5bd2234292b979bf3624a3f80b71e2388b55387f",
+    "cpp/include/quantlibtorch/torch_real.hpp": "69720f226f37d7f184a71cc303a74cb1ac7522371d5bbcfe90f2fc2ff8b2cf0b"
+  },
+  "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+  "variants": {
+    "eager": {
+      "passive_constants": 0,
+      "sample_cache": 0
+    },
+    "constants": {
+      "passive_constants": 1,
+      "sample_cache": 0
+    },
+    "cache": {
+      "passive_constants": 0,
+      "sample_cache": 1
+    },
+    "optimized": {
+      "passive_constants": 1,
+      "sample_cache": 1
+    }
+  },
+  "notes": [
+    "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+    "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+    "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+    "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+    "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+    "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+    "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+    "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload."
+  ],
+  "results": [
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "constant",
+        "variant": "optimized",
+        "mode": "full",
+        "task": "timing",
+        "repeats": 3,
+        "warmup": 2,
+        "single_thread_backward": true
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "warmup": [
+        {
+          "forward_seconds": 0.16001960006542504,
+          "backward_seconds": 2.610289900097996,
+          "price": 8.839308641136238,
+          "gradient": 38.7747795967141,
+          "cleanup_seconds": 0.0871715999674052,
+          "total_seconds": 2.8574811001308262
+        },
+        {
+          "forward_seconds": 1.031834000023082,
+          "backward_seconds": 2.22761519998312,
+          "price": 8.839308641136238,
+          "gradient": 38.7747795967141,
+          "cleanup_seconds": 0.08709160005673766,
+          "total_seconds": 3.3465408000629395
+        }
+      ],
+      "samples": [
+        {
+          "forward_seconds": 1.0416415000800043,
+          "backward_seconds": 2.230041499948129,
+          "price": 8.839308641136238,
+          "gradient": 38.7747795967141,
+          "cleanup_seconds": 0.08550359983928502,
+          "total_seconds": 3.3571865998674184
+        },
+        {
+          "forward_seconds": 1.022756100166589,
+          "backward_seconds": 2.167448699939996,
+          "price": 8.839308641136238,
+          "gradient": 38.7747795967141,
+          "cleanup_seconds": 0.10493540018796921,
+          "total_seconds": 3.2951402002945542
+        },
+        {
+          "forward_seconds": 1.037906999932602,
+          "backward_seconds": 2.1924997998867184,
+          "price": 8.839308641136238,
+          "gradient": 38.7747795967141,
+          "cleanup_seconds": 0.08592010010033846,
+          "total_seconds": 3.316326899919659
+        }
+      ],
+      "median": {
+        "forward_seconds": 1.037906999932602,
+        "backward_seconds": 2.1924997998867184,
+        "cleanup_seconds": 0.08592010010033846,
+        "total_seconds": 3.316326899919659
+      },
+      "price": 8.839308641136238,
+      "gradient": 38.7747795967141
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "constant",
+        "variant": "optimized",
+        "mode": "adjoint",
+        "task": "timing",
+        "repeats": 3,
+        "warmup": 2,
+        "single_thread_backward": true
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "warmup": [
+        {
+          "forward_seconds": 0.14949599979445338,
+          "backward_seconds": 0.370211300207302,
+          "price": 8.839308641136238,
+          "gradient": 38.77477959671408,
+          "cleanup_seconds": 0.015108200022950768,
+          "total_seconds": 0.5348155000247061
+        },
+        {
+          "forward_seconds": 0.15227019996382296,
+          "backward_seconds": 0.29315089993178844,
+          "price": 8.839308641136238,
+          "gradient": 38.77477959671408,
+          "cleanup_seconds": 0.015774999978020787,
+          "total_seconds": 0.4611960998736322
+        }
+      ],
+      "samples": [
+        {
+          "forward_seconds": 0.1458652000874281,
+          "backward_seconds": 0.28537860000506043,
+          "price": 8.839308641136238,
+          "gradient": 38.77477959671408,
+          "cleanup_seconds": 0.017668399959802628,
+          "total_seconds": 0.44891220005229115
+        },
+        {
+          "forward_seconds": 0.5099577999208122,
+          "backward_seconds": 1.7528135001193732,
+          "price": 8.839308641136238,
+          "gradient": 38.77477959671408,
+          "cleanup_seconds": 0.06620789994485676,
+          "total_seconds": 2.328979199985042
+        },
+        {
+          "forward_seconds": 0.9463057001121342,
+          "backward_seconds": 1.7528816999401897,
+          "price": 8.839308641136238,
+          "gradient": 38.77477959671408,
+          "cleanup_seconds": 0.06501419981941581,
+          "total_seconds": 2.7642015998717397
+        }
+      ],
+      "median": {
+        "forward_seconds": 0.5099577999208122,
+        "backward_seconds": 1.7528135001193732,
+        "cleanup_seconds": 0.06501419981941581,
+        "total_seconds": 2.328979199985042
+      },
+      "price": 8.839308641136238,
+      "gradient": 38.77477959671408
+    }
+  ],
+  "stock": [
+    {
+      "steps": 30,
+      "nodes": 61,
+      "price": 8.839308641136238,
+      "quantlib_version": "1.40",
+      "parallel_vol_shift_derivative": 38.77477959779441,
+      "forward_seconds_samples": [
+        0.0001735000405460596,
+        0.00017170002683997154,
+        0.0001713999081403017,
+        0.00017259991727769375,
+        0.00017499993555247784,
+        0.00017159990966320038,
+        0.0001759999431669712
+      ],
+      "forward_seconds_median": 0.00017259991727769375
+    }
+  ],
+  "validation": {
+    "comparisons": 3,
+    "max_price_difference": 0.0,
+    "max_gradient_difference": 1.4210854715202004e-14
+  }
+}

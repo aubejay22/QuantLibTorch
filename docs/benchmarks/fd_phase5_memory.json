@@ -1,0 +1,1020 @@
+{
+  "command": [
+    "scripts/benchmark_fd_optimizations.py",
+    "--levels",
+    "baseline,final",
+    "--variants",
+    "optimized",
+    "--kernels",
+    "vectorized",
+    "--grids",
+    "30x61,60x121",
+    "--surfaces",
+    "surface",
+    "--modes",
+    "full,adjoint",
+    "--tasks",
+    "memory,graph",
+    "--warmup",
+    "1",
+    "--repeats",
+    "1",
+    "--output",
+    "docs/benchmarks/fd_phase5_memory.json"
+  ],
+  "levels": {
+    "baseline": {
+      "measured_at_utc": "2026-11-01T05:40:05.524599+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 0,
+        "QLT_PACKED_ARRAYS": 0,
+        "QLT_LAZY_ARRAYS": 0,
+        "QLT_VECTOR_SAMPLING": 0,
+        "QLT_ARRAY_KERNELS": 0,
+        "QLT_PRICE_ONLY": 0
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 4,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 6.217248937900877e-14
+      }
+    },
+    "final": {
+      "measured_at_utc": "2026-11-01T05:40:54.667363+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 4,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 6.572520305780927e-14
+      }
+    }
+  },
+  "results": [
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 515723264,
+        "peak_rss_bytes": 515723264,
+        "private_bytes": 812597248
+      },
+      "after_forward": {
+        "rss_bytes": 596148224,
+        "peak_rss_bytes": 596148224,
+        "private_bytes": 890507264
+      },
+      "after_backward": {
+        "rss_bytes": 603750400,
+        "peak_rss_bytes": 623484928,
+        "private_bytes": 866480128
+      },
+      "price": 9.525093885844912,
+      "gradient": [
+        [
+          9.69588980759886e-06,
+          0.5749545965306226,
+          6.31209116329703,
+          0.5852050742884697,
+          2.993202297502619e-05
+        ],
+        [
+          0.00017307568392131102,
+          2.1737123269916974,
+          15.128890307551902,
+          2.226242645086367,
+          0.0007745410107416724
+        ],
+        [
+          3.9033425514528564e-05,
+          0.9974129458242498,
+          9.566223333746086,
+          1.030583537312904,
+          0.0003638251000053739
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 540164096,
+        "peak_rss_bytes": 623484928,
+        "private_bytes": 799711232
+      },
+      "peak_rss_growth_bytes": 107761664
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 31423,
+      "saved_tensor_bytes_with_repeated_saves": 585784,
+      "graph_nodes": 60912,
+      "node_types": {
+        "MulBackward1": 25344,
+        "MulBackward0": 12197,
+        "SubBackward0": 9998,
+        "AddBackward0": 7787,
+        "AddBackward1": 2014,
+        "DivBackward0": 2013,
+        "StackBackward0": 446,
+        "UnsqueezeBackward0": 314,
+        "UnbindBackward0": 260,
+        "SelectBackward0": 228,
+        "IndexSelectBackward0": 124,
+        "DivBackward1": 123,
+        "SqueezeBackward1": 62,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 515211264,
+        "peak_rss_bytes": 515211264,
+        "private_bytes": 812032000
+      },
+      "after_forward": {
+        "rss_bytes": 560308224,
+        "peak_rss_bytes": 560308224,
+        "private_bytes": 855179264
+      },
+      "after_backward": {
+        "rss_bytes": 580112384,
+        "peak_rss_bytes": 583544832,
+        "private_bytes": 839671808
+      },
+      "price": 9.525093885844912,
+      "gradient": [
+        [
+          9.695889807598852e-06,
+          0.5749545965306203,
+          6.31209116329703,
+          0.5852050742884733,
+          2.9932022975032003e-05
+        ],
+        [
+          0.00017307568392131085,
+          2.1737123269916943,
+          15.128890307551945,
+          2.2262426450863697,
+          0.0007745410107417296
+        ],
+        [
+          3.903342551452852e-05,
+          0.9974129458242489,
+          9.566223333746088,
+          1.0305835373128986,
+          0.0003638251000055152
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 538451968,
+        "peak_rss_bytes": 583544832,
+        "private_bytes": 799805440
+      },
+      "peak_rss_growth_bytes": 68333568
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 7764,
+      "saved_tensor_bytes_with_repeated_saves": 459344,
+      "graph_nodes": 37349,
+      "node_types": {
+        "MulBackward1": 19370,
+        "AddBackward0": 7820,
+        "SubBackward0": 4058,
+        "MulBackward0": 2364,
+        "SelectBackward0": 2241,
+        "StackBackward0": 577,
+        "UnsqueezeBackward0": 314,
+        "UnbindBackward0": 260,
+        "IndexSelectBackward0": 124,
+        "DivBackward1": 123,
+        "SqueezeBackward1": 62,
+        "CppFunction": 33,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1,
+        "AddBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516038656,
+        "peak_rss_bytes": 516038656,
+        "private_bytes": 812941312
+      },
+      "after_forward": {
+        "rss_bytes": 802521088,
+        "peak_rss_bytes": 802521088,
+        "private_bytes": 1096392704
+      },
+      "after_backward": {
+        "rss_bytes": 766513152,
+        "peak_rss_bytes": 865804288,
+        "private_bytes": 1033371648
+      },
+      "price": 9.514401686543584,
+      "gradient": [
+        [
+          8.495429209264949e-06,
+          0.5779531678934382,
+          6.294429157408247,
+          0.5878118586304225,
+          2.5821918560131975e-05
+        ],
+        [
+          0.00016702151095348528,
+          2.179733303888909,
+          15.085918449485426,
+          2.227791266766463,
+          0.0006753869026966681
+        ],
+        [
+          3.497104924710455e-05,
+          0.9952459514539366,
+          9.57493694512127,
+          1.024495842012682,
+          0.00020604024221678775
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 538230784,
+        "peak_rss_bytes": 865804288,
+        "private_bytes": 797868032
+      },
+      "peak_rss_growth_bytes": 349765632
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 113279,
+      "saved_tensor_bytes_with_repeated_saves": 2208312,
+      "graph_nodes": 227832,
+      "node_types": {
+        "MulBackward1": 96264,
+        "MulBackward0": 45977,
+        "SubBackward0": 37988,
+        "AddBackward0": 29357,
+        "AddBackward1": 7624,
+        "DivBackward0": 7623,
+        "StackBackward0": 866,
+        "UnsqueezeBackward0": 614,
+        "UnbindBackward0": 500,
+        "SelectBackward0": 408,
+        "IndexSelectBackward0": 244,
+        "DivBackward1": 243,
+        "SqueezeBackward1": 122,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516067328,
+        "peak_rss_bytes": 516067328,
+        "private_bytes": 812949504
+      },
+      "after_forward": {
+        "rss_bytes": 667578368,
+        "peak_rss_bytes": 667578368,
+        "private_bytes": 963637248
+      },
+      "after_backward": {
+        "rss_bytes": 677539840,
+        "peak_rss_bytes": 715063296,
+        "private_bytes": 942239744
+      },
+      "price": 9.514401686543584,
+      "gradient": [
+        [
+          8.495429209264954e-06,
+          0.5779531678934392,
+          6.294429157408185,
+          0.5878118586304286,
+          2.5821918560124802e-05
+        ],
+        [
+          0.00016702151095348533,
+          2.179733303888903,
+          15.085918449485368,
+          2.2277912667664737,
+          0.000675386902697048
+        ],
+        [
+          3.497104924710454e-05,
+          0.9952459514539368,
+          9.574936945121317,
+          1.0244958420127193,
+          0.0002060402422179683
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 539992064,
+        "peak_rss_bytes": 715063296,
+        "private_bytes": 800948224
+      },
+      "peak_rss_growth_bytes": 198995968
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 22750,
+      "saved_tensor_bytes_with_repeated_saves": 1724992,
+      "graph_nodes": 137489,
+      "node_types": {
+        "MulBackward1": 73520,
+        "AddBackward0": 29420,
+        "SubBackward0": 15308,
+        "MulBackward0": 8304,
+        "SelectBackward0": 8031,
+        "StackBackward0": 1117,
+        "UnsqueezeBackward0": 614,
+        "UnbindBackward0": 500,
+        "IndexSelectBackward0": 244,
+        "DivBackward1": 243,
+        "SqueezeBackward1": 122,
+        "CppFunction": 63,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1,
+        "AddBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516018176,
+        "peak_rss_bytes": 516018176,
+        "private_bytes": 812974080
+      },
+      "after_forward": {
+        "rss_bytes": 562651136,
+        "peak_rss_bytes": 562651136,
+        "private_bytes": 856330240
+      },
+      "after_backward": {
+        "rss_bytes": 569610240,
+        "peak_rss_bytes": 583581696,
+        "private_bytes": 861532160
+      },
+      "price": 9.525093885844912,
+      "gradient": [
+        [
+          9.695889807598857e-06,
+          0.5749545965306222,
+          6.312091163297027,
+          0.5852050742884695,
+          2.9932022975026186e-05
+        ],
+        [
+          0.00017307568392131112,
+          2.1737123269916987,
+          15.128890307551917,
+          2.2262426450863666,
+          0.0007745410107416725
+        ],
+        [
+          3.903342551452855e-05,
+          0.9974129458242497,
+          9.566223333746091,
+          1.030583537312904,
+          0.0003638251000053741
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 539529216,
+        "peak_rss_bytes": 583581696,
+        "private_bytes": 832151552
+      },
+      "peak_rss_growth_bytes": 67563520
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 26256,
+      "saved_tensor_bytes_with_repeated_saves": 702848,
+      "graph_nodes": 28638,
+      "node_types": {
+        "MulBackward0": 10349,
+        "MulBackward1": 6444,
+        "SubBackward0": 6158,
+        "AddBackward1": 2014,
+        "DivBackward0": 2013,
+        "AddBackward0": 383,
+        "UnsqueezeBackward0": 314,
+        "SelectBackward0": 264,
+        "IndexSelectBackward0": 256,
+        "UnbindBackward0": 130,
+        "StackBackward0": 126,
+        "DivBackward1": 123,
+        "SqueezeBackward1": 62,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 515289088,
+        "peak_rss_bytes": 515289088,
+        "private_bytes": 812171264
+      },
+      "after_forward": {
+        "rss_bytes": 522485760,
+        "peak_rss_bytes": 522485760,
+        "private_bytes": 816754688
+      },
+      "after_backward": {
+        "rss_bytes": 538177536,
+        "peak_rss_bytes": 538177536,
+        "private_bytes": 829550592
+      },
+      "price": 9.525093885844912,
+      "gradient": [
+        [
+          9.695889807598847e-06,
+          0.5749545965306202,
+          6.31209116329703,
+          0.5852050742884731,
+          2.9932022975031993e-05
+        ],
+        [
+          0.00017307568392131088,
+          2.1737123269916956,
+          15.128890307551936,
+          2.2262426450863706,
+          0.0007745410107417292
+        ],
+        [
+          3.903342551452851e-05,
+          0.9974129458242487,
+          9.566223333746086,
+          1.0305835373128982,
+          0.00036382510000551507
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 538226688,
+        "peak_rss_bytes": 538226688,
+        "private_bytes": 829550592
+      },
+      "peak_rss_growth_bytes": 22937600
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 2597,
+      "saved_tensor_bytes_with_repeated_saves": 576408,
+      "graph_nodes": 2895,
+      "node_types": {
+        "MulBackward0": 516,
+        "MulBackward1": 470,
+        "AddBackward0": 416,
+        "SelectBackward0": 385,
+        "UnsqueezeBackward0": 314,
+        "IndexSelectBackward0": 256,
+        "SubBackward0": 218,
+        "DivBackward1": 123,
+        "SliceBackward0": 66,
+        "SqueezeBackward1": 62,
+        "CppFunction": 33,
+        "StackBackward0": 33,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1,
+        "AddBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516284416,
+        "peak_rss_bytes": 516284416,
+        "private_bytes": 813236224
+      },
+      "after_forward": {
+        "rss_bytes": 677715968,
+        "peak_rss_bytes": 677715968,
+        "private_bytes": 968957952
+      },
+      "after_backward": {
+        "rss_bytes": 647880704,
+        "peak_rss_bytes": 715440128,
+        "private_bytes": 938020864
+      },
+      "price": 9.514401686543584,
+      "gradient": [
+        [
+          8.495429209264949e-06,
+          0.5779531678934389,
+          6.294429157408259,
+          0.5878118586304223,
+          2.582191856013195e-05
+        ],
+        [
+          0.00016702151095348552,
+          2.1797333038889124,
+          15.08591844948537,
+          2.227791266766461,
+          0.000675386902696669
+        ],
+        [
+          3.4971049247104625e-05,
+          0.9952459514539358,
+          9.574936945121275,
+          1.024495842012682,
+          0.0002060402422167878
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 540516352,
+        "peak_rss_bytes": 715440128,
+        "private_bytes": 828444672
+      },
+      "peak_rss_growth_bytes": 199155712
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 95684,
+      "saved_tensor_bytes_with_repeated_saves": 2672352,
+      "graph_nodes": 103908,
+      "node_types": {
+        "MulBackward0": 38669,
+        "MulBackward1": 23664,
+        "SubBackward0": 23108,
+        "AddBackward1": 7624,
+        "DivBackward0": 7623,
+        "AddBackward0": 743,
+        "UnsqueezeBackward0": 614,
+        "SelectBackward0": 504,
+        "IndexSelectBackward0": 496,
+        "UnbindBackward0": 250,
+        "StackBackward0": 246,
+        "DivBackward1": 243,
+        "SqueezeBackward1": 122,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "memory",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516308992,
+        "peak_rss_bytes": 516308992,
+        "private_bytes": 813293568
+      },
+      "after_forward": {
+        "rss_bytes": 529002496,
+        "peak_rss_bytes": 529002496,
+        "private_bytes": 822140928
+      },
+      "after_backward": {
+        "rss_bytes": 545202176,
+        "peak_rss_bytes": 545202176,
+        "private_bytes": 835489792
+      },
+      "price": 9.514401686543584,
+      "gradient": [
+        [
+          8.495429209264949e-06,
+          0.577953167893439,
+          6.294429157408193,
+          0.5878118586304284,
+          2.5821918560124785e-05
+        ],
+        [
+          0.00016702151095348552,
+          2.1797333038889084,
+          15.085918449485364,
+          2.227791266766464,
+          0.0006753869026970475
+        ],
+        [
+          3.497104924710459e-05,
+          0.9952459514539357,
+          9.57493694512131,
+          1.0244958420127193,
+          0.0002060402422179686
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 545251328,
+        "peak_rss_bytes": 545251328,
+        "private_bytes": 835489792
+      },
+      "peak_rss_growth_bytes": 28942336
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "graph",
+        "repeats": 1,
+        "warmup": 1,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 5155,
+      "saved_tensor_bytes_with_repeated_saves": 2189032,
+      "graph_nodes": 5625,
+      "node_types": {
+        "MulBackward0": 996,
+        "MulBackward1": 920,
+        "AddBackward0": 806,
+        "SelectBackward0": 745,
+        "UnsqueezeBackward0": 614,
+        "IndexSelectBackward0": 496,
+        "SubBackward0": 428,
+        "DivBackward1": 243,
+        "SliceBackward0": 126,
+        "SqueezeBackward1": 122,
+        "CppFunction": 63,
+        "StackBackward0": 63,
+        "AccumulateGrad": 1,
+        "SubBackward1": 1,
+        "AddBackward1": 1
+      }
+    }
+  ],
+  "stock": [],
+  "native_source_sha256": {
+    "CMakeLists.txt": "bc82c3fe9a4f02d5ce5af8a8a1ab77d561583895f8bb2052a7ce0a9c13135f23",
+    "scripts/prepare_quantlib.py": "afec0256de7f9fa82c6ddfe68e57453eaeef081a2c50c32298a7da27d0209de3",
+    "cpp/adjoint.cpp": "2ca5a606f88580ead816b9bc65dd2930d18c49b331b647b740f0b56d9a569b83",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "93c711ea7c18a6b241fcc79281c3d2d4c1766d0160dba7b8c64bb8dfe32ae38f",
+    "cpp/kernel_checks.cpp": "aad7e0b15c4deac4dd102199f80c5195e2bb7491ca4a191866d0f8ae80f42215",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/tensor_kernels.cpp": "66d226dc1f82e0cb74aa52ade80fc634f9fc75670de0963fcd3f88a2295a1192",
+    "cpp/include/quantlibtorch/adjoint.hpp": "d5b77b95400439c9eec7f3d6fbedb0f94e1f67aa381750b602e41dd63db1dcd0",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "2dc3d0990ac254d5af92ff2438a4af3400acea30db39f255085514363620b6b1",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "validation": {
+    "comparisons": 12,
+    "max_price_difference": 0.0,
+    "max_gradient_difference": 7.37188088351104e-14
+  }
+}

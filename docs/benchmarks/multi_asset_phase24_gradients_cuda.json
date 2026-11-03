@@ -1,0 +1,95 @@
+{
+  "source_sha256": {
+    "cpp/packed_pde.cpp": "9ae650360c4ea35c7da0516412285e245afa8b72be6581d217f85688cb1330d2",
+    "cpp/multi_asset.inc": "66b2b49ac32f54fbc3488ba3b5c465c337b752842fb0af475594c2abb32cdd8a",
+    "cpp/parallel_solve.cpp": "088f6f384c79f8c556f6d989049ed75827b4eb4be6febbb62d39240210d3972f",
+    "python/quantlibtorch/batch.py": "00ec8a8bd2228db3c537dcedd883b51aa5b0ed6d71bb768f32c7b6a20f064ff2",
+    "python/quantlibtorch/multi_asset.py": "3252bc3ac935c9660fec29bfff04c4269de59a6d1d75437643836d35cc9a5295",
+    "examples/multi_asset_neural_sde.py": "33765b15fcfc396cde7792cb043965a56c05495d6dd657a046330f626e95dad2",
+    "scripts/prepare_packed.py": "eef08f5d71ee4f199bb8d5d10bc23f91cd4bf5eb607a1dec9ce96ca15d8c4001",
+    "scripts/benchmark_multi_asset.py": "8b1734a420d62287973c256d64aec81eb3498512e55c30706a10805475308727"
+  },
+  "binary_sha256": "899b6b60d8b80d84e0c77934c56cfd277eb53f2c6c5faf6600d98b65697cfabd",
+  "device": "cuda",
+  "runtime": {
+    "requested": "high",
+    "before": {
+      "version": 1,
+      "control_mask": 0,
+      "state_mask": 0
+    },
+    "after": {
+      "version": 1,
+      "control_mask": 1,
+      "state_mask": 0
+    },
+    "affinity": {
+      "requested": 8,
+      "before": {
+        "mask": 16777215,
+        "system_mask": 16777215,
+        "processor": 8
+      },
+      "after": {
+        "mask": 256,
+        "system_mask": 16777215,
+        "processor": 8
+      }
+    }
+  },
+  "assets": 20,
+  "contracts": 30,
+  "nodes": [
+    41,
+    17
+  ],
+  "time_steps": 24,
+  "loss": 0.8648756139740538,
+  "checks": [
+    {
+      "group": "network",
+      "bump": 0.001,
+      "ad": -0.044646538939679764,
+      "finite_difference": -0.044646538585380036,
+      "absolute_error": 3.5429972844447377e-10
+    },
+    {
+      "group": "network",
+      "bump": 0.0003,
+      "ad": -0.044646538939679764,
+      "finite_difference": -0.044646538907196685,
+      "absolute_error": 3.248307872683043e-11
+    },
+    {
+      "group": "asset_embeddings",
+      "bump": 0.001,
+      "ad": 0.0003263625168332444,
+      "finite_difference": 0.000326362516234191,
+      "absolute_error": 5.990534132117864e-13
+    },
+    {
+      "group": "asset_embeddings",
+      "bump": 0.0003,
+      "ad": 0.0003263625168332444,
+      "finite_difference": 0.0003263625186766817,
+      "absolute_error": 1.8434372951736666e-12
+    },
+    {
+      "group": "initial_states",
+      "bump": 0.001,
+      "ad": 0.0002703610031521248,
+      "finite_difference": 0.00027036100314070666,
+      "absolute_error": 1.1418166759313841e-14
+    },
+    {
+      "group": "initial_states",
+      "bump": 0.0003,
+      "ad": 0.0002703610031521248,
+      "finite_difference": 0.0002703610028446472,
+      "absolute_error": 3.074776219226527e-13
+    }
+  ],
+  "diagnostic_source_sha256": {
+    "scripts/check_multi_asset_gradients.py": "f4b0e73de51776a4f6ccbe4112f054ec330634a108c070b5ae1f2507b917aa4e"
+  }
+}

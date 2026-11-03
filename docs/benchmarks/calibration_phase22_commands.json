@@ -1,0 +1,178 @@
+[
+  {
+    "name": "convergence",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/benchmark_calibration.py",
+      "convergence",
+      "--parameters",
+      "docs/benchmarks/calibration_phase22_fit.json",
+      "--output",
+      "docs/benchmarks/calibration_phase22_convergence.json",
+      "--windows-qos",
+      "high",
+      "--affinity",
+      "8"
+    ],
+    "started_utc": "2026-11-01T22:10:41.165137+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:11:51.236801+00:00"
+  },
+  {
+    "name": "finance",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/benchmark_calibration.py",
+      "finance",
+      "--output",
+      "docs/benchmarks/calibration_phase22_finance.json",
+      "--windows-qos",
+      "high",
+      "--affinity",
+      "8"
+    ],
+    "started_utc": "2026-11-01T22:11:51.238167+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:12:46.315719+00:00"
+  },
+  {
+    "name": "quote_audit",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/audit_calibration_quotes.py"
+    ],
+    "started_utc": "2026-11-01T22:12:46.318033+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:13:12.605195+00:00"
+  },
+  {
+    "name": "gradients_refined",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/benchmark_calibration.py",
+      "gradients",
+      "--mesh",
+      "space",
+      "--parameters",
+      "docs/benchmarks/calibration_phase22_fit.json",
+      "--output",
+      "docs/benchmarks/calibration_phase22_gradients_refined.json",
+      "--windows-qos",
+      "high",
+      "--affinity",
+      "8"
+    ],
+    "started_utc": "2026-11-01T22:13:12.606204+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:14:38.261361+00:00"
+  },
+  {
+    "name": "gradients_full",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/benchmark_calibration.py",
+      "gradients",
+      "--mesh",
+      "scaling",
+      "--mode",
+      "full",
+      "--parameters",
+      "docs/benchmarks/calibration_phase22_fit.json",
+      "--output",
+      "docs/benchmarks/calibration_phase22_gradients_full.json",
+      "--windows-qos",
+      "high",
+      "--affinity",
+      "8"
+    ],
+    "started_utc": "2026-11-01T22:14:38.262804+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:15:04.640663+00:00"
+  },
+  {
+    "name": "gradients_adjoint",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/benchmark_calibration.py",
+      "gradients",
+      "--mesh",
+      "scaling",
+      "--mode",
+      "adjoint",
+      "--parameters",
+      "docs/benchmarks/calibration_phase22_fit.json",
+      "--output",
+      "docs/benchmarks/calibration_phase22_gradients_adjoint.json",
+      "--windows-qos",
+      "high",
+      "--affinity",
+      "8"
+    ],
+    "started_utc": "2026-11-01T22:15:04.642026+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:15:15.360219+00:00"
+  },
+  {
+    "name": "workloads",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/run_calibration_benchmarks.py",
+      "--windows-qos",
+      "high",
+      "--affinity",
+      "8"
+    ],
+    "started_utc": "2026-11-01T22:26:20.205860+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:33:26.067180+00:00"
+  },
+  {
+    "name": "full_tests",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "started_utc": "2026-11-01T22:33:26.068378+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:37:24.971364+00:00"
+  },
+  {
+    "name": "python_profile",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/profile_calibration.py"
+    ],
+    "started_utc": "2026-11-01T22:37:30.710741+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:38:09.465089+00:00"
+  },
+  {
+    "name": "refinement",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/refine_calibration.py"
+    ],
+    "started_utc": "2026-11-01T22:38:09.466392+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:48:05.183990+00:00"
+  },
+  {
+    "name": "truth",
+    "command": [
+      "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+      "scripts/benchmark_calibration.py",
+      "truth",
+      "--output",
+      "docs/benchmarks/calibration_phase22_truth.json",
+      "--windows-qos",
+      "high",
+      "--affinity",
+      "8"
+    ],
+    "started_utc": "2026-11-01T22:48:05.185579+00:00",
+    "returncode": 0,
+    "finished_utc": "2026-11-01T22:48:54.478098+00:00"
+  }
+]

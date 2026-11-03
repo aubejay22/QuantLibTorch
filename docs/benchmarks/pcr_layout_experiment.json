@@ -1,0 +1,733 @@
+{
+  "status": "not adopted: slower in every measured case",
+  "native_source_sha256": {
+    "CMakeLists.txt": "99c0ba0225f011417b330932ffc922aa48d93c7ef1f6843b34ebc56231049372",
+    "scripts/prepare_quantlib.py": "70caf909867b60b522fcb456e31757476623dd5c9ea40527ce81ea5e3e2bc60f",
+    "cpp/adjoint.cpp": "ff7c39251a702a1760ba32cd97a4aaf78a304b255dac168bec98bb94fa2a9253",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "96a29d77038bad48ce7388092b6e4d7c4b161f52cc674f4a85be4d80eaf761b7",
+    "cpp/kernel_checks.cpp": "440b6858e7750905c421d0ab6a1b2d60f47ede6f73e6a34fcf84c1a4aebe68c2",
+    "cpp/parallel_solve.cpp": "7175c2fcbe3b119fc5456d26311460817a04c954a72a3f3c17bc6f446de87ee5",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "8b9969574df9a0ee0b05392bdfba89cf8accbdceb55e0e96c2d4e54eb82e56a1",
+    "cpp/tensor_kernels.cpp": "12567db803db59af925e2a87f8cad3319455bab7cde7fa9a701bf17bbfcfc090",
+    "cpp/include/quantlibtorch/adjoint.hpp": "c0289beafcca10881f54a7b7e5eab0a62b639e2e8a52e695b9b109eecefa3c27",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "4d83be79de075f51c1741e993f5285d4a825515bad1194dc297c831db498777b",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "b7c18bddb9b912e902fcb4dcafb33d455409be0b12183b9d108f2de66abbc3b8",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "native_binary_sha256": {
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "5d631126f52e71cf35bc68a2d141de6de65315409fc402f32e693ae9c5147aea"
+  },
+  "prototype_path": "build/phase8_pcr_layout_probe.py",
+  "prototype_source_utf8": "\"\"\"Reversible PCR layout experiment; not part of the pricing implementation.\"\"\"\nimport argparse\nimport json\nimport statistics\nfrom pathlib import Path\nimport sys\nimport time\n\nimport torch\nfrom quantlibtorch import tridiagonal_solve_pcr\n\n\ndef packed_pcr(lower, diagonal, upper, rhs):\n    n = diagonal.shape[-1]\n    shape = torch.broadcast_shapes(lower.shape[:-1], diagonal.shape[:-1], upper.shape[:-1], rhs.shape[:-2])\n    lo = torch.cat((torch.zeros_like(lower[..., :1]), lower), -1).expand(*shape, n)\n    di = diagonal.expand(*shape, n)\n    up = torch.cat((upper, torch.zeros_like(upper[..., :1])), -1).expand(*shape, n)\n    state = torch.cat((torch.stack((lo, di, up), -1), rhs.expand(*shape, n, rhs.shape[-1])), -1)\n    step = 1\n    while step < n:\n        left, right = state.roll(step, -2), state.roll(-step, -2)\n        alpha, beta = -state[..., :1]/left[..., 1:2], -state[..., 2:3]/right[..., 1:2]\n        diagonal = state[..., 1:2]+alpha*left[..., 2:3]+beta*right[..., :1]\n        values = state[..., 3:]+alpha*left[..., 3:]+beta*right[..., 3:]\n        state = torch.cat((alpha*left[..., :1], diagonal, beta*right[..., 2:3], values), -1)\n        step *= 2\n    return state[..., 3:]/state[..., 1:2]\n\n\ndef run():\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--layout', choices=('current', 'packed'), required=True)\n    parser.add_argument('--device', choices=('cpu', 'cuda'), default='cpu')\n    parser.add_argument('--shape', default='1x61x1')\n    parser.add_argument('--windows-qos', choices=('system', 'high'), default='high')\n    args = parser.parse_args()\n    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))\n    from runtime_controls import worker_qos\n    qos = worker_qos(args.windows_qos)\n    torch.set_num_threads(1)\n    torch.set_num_interop_threads(1)\n    batch, n, nrhs = map(int, args.shape.split('x'))\n    gen = torch.Generator().manual_seed(277)\n    inputs = tuple(t.to(args.device).requires_grad_() for t in (\n        .1*torch.randn(batch, n-1, dtype=torch.float64, generator=gen),\n        2+torch.rand(batch, n, dtype=torch.float64, generator=gen),\n        -.1*torch.randn(batch, n-1, dtype=torch.float64, generator=gen),\n        torch.randn(batch, n, nrhs, dtype=torch.float64, generator=gen)))\n    weights = torch.linspace(-.7, 1.1, batch*n*nrhs, dtype=torch.float64, device=args.device).reshape(batch, n, nrhs)\n    solve = packed_pcr if args.layout == 'packed' else lambda *a: tridiagonal_solve_pcr(*a, check_pivots=False)\n    lo, di, up, rhs = inputs\n    reference = torch.linalg.solve(torch.diag_embed(lo, offset=-1)+torch.diag_embed(di)+torch.diag_embed(up, offset=1), rhs)\n    expected = torch.autograd.grad(reference, inputs, weights)\n    actual = solve(*inputs)\n    gradients = torch.autograd.grad(actual, inputs, weights)\n    torch.testing.assert_close(actual, reference, rtol=2e-12, atol=2e-13)\n    for value, target in zip(gradients, expected):\n        torch.testing.assert_close(value, target, rtol=2e-11, atol=2e-12)\n    def sync():\n        if args.device == 'cuda': torch.cuda.synchronize()\n    def measure():\n        sync()\n        start = time.perf_counter()\n        value = solve(*inputs)\n        sync()\n        forward = time.perf_counter()\n        gradient = torch.autograd.grad(value, inputs, weights)\n        sync()\n        backward = time.perf_counter()\n        del value, gradient\n        sync()\n        return {'forward': forward-start, 'backward': backward-forward, 'total': time.perf_counter()-start}\n    warmup = [measure() for _ in range(8)]\n    samples = [measure() for _ in range(9)]\n    print(json.dumps(dict(case=vars(args), worker_qos=qos, warmup=warmup, samples=samples,\n                         median={key: statistics.median(s[key] for s in samples) for key in samples[0]})))\n\n\nif __name__ == '__main__': run()\n",
+  "prototype_sha256": "a0181c571cd9445bb7c52196f2431f3630ce4716cf6973af29bcfb8a6064f2fd",
+  "results": [
+    {
+      "case": {
+        "layout": "current",
+        "device": "cpu",
+        "shape": "1x61x1",
+        "windows_qos": "high"
+      },
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "warmup": [
+        {
+          "forward": 0.0005479000974446535,
+          "backward": 0.0012316000647842884,
+          "total": 0.0018152000848203897
+        },
+        {
+          "forward": 0.0004689998459070921,
+          "backward": 0.001073900144547224,
+          "total": 0.0015706999693065882
+        },
+        {
+          "forward": 0.0004292998928576708,
+          "backward": 0.0010848999954760075,
+          "total": 0.0015420999843627214
+        },
+        {
+          "forward": 0.0005302999634295702,
+          "backward": 0.0010770000517368317,
+          "total": 0.0016346999909728765
+        },
+        {
+          "forward": 0.0004313001409173012,
+          "backward": 0.0010396998841315508,
+          "total": 0.0014977999962866306
+        },
+        {
+          "forward": 0.00044059986248612404,
+          "backward": 0.0010471001733094454,
+          "total": 0.001514399889856577
+        },
+        {
+          "forward": 0.00042479997500777245,
+          "backward": 0.0010575000196695328,
+          "total": 0.0015090999659150839
+        },
+        {
+          "forward": 0.0004243000876158476,
+          "backward": 0.0010619000531733036,
+          "total": 0.0015124999918043613
+        }
+      ],
+      "samples": [
+        {
+          "forward": 0.00042179995216429234,
+          "backward": 0.0010472999420017004,
+          "total": 0.0015026999171823263
+        },
+        {
+          "forward": 0.00043610017746686935,
+          "backward": 0.0010508999694138765,
+          "total": 0.001513299997895956
+        },
+        {
+          "forward": 0.00042239995673298836,
+          "backward": 0.001051400089636445,
+          "total": 0.0015004000160843134
+        },
+        {
+          "forward": 0.0004257999826222658,
+          "backward": 0.0010697999969124794,
+          "total": 0.0015221000649034977
+        },
+        {
+          "forward": 0.00042479997500777245,
+          "backward": 0.0011430000886321068,
+          "total": 0.0015950999222695827
+        },
+        {
+          "forward": 0.00043070013634860516,
+          "backward": 0.001038899878039956,
+          "total": 0.0014957999810576439
+        },
+        {
+          "forward": 0.00044080009683966637,
+          "backward": 0.0010395001154392958,
+          "total": 0.001506800064817071
+        },
+        {
+          "forward": 0.00042269984260201454,
+          "backward": 0.0011686000507324934,
+          "total": 0.0016186998691409826
+        },
+        {
+          "forward": 0.00043189991265535355,
+          "backward": 0.0010687001049518585,
+          "total": 0.0015272998716682196
+        }
+      ],
+      "median": {
+        "forward": 0.0004257999826222658,
+        "backward": 0.001051400089636445,
+        "total": 0.001513299997895956
+      }
+    },
+    {
+      "case": {
+        "layout": "packed",
+        "device": "cpu",
+        "shape": "1x61x1",
+        "windows_qos": "high"
+      },
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "warmup": [
+        {
+          "forward": 0.0009812000207602978,
+          "backward": 0.0017442000098526478,
+          "total": 0.0027782998513430357
+        },
+        {
+          "forward": 0.0008753000292927027,
+          "backward": 0.001628299942240119,
+          "total": 0.0025390000082552433
+        },
+        {
+          "forward": 0.000866499962285161,
+          "backward": 0.001581900054588914,
+          "total": 0.002482400042936206
+        },
+        {
+          "forward": 0.0008525000885128975,
+          "backward": 0.0016210998874157667,
+          "total": 0.0025071001145988703
+        },
+        {
+          "forward": 0.0008368000853806734,
+          "backward": 0.0016123999375849962,
+          "total": 0.002482800045982003
+        },
+        {
+          "forward": 0.0008272000122815371,
+          "backward": 0.0016052999999374151,
+          "total": 0.0024659999180585146
+        },
+        {
+          "forward": 0.00085240020416677,
+          "backward": 0.0016015998553484678,
+          "total": 0.0024886999744921923
+        },
+        {
+          "forward": 0.0008574000094085932,
+          "backward": 0.0016145000699907541,
+          "total": 0.002505500102415681
+        }
+      ],
+      "samples": [
+        {
+          "forward": 0.0008245999924838543,
+          "backward": 0.00159580004401505,
+          "total": 0.0024539001751691103
+        },
+        {
+          "forward": 0.0008135000243782997,
+          "backward": 0.0016091999132186174,
+          "total": 0.002456699963659048
+        },
+        {
+          "forward": 0.0009320999961346388,
+          "backward": 0.0016676001250743866,
+          "total": 0.002633800031617284
+        },
+        {
+          "forward": 0.0008507999591529369,
+          "backward": 0.0016211001202464104,
+          "total": 0.0025061999913305044
+        },
+        {
+          "forward": 0.0009198999032378197,
+          "backward": 0.001616600202396512,
+          "total": 0.002571400022134185
+        },
+        {
+          "forward": 0.000825399998575449,
+          "backward": 0.0016185999847948551,
+          "total": 0.0024786998983472586
+        },
+        {
+          "forward": 0.0008725998923182487,
+          "backward": 0.001576300011947751,
+          "total": 0.0024834999348968267
+        },
+        {
+          "forward": 0.0008580998983234167,
+          "backward": 0.0016153000760823488,
+          "total": 0.0025080000050365925
+        },
+        {
+          "forward": 0.0008247001096606255,
+          "backward": 0.001606399891898036,
+          "total": 0.0024652001447975636
+        }
+      ],
+      "median": {
+        "forward": 0.0008507999591529369,
+        "backward": 0.0016153000760823488,
+        "total": 0.0024834999348968267
+      }
+    },
+    {
+      "case": {
+        "layout": "current",
+        "device": "cpu",
+        "shape": "256x257x4",
+        "windows_qos": "high"
+      },
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "warmup": [
+        {
+          "forward": 0.04153869999572635,
+          "backward": 0.08499279990792274,
+          "total": 0.12888689991086721
+        },
+        {
+          "forward": 0.04073309991508722,
+          "backward": 0.0865021999925375,
+          "total": 0.13251070003025234
+        },
+        {
+          "forward": 0.04483380005694926,
+          "backward": 0.08664559992030263,
+          "total": 0.13344580004923046
+        },
+        {
+          "forward": 0.041167700197547674,
+          "backward": 0.0802187998779118,
+          "total": 0.1235166999977082
+        },
+        {
+          "forward": 0.04040020005777478,
+          "backward": 0.07983130007050931,
+          "total": 0.1225793999619782
+        },
+        {
+          "forward": 0.0388756999745965,
+          "backward": 0.08127150009386241,
+          "total": 0.12237840006127954
+        },
+        {
+          "forward": 0.04020400019362569,
+          "backward": 0.08411549986340106,
+          "total": 0.12656870018690825
+        },
+        {
+          "forward": 0.04047010000795126,
+          "backward": 0.08276699995622039,
+          "total": 0.12562309997156262
+        }
+      ],
+      "samples": [
+        {
+          "forward": 0.04065260011702776,
+          "backward": 0.0833150998223573,
+          "total": 0.12607190012931824
+        },
+        {
+          "forward": 0.04225250007584691,
+          "backward": 0.09054340003058314,
+          "total": 0.13473680010065436
+        },
+        {
+          "forward": 0.039974800078198314,
+          "backward": 0.08629749994724989,
+          "total": 0.1282146000303328
+        },
+        {
+          "forward": 0.04184329998679459,
+          "backward": 0.08336699986830354,
+          "total": 0.1271565998904407
+        },
+        {
+          "forward": 0.03946279990486801,
+          "backward": 0.08084430010057986,
+          "total": 0.12247009994462132
+        },
+        {
+          "forward": 0.04068630002439022,
+          "backward": 0.08131300006061792,
+          "total": 0.1243879001121968
+        },
+        {
+          "forward": 0.038861599983647466,
+          "backward": 0.07887069997377694,
+          "total": 0.11990220006555319
+        },
+        {
+          "forward": 0.03845799993723631,
+          "backward": 0.08050519996322691,
+          "total": 0.12140879989601672
+        },
+        {
+          "forward": 0.03915699990466237,
+          "backward": 0.08269149996340275,
+          "total": 0.1240285998210311
+        }
+      ],
+      "median": {
+        "forward": 0.039974800078198314,
+        "backward": 0.08269149996340275,
+        "total": 0.1243879001121968
+      }
+    },
+    {
+      "case": {
+        "layout": "packed",
+        "device": "cpu",
+        "shape": "256x257x4",
+        "windows_qos": "high"
+      },
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "warmup": [
+        {
+          "forward": 0.06223749998025596,
+          "backward": 0.18962059984914958,
+          "total": 0.25196299981325865
+        },
+        {
+          "forward": 0.060777500038966537,
+          "backward": 0.1962536999490112,
+          "total": 0.25711060012690723
+        },
+        {
+          "forward": 0.06068409979343414,
+          "backward": 0.19478360004723072,
+          "total": 0.2555575999431312
+        },
+        {
+          "forward": 0.062425100011751056,
+          "backward": 0.198029899969697,
+          "total": 0.26054379995912313
+        },
+        {
+          "forward": 0.06097290012985468,
+          "backward": 0.18987939995713532,
+          "total": 0.25093800015747547
+        },
+        {
+          "forward": 0.06143520004115999,
+          "backward": 0.193346600048244,
+          "total": 0.2548692000564188
+        },
+        {
+          "forward": 0.06410999991931021,
+          "backward": 0.1950576000381261,
+          "total": 0.2592541999183595
+        },
+        {
+          "forward": 0.06285950005985796,
+          "backward": 0.18897749995812774,
+          "total": 0.251921399962157
+        }
+      ],
+      "samples": [
+        {
+          "forward": 0.06272920011542737,
+          "backward": 0.20695060002617538,
+          "total": 0.26976940012536943
+        },
+        {
+          "forward": 0.0614370999392122,
+          "backward": 0.1963977999985218,
+          "total": 0.2579234999138862
+        },
+        {
+          "forward": 0.06428369996137917,
+          "backward": 0.19326750002801418,
+          "total": 0.25763050001114607
+        },
+        {
+          "forward": 0.0626097999047488,
+          "backward": 0.19603810016997159,
+          "total": 0.2587347000371665
+        },
+        {
+          "forward": 0.06335369986481965,
+          "backward": 0.19382950011640787,
+          "total": 0.25726199988275766
+        },
+        {
+          "forward": 0.061153799993917346,
+          "backward": 0.18538579996675253,
+          "total": 0.2466174999717623
+        },
+        {
+          "forward": 0.05734220007434487,
+          "backward": 0.18698029988445342,
+          "total": 0.24441429995931685
+        },
+        {
+          "forward": 0.062064699828624725,
+          "backward": 0.18681470002047718,
+          "total": 0.2489596998784691
+        },
+        {
+          "forward": 0.057341899955645204,
+          "backward": 0.1842272998765111,
+          "total": 0.2416508998721838
+        }
+      ],
+      "median": {
+        "forward": 0.062064699828624725,
+        "backward": 0.19326750002801418,
+        "total": 0.25726199988275766
+      }
+    },
+    {
+      "case": {
+        "layout": "current",
+        "device": "cuda",
+        "shape": "256x257x4",
+        "windows_qos": "high"
+      },
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "warmup": [
+        {
+          "forward": 0.0035370001569390297,
+          "backward": 0.006653799908235669,
+          "total": 0.010279100155457854
+        },
+        {
+          "forward": 0.002718700096011162,
+          "backward": 0.006021499866619706,
+          "total": 0.008818299975246191
+        },
+        {
+          "forward": 0.0027075998950749636,
+          "backward": 0.007104899967089295,
+          "total": 0.00989699992351234
+        },
+        {
+          "forward": 0.0033135998528450727,
+          "backward": 0.006955400109291077,
+          "total": 0.010342199821025133
+        },
+        {
+          "forward": 0.0027836998924613,
+          "backward": 0.006428000051528215,
+          "total": 0.009282799903303385
+        },
+        {
+          "forward": 0.0030195999424904585,
+          "backward": 0.008242200128734112,
+          "total": 0.011336399940773845
+        },
+        {
+          "forward": 0.0029555000364780426,
+          "backward": 0.007021700032055378,
+          "total": 0.0100509999319911
+        },
+        {
+          "forward": 0.004110800102353096,
+          "backward": 0.006463999859988689,
+          "total": 0.010644600028172135
+        }
+      ],
+      "samples": [
+        {
+          "forward": 0.0028813998214900494,
+          "backward": 0.006336400052532554,
+          "total": 0.009288499830290675
+        },
+        {
+          "forward": 0.002872199984267354,
+          "backward": 0.006272200029343367,
+          "total": 0.009217299986630678
+        },
+        {
+          "forward": 0.003084300085902214,
+          "backward": 0.007899299962446094,
+          "total": 0.011057700030505657
+        },
+        {
+          "forward": 0.0029599000699818134,
+          "backward": 0.006996899843215942,
+          "total": 0.010027199983596802
+        },
+        {
+          "forward": 0.0027130001690238714,
+          "backward": 0.006639999803155661,
+          "total": 0.009438500041142106
+        },
+        {
+          "forward": 0.0033327999990433455,
+          "backward": 0.006966900080442429,
+          "total": 0.01038640015758574
+        },
+        {
+          "forward": 0.0033033001236617565,
+          "backward": 0.00804489990696311,
+          "total": 0.011428800178691745
+        },
+        {
+          "forward": 0.0032690998632460833,
+          "backward": 0.006793700158596039,
+          "total": 0.010127899935469031
+        },
+        {
+          "forward": 0.0028242000844329596,
+          "backward": 0.0061640997882932425,
+          "total": 0.009060600074008107
+        }
+      ],
+      "median": {
+        "forward": 0.0029599000699818134,
+        "backward": 0.006793700158596039,
+        "total": 0.010027199983596802
+      }
+    },
+    {
+      "case": {
+        "layout": "packed",
+        "device": "cuda",
+        "shape": "256x257x4",
+        "windows_qos": "high"
+      },
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "warmup": [
+        {
+          "forward": 0.0038759999442845583,
+          "backward": 0.010207199957221746,
+          "total": 0.014183799969032407
+        },
+        {
+          "forward": 0.003694200189784169,
+          "backward": 0.010114099830389023,
+          "total": 0.013887000037357211
+        },
+        {
+          "forward": 0.003915500128641725,
+          "backward": 0.010062200017273426,
+          "total": 0.014055400155484676
+        },
+        {
+          "forward": 0.003777399891987443,
+          "backward": 0.010817800182849169,
+          "total": 0.01467949990183115
+        },
+        {
+          "forward": 0.004234899999573827,
+          "backward": 0.009892199886962771,
+          "total": 0.01420239987783134
+        },
+        {
+          "forward": 0.003631399944424629,
+          "backward": 0.009513000026345253,
+          "total": 0.01322029996663332
+        },
+        {
+          "forward": 0.003743099980056286,
+          "backward": 0.0102142000105232,
+          "total": 0.014033199986442924
+        },
+        {
+          "forward": 0.0038919001817703247,
+          "backward": 0.010404699947685003,
+          "total": 0.014383200090378523
+        }
+      ],
+      "samples": [
+        {
+          "forward": 0.0038071000017225742,
+          "backward": 0.009486299939453602,
+          "total": 0.013369499938562512
+        },
+        {
+          "forward": 0.0035635000094771385,
+          "backward": 0.009687199955806136,
+          "total": 0.013333699898794293
+        },
+        {
+          "forward": 0.003967999946326017,
+          "backward": 0.010443300008773804,
+          "total": 0.01449869992211461
+        },
+        {
+          "forward": 0.004066199995577335,
+          "backward": 0.009689800208434463,
+          "total": 0.013837300008162856
+        },
+        {
+          "forward": 0.0037885999772697687,
+          "backward": 0.010271499864757061,
+          "total": 0.014143599895760417
+        },
+        {
+          "forward": 0.003979100147262216,
+          "backward": 0.010389699833467603,
+          "total": 0.014445000095292926
+        },
+        {
+          "forward": 0.0037851999513804913,
+          "backward": 0.01035179989412427,
+          "total": 0.014208299806341529
+        },
+        {
+          "forward": 0.003999599954113364,
+          "backward": 0.010767500149086118,
+          "total": 0.014847900019958615
+        },
+        {
+          "forward": 0.0041090999729931355,
+          "backward": 0.010839700000360608,
+          "total": 0.015036000171676278
+        }
+      ],
+      "median": {
+        "forward": 0.003967999946326017,
+        "backward": 0.01035179989412427,
+        "total": 0.014208299806341529
+      }
+    }
+  ],
+  "notes": [
+    "The prototype stores lower/diagonal/upper/RHS in one row tensor to share neighbour rolls.",
+    "Its Python forward is compared with the existing C++ kernel; frontend overhead differs.",
+    "Backward also became slower, with additional slices and gradient storage.",
+    "Every worker passed independent dense-value and all-band/RHS VJP assertions before timing.",
+    "This exploratory prototype has not received higher/forward-AD or full pricing validation.",
+    "No production numerical implementation or default changed."
+  ]
+}

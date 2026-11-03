@@ -1,0 +1,43 @@
+QuantLib v1.40: 06edddbdb85f006c43a449b5fc846a00c67477f3
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 6.2.9200.
+-- Configuring done (2.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: <USER_HOME>/Documents/QuantLibTorch/build/native
+MSBuild version 17.14.23+b0019275e for .NET Framework
+
+  packed_pde.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244: 'argument': conversion from '_Ty' to 'QuantLib::Date::serial_type', possible loss of data [<USER_HOME>\Documents\QuantLibTorch\build\native\quantlibtorch_native.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         with [<USER_HOME>\Documents\QuantLibTorch\build\native\quantlibtorch_native.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         [ [<USER_HOME>\Documents\QuantLibTorch\build\native\quantlibtorch_native.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:             _Ty=__int64 [<USER_HOME>\Documents\QuantLibTorch\build\native\quantlibtorch_native.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         ] [<USER_HOME>\Documents\QuantLibTorch\build\native\quantlibtorch_native.vcxproj]
+  (compiling source file '../../cpp/packed_pde.cpp')
+      C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103):
+      the template instantiation context (the oldest one first) is
+          <USER_HOME>\Documents\QuantLibTorch\cpp\packed_pde.cpp(328,12):
+          see reference to function template instantiation 'QuantLib::Date &std::vector<QuantLib::Date,std::allocator<QuantLib::Date>>::emplace_back<__int64>(__int64 &&)' being compiled
+              <USER_HOME>\Documents\QuantLibTorch\cpp\packed_pde.cpp(328,24):
+              see the first reference to 'std::vector<QuantLib::Date,std::allocator<QuantLib::Date>>::emplace_back' in 'quantlibtorch::packed::curve'
+          C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vector(924,24):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<__int64>(__int64 &&)' being compiled
+          with
+          [
+              _Ty=QuantLib::Date
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vector(845,20):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<__int64>(__int64 &&)' being compiled
+          with
+          [
+              _Ty=QuantLib::Date
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\vector(863,27):
+          see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,__int64>(_Alloc &,_Objty *const ,__int64 &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<QuantLib::Date>,
+              _Ty=QuantLib::Date,
+              _Objty=QuantLib::Date
+          ]
+
+     Creating library <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.lib and object <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.exp
+  quantlibtorch_native.vcxproj -> <USER_HOME>\Documents\QuantLibTorch\python\quantlibtorch\_native\quantlibtorch_native.dll

@@ -1,0 +1,253 @@
+{
+  "created_at_utc": "2026-11-02T00:27:00.406060+00:00",
+  "config": {
+    "task": "gradients",
+    "market": "<USER_HOME>\\Documents\\QuantLibTorch\\docs\\benchmarks\\packed_phase23_market.json",
+    "output": "<USER_HOME>\\Documents\\QuantLibTorch\\docs\\benchmarks\\packed_phase23_gradients_cpu.json",
+    "mesh": "training",
+    "contracts": 3,
+    "maturities": "common",
+    "execution": "batched",
+    "mode": "adjoint",
+    "device": "cpu",
+    "latent_dimensions": 1,
+    "parameters": "<USER_HOME>\\Documents\\QuantLibTorch\\docs\\benchmarks\\calibration_phase22_fit.json",
+    "warmup": 1,
+    "repeats": 3,
+    "iterations": 15,
+    "windows_qos": "high",
+    "affinity": 8
+  },
+  "runtime": {
+    "requested": "high",
+    "before": {
+      "version": 1,
+      "control_mask": 0,
+      "state_mask": 0
+    },
+    "after": {
+      "version": 1,
+      "control_mask": 1,
+      "state_mask": 0
+    },
+    "affinity": {
+      "requested": 8,
+      "before": {
+        "mask": 16777215,
+        "system_mask": 16777215,
+        "processor": 10
+      },
+      "after": {
+        "mask": 256,
+        "system_mask": 16777215,
+        "processor": 8
+      }
+    }
+  },
+  "torch": "2.10.0+cu126",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "source_sha256": {
+    "cpp\\packed_pde.cpp": "63d52de223cbf1775f3dd2a64497d0ee8731338927b074c08e1bf1f03a8ebca6",
+    "cpp\\thomas_arithmetic.cpp": "9872041539e97cf91a5388729b32e16bbd85515ca61e914af21b223784da0799",
+    "scripts\\prepare_packed.py": "4827d1d52f054e607a63e0f2a91e4976315e099e5745f73ad9de710b0c1c4a97",
+    "python\\quantlibtorch\\batch.py": "34f272a01a641e8b55a6475bd104b7f309583db073c58ddddf873b6e4b53e407",
+    "python\\quantlibtorch\\calibration.py": "6a042b91065f7409fcf79c2435dc20ed9dee9be3d2d7e88de2072f73bad8dd19",
+    "examples\\calibrate_neural_sde.py": "8164c4cbc3da3b1201dd6e75a374e51d690673cc57bdb977c5168093ce826d8d",
+    "scripts\\benchmark_packed_calibration.py": "e11691c9501287e9cd1ed0911076e28876890186d60a7caa43aa8d5dba936950",
+    "docs\\benchmarks\\packed_phase23_market.json": "1d66087b97f8adf7a223e5499ccbe18bc0f0a86421cb3b849246d3892861ccd7"
+  },
+  "binary_sha256": "e6549f5a153d6695d3fa21b1366acf1edee94684c5f929413eba9f8911401b02",
+  "baseline_git": "12ec6ee",
+  "setup_seconds": 0.48905309988185763,
+  "memory_before_setup": {
+    "rss_bytes": 515129344,
+    "peak_rss_bytes": 515129344,
+    "private_bytes": 779673600
+  },
+  "memory_after_setup": {
+    "rss_bytes": 534388736,
+    "peak_rss_bytes": 536809472,
+    "private_bytes": 826490880
+  },
+  "nodes": 1377,
+  "groups": [
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "parameters": {
+    "raw_initial": [
+      -0.5752642225185095
+    ],
+    "net.0.weight": [
+      [
+        -0.43027837882237924,
+        0.5021458614259489,
+        0.5061122309397992
+      ],
+      [
+        0.20868123991720466,
+        0.2947005945830503,
+        -0.19336274532790992
+      ],
+      [
+        -0.12536851350371073,
+        0.0139339006457264,
+        0.4583152528190836
+      ],
+      [
+        -0.2220725579182632,
+        0.3796015466693269,
+        0.2553812466361168
+      ]
+    ],
+    "net.0.bias": [
+      -0.5754744114763252,
+      0.33922918160413457,
+      -0.20560519376496547,
+      0.4585976235213869
+    ],
+    "net.2.weight": [
+      [
+        0.1004670856232889,
+        -0.008893926255855392,
+        0.012802651088067437,
+        0.031212095506811005
+      ],
+      [
+        0.10664221053821622,
+        -0.03550535591632179,
+        -0.0032225437021912912,
+        -0.04151582527915675
+      ],
+      [
+        0.05695776160199996,
+        -0.021909339245856328,
+        0.055637086306382234,
+        -0.02951212818515796
+      ],
+      [
+        -0.02417308659513035,
+        -0.021660556221125584,
+        -0.0015764046514979394,
+        -0.009097688364077369
+      ]
+    ],
+    "net.2.bias": [
+      0.10095771929206192,
+      -0.06436809225387885,
+      0.013558041519837789,
+      0.0002898062732610285
+    ]
+  },
+  "evaluation": {
+    "seconds": 0.29596360004507005,
+    "forward_seconds": 0.10434779990464449,
+    "backward_seconds": 0.16240909998305142,
+    "cleanup_seconds": 0.02462569996714592,
+    "loss": 0.020233464467890965,
+    "penalty": 0.0002093681952752864,
+    "prices": [
+      22.890773519690338,
+      8.792944751021752,
+      1.825308787305988
+    ],
+    "gradients": {
+      "raw_initial": [
+        3.190442448061037
+      ],
+      "net.0.weight": [
+        [
+          0.15613579558314333,
+          -0.0017686829537736063,
+          0.0871636606468853
+        ],
+        [
+          -0.024844412636424704,
+          0.0006249505818783573,
+          -0.01140090755985963
+        ],
+        [
+          0.02547207126153526,
+          -0.0007414061669971923,
+          0.010864263291035178
+        ],
+        [
+          0.06355168454233952,
+          0.0008696086939830545,
+          0.02168469606975057
+        ]
+      ],
+      "net.0.bias": [
+        0.3497445360314834,
+        -0.057912473421456445,
+        0.049992103185662336,
+        0.12451078335708492
+      ],
+      "net.2.weight": [
+        [
+          -3.0256675792819014,
+          1.9707463684858681,
+          -0.9051961289551551,
+          1.9597462360793687
+        ],
+        [
+          -0.2290598058795464,
+          0.14780418129996342,
+          -0.06747425218402012,
+          0.16407795861472016
+        ],
+        [
+          0.11179645894299367,
+          -0.0783113025886473,
+          0.03790386286922101,
+          -0.08275329939454192
+        ],
+        [
+          -0.3122463792176208,
+          0.2032776946318493,
+          -0.11027441103809427,
+          0.2085689103573667
+        ]
+      ],
+      "net.2.bias": [
+        5.194645712970484,
+        0.4129901062041017,
+        -0.20257185301779462,
+        0.541178615768861
+      ]
+    }
+  },
+  "gradient_checks": [
+    {
+      "group": "network",
+      "bump": 0.001,
+      "ad": 0.08704822818790298,
+      "finite_difference": 0.08704848639801838,
+      "absolute_error": 2.582101154002814e-07
+    },
+    {
+      "group": "network",
+      "bump": 0.0003,
+      "ad": 0.08704822818790298,
+      "finite_difference": 0.08704825138674983,
+      "absolute_error": 2.3198846857419575e-08
+    },
+    {
+      "group": "initial_state",
+      "bump": 0.001,
+      "ad": 0.15952212240305186,
+      "finite_difference": 0.15952213376841695,
+      "absolute_error": 1.1365365093496393e-08
+    },
+    {
+      "group": "initial_state",
+      "bump": 0.0003,
+      "ad": 0.15952212240305186,
+      "finite_difference": 0.1595221234230541,
+      "absolute_error": 1.0200022493300764e-09
+    }
+  ]
+}

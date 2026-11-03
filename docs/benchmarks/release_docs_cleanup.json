@@ -1,0 +1,55 @@
+{
+  "baseline": "6770549",
+  "archives": [
+    {
+      "source": "docs/architecture.md",
+      "archive": "docs/history/architecture.md",
+      "source_sha256": "623cfce3fb47647dbc239f559b52555d88a36456c59f8530f17712e40dad2f7c",
+      "archive_sha256": "717b7bcaa56705139b016e1980dcbcde863cc8a61e21392aa37a6addc1016b9a",
+      "original_lines": 5690,
+      "changes": "Historical notice and relative Markdown links only"
+    },
+    {
+      "source": "PROJECT_CONTEXT.md",
+      "archive": "docs/history/project-context.md",
+      "source_sha256": "dc4cd62337e4aab00b584ba1130efede7245406979c06b6bfeb434130e205064",
+      "archive_sha256": "95c7a1a307acc66cff7903c7295a42db3d22ff90450cf5e34269daa6288f38c8",
+      "original_lines": 609,
+      "changes": "Historical notice and relative Markdown links only"
+    },
+    {
+      "source": "docs/roadmap.md",
+      "archive": "docs/history/roadmap.md",
+      "source_sha256": "a5c5fe90a23d094c108b0236d5f1f4aeda4b6a2ff7f98b54e5b7b72ebe55dfaa",
+      "archive_sha256": "66ea6aeb5c3b5979dcc19aa45a74832ee857a9f2161e02e94c83dbdb81d24312",
+      "original_lines": 74,
+      "changes": "Historical notice and relative Markdown links only"
+    }
+  ],
+  "numerical_sources_removed": [],
+  "tests_removed": [],
+  "benchmark_evidence_moved": [],
+  "executable_documentation": [
+    {
+      "file": "README.md",
+      "snippet": 1,
+      "price": 8.827321225352126
+    },
+    {
+      "file": "docs/user-guide.md",
+      "snippet": 1,
+      "price": 8.827321225352126
+    },
+    {
+      "file": "docs/user-guide.md",
+      "snippet": 2,
+      "price": 6.95027626587967
+    }
+  ],
+  "public_api_preserved": true,
+  "private_identifier_audit": {
+    "python_files": 124,
+    "sole_definition_occurrences": 0,
+    "limitation": "Identifier use is evidence, not a proof of reachability."
+  }
+}

@@ -1,0 +1,754 @@
+{
+  "command": [
+    "scripts/benchmark_fd_optimizations.py",
+    "--levels",
+    "phase7,phase8",
+    "--kernels",
+    "auto",
+    "--variants",
+    "optimized",
+    "--warmup",
+    "32",
+    "--repeats",
+    "15",
+    "--windows-qos",
+    "high",
+    "--grids",
+    "30x61,60x121",
+    "--surfaces",
+    "surface",
+    "--modes",
+    "full",
+    "--tasks",
+    "memory,graph",
+    "--no-stock",
+    "--output",
+    "docs/benchmarks/fd_phase8_memory.json"
+  ],
+  "levels": {
+    "phase7": {
+      "measured_at_utc": "2026-11-01T08:44:17.614029+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "windows_qos": "high",
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1,
+        "QLT_SPLINE_KERNELS": 1,
+        "QLT_TRIDIAGONAL_ADJOINT": 1,
+        "QLT_PCR_ROLL": 1,
+        "QLT_SPATIAL_CACHE": 1,
+        "QLT_OPERATOR_ADJOINT": 1,
+        "QLT_STEP_ADJOINT": 1,
+        "QLT_ASSEMBLY_ADJOINT": 1,
+        "QLT_PCR_FUSED": 0,
+        "QLT_PCR_NATIVE_STAGE": 0
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Process CPU times include all worker threads and may have coarse platform clock resolution; they supplement elapsed wall time.",
+        "Optional high Windows QoS affects only each benchmark worker; no machine power plan or pricing-library policy changes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "phase8": {
+      "measured_at_utc": "2026-11-01T08:44:37.681069+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "windows_qos": "high",
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1,
+        "QLT_SPLINE_KERNELS": 1,
+        "QLT_TRIDIAGONAL_ADJOINT": 1,
+        "QLT_PCR_ROLL": 1,
+        "QLT_SPATIAL_CACHE": 1,
+        "QLT_OPERATOR_ADJOINT": 1,
+        "QLT_STEP_ADJOINT": 1,
+        "QLT_ASSEMBLY_ADJOINT": 1,
+        "QLT_PCR_FUSED": 0,
+        "QLT_PCR_NATIVE_STAGE": 1
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Process CPU times include all worker threads and may have coarse platform clock resolution; they supplement elapsed wall time.",
+        "Optional high Windows QoS affects only each benchmark worker; no machine power plan or pricing-library policy changes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    }
+  },
+  "results": [
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase7"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516263936,
+        "peak_rss_bytes": 516263936,
+        "private_bytes": 813150208
+      },
+      "after_forward": {
+        "rss_bytes": 529416192,
+        "peak_rss_bytes": 529416192,
+        "private_bytes": 822210560
+      },
+      "after_backward": {
+        "rss_bytes": 545198080,
+        "peak_rss_bytes": 546385920,
+        "private_bytes": 803373056
+      },
+      "price": 9.525093885844912,
+      "gradient": [
+        [
+          9.695889807598849e-06,
+          0.5749545965306226,
+          6.312091163297036,
+          0.585205074288468,
+          2.9932022975030885e-05
+        ],
+        [
+          0.0001730756839213109,
+          2.1737123269916934,
+          15.128890307551906,
+          2.226242645086357,
+          0.0007745410107420917
+        ],
+        [
+          3.9033425514528497e-05,
+          0.9974129458242487,
+          9.56622333374607,
+          1.0305835373128893,
+          0.0003638251000062293
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 545243136,
+        "peak_rss_bytes": 546385920,
+        "private_bytes": 803373056
+      },
+      "peak_rss_growth_bytes": 30121984
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase7"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 4065,
+      "saved_tensor_bytes_with_repeated_saves": 1985678,
+      "graph_nodes": 6768,
+      "node_types": {
+        "MulBackward0": 1535,
+        "RollBackward0": 1528,
+        "AddBackward0": 1100,
+        "UnsqueezeBackward0": 776,
+        "DivBackward0": 437,
+        "NegBackward0": 396,
+        "SelectBackward0": 266,
+        "MulBackward1": 208,
+        "IndexSelectBackward0": 130,
+        "SqueezeBackward1": 96,
+        "SliceBackward0": 91,
+        "SubBackward0": 70,
+        "CatBackward0": 69,
+        "StackBackward0": 34,
+        "WhereBackward0": 16,
+        "AbsBackward0": 13,
+        "AccumulateGrad": 1,
+        "AddBackward1": 1,
+        "SubBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase7"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516034560,
+        "peak_rss_bytes": 516034560,
+        "private_bytes": 812924928
+      },
+      "after_forward": {
+        "rss_bytes": 544083968,
+        "peak_rss_bytes": 544083968,
+        "private_bytes": 831844352
+      },
+      "after_backward": {
+        "rss_bytes": 562380800,
+        "peak_rss_bytes": 562380800,
+        "private_bytes": 820977664
+      },
+      "price": 9.514401686543573,
+      "gradient": [
+        [
+          8.495429209264949e-06,
+          0.5779531678934381,
+          6.2944291574082705,
+          0.5878118586304181,
+          2.582191856012563e-05
+        ],
+        [
+          0.00016702151095348547,
+          2.179733303888909,
+          15.08591844948542,
+          2.227791266766453,
+          0.0006753869026960405
+        ],
+        [
+          3.497104924710463e-05,
+          0.9952459514539354,
+          9.574936945121278,
+          1.0244958420126875,
+          0.00020604024221764855
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 544043008,
+        "peak_rss_bytes": 562425856,
+        "private_bytes": 802414592
+      },
+      "peak_rss_growth_bytes": 46391296
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase7"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 8705,
+      "saved_tensor_bytes_with_repeated_saves": 8459838,
+      "graph_nodes": 14346,
+      "node_types": {
+        "RollBackward0": 3414,
+        "MulBackward0": 3295,
+        "AddBackward0": 2344,
+        "UnsqueezeBackward0": 1622,
+        "DivBackward0": 953,
+        "NegBackward0": 882,
+        "SelectBackward0": 506,
+        "MulBackward1": 388,
+        "IndexSelectBackward0": 250,
+        "SqueezeBackward1": 186,
+        "SliceBackward0": 151,
+        "SubBackward0": 130,
+        "CatBackward0": 129,
+        "StackBackward0": 64,
+        "WhereBackward0": 16,
+        "AbsBackward0": 13,
+        "AccumulateGrad": 1,
+        "AddBackward1": 1,
+        "SubBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase8"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516427776,
+        "peak_rss_bytes": 516427776,
+        "private_bytes": 813236224
+      },
+      "after_forward": {
+        "rss_bytes": 523603968,
+        "peak_rss_bytes": 523603968,
+        "private_bytes": 816943104
+      },
+      "after_backward": {
+        "rss_bytes": 539701248,
+        "peak_rss_bytes": 539742208,
+        "private_bytes": 797839360
+      },
+      "price": 9.525093885844912,
+      "gradient": [
+        [
+          9.695889807598849e-06,
+          0.5749545965306223,
+          6.3120911632970556,
+          0.5852050742884684,
+          2.9932022975028043e-05
+        ],
+        [
+          0.0001730756839213109,
+          2.173712326991694,
+          15.12889030755195,
+          2.226242645086378,
+          0.0007745410107418939
+        ],
+        [
+          3.9033425514528497e-05,
+          0.9974129458242488,
+          9.566223333746095,
+          1.0305835373129044,
+          0.0003638251000059367
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 539746304,
+        "peak_rss_bytes": 539746304,
+        "private_bytes": 797839360
+      },
+      "peak_rss_growth_bytes": 23318528
+    },
+    {
+      "case": {
+        "steps": 30,
+        "nodes": 61,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase8"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 1704,
+      "saved_tensor_bytes_with_repeated_saves": 833510,
+      "graph_nodes": 2319,
+      "node_types": {
+        "MulBackward0": 401,
+        "UnsqueezeBackward0": 381,
+        "AddBackward0": 296,
+        "SelectBackward0": 266,
+        "MulBackward1": 208,
+        "CppFunction": 204,
+        "IndexSelectBackward0": 130,
+        "SqueezeBackward1": 96,
+        "SliceBackward0": 91,
+        "SubBackward0": 70,
+        "CatBackward0": 69,
+        "DivBackward0": 41,
+        "StackBackward0": 34,
+        "WhereBackward0": 16,
+        "AbsBackward0": 13,
+        "AccumulateGrad": 1,
+        "AddBackward1": 1,
+        "SubBackward1": 1
+      }
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "memory",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase8"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "before": {
+        "rss_bytes": 516169728,
+        "peak_rss_bytes": 516169728,
+        "private_bytes": 813051904
+      },
+      "after_forward": {
+        "rss_bytes": 530386944,
+        "peak_rss_bytes": 530386944,
+        "private_bytes": 821354496
+      },
+      "after_backward": {
+        "rss_bytes": 546684928,
+        "peak_rss_bytes": 546684928,
+        "private_bytes": 804929536
+      },
+      "price": 9.514401686543573,
+      "gradient": [
+        [
+          8.49542920926495e-06,
+          0.5779531678934379,
+          6.2944291574082705,
+          0.587811858630421,
+          2.5821918560126466e-05
+        ],
+        [
+          0.0001670215109534855,
+          2.179733303888911,
+          15.085918449485469,
+          2.2277912667664954,
+          0.0006753869026964658
+        ],
+        [
+          3.497104924710462e-05,
+          0.9952459514539361,
+          9.574936945121326,
+          1.02449584201273,
+          0.00020604024221891772
+        ]
+      ],
+      "after_cleanup": {
+        "rss_bytes": 546729984,
+        "peak_rss_bytes": 546729984,
+        "private_bytes": 804929536
+      },
+      "peak_rss_growth_bytes": 30560256
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "graph",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase8"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "saved_tensor_count": 3430,
+      "saved_tensor_bytes_with_repeated_saves": 3353638,
+      "graph_nodes": 4423,
+      "node_types": {
+        "MulBackward0": 761,
+        "UnsqueezeBackward0": 741,
+        "AddBackward0": 566,
+        "SelectBackward0": 506,
+        "CppFunction": 448,
+        "MulBackward1": 388,
+        "IndexSelectBackward0": 250,
+        "SqueezeBackward1": 186,
+        "SliceBackward0": 151,
+        "SubBackward0": 130,
+        "CatBackward0": 129,
+        "DivBackward0": 71,
+        "StackBackward0": 64,
+        "WhereBackward0": 16,
+        "AbsBackward0": 13,
+        "AccumulateGrad": 1,
+        "AddBackward1": 1,
+        "SubBackward1": 1
+      }
+    }
+  ],
+  "stock": [],
+  "native_source_sha256": {
+    "CMakeLists.txt": "8c61751128c6898b39e676dec04c6aa825e9d553fd34e4dd325d1a67efe8dcfc",
+    "scripts/prepare_quantlib.py": "70caf909867b60b522fcb456e31757476623dd5c9ea40527ce81ea5e3e2bc60f",
+    "cpp/adjoint.cpp": "ff7c39251a702a1760ba32cd97a4aaf78a304b255dac168bec98bb94fa2a9253",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "96a29d77038bad48ce7388092b6e4d7c4b161f52cc674f4a85be4d80eaf761b7",
+    "cpp/kernel_checks.cpp": "440b6858e7750905c421d0ab6a1b2d60f47ede6f73e6a34fcf84c1a4aebe68c2",
+    "cpp/parallel_solve.cpp": "73aa07808744a4c497880f711c494433a1f51b14f4353970eec7fcda70f4c981",
+    "cpp/pcr_stage.cpp": "7eafdd4cd2a8f21686cf4e229d0f72508fd7c911df2484355d987a22ed06d2bb",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "8b9969574df9a0ee0b05392bdfba89cf8accbdceb55e0e96c2d4e54eb82e56a1",
+    "cpp/tensor_kernels.cpp": "12567db803db59af925e2a87f8cad3319455bab7cde7fa9a701bf17bbfcfc090",
+    "cpp/include/quantlibtorch/adjoint.hpp": "c0289beafcca10881f54a7b7e5eab0a62b639e2e8a52e695b9b109eecefa3c27",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "4d83be79de075f51c1741e993f5285d4a825515bad1194dc297c831db498777b",
+    "cpp/include/quantlibtorch/pcr_stage.hpp": "d686518c01f68adc16a864e779beb7051b00d248f74a8cff5a22c62a09a58411",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "b7c18bddb9b912e902fcb4dcafb33d455409be0b12183b9d108f2de66abbc3b8",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "validation": {
+    "comparisons": 4,
+    "max_price_difference": 0.0,
+    "max_gradient_difference": 4.796163466380676e-14
+  }
+}

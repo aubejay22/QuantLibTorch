@@ -1,0 +1,1426 @@
+{
+  "schema_version": 1,
+  "local_source_revision": "29dfb0ec0be349009c0f0c6f49d786afaf769e4e",
+  "tracked_file_count": 852,
+  "scanned_payload_counts": {
+    "payloads": 4191,
+    "zip_archives": 40,
+    "gzip_archives": 2
+  },
+  "credential_pattern_findings": 0,
+  "personal_path_or_author_email_findings_after_transform": 0,
+  "transformations": [
+    {
+      "path": "docs/benchmarks/calibration_phase22_build.txt",
+      "original_sha256": "4195503f87cef2ccaa6f74744da9c3173722fd2ae2631f39118780f162dbb56a",
+      "public_sha256": "ca3ccdbee106c3f9e0c5be64a5f7f0ac16a7d2c0b03df735aa637bdabcf48e21"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_commands.json",
+      "original_sha256": "0ae8d43f675da9866678744f8ce8bcc539747b020f860b96f859d4e4cbc30438",
+      "public_sha256": "196cbf34beca4339d31a3e2e23487664899c521f7e424abc3f8e51e0aef0a0cc"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_convergence.json",
+      "original_sha256": "a33d903d8e3061b9315fa14a3a9a10ac6d472e1f1c3a95c5ee85cfa8ae094172",
+      "public_sha256": "7a62a4193895408df4eb846cafeff348b2f811a0181f9fcd35a56a76df5e9604"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_finance.json",
+      "original_sha256": "de30407e1cdd533d3276f1d026014a8e3457f6a58ddd31badd200f6dfbd8ecf0",
+      "public_sha256": "5c1c042ebdbb6139ad58152561d7756399779d6b24445513bcfd10f22e122d5a"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_fit.json",
+      "original_sha256": "ed4795694b67e8f3705aea3dd1d1510f3260cbb13c135cb3c65fa99fd8ff5a73",
+      "public_sha256": "6cb6131f9ad12b5f252db979b304ed5dc9a8657e524c7191910d7b340a5e9f92"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_gradients_adjoint.json",
+      "original_sha256": "4487c548cff4dc496ce0d3db1e135533a25a4a44ecb5c1b8ef4b6e475d1691cd",
+      "public_sha256": "00b37fd19de1edf4d2e845be52a3e4eaaeadaffd6e9b85b96b51fc7734e7f2ea"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_gradients_full.json",
+      "original_sha256": "ab170876ab50741c38a9fb16bcea48d4d7e66d2bc8a5c1a8318b51986878633d",
+      "public_sha256": "254dfcc31e8d059cf42ba89fd455dbc13d21946bc7bcadb0f6adbdf92a992f0a"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_gradients_refined.json",
+      "original_sha256": "098bac1b1af1f3cae66720413c41b7c49a0ad5f77501b11da8b695eac0af2df7",
+      "public_sha256": "2394d2df73de1d2ebb4129794b67564ebf3047c0927eb64198a9b082b90d1f6a"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_profiler_attempt.json",
+      "original_sha256": "cee2f5dbd81d0caf3f0d4905d426c538eebbd430e7750a49134535675f74e5ef",
+      "public_sha256": "2d38c27235f5c172aff76d5333621a9694eb88d785515139ccc00f747bf41272"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_python_profile.json",
+      "original_sha256": "c31f64e0f5c280ea3838f9241a0e0d71412fa4b0644156691587060b844c649a",
+      "public_sha256": "f2d31dc3c47afc79658102ecffa3019b7de20879738fcf94cb24afee5bef4f32"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_summary.json",
+      "original_sha256": "c5985fa6805a2788ecc31e03cc10a4b90eac39e4f18389a6ead1bbb3711f286f",
+      "public_sha256": "8a01f46179a754050a67072e05a3f1657959c417b09120c1fa99f0ee0ffe23c1"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_tests.txt",
+      "original_sha256": "66eebbc698a61c12f92a7a1759ac76de75dad750f94ac77cbe16ee324a74fb5f",
+      "public_sha256": "5b44596d545e0262b2f9e94a460beb9b777ff9f4f6fc5c9ada482e2fbcaaaa31"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_truth.json",
+      "original_sha256": "8564c5e46e6976e520a1698a7b4b89c8967b2c217450984f1f9b8b42e47ef660",
+      "public_sha256": "ebc4b3ffdc2b38fff97ba9c6514535288fb7c8224708b0a40b66f964b9e691ba"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads.txt",
+      "original_sha256": "28c76b37dfd0dd6e9bcd3f92365c4ecba59cdaf0a2fe68c2ce541bee51eb191c",
+      "public_sha256": "65f57458cb85fca2def38016effad3fc49500d08b4e45e1f2b38a74046a36499"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_adjoint_stacked_1_1.json",
+      "original_sha256": "6bc2ffe135845be3844d2ce3df578b8f2f71218cb32ab4c101e16538acfeb884",
+      "public_sha256": "7f661c11e0a43126c400fb4510b9f84adce3261148e2c56440ecf507bc12b050"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_adjoint_stacked_9_1.json",
+      "original_sha256": "c736ad20fab4af8924eef288d2ee91a6a017886097bae7e44267509db4a52183",
+      "public_sha256": "9b4e00d1abc1efe5619c7fbfadd5c6179e8cb03687384306ed67ec1ab4009b7a"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_adjoint_streamed_1_1.json",
+      "original_sha256": "0fd55fd1d1eef83ae166968c69d0622f342413cf380d1c499fa020da5ed0a3e4",
+      "public_sha256": "2079e33ab94062ab18beccff711b46507ce09cc9ea93cbfe542f49a2552891a3"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_adjoint_streamed_9_1.json",
+      "original_sha256": "f5dcaffda1c600277ba125497672166a2f23ca85fac16a0e8f4e74767a1750bb",
+      "public_sha256": "9cd0033725650e7dfe2449f16ae74c7d0ff96d53b8901120366b00e6af786492"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_full_stacked_1_1.json",
+      "original_sha256": "eb032c45348b915efccd9339c43e02bf0a33698f84730130cb64b124da5be386",
+      "public_sha256": "edb532b1e307650a9a523cf960ec570d4f38be8435d7cefc447425dc3a318b90"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_full_stacked_9_1.json",
+      "original_sha256": "5f1a0dee4f6ad4942285758540d11c71b7b731d092813d5345fec2a1b8704a66",
+      "public_sha256": "cc6da7d47b7766b2131b8150cdccc3ba437992cf35739fb0a044562c56fc21ca"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_full_streamed_1_1.json",
+      "original_sha256": "1eb0c06e7d3f891b81f2cba3791495f8d605301967390dc237e036a4f3e56d6c",
+      "public_sha256": "5f312d1fe50cefce9e9f12361bb6cb0993992455a4e380c2edc5732f3d3fc55b"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_diagnostic_full_streamed_9_1.json",
+      "original_sha256": "07f531c880bd4549721e7e057c0492c26a266faf91072cf50b48aa22aead5142",
+      "public_sha256": "9d0dc378454854ee7c55a710ef2836c776fa0c50be0737e7a938c5f96cbc4ec5"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_scaling_adjoint_streamed_9_1.json",
+      "original_sha256": "afac41dd4e05ce478248d1982236d5efe8c03682ee91eb5f4e6049c73c9d9ad1",
+      "public_sha256": "fb28627cca285b7b95b5a4d6455cef8cf64305206ab76a619ad252c2a1e5be61"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_scaling_full_streamed_9_1.json",
+      "original_sha256": "da9b7680c8741ae4de4523914192a978e2a85f582e42e23d64bfa39368c29e66",
+      "public_sha256": "277de87b8f4bfdaae59f29a5ac6515cf6d913898fae663c42e71d99cdf28871b"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_space_adjoint_streamed_9_1.json",
+      "original_sha256": "18e67c1b1995aa2f83b3b5d61bb78fffa928c17b11f94f68eb664eeb4a3f0e74",
+      "public_sha256": "fe25af044f9c3003bb47e4dd148869f331691213acfd062393516966a17521dd"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_three_dimensional_adjoint_streamed_9_2.json",
+      "original_sha256": "823b6638b3ab93b7b42ee829a0dd40e519f7f693080396d7e10c152ddaf4ba12",
+      "public_sha256": "110863d066948a4d796dfe4973b24f0d4e2b680fabc91cee2d1a3a181aa8035c"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/memory_three_dimensional_full_streamed_9_2.json",
+      "original_sha256": "24b43054bebfa459bf35fcff626c03d7900e747b3c9faf65205a23f080dbbba5",
+      "public_sha256": "a50acba5aa190e12b735cec0d33d1bd34b0df2462b59d13bcdfff8ed9fe6fea9"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/profile_diagnostic_adjoint_streamed_9_1.json",
+      "original_sha256": "f322b4ed025d6e1318300f9a8ffb25d165c56283e8c941accc9acba74f721211",
+      "public_sha256": "cd0c4c8742548180d3fe924f6763ca8c479d655ba943195f53dc91321c1a2d7b"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/profile_diagnostic_full_streamed_9_1.json",
+      "original_sha256": "a1b8fa579602a757690909add983f7d64b7c8c964ca28680e6a43070672dbe24",
+      "public_sha256": "758ff4b828b1b1801aeeb1fcc3e898b9031c70c578d36fb85511c682028fae0e"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/profile_profile_3d_adjoint_streamed_1_2.json",
+      "original_sha256": "987ad93c032e4458b214b92ecbafd7d3bcf299d7f2826ac9557331646970a155",
+      "public_sha256": "07831d0238b69eb91ace5014b9b31626567f5814d97e2356c355a101dd2a9282"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/profile_profile_3d_full_streamed_1_2.json",
+      "original_sha256": "89be2ea368c881879e120c9b32feadcb229f63db2d01a513febcb6447580efc4",
+      "public_sha256": "38c99007fe158e976836f88b895ede8f31f0e5eaa07ac915439ee8f056f77350"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_adjoint_stacked_1_1.json",
+      "original_sha256": "ad6479ac29149836c59600acbae3f4dad5f5ea35cd94061d1e7a3961bb429cfa",
+      "public_sha256": "71c88203d377f9544ab44ece2b277e76b6808af850f05bb088533f5fe3a27652"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_adjoint_stacked_3_1.json",
+      "original_sha256": "1d7d2aa5cb71e3a56cbe7edfaf23712ea1d9c90b61aeea4969dcffbc2808a0de",
+      "public_sha256": "c37fceef56033592d968dfe5a1249a964f10a0f90b2cdce4a1490967e715ec09"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_adjoint_stacked_9_1.json",
+      "original_sha256": "2cb05865af58db61253e4dc86e7b923306e07c16196b1c1cb5ef1adb66e3a078",
+      "public_sha256": "7c57123c76f90ed1acd3e409cc01d9cd63928409fc72a5863edc63b979ae3d70"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_adjoint_streamed_1_1.json",
+      "original_sha256": "a39662ac5c9c6b212eda284b23ac82b3369ca79ac86e512d876e25a367928e42",
+      "public_sha256": "73bf66592301439507cb6e11c3e2455855d86df8a8e9f7a096406fc7652b1122"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_adjoint_streamed_3_1.json",
+      "original_sha256": "bf6704e9137b55c1d8904db90d76315f286d3eb6f102d501d0dad16cc0363d64",
+      "public_sha256": "74c797988db9df3d1a270f81b882608de26d4bd1e04b0b9f119820265848449c"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_adjoint_streamed_9_1.json",
+      "original_sha256": "01416e49d00db8947c16eb0429666e03766105e1165d68f144cb7925eb13e88e",
+      "public_sha256": "9e26d7a60ce232727d61e7fe5154f0f4633dd24d235f3427521a436ae7148d28"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_full_stacked_1_1.json",
+      "original_sha256": "5be8996a725a2eff08d7c42b915daab41345cc1345beec2785b302e533723cda",
+      "public_sha256": "b9c9646c51e1df53d81512c0924726aa30081372c168f2b8ba4a3bea19701337"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_full_stacked_3_1.json",
+      "original_sha256": "8d873a71c1bdf8e57ea749a6cf45ef30f642610dcd235ef0708686c1a39003f4",
+      "public_sha256": "6c2b7b75d57adaaae7478ce4aa16f2fb1b11027cfa0ee8b8d0fbd49af153c9e1"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_full_stacked_9_1.json",
+      "original_sha256": "a3e4cd682638cd4d04024d04e36fdee3ea316cc8aaebb1fc66824bd957f654d4",
+      "public_sha256": "1b7a8915362e965cddc2336b19fdb6707cdb18382d902b0ed3073cb6794fd7a4"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_full_streamed_1_1.json",
+      "original_sha256": "a989a8125dd5db9d1da4bd78676b6467208c1ba16e75589c52d8166feae66b41",
+      "public_sha256": "1356747519046ac9536b05708f5f2aa5208687b5dfcca75ae17ec71d78d7aa4d"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_full_streamed_3_1.json",
+      "original_sha256": "37580e7a8fc236dd5606ec9fbc850e0ee821d96e25dca86d8a660958993e6627",
+      "public_sha256": "5042437f2be8de804fc4867adb888b02b1e716d41d5cd4db383c49fe6a1921b7"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_diagnostic_full_streamed_9_1.json",
+      "original_sha256": "ff53b41b6f2e7a7e9e13c49509efb1929c68d5f792750f02da7532864e551c8a",
+      "public_sha256": "a2a018b14e841f45e4033d74a4879427a5f82d2b4f2bacc6f0d62eb7f48fd714"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_scaling_adjoint_streamed_1_1.json",
+      "original_sha256": "8fea56728ca1b48931e969046e8b79b1f03023a034ff50eb41c4625d89371ca3",
+      "public_sha256": "82cb4f9ade1b21d9e5d7b8d76e4f15aea793c3caab681a6560c65db04b353188"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_scaling_adjoint_streamed_3_1.json",
+      "original_sha256": "d75c28afe12d46542769769855a5ff84f4f79781c2e5b09e937b3c2c92049408",
+      "public_sha256": "96970e01f177856136e946d85c58c5766c3fd3a32c37f2f7245a4b1ef4a28e54"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_scaling_adjoint_streamed_9_1.json",
+      "original_sha256": "d40b34d2f58fd7e77af38733c1c27e863dca372ac2508dfa430891a6bcd28d8f",
+      "public_sha256": "e47c4f29992c31e7ff9f468b161788701ebde9eaa2370b8ac0dea524f00e4347"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_scaling_full_streamed_1_1.json",
+      "original_sha256": "1efeb75e50a40240a1a047ccef43cc7757205a4d73fd9bd3ce0c0e3c804ae6bc",
+      "public_sha256": "5a087097ea8ecfa2c72306b38be75e70df679781995c1f557f6a599a2ae38dc4"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_scaling_full_streamed_3_1.json",
+      "original_sha256": "9834e58abe4a22be1c64fc5ffa832c857a43087b5300cba5e8701c814bf97240",
+      "public_sha256": "c21b5f4d5eb8a93872049166a1590169f5031b4360dd9918d73cb73f4dade92e"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_scaling_full_streamed_9_1.json",
+      "original_sha256": "256af203f96f818a824fa17511df9aa0b295b22d4d0480a6dc21b892fb99b6a4",
+      "public_sha256": "345ce3f1145212fbe8e950920a564ff3e8c12d01df109ac138a3c815cccd371d"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_space_adjoint_streamed_9_1.json",
+      "original_sha256": "7035f2bb5d2baf8ac6bed3ea0430f543fc1da3cabbd76606538dc829bfa6c415",
+      "public_sha256": "f4cad57c8004d855f278d440e6b7e7d5280b12f87fae4b5cc1eeffc2b17707df"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_adjoint_streamed_1_2.json",
+      "original_sha256": "23364afd67b5ab43fb7ad13f246121baa5ea86b1789b880cae09f04cd4abe530",
+      "public_sha256": "33eec0926e2a667113d66a0d08e8502bab5220772edfa6cf201a308840efcaf3"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_adjoint_streamed_3_2.json",
+      "original_sha256": "bcdafa1c1292e70abc1b747779996fcc93fc6fc4b448240216953fc32a47eee4",
+      "public_sha256": "25de83c80441240664837834c0ace6eb6ee66922ab8be7fa4958d106fb0b0843"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_adjoint_streamed_9_1.json",
+      "original_sha256": "019af7dec8024f24ab502e452473f7e6acf9f92a98351b05da79ffdc8a76a630",
+      "public_sha256": "7add33f3ea06a5296edf5a74ea97b18587b94297389d9a25e8013cce939e3be3"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_adjoint_streamed_9_2.json",
+      "original_sha256": "634519a9a3417eb8dc22ade362d5c4e295b735b2c5f1c22e96f87187a3d620b8",
+      "public_sha256": "689fff85b46f619f87a545d8e661d003135c28b2ba6f6970cb08b44850dc98ec"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_full_streamed_1_2.json",
+      "original_sha256": "e35880cc430754da0c07006e0c718c3259ca57b26527a167b3671c8e326132e7",
+      "public_sha256": "0eea5ebfa6f243af1681a7970a58a72f5a3aa8295fe68bcd9af2dff6db0c65a1"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_full_streamed_3_2.json",
+      "original_sha256": "61ab50533b54b928df1b02cbd74019dd2f5e460bde151b6e0812504387276353",
+      "public_sha256": "108fddf1c25042c6df00675084cc430fcad474cbf115705ace9cd742db52dabe"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_full_streamed_9_1.json",
+      "original_sha256": "0a68b28475404741b2d369046739c261b0d967e4c11530e2381509563c80063d",
+      "public_sha256": "076ce2b68afad465deb9ef94041cefdbb35ed1d28dc504686edbdc2e8c8fb223"
+    },
+    {
+      "path": "docs/benchmarks/calibration_phase22_workloads/timing_three_dimensional_full_streamed_9_2.json",
+      "original_sha256": "395203f01a73cf9ca132b406c47549596eeb56101949cc333ba30d835e0d7b01",
+      "public_sha256": "16708499c86456a9e83c7a9f4b871c2f72d91c8ac7cdefc0dec70e00773fa985"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase10_commands.json",
+      "original_sha256": "35cd8b7b4f74cdaa6f1c37d4bbbaf44379d1920be6fca4bcaa815149322a3a2c",
+      "public_sha256": "82a83ab2b77372d0a7ec029d9ff10e4ee88b11a1df9e72acc9c48882e447fb8d"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase10_thomas_commands.json",
+      "original_sha256": "1549f2b461c6e90d60df75088c8ff4519842c2a4da4b7a67c0cf20af48691918",
+      "public_sha256": "f9bb43c257a12c2a8b530116aaf5d976477df310ec75b0fd1e65e8b42595ede3"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase10_thomas_validation.json",
+      "original_sha256": "7a3610368e1aa36a82c7aad9998ff0115c6d9314912be093f18c7c790b74c962",
+      "public_sha256": "08121f27f06c99df220a2c4678d12926c4a01132bd8cf9e16392aef70a6a3cfd"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase10_validation.json",
+      "original_sha256": "0695f3a8a1ab522bd10a1819b37c44db3e00775a23654924d7de84fc30099a1b",
+      "public_sha256": "984a1bc4aecf55d83dcaf6b9b1f8a33b6507e14e1e7666e8a9858a8b478b336b"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase10_vector_commands.json",
+      "original_sha256": "5c8417e62d706ec0f1537f429507788a4a6527bf6174499bd044a660969623c6",
+      "public_sha256": "3cffb5221ec76d712ea50f221bdb6af87e072f87cf5fbd3b1ce1525ce16e0db5"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase10_vector_validation.json",
+      "original_sha256": "c43b56b3ebc7ce04e21c347fc0acfd0a99165f8dc2ca516368a6614cb401b381",
+      "public_sha256": "1be2d1cd09a760986efbd235e3c5d75fd43e3f9ff4435a1089be082dd642facc"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase11_arithmetic_commands.json",
+      "original_sha256": "d11f049595d5a276eadc767ede6603bbde328920c4d3f5366241858a8484124d",
+      "public_sha256": "cde47ae6bb807c2ddd095ccdb2eb63d1aacfe9a39a243f496dfbc3dd333b57b2"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase11_arithmetic_validation.json",
+      "original_sha256": "a8f3d4cd3dcd1cbff44779a874b0208d1ec9826cde23b56cc53d9c0657cb63d7",
+      "public_sha256": "96b2adffe46509d45296f95a85d10483b87b2c1ebf0d862f63d7389f615d2cce"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase11_baseline_validation.json",
+      "original_sha256": "15df1e3f4391d6ad6579d74db83713b84fc257f98c01e369ec027f6703a3660c",
+      "public_sha256": "39f5e7c7be2694772277da8b40b48f97f56e1c5f604fcd8b36794dedc496d560"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase11_commands.json",
+      "original_sha256": "3f61e430cc25b7e430ad455242c6f39d9e5167c8da2fdb3d97491d22f32e887f",
+      "public_sha256": "b8b2684e5addf1f76467c65cee3d8c574183b02e2c711915a36ab40a56193474"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase11_step_commands.json",
+      "original_sha256": "88f9c6de3b06d8b1ead1bf05970fa65d4b38f3c822ff83f243e260406f255086",
+      "public_sha256": "c20a93062b94330ff9d53b81b52d7df68ec061d3e0ee523235bb367938e317f2"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase11_step_validation.json",
+      "original_sha256": "dfadc466655f90c5261b6201c2323cafe7400461f0c94535a69d09106303e737",
+      "public_sha256": "ad7f5ce255b3c379261bd72f638a846001cb92c30f67481697ae1a8dcedd1f73"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase11_validation.json",
+      "original_sha256": "889b7166d0dd6d237be74722806d6b0fb628071b1140544109b24912cf338f34",
+      "public_sha256": "44f36028e2fe222476ed5765d0dce071ac5c4137df1ae0ccc1c58e5073b97485"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase12_commands.json",
+      "original_sha256": "b5f78d576fa7b9b019dc680ceb6881ecd9579f38e97fe7f20769fb658db5da83",
+      "public_sha256": "e1fd42c173902e4adc84a75977b0bc4f085b8529cc1013ccaa665d1c7b89f974"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase12_validation.json",
+      "original_sha256": "eb54ac61931aa2753f84c990851667009a034c8519ab76ff9e1b97e3ef07c837",
+      "public_sha256": "e26f62896952c57a97eebcbf075be8ca1b3c08854f699232abec3e4d0be3a6a8"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase13_basis_commands.json",
+      "original_sha256": "8f3d2b7ff04056c06c348241c30595722d06393ee84c0907aef0cbe87c68409e",
+      "public_sha256": "e938a73f1494d8bce303d3f0d9b7f022009b3475fa9465d18d21aba533d4d1bd"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase13_basis_validation.json",
+      "original_sha256": "fa1c62d62c6c0a92f4e346ff922644400cd1769d7669fbb0c1e59e3f4278072c",
+      "public_sha256": "35e5fcd172d1ce32a65afb90d8da883e114aaf0579a4dfcd991f3e0bfac1e3be"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase13_commands.json",
+      "original_sha256": "f8f19f7aa3e10e4233759c7c2eb3fe01acab3325067012474fe44539f07623c8",
+      "public_sha256": "699692013432d02e45929b6d0800037275f261a047f13df7669aed36067c1572"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase13_fake_tensor_constants_control.json",
+      "original_sha256": "50a5b9340ee9f9fdbf693b6008b5787a8028d7d944f8ca3844918ad8471fbfef",
+      "public_sha256": "9f1ab57785613c2dadf3f7016165014fdcf42dc8c73184bf67e4da1522a88c14"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase13_validation.json",
+      "original_sha256": "4fbe2d2f2df612de7249c08162106289b1393392bc464c97d5d2771e7b9f97c6",
+      "public_sha256": "fb6392c10933d6a5c92dfb8a70c8a8d21545571990d13b6c629adb9f84a6fee2"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase14_commands.json",
+      "original_sha256": "b4b315e786d69aab6caeb70db04ae77e88fc8c4b56537b148d49623e70c956b3",
+      "public_sha256": "40c0db6f338e7b08640c9f9be6d296ca6f978fb2b8fc140d25edf209503c2305"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase14_tensor_step_commands.json",
+      "original_sha256": "49a10da7f4946e321f441c39c1e2c555bbb8471443a9a8740f7b567e352c32fd",
+      "public_sha256": "b636e004796c3b798e49c5a7e4bac511c96f984a05e823d2aa5ca3bff518bda8"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase14_tensor_step_validation.json",
+      "original_sha256": "f2161d1d7ddada41b00543341ca2035f3876b86d37bdcae77b548f1535d0d4e8",
+      "public_sha256": "3255bc0fb122be6406b3fea4edbc5bf635facb7d68e535b8afc6187ae98c4fd9"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase14_validation.json",
+      "original_sha256": "a6ac76b8e3c76b0bec58041f0076fbbb4429dc38de36e9055888f90fdde71d64",
+      "public_sha256": "f056fe8fde140f624636e24f5cf6b6bda7b6da14eafb039343c4145114342c1d"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase15_commands.json",
+      "original_sha256": "e2da214b0fc6a02cc63e402f94646329c9ac7282bbe03d78670a20f3352bdfa6",
+      "public_sha256": "b97000fee6aaebf129bb85ac02f3145b5520275bed9af63f8326e5ecec7b6e40"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase15_time_variance_commands.json",
+      "original_sha256": "93869d177696274f7335412d7f7fb468fb8751761c141588181a153e6e319af4",
+      "public_sha256": "a642ff39e1f38fcee0f2f4db3bb1fff3d7268c10759da9f505f2451725676e61"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase15_time_variance_validation.json",
+      "original_sha256": "3875fe3fc90371c666e1c07c4e1b7e4d2e6a99763201d069f44a85b3175d39b8",
+      "public_sha256": "f16b41e69e0a15b2835f1296365aba200b371d92df5440f74782c73e445849da"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase15_validation.json",
+      "original_sha256": "21a3eb60920c4d3288ff13eeb4453484c419a9c2d8d05321927fbae78f6fd2ab",
+      "public_sha256": "c9a992c931b44b57f04dcafc162ae2a18929a0aab0a8d996f23752da3ec29ab0"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase16_commands.json",
+      "original_sha256": "801b16c1de0ea163391481719f0b0e8d444dcc7f5fc5b9fc269849efdc1030bf",
+      "public_sha256": "7198fabccf865808fe45195a97276abc4d9bba474aadf70a748f3363c696bdca"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase16_initial_commands.json",
+      "original_sha256": "b6ba359cc58d27e842d0945cbf64ade0e042850c1f034465889a30a485ef1b17",
+      "public_sha256": "d2273fe31af2fcbafacc183508cb032e0190011594acb92ef7cd5dfa5ecd95e8"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase16_initial_validation.json",
+      "original_sha256": "960cdb4db53ed0f9fab96b07508a54d21e8ce5e77874dc9ef1553f670fdfe1a1",
+      "public_sha256": "35a9d88d0d6fca5b2e7c39e7580d36f849fb00ba66441e93ca73ceff9d8dbccf"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase16_preparation_commands.json",
+      "original_sha256": "a41f66aa003a846cd108095c1bd0443d906a906acd5076ede011261dee127861",
+      "public_sha256": "da63e95f74aee5f6f3edefc8c7e406ab406a4f924041d3e39cf110fb7dc16f52"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase16_preparation_validation.json",
+      "original_sha256": "94ebc5361a0a8b5ebfc19f28d5a50e62100b8d37be1b4e42db629ce1e60ae2be",
+      "public_sha256": "5be4cb3b2ecc8056fab9b818c98f185ba5cace2654a752e9ddd81c760cecd88c"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase16_validation.json",
+      "original_sha256": "4088167810f811056d73bb56b24cca8a4bfc4d83bc5ea17a7c49fc690b539419",
+      "public_sha256": "abfe81144eccd42559a81b02d1a11dbe9fa32c75d1be4c48f8c51c0b1cd19894"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase17_bands_commands.json",
+      "original_sha256": "95be97eafa506013c07562897b8ed4e15588950aa920513fadccde415c5b2857",
+      "public_sha256": "77699180969af10644908faa05826daf60c4d399d5e98aa679d83a9ab5558ff7"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase17_bands_validation.json",
+      "original_sha256": "6f858a911cc9f1dcdfdd9c8b1d83066c01042b35d1fd471c5510c372adcb518b",
+      "public_sha256": "360b7102a7395b3e027fef010003bd3690ac348db1dad6bf72fe525bd8472329"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase17_commands.json",
+      "original_sha256": "e97d5ee9d2de77f69f65a3fcaebab2088176a8aec483f17dcd088a48c0ddc5d8",
+      "public_sha256": "7407d3ce3674f8ebae028b6a7ba3acd0e95f77eab0a789e908d8b7b377a3ba83"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase17_matrix_commands.json",
+      "original_sha256": "840106c7d577ba151293e44cde0543b158064c87398521187b8dff6d12d79dbc",
+      "public_sha256": "cf820500c023d338ef7aba51eb35f3b2140210dc078115f15eb066505be79ae5"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase17_matrix_validation.json",
+      "original_sha256": "e4ea37d134cffe8c5cb711014b1b5f6fa98ef2cf43ed6bef2f63b85eca2f23ec",
+      "public_sha256": "641cbb5f5663f9a5dcd40e2af34ab0a0c53dee82047f4cf7fcc8fa2fc30db92a"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase17_validation.json",
+      "original_sha256": "c3201e9d2dee0514688bbc8035a3a5667146d17ec5ea12e50a83c1cb99cc66ed",
+      "public_sha256": "dd47ed6ba0f315b1766082bb1d144b46a412810dd212420b972eee8bacfa7535"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase18_adjoint_bands_commands.json",
+      "original_sha256": "5c4d8219284f61abb17548f98c4f2b93461bcffff58735bd9355ab014cca778b",
+      "public_sha256": "f5b34b7b14b247b35bf1fb07567773c2d05500fe4f84205a423dea96870901da"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase18_adjoint_bands_validation.json",
+      "original_sha256": "441bc4d77aa0f70c7e2cfd326ee6e3ad3e575738493045a18f74ce193646b1d5",
+      "public_sha256": "d5a82a079046b1018cc8928a2d163242badd14975dcfe0d48e0b75a1b05ac24b"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase18_baseline_validation.json",
+      "original_sha256": "2454d8b8825addef4297baef62ba828518f03675f410e4d15d9737414d2e8758",
+      "public_sha256": "14f890e9509261d515a39d9d62f24d146e53b3ff864f1a9480c2a1272173ebc5"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase18_commands.json",
+      "original_sha256": "023c1da6215c59ba0532a93e39a82a8aab1ee75a8f4386384895bc35abed7043",
+      "public_sha256": "4bc59dae28e5eb682ca0409f072b38a05f94fbbddbb982a73a280a35f24786be"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase18_validation.json",
+      "original_sha256": "ddd643cabbecc5c346e8c7f660cbba38494af15c5ac1debd9953216b2ff86aee",
+      "public_sha256": "8e352b64c8f2db54d99348ec94ba0902c1684160937a431620f8ffd4c1e96f68"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase19_baseline_commands.json",
+      "original_sha256": "b49ad6f1d22cbe66a3178447538122089d90b2dae5ce7d11031e71eec60b270f",
+      "public_sha256": "4577fb7facd1d85531c832f0eb5909b4e1deec1e46ef8ffc7af251ff403e00c5"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase19_baseline_validation.json",
+      "original_sha256": "43d59964757dc95afab9c9be60b8d7209096424158c11947a0f3b03a7da3c8ae",
+      "public_sha256": "1bf05cc657d819d1709bfd37afcebe453abe7d8a1b33df065f3277d4c8ad083a"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase19_commands.json",
+      "original_sha256": "269c29dc66a6f44b15ae92625e08d4bf89f47bf5a354d5f9241f88eccba684c8",
+      "public_sha256": "e34eb2b36827d1ca69171cff4e7abab3d11fb3cb7f0f961395819423e4e49f6f"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase19_selected_grads_commands.json",
+      "original_sha256": "d0eecfc3ddf0cee347ccfced1171181a1155158634f028db813932bfe7ebcc17",
+      "public_sha256": "d875dfb72d99aa428cedbb3a75060c8c4480c9a2f332c97211cebcc40547e6b5"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase19_selected_grads_validation.json",
+      "original_sha256": "7ef016c84ed35ec59c7837a3c8d3dc93e453b48572d4cd97023b5cad99dfdadc",
+      "public_sha256": "b538c0dc40b6ffe01dde0480a53e6cf1a5c5055556b0011c9761cad4173da61a"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase19_validation.json",
+      "original_sha256": "7720b1dc268558b584c519b98ec95932708f210954bada0e0c021323a94f9dda",
+      "public_sha256": "bfde68813dc030ed9718be51584f2dff37de4ef4f6110d4b4f3cb713e65c41e2"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase6_validation.json",
+      "original_sha256": "f390050d9d49bf1134894ac5e67e0dfffb821efe1c3e3dbf40213daef55f7ae4",
+      "public_sha256": "c16ae2052008c30b38c2edd47a001f591789db41d7e1001cb10b933fdeb41d79"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase7_commands.json",
+      "original_sha256": "70a07641cdfafabea771ece125ebd9d3d02a9fd4cfc1d8cae7ef34ecb8765ad9",
+      "public_sha256": "40aa77160a45c67167e05d9935c605bc7ae3c8c3b21c9e3f9c89c22d3142dee9"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase7_validation.json",
+      "original_sha256": "5231bbbf351fc6f36ed56325b3a0576f7410c896a59946df23ec4ce731646159",
+      "public_sha256": "3d92943c063157e3a988dfae2a777a1bdd75d0ae594aae5b9bcdb2695f4478ee"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase8_commands.json",
+      "original_sha256": "f18b6a72d8cad658c9ccc2f13c2bf6b1f7d304a402a0ede05dfdea6fd60ff51a",
+      "public_sha256": "5a08285d624663fe51eeba1280039596723b8d843e7ceba1af2fe2aff4bdcbdd"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase8_pre_transform_commands.json",
+      "original_sha256": "ce6973b2d4cdbd74f75b4b32a4dd69878747799486b49a80073b9a0ce4f3093d",
+      "public_sha256": "4d214a4aa6eb89cbb9862b951002ceae9bb68c208cb5653714fb58db06d5cf99"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase8_pre_transform_validation.json",
+      "original_sha256": "c3e9ecb1d4264b13ca5db8bc3a3594ad4baf75adcfdffa2ad0f1d0b4afa64ce2",
+      "public_sha256": "5abf3f8ef50ef610bbe8f10ba848b8980468060baaae9c2dc4daf02c56fac823"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase8_validation.json",
+      "original_sha256": "a4f4486000cb1e3ca56adb1dec2582d6aee82788c52f008517d95645cae9851c",
+      "public_sha256": "60e631195957d241cd0360eff604fab9bdeabb8d0f73b05e469f5befb0c66ea1"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_arithmetic_commands.json",
+      "original_sha256": "43865a3b5f8b151843dd835c62943be2ba333311e80a1cf674e2983cdd28c0bc",
+      "public_sha256": "83e86ad3978f26aaab65754cdd41214f0594f169e94cfc7de1b3a7dd3175ee72"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_arithmetic_validation.json",
+      "original_sha256": "49fc596888462b0e6363dcf17a8d51ea377dd52d98adbdc99d5ef1383dade164",
+      "public_sha256": "c4f505d487d839f7650f731b45fed0d4f42840d3cbc15e3d642173f9e5020093"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_checks_commands.json",
+      "original_sha256": "23b553ac4367f3f2133fa249be9b6508ce56dfff9c732ff3471fe95fa1a7839d",
+      "public_sha256": "c30cc16d42fbd3cab28a0c476542f374d58829cb9445a84cefa3b1d102e242a1"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_checks_validation.json",
+      "original_sha256": "c50947c44aa40bdd735b3a92ab7fe612ed09c1ccec8a59cf4774013effdcf871",
+      "public_sha256": "efeeee9adc02a03319491defa93e17b549658267f3e064bd68b9b6a8c27b85ff"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_commands.json",
+      "original_sha256": "04f25c9d110c1dcdde6b6bfedcfb441657ef0bafbcbd5d8f5f8d5750180da146",
+      "public_sha256": "e8e4bb22c46ad929cbbdf648d6d238edf21425fd356a2f27da36b3c8b6d60ccf"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_native_arithmetic_commands.json",
+      "original_sha256": "15d03f9f59385e4aa5bf46baffdc865f55fd1c45b68805995e2dde104b51dc93",
+      "public_sha256": "822dc7163949b8ddc29561ba9183d754420b3a9950f3c7fd473b7c8c3a5640df"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_native_arithmetic_validation.json",
+      "original_sha256": "d97e26e8eaddaadde38803d24aa350333dc5edac67b53e1cd49868ef4e04a77d",
+      "public_sha256": "681510fa921c086f4329c337b6b89497a7ba8682331453807ecef0b3cfcfbb82"
+    },
+    {
+      "path": "docs/benchmarks/fd_phase9_validation.json",
+      "original_sha256": "a94f7ae6cccfc6e65a7b9096891e111a2965aca2c5f0735af5f1d23e1e5cb54a",
+      "public_sha256": "8564467d807f9119cb60911afc134b82bccf2ffd3057b5595f8de60b35f3d983"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_build.txt",
+      "original_sha256": "c4d7237bef6303840a9dc00321e88a6522fd6f2f17bd1d5154b94c13ac8c9985",
+      "public_sha256": "ba3625f8dcc5b5b8cda60ee752e92339798517692b0199fba4495617ab6a27e7"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_summary.json",
+      "original_sha256": "56c5c72d3e4311420604f4b32779d4949d7f65e75acf7d76969249aa7be9f2b7",
+      "public_sha256": "5bf0c58d63606ce5607e1be880aa1830dd12df41e27a6bfce124c5633d2b76a1"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_tests.txt",
+      "original_sha256": "be5114fc98e08907f6e933bbe72f139a82f1391335f0a04723e4e82b14f6e16d",
+      "public_sha256": "de0e6ff9d6fb75837cec58fc2e192d2f9f8da978d879538757dd061a6da82808"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/commands_diagnostics.json",
+      "original_sha256": "4564b6eea2e907a4b63a0e0e163f96d33e7b094498abfb231e1d1cd8b2e945be",
+      "public_sha256": "64c90a79e778e1779872216143cec5603ac96cd96dd447d49cc3ce46f08e5eb4"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/commands_scaling.json",
+      "original_sha256": "1bc785103092c071d96de23bf2896c0e994f2d812867648641ea3764709dc7c7",
+      "public_sha256": "19c355de2351559e0c55dca041fb8001d87426259f010f2b4076c39ea3b91787"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_asset_batch_cpu_1_adjoint_k4.json",
+      "original_sha256": "fcb8b8cf67202955c79f33fd163c266f19543938cb39b1580ccabaf1d5fde42b",
+      "public_sha256": "9374a640e9efafa5b593190ec127607393e06f4db47f4f2da5b1539d5d2f463d"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_asset_batch_cpu_1_adjoint_k4.log",
+      "original_sha256": "664b0a40d9ca252b3f750825175aca22e3aac806cd3b35b083514936bea4c064",
+      "public_sha256": "31267d3ec2341fd37973f7b64239e984d500788ba8ce66f63bf06725812491af"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "6bd5898f8bf5156ce8c5b39a480e68e0d7ecf14964c8866c0bd60d903b7fec78",
+      "public_sha256": "bf5332e7a1a66ccd0b8ad59a70fafa56a286f2df37abb687dfd52068311f9c6b"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "0b16af4182709cc3c18b79e71287ef4feb60735dc09b3aeedc0ad00b6c4191e5",
+      "public_sha256": "4ba6ae2ec036679e0af2ae34685580d9872c7c92073f12c775f3cb5d78bd8204"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cuda_1_adjoint_k1.json",
+      "original_sha256": "08fadb7e99aebb80487819fbbdc7edab814085683ba954786df1f166e9008dcf",
+      "public_sha256": "0a48051c3d3b53221bbc9ad346d7b6be0b622275418bd85d44cb2e319b5b4517"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cuda_1_adjoint_k1.log",
+      "original_sha256": "f45a606c7d6c57acf00c46cb122b3f46854b3a093d7ea749ef8e6948e19cf605",
+      "public_sha256": "f7b25613fbb75ac218cfdc23db5ec0d3389f173db48d21507ede63e61bd91097"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cuda_1_adjoint_k12.json",
+      "original_sha256": "7492c083fcb65c97e3dcf4dfd2b59bf95e5cdd7704d253711fe4a8ce0ea904c4",
+      "public_sha256": "65f7d4bd23bc0339d984a2e6ee035272c38b556745ebfdfa58fa96e9f321b60c"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cuda_1_adjoint_k12.log",
+      "original_sha256": "14ee1fcd1def240fa33b04e136c88d7c5f9c1f1dda986aa5ad56a9ffbbd1ee24",
+      "public_sha256": "94d92914b6e36489c322d41748ff379d08e4eeffc09a342c6b60ccbb71400a85"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "9d6e28e023f7acc8a6a5d0c54f114abc3d071406fe84f40c29028231f2dbb26e",
+      "public_sha256": "c40bdecc6c9d39a8291346e8e126b791e0c30d8616f945ac0ff90862ea43dd6e"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "5c5c07b879598028445043990fd767fab13e86501ee8b8577ef4833641e9560b",
+      "public_sha256": "8687b34d151247a74784a683dc961e0eef8a157c5148cc526c33ba36520ac668"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_serial_cpu_1_adjoint_k4.json",
+      "original_sha256": "8070e5943772762203f7d9ab7964569687b52456a3eeabb7cdc6db2ae8174025",
+      "public_sha256": "06daeee1d330126c687c18bf7f1ed02305de0173e69056b32c0f7c1b0e204ccb"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/memory_20x30_41x17_24_serial_cpu_1_adjoint_k4.log",
+      "original_sha256": "ef7f54a8937b3000571283681e03eecf6855167efddf5f0b46876db4d82fc4dc",
+      "public_sha256": "47d79e1285904bb28d153f11af750a5053e1cc6636b8312b1d5ae6a8b9b7693c"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "60634ab802e2bc7a694580c9f789dcd1ca0e9fd574e8682c8668f3f63b223641",
+      "public_sha256": "a6f2ec41e4f18880d67f011fe27bec4ebe8cc635ed553114874a188fcbfbd1d0"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "a7eb26712c53dcac22393975b85c2e2df99499201d981b9daf7f8069c0ac02ff",
+      "public_sha256": "7aaa7957bae4dd84696b3ec22305c47b3e3cf593236405b7809df10ee753d68b"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cpu_1_adjoint_k4.trace.json",
+      "original_sha256": "0b93938d9229d94ff5809436d3adce2a2eaba064f7fd137f9a1d5a58d341f7b5",
+      "public_sha256": "43faf714711fdd46cc965960d2912cf4464340f47298fc12c0d2ce3bb79c7179"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cpu_1_adjoint_k4.trace.json.gz",
+      "original_sha256": "4870ac734212b8926032dfe29d87c6d161f2c035715030a7df30379a36c4136d",
+      "public_sha256": "9d7b18bc1aa6424242b04bdc85d4c227cbaf38b12472df51ddea7d6d0e97c965"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "d301487e2704fdad06f8f3224c18e7229efbb1b9c79b4f1af222b66fc204cf7c",
+      "public_sha256": "6576e2329dca457b375ed8b282329f2094e29f2c622bc1e6d27a8cb2e68f3650"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "0be2098440608491dde77cee9de42a4056e7f880d3a17758b3138aca924fa46a",
+      "public_sha256": "029a6786e27ea94705de7ec04975fef1c49fc172984019f26fc477981a143721"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cuda_1_adjoint_k4.trace.json",
+      "original_sha256": "bfc1f56b123b67679791529fbaa1c77f52055d7e74fd17a96da868e9f2c4bcb3",
+      "public_sha256": "af7c3d722493a1a4c617806af9580dd13ea55d55c072435dd628c6ccc867775b"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cuda_1_adjoint_k4.trace.json.gz",
+      "original_sha256": "bc80c9c980a486d810b8851fad77c0e8ea3f36a265228b12859b2fc1ed02f9f0",
+      "public_sha256": "f288d7f25140308db7aee6211334c516f386466c8307c460567380c85bff150a"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_asset_batch_cpu_1_adjoint_k4.json",
+      "original_sha256": "4e546f4887ed44ba8e2dfc7f73530552c5916a45d6a58121c5fc2d28fa73aa20",
+      "public_sha256": "92cf22894235ca9aea854ebcbb635ba930d02a4a79a7cafce3710810aa37bfa0"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_asset_batch_cpu_1_adjoint_k4.log",
+      "original_sha256": "d627c6125c753311f6d7de6910bb8293dbb5b256486a50158e7725881e066f0e",
+      "public_sha256": "d7be81dab1327f053dac2f77268e2b3dd4f0f7ad7255e7bf2e5fe75dd50c56b8"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "a324e280d5f2a13e74a8738861e95c3c74abc3539f38fbfbac8dd1adc721c55f",
+      "public_sha256": "ea1899a48b57bba9648e3e18146edd019172a182f32f8ef4000b19cd8ff2fe46"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "c0045b6f9b935329d075b4fec8954e8b7a81b2c1bb35ec27c87809a7fac2dbe9",
+      "public_sha256": "63ba7bd56a4e3d1ae86cbbb878e559dd75c6e5e3690d2233028cc910f321d1d5"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cpu_1_full_k4.json",
+      "original_sha256": "485a969146d625e661803ef7956376c5e7059985fb35d52fd86e855c503d3398",
+      "public_sha256": "6046978bb4793785d6a3c08fae288da288ac2755173d2e69146f1c4c1c627be7"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cpu_1_full_k4.log",
+      "original_sha256": "365f266cecabbb859fba38931484840266e6aeb262eab9ca4104c8a467629539",
+      "public_sha256": "3c095cfb8dd0b8d9c2a723bfbf5e1ed64484cfe6548bdada1651e15799afd6c7"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "6d0f43e35d2aa3a75b1cdeb1a1ebdb4b3ff4a203e1b02257c5cdf7dc639f99c3",
+      "public_sha256": "3326acb17a14a7b29f421346ddc734296ba9bb0b3d0a671247b40108d6a57aac"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "bd721b21939b95be0a39a302f0f4b0be645311840d13c2b5d8ec72233ea920a4",
+      "public_sha256": "d1add7d53b731ed9ad040095c1a7b2d328d8573e5350671b3ffb6292ecc46790"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cuda_1_full_k4.json",
+      "original_sha256": "b9f61a142a8d0ccb8d810d12a25751278cc61f7d403e62ae5fdf2bd74ad55a00",
+      "public_sha256": "3cad1ab944d3deafeeebbaa96953dd48a32d59b98b9c1f24a9857925d9822471"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_multi_cuda_1_full_k4.log",
+      "original_sha256": "0e1956356663e8ea5e5f050095e110b842d282779669c853c6cc33bece68ded3",
+      "public_sha256": "c30a7782ce8e55152209c2fe264edb2d6c4c85466ee597ff1ce5d05a66a88042"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_serial_cpu_1_adjoint_k4.json",
+      "original_sha256": "381418a259e4b2808b77fa561f577a5682bd33ed19d1191580e3df199d194f7a",
+      "public_sha256": "58281a47f433e675695b8493761b09fcac5b7224e7d1a7e21eaf9ff2a558de34"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x16_21x9_12_serial_cpu_1_adjoint_k4.log",
+      "original_sha256": "4d18b72918a934a35049c4aaacab00ca97c7f8a8af5c72ff5c8363dc0926eda0",
+      "public_sha256": "9f707a37f8e1be31774ac938673fd5adce25db0662547025c36b903c63ee9e7c"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_asset_batch_cpu_1_adjoint_k4.json",
+      "original_sha256": "3086ed80b305f1564a6a44dfb352755061886f10874b6a3b0b35f075c4355c90",
+      "public_sha256": "c69fcfd3e6fb9c1453a5495e7d35ee8c62973a9ba39f73e8fa40fa86c9706495"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_asset_batch_cpu_1_adjoint_k4.log",
+      "original_sha256": "dbb75d2fccb23cde35525033e2e5b388a7bccd4de272e24f8dfe3c61980e519d",
+      "public_sha256": "e54dbcf0ccdaef318c3a33df2d5998b0bc548252c23c732f8a8ba661824ee65e"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "72fd6b5be61b0b7110854af7f3f20ced51e8bcc44ba705056dd912d938e26ad7",
+      "public_sha256": "0349472ffdb042b24c8440d1f9a5020f66433cb060f10b4f02b32b959dfe3ac8"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "9f8ebdd5a1a7a809241539e2f6e1d98ac463fe30f30e2a5958df247652659190",
+      "public_sha256": "700856e2c36238b4707c8fc84d452431fe0fdfb577c0e98d6afdee56288eaa28"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "98ebd4cc7563d209f481d348dd333b173e083773fa047b212c96f8d47ee33e26",
+      "public_sha256": "a1d8b35a97bc7a498671967112914e94343aca9d57e8a3995009aba577be70c1"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "04b0af5d00263c84faff4b20d802cbc59358e31c49282a9fbdcda4911409cb4e",
+      "public_sha256": "7fec77125af30abf0761e6d2f73a8f8fdbadd41c773197b3bc50bee36d069c6d"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_serial_cpu_1_adjoint_k4.json",
+      "original_sha256": "a6ffcd7c3a2439c9dae2749862b86d95502a460c5b19d81797fde7a41b1a833d",
+      "public_sha256": "221d3761e584c568bc873e32c57016efec535525411862e287aca8fdbd8ded07"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_1x1_21x9_12_serial_cpu_1_adjoint_k4.log",
+      "original_sha256": "52d02a11bec512a99a38d2dbc20c3b15cf7990f22dd32d3c8f66bd914874b953",
+      "public_sha256": "1ac61d713a350fa9fda56b33f5f4655193a29fd2d94b245e01b51d662166843c"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_asset_batch_cpu_1_adjoint_k4.json",
+      "original_sha256": "860763d1beddf976949fbf5b53aee88d19d9e65b9bec06749c0da0cf971e48ee",
+      "public_sha256": "65df3a1be5181b0c720ff76abdee022bd9222117eab677269f6f136e077fcfc8"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_asset_batch_cpu_1_adjoint_k4.log",
+      "original_sha256": "4675d5bbc315053543877e81a427f6ea8c691d4f8dd2f847017666cc8863ff37",
+      "public_sha256": "1f13ea0bef09bc1e2e2b328017ebc30fc8b431c966dc3a2512b6797c43e4da35"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "76a9161c4c1949cbdb2499902f0e1f72ea31d419096b482ad4f9f62352116a87",
+      "public_sha256": "a7899dab9343adce9981228d027c75fc7d07850e47f6e60b0cf3709ccbd31443"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "24bfefdfae10f2280b8dc2c2e335614679a4102fe259d0a1f22e86ca875e4114",
+      "public_sha256": "c10da1ec8d8fd4e46d8e6b7940333e6a975fef551d6b357931ea5882e449bd32"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "59cd3168e6a174ece758631e371f7aea7b8c1ddc0e0014f2e64262280dd3a0cd",
+      "public_sha256": "592ded92fac3720e07f83d51f3ff540f2d26b3c03f6df0ca2560f4bc531d46a3"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "3c664a6d950ac76238fb18224c41db6c8df79c483ba7f4c536e23ecc3e8f1176",
+      "public_sha256": "593fcfba280e0520f3c0c2ae23dec610c670905dd5bf7b9fe3683be738dce020"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_serial_cpu_1_adjoint_k4.json",
+      "original_sha256": "1d742c7041aa92ad053ee7c04723404da23c993faae1654afee213e4d0a10a90",
+      "public_sha256": "340b9824ccc715bf5e3ca5b012a18f397853d22fc3f85752618616562c2c07d0"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_21x9_12_serial_cpu_1_adjoint_k4.log",
+      "original_sha256": "d33fc4e61b93b1e3523c69c8a24d7e16a121538e16cbc09dc685a9faec87efc7",
+      "public_sha256": "8080829a2d8f0af1159c4e945a949038bafbce3108fbf0a6c9c86e53bd4a6ccd"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_asset_batch_cpu_1_adjoint_k4.json",
+      "original_sha256": "0c6f02b933a81e3ab46eda2bf565329264c0634d6ae9457254ae0b256888ff6a",
+      "public_sha256": "020023eb9efed28525488974053690385734f2681fa23d4b2d29b70497bd7c18"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_asset_batch_cpu_1_adjoint_k4.log",
+      "original_sha256": "2202947d3b7bf82250b222affdd77d87f52919eab8074fd3d2dbb368118b851c",
+      "public_sha256": "59467938e1a5a3331f964b641f79193104af048e6cac80f6a51367552ce6113b"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "10bebe1cdf11cc3dda7ebbb2bde93ad515c7e2da1d46aeaf34e724af2e62c43e",
+      "public_sha256": "24a0ab88fdecb4f6b1af718cd69e9ef67abc14f45b63fe978c787fe314dd32f3"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "debe4a5f8539bdcb59f9d25aa4f3d99b9657a501cb2d6e29c0062bfa08cff220",
+      "public_sha256": "31221474a3c2c932af040d862e24a886772fa2fd19a6acd5bba92b6d1acc1692"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "b78b2b5565dd332939112d91e707c69eae6f48d94e50690d5197c2762ac9e2d3",
+      "public_sha256": "5941d1f255ffff11b99617689dce3d647707aeec0d658567618940636bf8e5f6"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "022a92610aeac39fc4637b1f6766f77377bbbe1135447d474a5e4602bd22d4ad",
+      "public_sha256": "f6bd412524c16761eda37fa1bf34f57f6d136bdf71f2e97685f81b1869145226"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_serial_cpu_1_adjoint_k4.json",
+      "original_sha256": "da895fa589c85559e49e83baed6c9c827b5636b73c5bde19cac2ea8aa81244b3",
+      "public_sha256": "3a0f1883d39b754246fe1ecb9786f892fe78fd8131a613a7cb57d2bf6d881430"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_20x30_41x17_24_serial_cpu_1_adjoint_k4.log",
+      "original_sha256": "9e5474d223ee52726f2f4a920eb408db0cc8a2545db63af54cf35cb6497fca72",
+      "public_sha256": "bfca94659cd99ef257fe82de70aef5c26d54f853ac87f317434446ccb4cdf51f"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_2x3_9x5_4_multi_cpu_2_adjoint_k2.json",
+      "original_sha256": "47ef7b1ee5b6fe74590cff44e6c7fc7ed3dbf3d5f707f6aa4cfb594dd669f246",
+      "public_sha256": "3a3a6c60f64d8a406e539a3c416a02724f87deed162a6c8249710dfe6574d88c"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_2x3_9x5_4_multi_cpu_2_adjoint_k2.log",
+      "original_sha256": "d7395e05c9218e3915e4d4f44d23cf95d79947c0f0ae9f61d1d0e6aceb9ee7f7",
+      "public_sha256": "534208fbbc5f6b6b15449f71c63f3a0e4d895d9bb100324b73e7655a5edf1b3d"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_2x3_9x5_4_multi_cuda_2_adjoint_k2.json",
+      "original_sha256": "c34837661476626dc162b4d1775702faad2cac68194f1dc9e051c7b2d9877dc4",
+      "public_sha256": "de9c0737f44bb69f437398a773e90591611d50cfc03827591d385507b0688b58"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_2x3_9x5_4_multi_cuda_2_adjoint_k2.log",
+      "original_sha256": "8b566d6d073342553cb830c605d3b8db840be51a36138c4b40f28f619a5beb05",
+      "public_sha256": "1b1cd9c14aca51730990143892d9f294c7274204f9cfeb1ddd7a0640438acc19"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_asset_batch_cpu_1_adjoint_k4.json",
+      "original_sha256": "d7bdd089d8f602b6e30fd864e1a35fe2d9e0c9066d9fe3b2afe6a1e8800e4c9e",
+      "public_sha256": "7dfba3395b183b401a0fe04b1347c7163c46c7d72c5efb5eae0c949046490155"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_asset_batch_cpu_1_adjoint_k4.log",
+      "original_sha256": "8533c81d61eb1bd04891b3ca4a72bcad4cc21cf9c6f32aeb962c08f5bea227a5",
+      "public_sha256": "a31e23870a4a0cf43f0118bb3053c144e4782593c1d7f55513e2a16a420db38c"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "e274f5e09c9b242339cfa31dfc021e6580c6632b0ea070824a02f9bfa3feea79",
+      "public_sha256": "ba6ac3151a820103f506b8fd28856cf99c862e83a9e6b25131988ab524defb1b"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "a4a5dc60e3bb10bfb7be95499c6e136f1533d942a767a9a30a1460cfb1ca3995",
+      "public_sha256": "38343023911fbf281f00e266c6f34c22ca541676a809f95b2472b13c0cb261fe"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "c30e8c799587a9d793869cfcf8354d4b45d3a3b914db28c73f950716dcd60baf",
+      "public_sha256": "5ddb49e85cf05abed5ec851be258d21c785f3388c8556a48c0336e6ce3d33248"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "8adf1d587f6553e40347aabd1c9a556e0d461b5a90fc822a07da376d5300f018",
+      "public_sha256": "88594b11baa994dfcd7bf66b08813fc48dc3406a66197bee78f4f83dd82ca456"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_serial_cpu_1_adjoint_k4.json",
+      "original_sha256": "ce7a8d447f0d4f338a9f5d497a8f673d96dce076e292b6deff63abde50b85da5",
+      "public_sha256": "9692f02230b151a0c8512879e3e26b38cd09e7778ac9f32f6609c0c24e544b2a"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_32x32_21x9_12_serial_cpu_1_adjoint_k4.log",
+      "original_sha256": "5bad63e896376dc218dc2204dbe1f6c9e6b66544bded2a201bf3908574084558",
+      "public_sha256": "ff9f831edd4221728a39970aadeed61e88cd811bfa3839e00806d7fb9482454d"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_asset_batch_cpu_1_adjoint_k4.json",
+      "original_sha256": "4e1649cc1f7694f49910bee6e508cd00ef79483e02c1b1fc82678c596f9c153a",
+      "public_sha256": "f0c4e33049aaa5c785668370d5e017af17ca8003c25bcabf12e7cc5124561f3b"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_asset_batch_cpu_1_adjoint_k4.log",
+      "original_sha256": "46eb8b5366975f75e527ae931c6435cf06c41b895e9db5a1c67d224df6e3aa8b",
+      "public_sha256": "0f0c0c3ed056714cefac458a4fea15f5d165acc0cd01b3606c80ad74617e6219"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_multi_cpu_1_adjoint_k4.json",
+      "original_sha256": "e77d857a43e387528d16491c737c38b6ecac824003d883d0058bea80a8171400",
+      "public_sha256": "5b0f414b3832930667dfe2c50ec44f2e26a84f2aea3889ca1294071c7b624e7e"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_multi_cpu_1_adjoint_k4.log",
+      "original_sha256": "38d02e75efc573120b329443693bbf7defe444bd0a23fe6db3b00993b1ab594a",
+      "public_sha256": "78b0db75104e8bea73341609496cd482655c1b6d9dd9924b90c02211a41daf9d"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_multi_cuda_1_adjoint_k4.json",
+      "original_sha256": "4b4031b8fc184521e4299799d4ad6963bb3f9a6df41d044a7680fe45d70b5a73",
+      "public_sha256": "3162bd742219055c1eb2321dafef17dd5051c8d8f4ff5dbb33aa16bc077ff820"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_multi_cuda_1_adjoint_k4.log",
+      "original_sha256": "579ba0a4611e7de402b54792ee83fcee53d300bc2cf30630aa3956ad4ed8cd18",
+      "public_sha256": "f4c388c99f1dda173f31f0d7c9ee5521c9ae58b421dde2546a70bc3ee3943e98"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_serial_cpu_1_adjoint_k4.json",
+      "original_sha256": "4b10ec4812861c111572e70ae775a776a3349b3b70f0d2952f349500066bf2ea",
+      "public_sha256": "4a45fefd4f7566b9e72e2f85cbe94f6895b818c49018639bea702dad30a39ac1"
+    },
+    {
+      "path": "docs/benchmarks/multi_asset_phase24_workloads/timing_8x16_21x9_12_serial_cpu_1_adjoint_k4.log",
+      "original_sha256": "4f167ef72ddce235b661bc0a9ddcbf88d99a182f939f97383e819507f85f17f2",
+      "public_sha256": "7b3c476401d899727fdae81a17c6e8666de3f11289871884552cce3cef522dad"
+    },
+    {
+      "path": "docs/benchmarks/neural_sde_phase21_build.txt",
+      "original_sha256": "bd87a26e8c13fb961df40a14acf811a27ba7a8a85c8a00fcc0d3d1031474de63",
+      "public_sha256": "53ef49e92318ab4521ba79b418600c2f86196523b87861c3eeab11c73fa9a412"
+    },
+    {
+      "path": "docs/benchmarks/neural_sde_phase21_tests.txt",
+      "original_sha256": "6119befa82a7cb71d48b86aa67cc7239629e10d004e72fd92960adc6de8b985d",
+      "public_sha256": "a58ef3ca59c9ace6307fcea7b8a1f6733bc1da6044291f4d78a04d9b2b6ac424"
+    },
+    {
+      "path": "docs/benchmarks/packaging_phase25.json",
+      "original_sha256": "29ac75fa339cebc80671b9ac87c1aab1de684f48dcdc358cfa4d4f05784f70ec",
+      "public_sha256": "9958a18c47e3d851bbf1628e34a8a083af85184ceeae2df5330f473598124af3"
+    },
+    {
+      "path": "docs/benchmarks/packaging_phase26.json",
+      "original_sha256": "9cf3f07de7fa2f85a1cff477596d3ede0932ea85257a1878160896432863743c",
+      "public_sha256": "60ddb8fdc4b5fc3ce09bc4a3155b0cab04fffcb85dfb19e29fb26d598ee91555"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_build.txt",
+      "original_sha256": "196474962d3918151d0d3798df5108eb85d3f1c4475e455cee72da046e23c36b",
+      "public_sha256": "99f893fb4091ee14375fd15b5302bf1672e3ae90c9605971b464190cb02e7e54"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_cpu_build.txt",
+      "original_sha256": "495c527aacf1a9031885bc93ed88dcc88ab91739996c500a6c621cef7d61cdba",
+      "public_sha256": "b8d7eca7a85cff51d7a09d55167870e7bcb156c97c82f47b27e404c326b18bb8"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_cpu_full_tests.txt",
+      "original_sha256": "d3ecfcfcdf7217635f0d1c196b5ac1ff61bb6020707e65f1153595fd4ac7d56f",
+      "public_sha256": "00515bc7ca8c4baaf0b4d8fedb591bff89c5ce5293442ad607350a5781e7fd3d"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_cpu_pilot/profile.json",
+      "original_sha256": "2a9b6b1522a3f3ffec0cfa0244a9133487caa8f729a67ff26f06f6f93bace467",
+      "public_sha256": "0ccca9774f5f5cf9126c95574ee7f11e846f9ed8f801323209755eb29b810d69"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_cpu_pilot/serial_timing.json",
+      "original_sha256": "965a148f90bc62111e3b3889c9f6ffb7d21723819ec9685f0d3b9cf0a2a419de",
+      "public_sha256": "bc33ab3eccd13007262c7b2c7e85762e3e9ebe19810fd6b560924d6b3648f6f1"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_cpu_pilot/timing.json",
+      "original_sha256": "6da9dd3f118db087118a221d4a3131cd643108337903fa743cb3110dc08f0898",
+      "public_sha256": "1808889050610c2c1632bb25b46538a6f9c66d3d75c180801cb5dd2dec9b7a12"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_fit_adjoint.json",
+      "original_sha256": "06ebe5bd59749659a401b38aecd47b32acad521e1cd46bd8e1275ca5e6daf351",
+      "public_sha256": "ffa85f2d98316a9b21966fbb0fd52b2ae4ca5fdb7178a7514021273a0697451a"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_fit_full.json",
+      "original_sha256": "be95ce83454854614d05f0f2dcf30cc5ea5533b7840729e945d4cc12ec8a84b1",
+      "public_sha256": "4aea50b6a1e44bd826a9caec43e2d804fdb5087abf13fd96944d65569b7d1279"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_gradients_cpu.json",
+      "original_sha256": "31bb0648c164c72cad72bdfa8a8f5fd9cb5723b6505429578a022fab460cd104",
+      "public_sha256": "55e3333261e69c737d2a703d1394aa15be566ac8a770de9ceabc3f4a39434d97"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_gradients_cuda.json",
+      "original_sha256": "a7fc1c8de2258ad42c32490a439b8dfde90af3d14f7889aad413b52c251ff117",
+      "public_sha256": "5fc7fe922eb01a7dac5abd56ac2035a9b1a563e60be60c258b1f5e53d98ee8da"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_gradients_full.json",
+      "original_sha256": "8d82e32a31162de51dd8b6e4a3c9c7984c68a4cd0db1af098e9d46d804080357",
+      "public_sha256": "86ab0ab5f0cb8f1014447fe15ad1ec2c582e82922c9cb0016bf91694ba1755d2"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_neural_convergence.json",
+      "original_sha256": "4b38260910c92e392409fefcad8c2d210e9a6954ba6ad47f1b1f7bed8d7bea5d",
+      "public_sha256": "950e62b39080a57cfa309fb23d48bd8b96de42d461356173faf27b10abc56b0e"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_targeted_tests.txt",
+      "original_sha256": "fe2f7921f10b0f5f9d903e25ca13fd53a5c79fe25e915a898102dd8ca977cb59",
+      "public_sha256": "4eb1e5c83a3a2f8f85d97f6f28250dc02b44a407057d92ae11b32c3f80dae223"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_tests.txt",
+      "original_sha256": "0ac5da5f8e01264d2f243bc587780449ab2d84cd7d3a4177961a1a32ad56434d",
+      "public_sha256": "b9fe02ee26de13c1c5e1424a719fa62e5a44e7252566e6290d5a185791703aa8"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_validation_commands.json",
+      "original_sha256": "ddacdd078a282ee1738c89644834a56497d18015c010665035664e727d85ceae",
+      "public_sha256": "55dc88d565726f809b8c752f5849a1531dad4de07b5511bb7b2e49955aa1732a"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/commands.json",
+      "original_sha256": "3028306458ccfeb806622129b2eb951db410933aa003f55b0ba5ca77138d6043",
+      "public_sha256": "279463fdfa659463b5b30e268c5d4a2bfd69e0af9ef32ce664eacbd7c3ce6d49"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_fine_9_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "b0d9fe01188e75393cf1b950e8e00ccea17ae0e85a3da04052b585801cce13fc",
+      "public_sha256": "df074889b1db71e1df7079f9b56e111888deecfb93c2a1e5bb0562e063e3f937"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_fine_9_common_adjoint_batched_cuda_1.json",
+      "original_sha256": "5c85ca1f92d91e5293173e717a53983202a414e3df756993773f5cedae29ba1e",
+      "public_sha256": "a0a65451133c672bc12eb235733da12112fa4d341e13a2a53fbea2acc65df379"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_small_9_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "61da8262a2486f43b6eb693ee8ff8c6a19ee36e3b060408052ce8ada91e4f704",
+      "public_sha256": "28c5d10c7555fc562f56a505bacfc64f3dcbad11fbbd985389bd7fabfd657c77"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_small_9_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "3f1c3263c445a905b2668a50fb06f7a5b2186e1777413b4bf94aaf4ee0b68e22",
+      "public_sha256": "bdaca799b62ac72e469d5dc12f2d0b3043fd37b4b33c02f021f50d72e941149b"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_small_9_common_full_batched_cpu_1.json",
+      "original_sha256": "fdf57b51e368d1b608a5e989cca8da7d293d9d637aa9caea925d078bccf583dd",
+      "public_sha256": "4432c9a7534fdebd16d4e7d64e8b6cf3d576ca170a53cc96f21d7a5246921e97"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_small_9_common_full_serial_cpu_1.json",
+      "original_sha256": "768c50e5625a6fba6559c34a4bebb6dffa9f594293f1a69b2dfcfe843c0e93c8",
+      "public_sha256": "f2c6729e30db61a43641532d900565f8df44619c9bd1dd1a692d0c9c52be0915"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_training_9_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "773b10ab8ca57e23f489c50147e345937ca7b34843498ba50dee80c4f1077ed5",
+      "public_sha256": "76da0456188019e9804fd013f0705d17b468af916c4a844a9fb2bddb8f9b4171"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_training_9_common_adjoint_batched_cuda_1.json",
+      "original_sha256": "0ede94cf51f9b20cd0e4669d533b121b2f083f38ab5f303071219d67411d57f2",
+      "public_sha256": "c5e6300462982d90fd3e59e10a005cedb5e94fe0458b5587cf9b31e99162a392"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/memory_training_9_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "ca3f5b998e391a9ad8520e1e21a1e20fa343de3f0db0eee3e4dd1a1f4e6411bd",
+      "public_sha256": "437f3cb4f86fd4c383e86e26eca3bb2756fabd4ca470e5f4b591e1bcdd18f82b"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/profile_diagnostic_3_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "e9d9ca003bb83094f0fae0b6b0a95fd8cb406ae39922a7644df74628891ef592",
+      "public_sha256": "86329242040e672b523645bb5620b726aaad4debffedfa33ba154574955f73e3"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/profile_diagnostic_3_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "9071f0f77cce7723939b15dd1f80bb0b3de22aed61593db32d404f6f6781d1c8",
+      "public_sha256": "7bf383bfff9cfd7c7f2add8283344f0916b9941e6da325741c8e9040f9e5d275"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/profile_diagnostic_3_common_full_batched_cpu_1.json",
+      "original_sha256": "7b14a8fd1e0559c7ac65ab4421ada415b931ff3532aea046d94012e4ce5622c8",
+      "public_sha256": "3db7bebbbeb7d33efb958ef707b9df742c4ab3ac5fc75567b19af78120d0c1c6"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/profile_diagnostic_3_common_full_serial_cpu_1.json",
+      "original_sha256": "6773cd8493779e2f4d1398a5e763db98ca6b14ee57c63e49210541a2da4df02e",
+      "public_sha256": "021ccea49de40da10651d7ae51cabde92467fda2a3aed069906aab0de67f4e75"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_fine_9_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "a837366eef362551dc04f9c223f4fb6daa5bfd9629271080761297a80d8962de",
+      "public_sha256": "6e43e6bd4159be109bececbe18e830ca2f23374428e35b947fef16b9d1d20794"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_fine_9_common_adjoint_batched_cuda_1.json",
+      "original_sha256": "e9f781c18c5065e2502e899d74ddeb99cb15801015df32b90fd548c178f2ea1d",
+      "public_sha256": "7830fe14f13a91a28f8cec42aa535bfaf761406b121fec55871e0a6af68d5823"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_medium_27_multiple_adjoint_batched_cpu_1.json",
+      "original_sha256": "a99f927ba7e87e4f85c96ef0a8640cb97ca62224c356359e40dfa4727e78dba5",
+      "public_sha256": "53ad9d5f864fbd459c9979166d124861e2cb5dbfcb38b810a42ceeeaccd1b027"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_medium_27_multiple_adjoint_batched_cuda_1.json",
+      "original_sha256": "76e3d426ddbb171149c3d306b40a078e305802fc88e0695f220605a957a47883",
+      "public_sha256": "e643eece477ce79562f1a78551adeddb83e8e59ea233c5658cac170130b2c1ad"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_medium_27_multiple_adjoint_serial_cpu_1.json",
+      "original_sha256": "4cfd747b9ffc6521710c2e6c044d796fbb323ec566ba13f086d3c5750bc4a5c7",
+      "public_sha256": "d8f3106c821db49e9e41908a3a409ff44286dd5bcc16765c8868c78d12c15f0a"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_refined_3_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "96b495f7d7e77b6c01a86d905791257d9a830163a71ff77f1f7150a3bfe7974a",
+      "public_sha256": "ab566e9351cafe5e8bc1da9acc89b1a90917d3cc59edf4e8ce9174029ea3aa41"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_refined_3_common_adjoint_batched_cuda_1.json",
+      "original_sha256": "b1e5709b96290995fbf6a307aa45b13f3391eb061908bf58ad01da5aa408080d",
+      "public_sha256": "86ae2e430233b370b8858ecc96c07fff7d18a1f30b158a52ed2b8b766e7cd039"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_refined_3_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "53e462089d195b5b1c13ddfde72b4410edb86427a99f3be6a3ef3438130a5a6b",
+      "public_sha256": "450d560adcef36144e71cb03fdbee127a86787d0770158276490a29e1e4824f0"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_1_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "b1e96cc343527b2fb321c7a9195ce048e589231479da9889665147aa2e0c91ff",
+      "public_sha256": "ea46b9692b62c40c37f37abd3882703a89e402f1ac8692f7d0682f68c1ba1eab"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_1_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "fd57b1e224d1a999e65b5fbb8b0927357f4e9767caf726acac2495982a1a0798",
+      "public_sha256": "954d6a3e6ff7c6bf3e0b2a086b81ecd5e94960596d4360ab770d63e2fd195a8e"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_1_common_full_batched_cpu_1.json",
+      "original_sha256": "a369bf650fb8a5d0b1baf408de25fc8d167d67b4f862e994070dcff7763ea6c4",
+      "public_sha256": "132ada94131452e87484fad972294875848d7fb17d071211833123167925213c"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_1_common_full_serial_cpu_1.json",
+      "original_sha256": "50bdb4978cd90b2243063c1560840d14e1bd6c288c6b5f037f55ab88437a46da",
+      "public_sha256": "e709a5232c4b7631fe0d41b28d5d5c032268650fcbbf2f6af6c35354ca55f07b"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_3_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "6e16a17f375ede3e4d60cc04544d1d45fcbc74efc4ab12932b02e8f38a77987b",
+      "public_sha256": "fef3036c750c895a2ce6c7922f52fe90f087197cf3a6101137deac24e915b1ad"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_3_common_adjoint_batched_cuda_1.json",
+      "original_sha256": "7167557cba4f0645eb6036619c406dadc1e02f22437ba6e0007ba3f0d388f1a0",
+      "public_sha256": "f51e7fe2cf8b9d307350c0724ebe9fd9e30d02eabcee7312d2ce837013d6b851"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_3_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "5d1cd0c6c040dca1c0faff7453c5edd58a95bf67ce034ed5838978a4cff616fa",
+      "public_sha256": "050993b8a158f2287d7f787188ddc83c9d23dec95cba29263ca845e1df567317"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_3_common_full_batched_cpu_1.json",
+      "original_sha256": "99df93d25217258a7da34356d2dbc9612f20a1b694eb9fedb01fde7a7993f9f8",
+      "public_sha256": "b006bdf5785b5bc442dac78779cf11eced6d7c7c38244736b03cc47d57fe1240"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_3_common_full_batched_cuda_1.json",
+      "original_sha256": "b7d2d00d903260e1b256983005403f061efe056fb1f28f7b0ce7a4bc4f6a7627",
+      "public_sha256": "ebb4200c2842a3d15210fc1706ffc28bc2d41f5c832e4e58430e4b15a5bc78c1"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_3_common_full_serial_cpu_1.json",
+      "original_sha256": "f596c3774c10879c3894790a63c336e5e4dc0511c743b76385ec6ee32f498f1f",
+      "public_sha256": "8075161be67641b584a088c4ba1ea3efbbbeee10da30edb2809c5bcd7796f3c5"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_9_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "b4aa9218ab6054e3fa4d316124cb8fb9e88259f1dcb805b593729ce7f7dd748a",
+      "public_sha256": "3748670f6c58e3c95aef885a1dc93e655ee694c51ddea4bfbb4447a58faf524d"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_9_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "8d8006cdbf54d5acf35d0acb787a09dd7ef2033d55e560b50892f89961af2104",
+      "public_sha256": "d7d8221c8ea8b1e63dd86fbdd68a88708d407a9760881b3d47df4c2683ebfbd5"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_9_common_full_batched_cpu_1.json",
+      "original_sha256": "3955677b4c8ccc0dd77bb9032a78da597cab4e9ef53397f19b8593889a120e3f",
+      "public_sha256": "727f9ae8a8ce3f1e9882e480f04ccb72a9e6735d22cc90754e4071effb44bed4"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_small_9_common_full_serial_cpu_1.json",
+      "original_sha256": "a42c47e45b961f5691cd9447e0552dce816f45a114746096bd2158bd788fbae0",
+      "public_sha256": "ec91c738777833b5233a55cb0c0f4f77d436e9a04c5616216cf75f59f88816c0"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_three_dimensional_3_common_adjoint_batched_cpu_2.json",
+      "original_sha256": "b96d5e1414abfb75888c110f2427e193be52b3dad58f7f77a8cb4e19956c5b60",
+      "public_sha256": "9a5890179312ccf203742480bb6fd9df3526e38cfa3a541e71b45ac7dbfd4907"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_three_dimensional_3_common_adjoint_serial_cpu_2.json",
+      "original_sha256": "6b9e36ec1fdf4266a7bf5c456fbd3649b1f19d3fb03f7cb7109ef59d3706f6b1",
+      "public_sha256": "6f6ebd825f7eabf97a6e91aa44681757611dfc055fdb7b49add09fcaaa0f3fa5"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_three_dimensional_3_common_full_batched_cpu_2.json",
+      "original_sha256": "889f1aab725098ca1294e9fad8617532be1cd6d4c6b03e48a13c33b8f9ad9663",
+      "public_sha256": "ee7af823d75f8df8c451a45fe7446d0bee6dc3e39d7a0fe28f2691cd1af52201"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_three_dimensional_3_common_full_serial_cpu_2.json",
+      "original_sha256": "fb64859ec432851c06ce6d1ef1667a17f3e3cd189f030427c5bf6e77f171fb42",
+      "public_sha256": "dd009b1ac05ed1c1b1b2a0f08490970a3e33b791fc53dd74d57a12e38f2b4bf4"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_1_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "76de02531deb30dd7d6c75e72a7df274da6eee546bc07c0cb3868802fa49677d",
+      "public_sha256": "42a85b2a61d057d7ae81b2ff700ad1624c27a46235de5f2b705c9a097fd86cac"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_1_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "b947415ba220dde6e1d4b24f46bc71538024b4b3f79f70efb76c4c3ba982671e",
+      "public_sha256": "f8b0b148263c8ff90d980f1b3bd93191864d5e9b4e7d5765bb9a6097d7d98e60"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_3_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "8c0caa18212cb69f96c51b92b56b5b6149078868cf1a9e3eee578b470d400274",
+      "public_sha256": "39c71b9a917b13738e24adffacdb355562c5a07597d0cc0d9c87a7e50ec31d47"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_3_common_adjoint_batched_cuda_1.json",
+      "original_sha256": "1da080333a60fe252e12981e391a86f055c301efe6236946e081dc23f404e63d",
+      "public_sha256": "ae03a54cdba693f329c5ff31bcfba9eee8521e0f0a1020e64c9fcdfe507dc8ea"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_3_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "af95e15ab597ba0d1c2978d35d337352b3268276b8f107f0f11189494b820fa6",
+      "public_sha256": "f476a6a1987547e51bfebdcbbe7cb4559849300c0f378c8b06537665fe13cdc8"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_9_common_adjoint_batched_cpu_1.json",
+      "original_sha256": "b5e12f9c6cec211d7d7b2292aaf8b10cd04a099ef718e49da28e8daf5fad4076",
+      "public_sha256": "98086fef96945fff222a4fe39e76268afbce11b4191dc6d7d33712efcaeeea3b"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_9_common_adjoint_batched_cuda_1.json",
+      "original_sha256": "b6224e44a310cd4dc295ec623f97a25072df628d7731a9d1a0bfc518f5256419",
+      "public_sha256": "8871524857288dba5294207e97a5edefd197b6b206c5c884bbde82b82b482b26"
+    },
+    {
+      "path": "docs/benchmarks/packed_phase23_workloads/timing_training_9_common_adjoint_serial_cpu_1.json",
+      "original_sha256": "7df906fd2721524e6727e5e70395cf9b1cb0a2b3f9cd881e743829e07d7ea186",
+      "public_sha256": "18582ea3940795ca5b2458961739a5cac0f027aaf4a72af451c23a176c253493"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_basket_pilot.json",
+      "original_sha256": "14d2dbcd98601fe11b4066cfbcb2cddeb79753d36255875e95fc6deb0f6c5f62",
+      "public_sha256": "fca59aacdac9eb03c915bbc57e0174910d3e89797b1cb9b30817461277599d92"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_basket_profile.json",
+      "original_sha256": "5cac60e8006dd87507f7c043216a8485df7780938eb970613da83540325017b6",
+      "public_sha256": "9849830548ac49121d996fdf5e90cf1456059af18a675e0959040415f33ca09e"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_basket_scaling.json",
+      "original_sha256": "43ad3d03b08ac22c1ad5995cd3b5feb8eb93a34fbfa2833462521cce24e2f259",
+      "public_sha256": "824b8806e5536d623c3c8c2223d011bca0cfe8ec4b28d586fbe7ea4f12341b13"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_ctest.txt",
+      "original_sha256": "a0d62958ecd64ce860a8ffc15fea62d8c77bfb3d7420c4f8c70a13768f7738ea",
+      "public_sha256": "26c3aa16eed77127aadf3c12b35d5a319ab21b92f20278e270355113c0c73755"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_numerical_validation.json",
+      "original_sha256": "ed9b60edf6196bcb8af0775798ad1f45fc0c732c2f6c0ec0932da63a5b443a21",
+      "public_sha256": "b7349839e4256d94d2d69bdcc2603e0f0ac7450c35bfc70cf64f47777941ad37"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_preservation.json",
+      "original_sha256": "552931b35c9246a2946fa71a6b1668f920ff84059e82addd355785627e63fade",
+      "public_sha256": "78684c09cf639a364255b0e4f7fb05e8d96524c9e33d6316f2b4d45996a3f653"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_vanilla_controls.json",
+      "original_sha256": "503e399c0bcf18f9ac32a02db38603019954deb7320ecd72233617a295b11ca3",
+      "public_sha256": "e20304e05e542282f31337f530ed30f5765cbbaec384cd3337e425c7133dd18d"
+    },
+    {
+      "path": "docs/benchmarks/pde_phase20_vanilla_controls_final.json",
+      "original_sha256": "4815dabc5f4e49885ba8f5033349a05812e904969a4d94a0a361b89dfcfe47c8",
+      "public_sha256": "9b871ba6a9013f94ee20326397a431a969ccb3387be3c6e7a22ebc55eecdc3f0"
+    },
+    {
+      "path": "docs/benchmarks/release_examples.json",
+      "original_sha256": "45dc1522fc90b3c74830c06dc54e07c0145df02d3745a8604493b3c2b717efc3",
+      "public_sha256": "a594d6f74fbab807f0e2ea8f2f2e852cd242d06398516d5da64917421884a36c"
+    },
+    {
+      "path": "docs/benchmarks/release_packaging.json",
+      "original_sha256": "54ff300e2ac6fd513a7a5a87341553f6da2d6c95ff23c785a9e1c673027108b0",
+      "public_sha256": "8b5e2089d0e23a8bfc2936b9a9c45340fd0d83a4532bd4101dbdbaecb7aea5ca"
+    }
+  ],
+  "policy": "Personal home-directory prefixes and private Git author emails replaced in textual evidence; changed gzip containers rebuilt; original hashes retained for provenance. Original local files and Git history are unchanged. No old Git ancestry is included. Numerical source, source archives and upstream notices remain byte-identical.",
+  "limitations": "Pattern-based scan is not a proof of absence. Native wheels are audited separately. Hashes inside historical reports refer to original local evidence; this manifest maps changed evidence to public copies."
+}

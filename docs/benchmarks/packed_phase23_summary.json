@@ -1,0 +1,1415 @@
+{
+  "binary_sha256": "e6549f5a153d6695d3fa21b1366acf1edee94684c5f929413eba9f8911401b02",
+  "timings": [
+    {
+      "configuration": [
+        "fine",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_fine_9_common_adjoint_batched_cpu_1.json",
+        "batched_cuda": "docs\\benchmarks\\packed_phase23_workloads\\timing_fine_9_common_adjoint_batched_cuda_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 6.913419200107455,
+          "forward_seconds": 2.735772700048983,
+          "backward_seconds": 4.128307400038466,
+          "cleanup_seconds": 0.02476199995726347
+        },
+        "batched_cuda": {
+          "seconds": 6.089711700100452,
+          "forward_seconds": 1.8426377999130636,
+          "backward_seconds": 2.7835013000294566,
+          "cleanup_seconds": 0.02940979995764792
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 1.627968299901113,
+        "batched_cuda": 0.7562843000050634
+      },
+      "maximum_price_difference": 7.105427357601002e-15,
+      "maximum_gradient_difference": 6.0822458181064576e-12,
+      "cuda_over_batched_cpu": 0.8808538183256411
+    },
+    {
+      "configuration": [
+        "medium",
+        27,
+        "multiple",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_medium_27_multiple_adjoint_batched_cpu_1.json",
+        "batched_cuda": "docs\\benchmarks\\packed_phase23_workloads\\timing_medium_27_multiple_adjoint_batched_cuda_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_medium_27_multiple_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.7385370999109,
+          "forward_seconds": 0.29209079989232123,
+          "backward_seconds": 0.4022925996687263,
+          "cleanup_seconds": 0.025540899951010942
+        },
+        "batched_cuda": {
+          "seconds": 1.5235711999703199,
+          "forward_seconds": 0.627616599900648,
+          "backward_seconds": 0.8538748000282794,
+          "cleanup_seconds": 0.025058900006115437
+        },
+        "serial_cpu": {
+          "seconds": 46.2027668999508,
+          "forward_seconds": 11.956685300217941,
+          "backward_seconds": 32.83408799930476,
+          "cleanup_seconds": 0.024717099964618683
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.5353849001694471,
+        "batched_cuda": 0.8465011999942362,
+        "serial_cpu": 0.07837669993750751
+      },
+      "maximum_price_difference": 2.1316282072803006e-14,
+      "maximum_gradient_difference": 2.1032064978498966e-12,
+      "serial_over_batched_cpu": 62.5598455453692,
+      "cuda_over_batched_cpu": 2.062958245637395
+    },
+    {
+      "configuration": [
+        "refined",
+        3,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_refined_3_common_adjoint_batched_cpu_1.json",
+        "batched_cuda": "docs\\benchmarks\\packed_phase23_workloads\\timing_refined_3_common_adjoint_batched_cuda_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_refined_3_common_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.7050586000550538,
+          "forward_seconds": 0.23145670001395047,
+          "backward_seconds": 0.4412591003347188,
+          "cleanup_seconds": 0.022881499957293272
+        },
+        "batched_cuda": {
+          "seconds": 1.4138933001086116,
+          "forward_seconds": 0.5821053001563996,
+          "backward_seconds": 0.7880371001083404,
+          "cleanup_seconds": 0.028520100051537156
+        },
+        "serial_cpu": {
+          "seconds": 73.82573259971105,
+          "forward_seconds": 18.682354899821803,
+          "backward_seconds": 52.21790159982629,
+          "cleanup_seconds": 0.029412199975922704
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.262437199940905,
+        "batched_cuda": 0.17496109986677766,
+        "serial_cpu": 0.4830978000536561
+      },
+      "maximum_price_difference": 2.4868995751603507e-14,
+      "maximum_gradient_difference": 1.2505552149377763e-11,
+      "serial_over_batched_cpu": 104.7086477548766,
+      "cuda_over_batched_cpu": 2.0053557250393217
+    },
+    {
+      "configuration": [
+        "small",
+        1,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_1_common_adjoint_batched_cpu_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_1_common_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.06878309999592602,
+          "forward_seconds": 0.016330499900504947,
+          "backward_seconds": 0.027603799710050225,
+          "cleanup_seconds": 0.024018399883061647
+        },
+        "serial_cpu": {
+          "seconds": 0.424596699886024,
+          "forward_seconds": 0.11381120001897216,
+          "backward_seconds": 0.27307539992034435,
+          "cleanup_seconds": 0.024023700039833784
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.08052499988116324,
+        "serial_cpu": 0.47709949989803135
+      },
+      "maximum_price_difference": 5.329070518200751e-15,
+      "maximum_gradient_difference": 7.73070496506989e-12,
+      "serial_over_batched_cpu": 6.172979989433053
+    },
+    {
+      "configuration": [
+        "small",
+        1,
+        "common",
+        "full",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_1_common_full_batched_cpu_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_1_common_full_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.06465830001980066,
+          "forward_seconds": 0.01612999988719821,
+          "backward_seconds": 0.023283200105652213,
+          "cleanup_seconds": 0.025045099901035428
+        },
+        "serial_cpu": {
+          "seconds": 1.6933130000252277,
+          "forward_seconds": 0.48492840002290905,
+          "backward_seconds": 1.1252534000668675,
+          "cleanup_seconds": 0.023153799818828702
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.019715999951586127,
+        "serial_cpu": 1.554525600047782
+      },
+      "maximum_price_difference": 5.329070518200751e-15,
+      "maximum_gradient_difference": 7.275957614183426e-12,
+      "serial_over_batched_cpu": 26.188640893847737
+    },
+    {
+      "configuration": [
+        "small",
+        3,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_3_common_adjoint_batched_cpu_1.json",
+        "batched_cuda": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_3_common_adjoint_batched_cuda_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_3_common_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.09847110020928085,
+          "forward_seconds": 0.02388180000707507,
+          "backward_seconds": 0.041171800112351775,
+          "cleanup_seconds": 0.03056740015745163
+        },
+        "batched_cuda": {
+          "seconds": 0.3186774000059813,
+          "forward_seconds": 0.11663169995881617,
+          "backward_seconds": 0.1759252999909222,
+          "cleanup_seconds": 0.027756599942222238
+        },
+        "serial_cpu": {
+          "seconds": 1.35923090018332,
+          "forward_seconds": 0.36496589961461723,
+          "backward_seconds": 0.9246729002334177,
+          "cleanup_seconds": 0.02993890014477074
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.08437389996834099,
+        "batched_cuda": 0.7251053999643773,
+        "serial_cpu": 0.02045850013382733
+      },
+      "maximum_price_difference": 1.0658141036401503e-14,
+      "maximum_gradient_difference": 5.9117155615240335e-12,
+      "serial_over_batched_cpu": 13.803348366114967,
+      "cuda_over_batched_cpu": 3.2362530664194424
+    },
+    {
+      "configuration": [
+        "small",
+        3,
+        "common",
+        "full",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_3_common_full_batched_cpu_1.json",
+        "batched_cuda": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_3_common_full_batched_cuda_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_3_common_full_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.0842635000590235,
+          "forward_seconds": 0.022819799836724997,
+          "backward_seconds": 0.034748699981719255,
+          "cleanup_seconds": 0.025461400160565972
+        },
+        "batched_cuda": {
+          "seconds": 0.379216399975121,
+          "forward_seconds": 0.1344214000273496,
+          "backward_seconds": 0.22015760000795126,
+          "cleanup_seconds": 0.02502539986744523
+        },
+        "serial_cpu": {
+          "seconds": 5.041470400290564,
+          "forward_seconds": 1.4669886000920087,
+          "backward_seconds": 3.3415792998857796,
+          "cleanup_seconds": 0.022927400190383196
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.4814162999391556,
+        "batched_cuda": 0.22478990000672638,
+        "serial_cpu": 0.017981800017878413
+      },
+      "maximum_price_difference": 1.0658141036401503e-14,
+      "maximum_gradient_difference": 6.252776074688882e-12,
+      "serial_over_batched_cpu": 59.82982426269023,
+      "cuda_over_batched_cpu": 4.500363736487255
+    },
+    {
+      "configuration": [
+        "small",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_9_common_adjoint_batched_cpu_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_9_common_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.12264980003237724,
+          "forward_seconds": 0.03954969998449087,
+          "backward_seconds": 0.05763969989493489,
+          "cleanup_seconds": 0.02368330000899732
+        },
+        "serial_cpu": {
+          "seconds": 3.67735269991681,
+          "forward_seconds": 1.018768000183627,
+          "backward_seconds": 2.5236495002172887,
+          "cleanup_seconds": 0.024164200061932206
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.487708100117743,
+        "serial_cpu": 0.485855600098148
+      },
+      "maximum_price_difference": 1.4210854715202004e-14,
+      "maximum_gradient_difference": 7.16227077646181e-12,
+      "serial_over_batched_cpu": 29.982541340842445
+    },
+    {
+      "configuration": [
+        "small",
+        9,
+        "common",
+        "full",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_9_common_full_batched_cpu_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_small_9_common_full_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.11859109997749329,
+          "forward_seconds": 0.038854600163176656,
+          "backward_seconds": 0.05213849991559982,
+          "cleanup_seconds": 0.02421379997394979
+        },
+        "serial_cpu": {
+          "seconds": 15.015803199959919,
+          "forward_seconds": 4.284367499873042,
+          "backward_seconds": 9.969189800322056,
+          "cleanup_seconds": 0.024670499842613935
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.48134179995395243,
+        "serial_cpu": 0.4786822001915425
+      },
+      "maximum_price_difference": 1.4210854715202004e-14,
+      "maximum_gradient_difference": 6.480149750132114e-12,
+      "serial_over_batched_cpu": 126.6182976868389
+    },
+    {
+      "configuration": [
+        "three_dimensional",
+        3,
+        "common",
+        "adjoint",
+        2
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_three_dimensional_3_common_adjoint_batched_cpu_2.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_three_dimensional_3_common_adjoint_serial_cpu_2.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.10445179999805987,
+          "forward_seconds": 0.02702869987115264,
+          "backward_seconds": 0.05207400000654161,
+          "cleanup_seconds": 0.022733799880370498
+        },
+        "serial_cpu": {
+          "seconds": 1.7401096001267433,
+          "forward_seconds": 0.4597857999615371,
+          "backward_seconds": 1.2012339998036623,
+          "cleanup_seconds": 0.02366430009715259
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.0828694999217987,
+        "serial_cpu": 0.4812223999761045
+      },
+      "maximum_price_difference": 1.0658141036401503e-14,
+      "maximum_gradient_difference": 3.524291969370097e-12,
+      "serial_over_batched_cpu": 16.659450580641643
+    },
+    {
+      "configuration": [
+        "three_dimensional",
+        3,
+        "common",
+        "full",
+        2
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_three_dimensional_3_common_full_batched_cpu_2.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_three_dimensional_3_common_full_serial_cpu_2.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.10544420010410249,
+          "forward_seconds": 0.02694620005786419,
+          "backward_seconds": 0.049008899834007025,
+          "cleanup_seconds": 0.026785599999129772
+        },
+        "serial_cpu": {
+          "seconds": 4.499844199977815,
+          "forward_seconds": 1.2693374000955373,
+          "backward_seconds": 3.033294399967417,
+          "cleanup_seconds": 0.03630319982767105
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.03318040003068745,
+        "serial_cpu": 0.48575430014170706
+      },
+      "maximum_price_difference": 1.0658141036401503e-14,
+      "maximum_gradient_difference": 3.467448550509289e-12,
+      "serial_over_batched_cpu": 42.67512291368542
+    },
+    {
+      "configuration": [
+        "training",
+        1,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_1_common_adjoint_batched_cpu_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_1_common_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.1455361999105662,
+          "forward_seconds": 0.04625430004671216,
+          "backward_seconds": 0.07166380016133189,
+          "cleanup_seconds": 0.025125399930402637
+        },
+        "serial_cpu": {
+          "seconds": 5.84206090006046,
+          "forward_seconds": 1.4936162999365479,
+          "backward_seconds": 4.136956099886447,
+          "cleanup_seconds": 0.022452800069004297
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.48551480006426573,
+        "serial_cpu": 0.4767934998963028
+      },
+      "maximum_price_difference": 0.0,
+      "maximum_gradient_difference": 2.3874235921539366e-12,
+      "serial_over_batched_cpu": 40.1416342026965
+    },
+    {
+      "configuration": [
+        "training",
+        3,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_3_common_adjoint_batched_cpu_1.json",
+        "batched_cuda": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_3_common_adjoint_batched_cuda_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_3_common_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.27744199987500906,
+          "forward_seconds": 0.0892285997979343,
+          "backward_seconds": 0.16175190010108054,
+          "cleanup_seconds": 0.024181900080293417
+        },
+        "batched_cuda": {
+          "seconds": 0.7135615001898259,
+          "forward_seconds": 0.31038389983586967,
+          "backward_seconds": 0.3947929998394102,
+          "cleanup_seconds": 0.027244499884545803
+        },
+        "serial_cpu": {
+          "seconds": 17.90148530015722,
+          "forward_seconds": 4.526953700231388,
+          "backward_seconds": 12.766287799924612,
+          "cleanup_seconds": 0.024201600113883615
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.49480809993110597,
+        "batched_cuda": 0.6997615001164377,
+        "serial_cpu": 0.47927409992553294
+      },
+      "maximum_price_difference": 7.105427357601002e-15,
+      "maximum_gradient_difference": 2.2168933355715126e-12,
+      "serial_over_batched_cpu": 64.52334292652898,
+      "cuda_over_batched_cpu": 2.571930351249248
+    },
+    {
+      "configuration": [
+        "training",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "paths": {
+        "batched_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_9_common_adjoint_batched_cpu_1.json",
+        "batched_cuda": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_9_common_adjoint_batched_cuda_1.json",
+        "serial_cpu": "docs\\benchmarks\\packed_phase23_workloads\\timing_training_9_common_adjoint_serial_cpu_1.json"
+      },
+      "median": {
+        "batched_cpu": {
+          "seconds": 0.4566227002069354,
+          "forward_seconds": 0.1801558998413384,
+          "backward_seconds": 0.24806909984908998,
+          "cleanup_seconds": 0.025451900204643607
+        },
+        "batched_cuda": {
+          "seconds": 0.8889971999451518,
+          "forward_seconds": 0.3544283998198807,
+          "backward_seconds": 0.47289570001885295,
+          "cleanup_seconds": 0.027317099971696734
+        },
+        "serial_cpu": {
+          "seconds": 57.67324920021929,
+          "forward_seconds": 14.709949199808761,
+          "backward_seconds": 40.95756500028074,
+          "cleanup_seconds": 0.023121000034734607
+        }
+      },
+      "setup_seconds": {
+        "batched_cpu": 0.5221494999714196,
+        "batched_cuda": 0.24290530011057854,
+        "serial_cpu": 0.47787209996022284
+      },
+      "maximum_price_difference": 1.4210854715202004e-14,
+      "maximum_gradient_difference": 5.229594535194337e-12,
+      "serial_over_batched_cpu": 126.30394672468655,
+      "cuda_over_batched_cpu": 1.9468966381703536
+    }
+  ],
+  "memory": [
+    {
+      "configuration": [
+        "fine",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "batched",
+      "device": "cpu",
+      "peak_growth_bytes": 4063858688,
+      "setup_seconds": 0.16446919995360076,
+      "cleanup_rss_bytes": [
+        573509632,
+        627650560,
+        597630976
+      ],
+      "cleanup_private_bytes": [
+        836153344,
+        900747264,
+        867823616
+      ],
+      "cuda": [
+        null,
+        null,
+        null
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_fine_9_common_adjoint_batched_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "fine",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "batched",
+      "device": "cuda",
+      "peak_growth_bytes": 718286848,
+      "setup_seconds": 0.7653854000382125,
+      "cleanup_rss_bytes": [
+        1166811136,
+        1183944704,
+        1184460800
+      ],
+      "cleanup_private_bytes": [
+        6726975488,
+        6759960576,
+        6755692544
+      ],
+      "cuda": [
+        {
+          "allocated": 22449152,
+          "reserved": 4861198336,
+          "peak_allocated": 3662699520,
+          "peak_reserved": 4861198336
+        },
+        {
+          "allocated": 22449152,
+          "reserved": 4861198336,
+          "peak_allocated": 3671972864,
+          "peak_reserved": 4861198336
+        },
+        {
+          "allocated": 22449152,
+          "reserved": 4861198336,
+          "peak_allocated": 3671972864,
+          "peak_reserved": 4861198336
+        }
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_fine_9_common_adjoint_batched_cuda_1.json"
+    },
+    {
+      "configuration": [
+        "small",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "batched",
+      "device": "cpu",
+      "peak_growth_bytes": 25858048,
+      "setup_seconds": 0.08789939992129803,
+      "cleanup_rss_bytes": [
+        550096896,
+        551186432,
+        550940672
+      ],
+      "cleanup_private_bytes": [
+        809795584,
+        812892160,
+        809906176
+      ],
+      "cuda": [
+        null,
+        null,
+        null
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_small_9_common_adjoint_batched_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "small",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "serial",
+      "device": "cpu",
+      "peak_growth_bytes": 60030976,
+      "setup_seconds": 0.4978062000591308,
+      "cleanup_rss_bytes": [
+        558039040,
+        558374912,
+        568193024
+      ],
+      "cleanup_private_bytes": [
+        816558080,
+        816361472,
+        832942080
+      ],
+      "cuda": [
+        null,
+        null,
+        null
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_small_9_common_adjoint_serial_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "small",
+        9,
+        "common",
+        "full",
+        1
+      ],
+      "execution": "batched",
+      "device": "cpu",
+      "peak_growth_bytes": 28094464,
+      "setup_seconds": 0.5138592999428511,
+      "cleanup_rss_bytes": [
+        552189952,
+        552718336,
+        553123840
+      ],
+      "cleanup_private_bytes": [
+        811044864,
+        812056576,
+        812703744
+      ],
+      "cuda": [
+        null,
+        null,
+        null
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_small_9_common_full_batched_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "small",
+        9,
+        "common",
+        "full",
+        1
+      ],
+      "execution": "serial",
+      "device": "cpu",
+      "peak_growth_bytes": 310067200,
+      "setup_seconds": 0.48825439997017384,
+      "cleanup_rss_bytes": [
+        571473920,
+        577781760,
+        574287872
+      ],
+      "cleanup_private_bytes": [
+        830836736,
+        850300928,
+        841957376
+      ],
+      "cuda": [
+        null,
+        null,
+        null
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_small_9_common_full_serial_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "training",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "batched",
+      "device": "cpu",
+      "peak_growth_bytes": 199925760,
+      "setup_seconds": 0.49972870014607906,
+      "cleanup_rss_bytes": [
+        638582784,
+        641077248,
+        641773568
+      ],
+      "cleanup_private_bytes": [
+        900026368,
+        904388608,
+        905523200
+      ],
+      "cuda": [
+        null,
+        null,
+        null
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_training_9_common_adjoint_batched_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "training",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "batched",
+      "device": "cuda",
+      "peak_growth_bytes": 538181632,
+      "setup_seconds": 0.23072830005548894,
+      "cleanup_rss_bytes": [
+        1157672960,
+        1162665984,
+        1163259904
+      ],
+      "cleanup_private_bytes": [
+        1821097984,
+        1826574336,
+        1827102720
+      ],
+      "cuda": [
+        {
+          "allocated": 18668544,
+          "reserved": 153092096,
+          "peak_allocated": 137453056,
+          "peak_reserved": 153092096
+        },
+        {
+          "allocated": 18668544,
+          "reserved": 153092096,
+          "peak_allocated": 145972736,
+          "peak_reserved": 153092096
+        },
+        {
+          "allocated": 18668544,
+          "reserved": 153092096,
+          "peak_allocated": 145972736,
+          "peak_reserved": 153092096
+        }
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_training_9_common_adjoint_batched_cuda_1.json"
+    },
+    {
+      "configuration": [
+        "training",
+        9,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "serial",
+      "device": "cpu",
+      "peak_growth_bytes": 717877248,
+      "setup_seconds": 0.48123839986510575,
+      "cleanup_rss_bytes": [
+        554905600,
+        728723456,
+        755843072
+      ],
+      "cleanup_private_bytes": [
+        817545216,
+        1018761216,
+        1022808064
+      ],
+      "cuda": [
+        null,
+        null,
+        null
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\memory_training_9_common_adjoint_serial_cpu_1.json"
+    }
+  ],
+  "profiles": [
+    {
+      "configuration": [
+        "diagnostic",
+        3,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "batched",
+      "device": "cpu",
+      "aten_calls": 22222,
+      "scopes": [
+        {
+          "name": "calibration::network_fields",
+          "count": 1,
+          "self_cpu_us": 357.20000000000067,
+          "total_cpu_us": 826.6999999999999
+        },
+        {
+          "name": "qlt::packed_latent_price",
+          "count": 1,
+          "self_cpu_us": 1987.3999999999942,
+          "total_cpu_us": 15588.5
+        },
+        {
+          "name": "qlt::packed_coefficient_assembly",
+          "count": 5,
+          "self_cpu_us": 214.49999999999454,
+          "total_cpu_us": 957.4000000000001
+        },
+        {
+          "name": "qlt::packed_directional_solve",
+          "count": 20,
+          "self_cpu_us": 740.9999999999877,
+          "total_cpu_us": 3337.3000000000034
+        },
+        {
+          "name": "qlt::thomas_arithmetic_forward",
+          "count": 40,
+          "self_cpu_us": 214.40000000001373,
+          "total_cpu_us": 726.6999999999925
+        },
+        {
+          "name": "qlt::unpack_array",
+          "count": 129,
+          "self_cpu_us": 52.90000000000691,
+          "total_cpu_us": 52.90000000000691
+        },
+        {
+          "name": "qlt::spline_slopes",
+          "count": 18,
+          "self_cpu_us": 88.20000000000255,
+          "total_cpu_us": 376.7000000000007
+        },
+        {
+          "name": "qlt::pack_array",
+          "count": 324,
+          "self_cpu_us": 512.2999999999938,
+          "total_cpu_us": 1339.0999999999785
+        },
+        {
+          "name": "qlt::spline_rhs",
+          "count": 18,
+          "self_cpu_us": 105.20000000000982,
+          "total_cpu_us": 422.9000000000069
+        },
+        {
+          "name": "qlt::tridiagonal_adjoint_forward",
+          "count": 18,
+          "self_cpu_us": 223.19999999999527,
+          "total_cpu_us": 598.9000000000015
+        },
+        {
+          "name": "qlt::spline_coefficients",
+          "count": 18,
+          "self_cpu_us": 218.59999999999673,
+          "total_cpu_us": 806.4999999999964
+        },
+        {
+          "name": "qlt::spline_primitive_increments",
+          "count": 18,
+          "self_cpu_us": 157.1999999999971,
+          "total_cpu_us": 824.5999999999985
+        },
+        {
+          "name": "qlt::tridiagonal_adjoint_backward",
+          "count": 18,
+          "self_cpu_us": 355.8999999999869,
+          "total_cpu_us": 1103.5999999999913
+        }
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\profile_diagnostic_3_common_adjoint_batched_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "diagnostic",
+        3,
+        "common",
+        "adjoint",
+        1
+      ],
+      "execution": "serial",
+      "device": "cpu",
+      "aten_calls": 157787,
+      "scopes": [
+        {
+          "name": "calibration::network_fields",
+          "count": 3,
+          "self_cpu_us": 1313.899999999987,
+          "total_cpu_us": 2793.200000000029
+        },
+        {
+          "name": "calibration::contract_price",
+          "count": 3,
+          "self_cpu_us": 730.3000000000793,
+          "total_cpu_us": 93329.1
+        },
+        {
+          "name": "qlt::latent_price",
+          "count": 3,
+          "self_cpu_us": 1135.8999999999396,
+          "total_cpu_us": 92241.1
+        },
+        {
+          "name": "qlt::coefficient_mesh",
+          "count": 3,
+          "self_cpu_us": 25.399999999991223,
+          "total_cpu_us": 25.399999999991223
+        },
+        {
+          "name": "qlt::coefficient_spatial_bases",
+          "count": 3,
+          "self_cpu_us": 411.60000000000355,
+          "total_cpu_us": 477.3999999999942
+        },
+        {
+          "name": "qlt::basket_rollback_and_interpolation",
+          "count": 3,
+          "self_cpu_us": 629.9999999999927,
+          "total_cpu_us": 88855.70000000001
+        },
+        {
+          "name": "qlt::rollback",
+          "count": 3,
+          "self_cpu_us": 622.8999999999578,
+          "total_cpu_us": 83593.0
+        },
+        {
+          "name": "qlt::coefficient_assembly",
+          "count": 15,
+          "self_cpu_us": 10490.199999999659,
+          "total_cpu_us": 44362.39999999999
+        },
+        {
+          "name": "qlt::unpack_array",
+          "count": 906,
+          "self_cpu_us": 1164.400000000398,
+          "total_cpu_us": 1164.400000000398
+        },
+        {
+          "name": "qlt::band_mult",
+          "count": 30,
+          "self_cpu_us": 263.79999999999245,
+          "total_cpu_us": 1000.2000000000658
+        },
+        {
+          "name": "qlt::pack_array",
+          "count": 2304,
+          "self_cpu_us": 1590.4999999999122,
+          "total_cpu_us": 22326.89999999985
+        },
+        {
+          "name": "qlt::band_axpyb",
+          "count": 30,
+          "self_cpu_us": 639.9999999999741,
+          "total_cpu_us": 2274.100000000066
+        },
+        {
+          "name": "qlt::mixed_stencil_apply",
+          "count": 30,
+          "self_cpu_us": 566.6999999999789,
+          "total_cpu_us": 26616.60000000003
+        },
+        {
+          "name": "qlt::structured_stencil_apply",
+          "count": 30,
+          "self_cpu_us": 911.1999999998425,
+          "total_cpu_us": 5508.7999999999965
+        },
+        {
+          "name": "qlt::array_binary",
+          "count": 195,
+          "self_cpu_us": 614.0000000005048,
+          "total_cpu_us": 1464.1000000000786
+        },
+        {
+          "name": "qlt::band_apply",
+          "count": 120,
+          "self_cpu_us": 1418.3999999999423,
+          "total_cpu_us": 2098.1999999999434
+        },
+        {
+          "name": "qlt::apply_adjoint_forward",
+          "count": 120,
+          "self_cpu_us": 156.20000000005075,
+          "total_cpu_us": 358.0999999999749
+        },
+        {
+          "name": "qlt::apply_arithmetic_native_forward",
+          "count": 120,
+          "self_cpu_us": 165.79999999985284,
+          "total_cpu_us": 201.89999999992415
+        },
+        {
+          "name": "qlt::array_scalar",
+          "count": 90,
+          "self_cpu_us": 216.19999999981974,
+          "total_cpu_us": 734.4999999999573
+        },
+        {
+          "name": "qlt::band_solve",
+          "count": 120,
+          "self_cpu_us": 3117.3999999998487,
+          "total_cpu_us": 9324.499999999985
+        },
+        {
+          "name": "qlt::directional_adjoint_forward",
+          "count": 60,
+          "self_cpu_us": 1190.100000000195,
+          "total_cpu_us": 4440.200000000087
+        },
+        {
+          "name": "qlt::events",
+          "count": 15,
+          "self_cpu_us": 15.10000000000764,
+          "total_cpu_us": 15.10000000000764
+        },
+        {
+          "name": "qlt::spline_slopes",
+          "count": 18,
+          "self_cpu_us": 90.59999999994398,
+          "total_cpu_us": 450.3999999999796
+        },
+        {
+          "name": "qlt::spline_rhs",
+          "count": 18,
+          "self_cpu_us": 107.79999999992287,
+          "total_cpu_us": 537.2000000000262
+        },
+        {
+          "name": "qlt::tridiagonal_adjoint_forward",
+          "count": 18,
+          "self_cpu_us": 223.8000000000029,
+          "total_cpu_us": 532.8999999999833
+        },
+        {
+          "name": "qlt::spline_coefficients",
+          "count": 18,
+          "self_cpu_us": 175.199999999797,
+          "total_cpu_us": 912.7999999999956
+        },
+        {
+          "name": "qlt::spline_primitive_increments",
+          "count": 18,
+          "self_cpu_us": 164.60000000006767,
+          "total_cpu_us": 877.6999999999971
+        },
+        {
+          "name": "qlt::tridiagonal_adjoint_backward",
+          "count": 18,
+          "self_cpu_us": 390.40000000003783,
+          "total_cpu_us": 1120.100000000035
+        },
+        {
+          "name": "qlt::directional_adjoint_backward",
+          "count": 60,
+          "self_cpu_us": 3682.200000000026,
+          "total_cpu_us": 6684.9000000000015
+        },
+        {
+          "name": "qlt::apply_adjoint_backward",
+          "count": 120,
+          "self_cpu_us": 572.5999999997803,
+          "total_cpu_us": 690.0999999999476
+        }
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\profile_diagnostic_3_common_adjoint_serial_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "diagnostic",
+        3,
+        "common",
+        "full",
+        1
+      ],
+      "execution": "batched",
+      "device": "cpu",
+      "aten_calls": 20718,
+      "scopes": [
+        {
+          "name": "calibration::network_fields",
+          "count": 1,
+          "self_cpu_us": 320.4999999999996,
+          "total_cpu_us": 761.6999999999999
+        },
+        {
+          "name": "qlt::packed_latent_price",
+          "count": 1,
+          "self_cpu_us": 2161.6000000000495,
+          "total_cpu_us": 17229.1
+        },
+        {
+          "name": "qlt::packed_coefficient_assembly",
+          "count": 5,
+          "self_cpu_us": 1627.8000000000109,
+          "total_cpu_us": 2383.3999999999996
+        },
+        {
+          "name": "qlt::packed_directional_solve",
+          "count": 20,
+          "self_cpu_us": 776.8000000000197,
+          "total_cpu_us": 3765.1000000000013
+        },
+        {
+          "name": "qlt::thomas_arithmetic_forward",
+          "count": 35,
+          "self_cpu_us": 216.199999999998,
+          "total_cpu_us": 446.7999999999988
+        },
+        {
+          "name": "qlt::unpack_array",
+          "count": 126,
+          "self_cpu_us": 48.19999999999345,
+          "total_cpu_us": 48.19999999999345
+        },
+        {
+          "name": "qlt::spline_slopes",
+          "count": 18,
+          "self_cpu_us": 85.89999999999964,
+          "total_cpu_us": 364.70000000000437
+        },
+        {
+          "name": "qlt::pack_array",
+          "count": 276,
+          "self_cpu_us": 237.10000000001855,
+          "total_cpu_us": 1020.199999999988
+        },
+        {
+          "name": "qlt::spline_rhs",
+          "count": 18,
+          "self_cpu_us": 105.69999999998618,
+          "total_cpu_us": 462.10000000000036
+        },
+        {
+          "name": "qlt::auto_domain_native",
+          "count": 15,
+          "self_cpu_us": 11.700000000002547,
+          "total_cpu_us": 11.700000000002547
+        },
+        {
+          "name": "qlt::auto_residual_native",
+          "count": 15,
+          "self_cpu_us": 8.599999999996726,
+          "total_cpu_us": 8.599999999996726
+        },
+        {
+          "name": "qlt::spline_coefficients",
+          "count": 18,
+          "self_cpu_us": 166.79999999997744,
+          "total_cpu_us": 869.2999999999956
+        },
+        {
+          "name": "qlt::spline_primitive_increments",
+          "count": 18,
+          "self_cpu_us": 154.20000000001346,
+          "total_cpu_us": 792.2000000000007
+        },
+        {
+          "name": "qlt::thomas_arithmetic_backward",
+          "count": 35,
+          "self_cpu_us": 382.59999999995125,
+          "total_cpu_us": 1239.3999999999687
+        }
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\profile_diagnostic_3_common_full_batched_cpu_1.json"
+    },
+    {
+      "configuration": [
+        "diagnostic",
+        3,
+        "common",
+        "full",
+        1
+      ],
+      "execution": "serial",
+      "device": "cpu",
+      "aten_calls": 438407,
+      "scopes": [
+        {
+          "name": "calibration::network_fields",
+          "count": 3,
+          "self_cpu_us": 1713.5999999999765,
+          "total_cpu_us": 3919.6000000001277
+        },
+        {
+          "name": "calibration::contract_price",
+          "count": 3,
+          "self_cpu_us": 709.6000000002095,
+          "total_cpu_us": 258651.7
+        },
+        {
+          "name": "qlt::latent_price",
+          "count": 3,
+          "self_cpu_us": 1237.1999999997934,
+          "total_cpu_us": 257589.7999999999
+        },
+        {
+          "name": "qlt::coefficient_mesh",
+          "count": 3,
+          "self_cpu_us": 26.099999999976717,
+          "total_cpu_us": 26.099999999976717
+        },
+        {
+          "name": "qlt::coefficient_spatial_bases",
+          "count": 3,
+          "self_cpu_us": 409.90000000001237,
+          "total_cpu_us": 479.20000000001164
+        },
+        {
+          "name": "qlt::basket_rollback_and_interpolation",
+          "count": 3,
+          "self_cpu_us": 718.7999999997992,
+          "total_cpu_us": 254008.89999999994
+        },
+        {
+          "name": "qlt::rollback",
+          "count": 3,
+          "self_cpu_us": 719.4000000000669,
+          "total_cpu_us": 248967.79999999993
+        },
+        {
+          "name": "qlt::coefficient_assembly",
+          "count": 15,
+          "self_cpu_us": 9789.499999996333,
+          "total_cpu_us": 41716.40000000011
+        },
+        {
+          "name": "qlt::unpack_array",
+          "count": 843,
+          "self_cpu_us": 1130.0999999992555,
+          "total_cpu_us": 1130.0999999992555
+        },
+        {
+          "name": "qlt::band_mult",
+          "count": 30,
+          "self_cpu_us": 286.7999999994672,
+          "total_cpu_us": 1089.8000000000848
+        },
+        {
+          "name": "qlt::pack_array",
+          "count": 1896,
+          "self_cpu_us": 1599.6999999998952,
+          "total_cpu_us": 33868.8999999999
+        },
+        {
+          "name": "qlt::band_axpyb",
+          "count": 30,
+          "self_cpu_us": 475.59999999946467,
+          "total_cpu_us": 1697.1000000001213
+        },
+        {
+          "name": "qlt::mixed_stencil_apply",
+          "count": 30,
+          "self_cpu_us": 445.20000000109576,
+          "total_cpu_us": 25476.399999999932
+        },
+        {
+          "name": "qlt::structured_stencil_apply",
+          "count": 30,
+          "self_cpu_us": 1126.200000000572,
+          "total_cpu_us": 4234.400000000011
+        },
+        {
+          "name": "qlt::array_binary",
+          "count": 195,
+          "self_cpu_us": 646.9000000012529,
+          "total_cpu_us": 6882.800000000067
+        },
+        {
+          "name": "qlt::band_apply",
+          "count": 120,
+          "self_cpu_us": 1609.89999999859,
+          "total_cpu_us": 8156.099999999777
+        },
+        {
+          "name": "qlt::apply_arithmetic_forward",
+          "count": 120,
+          "self_cpu_us": 106.40000000009786,
+          "total_cpu_us": 337.60000000008586
+        },
+        {
+          "name": "qlt::apply_arithmetic_native_forward",
+          "count": 120,
+          "self_cpu_us": 184.6000000003296,
+          "total_cpu_us": 231.199999999988
+        },
+        {
+          "name": "qlt::array_scalar",
+          "count": 90,
+          "self_cpu_us": 279.70000000013533,
+          "total_cpu_us": 798.6999999999298
+        },
+        {
+          "name": "qlt::band_solve",
+          "count": 60,
+          "self_cpu_us": 43750.50000000268,
+          "total_cpu_us": 165195.39999999994
+        },
+        {
+          "name": "qlt::events",
+          "count": 15,
+          "self_cpu_us": 22.600000000093132,
+          "total_cpu_us": 22.600000000093132
+        },
+        {
+          "name": "qlt::spline_slopes",
+          "count": 18,
+          "self_cpu_us": 98.10000000036962,
+          "total_cpu_us": 616.4999999999418
+        },
+        {
+          "name": "qlt::spline_rhs",
+          "count": 18,
+          "self_cpu_us": 172.8000000002503,
+          "total_cpu_us": 566.7000000000844
+        },
+        {
+          "name": "qlt::auto_domain_native",
+          "count": 15,
+          "self_cpu_us": 12.600000000107684,
+          "total_cpu_us": 12.600000000107684
+        },
+        {
+          "name": "qlt::thomas_arithmetic_forward",
+          "count": 15,
+          "self_cpu_us": 55.29999999987194,
+          "total_cpu_us": 75.09999999993306
+        },
+        {
+          "name": "qlt::auto_residual_native",
+          "count": 15,
+          "self_cpu_us": 9.699999999938882,
+          "total_cpu_us": 9.699999999938882
+        },
+        {
+          "name": "qlt::spline_coefficients",
+          "count": 18,
+          "self_cpu_us": 180.80000000057044,
+          "total_cpu_us": 748.3999999999214
+        },
+        {
+          "name": "qlt::spline_primitive_increments",
+          "count": 18,
+          "self_cpu_us": 167.00000000010186,
+          "total_cpu_us": 1461.6000000001368
+        },
+        {
+          "name": "qlt::thomas_arithmetic_backward",
+          "count": 15,
+          "self_cpu_us": 168.29999999965366,
+          "total_cpu_us": 372.20000000009895
+        },
+        {
+          "name": "qlt::apply_arithmetic_backward",
+          "count": 120,
+          "self_cpu_us": 691.3000000008324,
+          "total_cpu_us": 817.1000000005297
+        }
+      ],
+      "path": "docs\\benchmarks\\packed_phase23_workloads\\profile_diagnostic_3_common_full_serial_cpu_1.json"
+    }
+  ],
+  "maximum_price_difference": 2.4868995751603507e-14,
+  "maximum_gradient_difference": 1.2505552149377763e-11,
+  "verified_reports": 47
+}

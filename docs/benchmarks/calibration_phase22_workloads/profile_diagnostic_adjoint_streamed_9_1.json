@@ -1,0 +1,1192 @@
+{
+  "created_at_utc": "2026-11-01T22:29:27.606008+00:00",
+  "configuration": {
+    "task": "profile",
+    "market": "<USER_HOME>\\Documents\\QuantLibTorch\\docs\\benchmarks\\calibration_phase22_market.json",
+    "output": "<USER_HOME>\\Documents\\QuantLibTorch\\docs\\benchmarks\\calibration_phase22_workloads\\profile_diagnostic_adjoint_streamed_9_1.json",
+    "parameters": null,
+    "mesh": "diagnostic",
+    "mode": "adjoint",
+    "execution": "streamed",
+    "contracts": 9,
+    "latent_dimensions": 1,
+    "iterations": 15,
+    "warmup": 1,
+    "repeats": 3,
+    "windows_qos": "high",
+    "affinity": 8
+  },
+  "runtime": {
+    "requested": "high",
+    "before": {
+      "version": 1,
+      "control_mask": 0,
+      "state_mask": 0
+    },
+    "after": {
+      "version": 1,
+      "control_mask": 1,
+      "state_mask": 0
+    },
+    "affinity": {
+      "requested": 8,
+      "before": {
+        "mask": 16777215,
+        "system_mask": 16777215,
+        "processor": 8
+      },
+      "after": {
+        "mask": 256,
+        "system_mask": 16777215,
+        "processor": 8
+      }
+    }
+  },
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "torch": "2.10.0+cu126",
+  "baseline_git": "3e66775",
+  "source_sha256": {
+    "python\\quantlibtorch\\calibration.py": "bae59be39695bf7a85261bea301e8425a3072ae59e6d9cf6d46ccc3fa7732c8e",
+    "cpp\\coefficient_pde.cpp": "8c30546568c28503f3ff7caa52689d12ad38e25c06bb39db01dc316ada397d95",
+    "scripts\\benchmark_calibration.py": "b02c6321738637f2d00eb6ddd5a786a756845f05eccfb773b4e5d8f703d61264",
+    "examples\\calibrate_neural_sde.py": "a0579010e8f89a8538e17acadc04f285b5092d85455c8deccf6cd8143360a200",
+    "scripts\\calibration_stock_reference.py": "0066bb5eb753aef5b29fc0d999b44326e8adc8b1a30bed7556ce9e38b12e2e18",
+    "docs\\benchmarks\\calibration_phase22_market.json": "0689fdb762b1cda064246ccf6251ea16f0687c570b79d276a7995c418a95ca40"
+  },
+  "binary_sha256": "871e84c8f187fcf73448930d1c8f7472456d31b5d0d185af489de716f67c262d",
+  "parameters": {
+    "raw_initial": [
+      -1.0986122886681098
+    ],
+    "net.0.weight": [
+      [
+        -0.43583476543426514,
+        0.5028812885284424,
+        0.5033652782440186
+      ],
+      [
+        0.2352883219718933,
+        0.2928708791732788,
+        -0.18262162804603577
+      ],
+      [
+        -0.12849119305610657,
+        0.014261245727539062,
+        0.45735275745391846
+      ],
+      [
+        -0.20403900742530823,
+        0.3787422180175781,
+        0.2606748938560486
+      ]
+    ],
+    "net.0.bias": [
+      -0.5556894540786743,
+      0.3233388066291809,
+      -0.20818355679512024,
+      0.46670031547546387
+    ],
+    "net.2.weight": [
+      [
+        0.02387910783290863,
+        0.04800520241260529,
+        0.027718976140022278,
+        -0.012423089146614075
+      ],
+      [
+        0.06727885007858277,
+        -0.010016316175460815,
+        -0.015146049857139587,
+        -0.01845417022705078
+      ],
+      [
+        0.06668847799301147,
+        -0.02708013653755188,
+        0.05628675520420074,
+        -0.03285278677940368
+      ],
+      [
+        -0.025184664130210876,
+        -0.02387267053127289,
+        0.002131408452987671,
+        -0.011096736788749695
+      ]
+    ],
+    "net.2.bias": [
+      0.12,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "nodes": 45,
+  "evaluation": {
+    "loss": 62.844489579259104,
+    "penalty": 0.0002058259130952679,
+    "prices": [
+      15.855550637855584,
+      4.238484141323637,
+      0.8829408044662659,
+      16.94105477901786,
+      5.866787850578763,
+      1.7618464639963825,
+      19.018708077698694,
+      8.6409239879913,
+      3.5447948239597924
+    ],
+    "gradients": {
+      "raw_initial": [
+        86.07471605917482
+      ],
+      "net.0.weight": [
+        [
+          0.7171737930181307,
+          0.04687841128171803,
+          0.26705022711026255
+        ],
+        [
+          1.9273324194239803,
+          0.08515203319326967,
+          0.6197076644721197
+        ],
+        [
+          1.1573449849300557,
+          0.06692648861654006,
+          0.3337632082691234
+        ],
+        [
+          -0.549653765487503,
+          -0.027317904391369947,
+          -0.13933863916060596
+        ]
+      ],
+      "net.0.bias": [
+        1.7795369279443363,
+        4.837822500891407,
+        2.7476642318702074,
+        -1.3349343762984796
+      ],
+      "net.2.weight": [
+        [
+          -70.24629653675979,
+          46.80253467394849,
+          -24.788863625191134,
+          48.750063578199985
+        ],
+        [
+          -4.599983523766295,
+          3.011192734968481,
+          -1.640365033443119,
+          3.2870747321723868
+        ],
+        [
+          3.8060437387523507,
+          -2.437754945181543,
+          1.3127712662329127,
+          -2.7887731203944357
+        ],
+        [
+          -7.020910567560572,
+          4.392756232164164,
+          -2.407065590849393,
+          5.078551047965152
+        ]
+      ],
+      "net.2.bias": [
+        122.86690484030132,
+        8.180095902136827,
+        -6.900396880354392,
+        12.672886735843134
+      ]
+    },
+    "seconds": 40.08636890002526
+  },
+  "events": [
+    {
+      "name": "calibration::contract_backward",
+      "calls": 9,
+      "self_cpu_us": 172931.4000000014,
+      "inclusive_cpu_us": 644516.9
+    },
+    {
+      "name": "aten::mul",
+      "calls": 44739,
+      "self_cpu_us": 100951.40000000014,
+      "inclusive_cpu_us": 101035.30000000013
+    },
+    {
+      "name": "aten::select",
+      "calls": 80919,
+      "self_cpu_us": 93237.20000000129,
+      "inclusive_cpu_us": 107623.39999999975
+    },
+    {
+      "name": "aten::select_backward",
+      "calls": 20781,
+      "self_cpu_us": 45233.300000002935,
+      "inclusive_cpu_us": 122519.00000000079
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SelectBackward0",
+      "calls": 20781,
+      "self_cpu_us": 31431.599999999373,
+      "inclusive_cpu_us": 190675.69999999876
+    },
+    {
+      "name": "autograd::engine::evaluate_function: StackBackward0",
+      "calls": 1062,
+      "self_cpu_us": 31091.400000000267,
+      "inclusive_cpu_us": 120005.80000000008
+    },
+    {
+      "name": "aten::zeros",
+      "calls": 21555,
+      "self_cpu_us": 30613.79999999889,
+      "inclusive_cpu_us": 39619.39999999954
+    },
+    {
+      "name": "autograd::engine::evaluate_function: MulBackward1",
+      "calls": 19134,
+      "self_cpu_us": 26935.29999999968,
+      "inclusive_cpu_us": 85311.39999999976
+    },
+    {
+      "name": "aten::stack",
+      "calls": 1431,
+      "self_cpu_us": 26714.10000000048,
+      "inclusive_cpu_us": 58849.70000000008
+    },
+    {
+      "name": "qlt::coefficient_assembly",
+      "calls": 45,
+      "self_cpu_us": 26338.199999999753,
+      "inclusive_cpu_us": 119249.6
+    },
+    {
+      "name": "StackBackward0",
+      "calls": 1062,
+      "self_cpu_us": 24529.700000001332,
+      "inclusive_cpu_us": 69861.4
+    },
+    {
+      "name": "aten::add",
+      "calls": 20673,
+      "self_cpu_us": 24344.499999999938,
+      "inclusive_cpu_us": 24344.499999999938
+    },
+    {
+      "name": "aten::unsqueeze",
+      "calls": 37224,
+      "self_cpu_us": 22441.999999999825,
+      "inclusive_cpu_us": 28327.699999999706
+    },
+    {
+      "name": "aten::add_",
+      "calls": 23152,
+      "self_cpu_us": 22098.700000000084,
+      "inclusive_cpu_us": 22098.700000000084
+    },
+    {
+      "name": "aten::as_strided",
+      "calls": 122004,
+      "self_cpu_us": 21431.999999998086,
+      "inclusive_cpu_us": 21431.999999998086
+    },
+    {
+      "name": "aten::copy_",
+      "calls": 21807,
+      "self_cpu_us": 21397.199999997625,
+      "inclusive_cpu_us": 21397.199999997625
+    },
+    {
+      "name": "SelectBackward0",
+      "calls": 20781,
+      "self_cpu_us": 18062.299999998744,
+      "inclusive_cpu_us": 140581.29999999955
+    },
+    {
+      "name": "MulBackward1",
+      "calls": 19134,
+      "self_cpu_us": 17134.600000000057,
+      "inclusive_cpu_us": 58222.00000000009
+    },
+    {
+      "name": "qlt::directional_adjoint_backward",
+      "calls": 180,
+      "self_cpu_us": 11046.500000000073,
+      "inclusive_cpu_us": 20209.99999999997
+    },
+    {
+      "name": "aten::empty",
+      "calls": 30159,
+      "self_cpu_us": 10126.599999999524,
+      "inclusive_cpu_us": 10126.599999999524
+    },
+    {
+      "name": "qlt::band_solve",
+      "calls": 360,
+      "self_cpu_us": 7950.699999999901,
+      "inclusive_cpu_us": 24235.700000000008
+    },
+    {
+      "name": "aten::slice",
+      "calls": 2871,
+      "self_cpu_us": 5603.600000000174,
+      "inclusive_cpu_us": 6390.399999999953
+    },
+    {
+      "name": "qlt::pack_array",
+      "calls": 6912,
+      "self_cpu_us": 4716.699999999883,
+      "inclusive_cpu_us": 63257.09999999997
+    },
+    {
+      "name": "aten::cat",
+      "calls": 1467,
+      "self_cpu_us": 4695.099999999954,
+      "inclusive_cpu_us": 4771.399999999956
+    },
+    {
+      "name": "aten::index_select",
+      "calls": 1710,
+      "self_cpu_us": 4428.599999999992,
+      "inclusive_cpu_us": 4953.699999999893
+    },
+    {
+      "name": "autograd::engine::evaluate_function: AddBackward0",
+      "calls": 1836,
+      "self_cpu_us": 4214.399999999838,
+      "inclusive_cpu_us": 4855.999999999916
+    },
+    {
+      "name": "qlt::latent_price",
+      "calls": 9,
+      "self_cpu_us": 4147.899999999932,
+      "inclusive_cpu_us": 250950.3
+    },
+    {
+      "name": "autograd::engine::evaluate_function: MulBackward0",
+      "calls": 1944,
+      "self_cpu_us": 4096.500000000007,
+      "inclusive_cpu_us": 11883.399999999947
+    },
+    {
+      "name": "qlt::unpack_array",
+      "calls": 2718,
+      "self_cpu_us": 3597.8000000000484,
+      "inclusive_cpu_us": 3597.8000000000484
+    },
+    {
+      "name": "qlt::band_apply",
+      "calls": 360,
+      "self_cpu_us": 3549.799999999973,
+      "inclusive_cpu_us": 5617.600000000019
+    },
+    {
+      "name": "qlt::directional_adjoint_forward",
+      "calls": 180,
+      "self_cpu_us": 3188.200000000018,
+      "inclusive_cpu_us": 10762.69999999998
+    },
+    {
+      "name": "qlt::array_binary",
+      "calls": 585,
+      "self_cpu_us": 2963.799999999934,
+      "inclusive_cpu_us": 5522.2999999999665
+    },
+    {
+      "name": "calibration::network_fields",
+      "calls": 9,
+      "self_cpu_us": 2963.0,
+      "inclusive_cpu_us": 7502.200000000001
+    },
+    {
+      "name": "MulBackward0",
+      "calls": 1944,
+      "self_cpu_us": 2676.199999999855,
+      "inclusive_cpu_us": 6737.5999999998785
+    },
+    {
+      "name": "aten::slice_backward",
+      "calls": 756,
+      "self_cpu_us": 2508.5999999999513,
+      "inclusive_cpu_us": 6284.700000000059
+    },
+    {
+      "name": "qlt::structured_stencil_apply",
+      "calls": 90,
+      "self_cpu_us": 2401.799999999974,
+      "inclusive_cpu_us": 11609.199999999997
+    },
+    {
+      "name": "autograd::engine::evaluate_function: IndexSelectBackward0",
+      "calls": 1269,
+      "self_cpu_us": 2338.6999999996333,
+      "inclusive_cpu_us": 10745.299999999967
+    },
+    {
+      "name": "qlt::basket_rollback_and_interpolation",
+      "calls": 9,
+      "self_cpu_us": 2281.0999999999476,
+      "inclusive_cpu_us": 240584.1
+    },
+    {
+      "name": "aten::all",
+      "calls": 549,
+      "self_cpu_us": 2226.7999999999793,
+      "inclusive_cpu_us": 2564.3999999999432
+    },
+    {
+      "name": "aten::abs",
+      "calls": 1098,
+      "self_cpu_us": 2203.8999999999915,
+      "inclusive_cpu_us": 3519.799999999897
+    },
+    {
+      "name": "aten::zero_",
+      "calls": 23103,
+      "self_cpu_us": 2086.7000000011176,
+      "inclusive_cpu_us": 2086.7000000011176
+    },
+    {
+      "name": "qlt::apply_adjoint_backward",
+      "calls": 360,
+      "self_cpu_us": 1920.400000000016,
+      "inclusive_cpu_us": 2298.9000000000233
+    },
+    {
+      "name": "qlt::rollback",
+      "calls": 9,
+      "self_cpu_us": 1885.7000000000116,
+      "inclusive_cpu_us": 226657.6
+    },
+    {
+      "name": "aten::neg",
+      "calls": 1278,
+      "self_cpu_us": 1870.300000000243,
+      "inclusive_cpu_us": 1870.300000000243
+    },
+    {
+      "name": "qlt::mixed_stencil_apply",
+      "calls": 90,
+      "self_cpu_us": 1833.0000000000164,
+      "inclusive_cpu_us": 72276.69999999998
+    },
+    {
+      "name": "calibration::contract_price",
+      "calls": 9,
+      "self_cpu_us": 1820.0999999999913,
+      "inclusive_cpu_us": 253587.99999999997
+    },
+    {
+      "name": "aten::sub",
+      "calls": 639,
+      "self_cpu_us": 1789.400000000034,
+      "inclusive_cpu_us": 1834.900000000034
+    },
+    {
+      "name": "aten::div",
+      "calls": 630,
+      "self_cpu_us": 1755.9999999999786,
+      "inclusive_cpu_us": 1957.5999999999772
+    },
+    {
+      "name": "qlt::band_axpyb",
+      "calls": 90,
+      "self_cpu_us": 1647.4999999999511,
+      "inclusive_cpu_us": 5546.199999999981
+    },
+    {
+      "name": "aten::ne",
+      "calls": 549,
+      "self_cpu_us": 1611.99999999991,
+      "inclusive_cpu_us": 1611.99999999991
+    },
+    {
+      "name": "IndexSelectBackward0",
+      "calls": 1269,
+      "self_cpu_us": 1599.1999999999316,
+      "inclusive_cpu_us": 7271.40000000022
+    },
+    {
+      "name": "aten::isfinite",
+      "calls": 549,
+      "self_cpu_us": 1490.7000000001765,
+      "inclusive_cpu_us": 7305.400000000019
+    },
+    {
+      "name": "aten::index_select_backward",
+      "calls": 1269,
+      "self_cpu_us": 1490.6000000000422,
+      "inclusive_cpu_us": 5672.200000000288
+    },
+    {
+      "name": "aten::new_zeros",
+      "calls": 1269,
+      "self_cpu_us": 1473.7000000004045,
+      "inclusive_cpu_us": 2767.6000000001804
+    },
+    {
+      "name": "aten::index_add_",
+      "calls": 1269,
+      "self_cpu_us": 1414.0000000000655,
+      "inclusive_cpu_us": 1414.0000000000655
+    },
+    {
+      "name": "qlt::coefficient_spatial_bases",
+      "calls": 9,
+      "self_cpu_us": 1295.4,
+      "inclusive_cpu_us": 1498.3000000000004
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SliceBackward0",
+      "calls": 756,
+      "self_cpu_us": 1271.4999999999964,
+      "inclusive_cpu_us": 8768.299999999963
+    },
+    {
+      "name": "aten::view",
+      "calls": 1170,
+      "self_cpu_us": 1186.2000000000655,
+      "inclusive_cpu_us": 1186.2000000000655
+    },
+    {
+      "name": "qlt::tridiagonal_adjoint_backward",
+      "calls": 54,
+      "self_cpu_us": 1089.099999999995,
+      "inclusive_cpu_us": 2921.80000000001
+    },
+    {
+      "name": "aten::eq",
+      "calls": 549,
+      "self_cpu_us": 1002.0000000000427,
+      "inclusive_cpu_us": 1002.0000000000427
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SubBackward0",
+      "calls": 495,
+      "self_cpu_us": 1000.1999999998625,
+      "inclusive_cpu_us": 2500.2000000000153
+    },
+    {
+      "name": "SliceBackward0",
+      "calls": 756,
+      "self_cpu_us": 895.8999999998887,
+      "inclusive_cpu_us": 7180.599999999948
+    },
+    {
+      "name": "aten::sum",
+      "calls": 207,
+      "self_cpu_us": 871.2000000000309,
+      "inclusive_cpu_us": 1085.7000000000553
+    },
+    {
+      "name": "autograd::engine::evaluate_function: DivBackward0",
+      "calls": 180,
+      "self_cpu_us": 864.6000000000167,
+      "inclusive_cpu_us": 1514.3000000000247
+    },
+    {
+      "name": "qlt::band_mult",
+      "calls": 90,
+      "self_cpu_us": 816.7999999999824,
+      "inclusive_cpu_us": 3011.3000000000047
+    },
+    {
+      "name": "aten::new_empty",
+      "calls": 1269,
+      "self_cpu_us": 702.399999999725,
+      "inclusive_cpu_us": 1157.9999999997817
+    },
+    {
+      "name": "aten::tanh",
+      "calls": 45,
+      "self_cpu_us": 677.2,
+      "inclusive_cpu_us": 677.2
+    },
+    {
+      "name": "qlt::tridiagonal_adjoint_forward",
+      "calls": 54,
+      "self_cpu_us": 645.4000000000196,
+      "inclusive_cpu_us": 1648.8000000000065
+    },
+    {
+      "name": "aten::item",
+      "calls": 900,
+      "self_cpu_us": 590.5999999999195,
+      "inclusive_cpu_us": 822.099999999975
+    },
+    {
+      "name": "aten::index_add",
+      "calls": 180,
+      "self_cpu_us": 544.600000000064,
+      "inclusive_cpu_us": 825.5000000000146
+    },
+    {
+      "name": "AddBackward0",
+      "calls": 1836,
+      "self_cpu_us": 544.0000000000982,
+      "inclusive_cpu_us": 544.0000000000982
+    },
+    {
+      "name": "qlt::spline_coefficients",
+      "calls": 54,
+      "self_cpu_us": 527.9000000000087,
+      "inclusive_cpu_us": 2167.2000000000153
+    },
+    {
+      "name": "aten::reshape",
+      "calls": 612,
+      "self_cpu_us": 506.9999999998588,
+      "inclusive_cpu_us": 1499.2999999999968
+    },
+    {
+      "name": "aten::zeros_like",
+      "calls": 270,
+      "self_cpu_us": 491.79999999996653,
+      "inclusive_cpu_us": 1056.6999999999837
+    },
+    {
+      "name": "qlt::spline_primitive_increments",
+      "calls": 54,
+      "self_cpu_us": 488.6999999999498,
+      "inclusive_cpu_us": 2692.6999999999935
+    },
+    {
+      "name": "SubBackward0",
+      "calls": 495,
+      "self_cpu_us": 470.0999999999731,
+      "inclusive_cpu_us": 1285.500000000091
+    },
+    {
+      "name": "qlt::apply_arithmetic_native_forward",
+      "calls": 360,
+      "self_cpu_us": 458.2999999999656,
+      "inclusive_cpu_us": 569.0999999999785
+    },
+    {
+      "name": "qlt::apply_adjoint_forward",
+      "calls": 360,
+      "self_cpu_us": 444.49999999999545,
+      "inclusive_cpu_us": 1013.599999999974
+    },
+    {
+      "name": "qlt::array_scalar",
+      "calls": 270,
+      "self_cpu_us": 443.90000000001146,
+      "inclusive_cpu_us": 1824.9999999999973
+    },
+    {
+      "name": "qlt::spline_rhs",
+      "calls": 54,
+      "self_cpu_us": 396.00000000009095,
+      "inclusive_cpu_us": 1999.9000000000015
+    },
+    {
+      "name": "aten::addmm",
+      "calls": 18,
+      "self_cpu_us": 386.4000000000006,
+      "inclusive_cpu_us": 557.5999999999999
+    },
+    {
+      "name": "aten::squeeze",
+      "calls": 207,
+      "self_cpu_us": 365.20000000009895,
+      "inclusive_cpu_us": 432.900000000016
+    },
+    {
+      "name": "aten::empty_like",
+      "calls": 279,
+      "self_cpu_us": 349.20000000011646,
+      "inclusive_cpu_us": 528.3000000000413
+    },
+    {
+      "name": "autograd::engine::evaluate_function: ViewBackward0",
+      "calls": 216,
+      "self_cpu_us": 334.6000000000349,
+      "inclusive_cpu_us": 831.4000000000306
+    },
+    {
+      "name": "aten::fill_",
+      "calls": 756,
+      "self_cpu_us": 319.2999999999438,
+      "inclusive_cpu_us": 319.2999999999438
+    },
+    {
+      "name": "aten::bmm",
+      "calls": 27,
+      "self_cpu_us": 302.5999999999335,
+      "inclusive_cpu_us": 309.09999999999127
+    },
+    {
+      "name": "autograd::engine::evaluate_function: UnsqueezeBackward0",
+      "calls": 207,
+      "self_cpu_us": 301.5000000000364,
+      "inclusive_cpu_us": 999.1000000000495
+    },
+    {
+      "name": "aten::scalar_tensor",
+      "calls": 450,
+      "self_cpu_us": 291.3999999999851,
+      "inclusive_cpu_us": 291.3999999999851
+    },
+    {
+      "name": "qlt::spline_slopes",
+      "calls": 54,
+      "self_cpu_us": 273.2000000000153,
+      "inclusive_cpu_us": 1169.1000000000095
+    },
+    {
+      "name": "UnsqueezeBackward0",
+      "calls": 207,
+      "self_cpu_us": 264.6999999999971,
+      "inclusive_cpu_us": 697.6000000000131
+    },
+    {
+      "name": "aten::mm",
+      "calls": 27,
+      "self_cpu_us": 248.59999999996217,
+      "inclusive_cpu_us": 251.69999999998254
+    },
+    {
+      "name": "aten::empty_strided",
+      "calls": 324,
+      "self_cpu_us": 245.4999999999519,
+      "inclusive_cpu_us": 245.4999999999519
+    },
+    {
+      "name": "aten::pow",
+      "calls": 36,
+      "self_cpu_us": 244.1000000000397,
+      "inclusive_cpu_us": 301.90000000000407
+    },
+    {
+      "name": "aten::expand",
+      "calls": 117,
+      "self_cpu_us": 241.79999999998057,
+      "inclusive_cpu_us": 283.49999999999517
+    },
+    {
+      "name": "aten::_local_scalar_dense",
+      "calls": 900,
+      "self_cpu_us": 231.50000000005548,
+      "inclusive_cpu_us": 231.50000000005548
+    },
+    {
+      "name": "aten::t",
+      "calls": 81,
+      "self_cpu_us": 230.20000000000283,
+      "inclusive_cpu_us": 350.2999999999941
+    },
+    {
+      "name": "DivBackward0",
+      "calls": 180,
+      "self_cpu_us": 216.30000000003201,
+      "inclusive_cpu_us": 649.700000000008
+    },
+    {
+      "name": "aten::_to_copy",
+      "calls": 45,
+      "self_cpu_us": 167.10000000001082,
+      "inclusive_cpu_us": 372.8000000000161
+    },
+    {
+      "name": "aten::transpose",
+      "calls": 117,
+      "self_cpu_us": 151.49999999995924,
+      "inclusive_cpu_us": 218.99999999996794
+    },
+    {
+      "name": "ViewBackward0",
+      "calls": 216,
+      "self_cpu_us": 137.8000000000102,
+      "inclusive_cpu_us": 496.79999999999563
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SubBackward1",
+      "calls": 108,
+      "self_cpu_us": 137.50000000000364,
+      "inclusive_cpu_us": 188.6999999999971
+    },
+    {
+      "name": "aten::sqrt",
+      "calls": 27,
+      "self_cpu_us": 135.29999999999973,
+      "inclusive_cpu_us": 135.29999999999973
+    },
+    {
+      "name": "aten::_reshape_alias",
+      "calls": 54,
+      "self_cpu_us": 128.70000000000186,
+      "inclusive_cpu_us": 128.70000000000186
+    },
+    {
+      "name": "aten::linear",
+      "calls": 18,
+      "self_cpu_us": 104.20000000000044,
+      "inclusive_cpu_us": 961.8000000000001
+    },
+    {
+      "name": "aten::narrow",
+      "calls": 81,
+      "self_cpu_us": 99.89999999993,
+      "inclusive_cpu_us": 258.9999999999971
+    },
+    {
+      "name": "aten::tanh_backward",
+      "calls": 45,
+      "self_cpu_us": 99.49999999995634,
+      "inclusive_cpu_us": 99.49999999995634
+    },
+    {
+      "name": "autograd::engine::evaluate_function: AddmmBackward0",
+      "calls": 18,
+      "self_cpu_us": 89.70000000004075,
+      "inclusive_cpu_us": 636.6000000000349
+    },
+    {
+      "name": "qlt::coefficient_mesh",
+      "calls": 9,
+      "self_cpu_us": 85.10000000000014,
+      "inclusive_cpu_us": 85.10000000000014
+    },
+    {
+      "name": "AddmmBackward0",
+      "calls": 18,
+      "self_cpu_us": 82.90000000003783,
+      "inclusive_cpu_us": 442.6000000000058
+    },
+    {
+      "name": "aten::eye",
+      "calls": 18,
+      "self_cpu_us": 81.99999999999966,
+      "inclusive_cpu_us": 158.9999999999999
+    },
+    {
+      "name": "autograd::engine::evaluate_function: ReshapeAliasBackward0",
+      "calls": 54,
+      "self_cpu_us": 81.20000000007713,
+      "inclusive_cpu_us": 415.0000000000218
+    },
+    {
+      "name": "aten::matmul",
+      "calls": 9,
+      "self_cpu_us": 80.20000000000005,
+      "inclusive_cpu_us": 413.9000000000001
+    },
+    {
+      "name": "aten::to",
+      "calls": 99,
+      "self_cpu_us": 78.29999999998677,
+      "inclusive_cpu_us": 451.10000000000286
+    },
+    {
+      "name": "autograd::engine::evaluate_function: PowBackward0",
+      "calls": 18,
+      "self_cpu_us": 75.50000000001819,
+      "inclusive_cpu_us": 360.7000000000189
+    },
+    {
+      "name": "PowBackward0",
+      "calls": 18,
+      "self_cpu_us": 73.9999999999527,
+      "inclusive_cpu_us": 285.2000000000007
+    },
+    {
+      "name": "ReshapeAliasBackward0",
+      "calls": 54,
+      "self_cpu_us": 71.79999999990832,
+      "inclusive_cpu_us": 333.7999999999447
+    },
+    {
+      "name": "TanhBackward0",
+      "calls": 45,
+      "self_cpu_us": 70.2000000000262,
+      "inclusive_cpu_us": 169.69999999998254
+    },
+    {
+      "name": "aten::sigmoid",
+      "calls": 9,
+      "self_cpu_us": 67.59999999999991,
+      "inclusive_cpu_us": 67.59999999999991
+    },
+    {
+      "name": "aten::mean",
+      "calls": 9,
+      "self_cpu_us": 67.19999999999993,
+      "inclusive_cpu_us": 336.20000000000016
+    },
+    {
+      "name": "autograd::engine::evaluate_function: AddBackward1",
+      "calls": 54,
+      "self_cpu_us": 66.50000000002547,
+      "inclusive_cpu_us": 77.60000000000946
+    },
+    {
+      "name": "autograd::engine::evaluate_function: BmmBackward0",
+      "calls": 9,
+      "self_cpu_us": 64.90000000002328,
+      "inclusive_cpu_us": 306.30000000001746
+    },
+    {
+      "name": "aten::div_",
+      "calls": 9,
+      "self_cpu_us": 63.5,
+      "inclusive_cpu_us": 168.00000000000023
+    },
+    {
+      "name": "autograd::engine::evaluate_function: TanhBackward0",
+      "calls": 45,
+      "self_cpu_us": 57.40000000002328,
+      "inclusive_cpu_us": 227.10000000000582
+    },
+    {
+      "name": "aten::rsub",
+      "calls": 18,
+      "self_cpu_us": 50.099999999999795,
+      "inclusive_cpu_us": 146.69999999999993
+    },
+    {
+      "name": "qlt::events",
+      "calls": 45,
+      "self_cpu_us": 49.90000000001146,
+      "inclusive_cpu_us": 49.90000000001146
+    },
+    {
+      "name": "CatBackward0",
+      "calls": 27,
+      "self_cpu_us": 49.29999999998836,
+      "inclusive_cpu_us": 231.99999999998545
+    },
+    {
+      "name": "BmmBackward0",
+      "calls": 9,
+      "self_cpu_us": 44.10000000000582,
+      "inclusive_cpu_us": 241.39999999999418
+    },
+    {
+      "name": "autograd::engine::evaluate_function: CatBackward0",
+      "calls": 27,
+      "self_cpu_us": 44.10000000000582,
+      "inclusive_cpu_us": 276.09999999999127
+    },
+    {
+      "name": "SigmoidBackward0",
+      "calls": 9,
+      "self_cpu_us": 43.50000000001455,
+      "inclusive_cpu_us": 81.60000000000582
+    },
+    {
+      "name": "aten::unbind",
+      "calls": 9,
+      "self_cpu_us": 42.89999999999941,
+      "inclusive_cpu_us": 67.2999999999995
+    },
+    {
+      "name": "aten::expand_as",
+      "calls": 45,
+      "self_cpu_us": 40.9000000000126,
+      "inclusive_cpu_us": 147.90000000000782
+    },
+    {
+      "name": "aten::sigmoid_backward",
+      "calls": 9,
+      "self_cpu_us": 38.09999999999127,
+      "inclusive_cpu_us": 38.09999999999127
+    },
+    {
+      "name": "aten::is_nonzero",
+      "calls": 36,
+      "self_cpu_us": 34.300000000000296,
+      "inclusive_cpu_us": 87.40000000000055
+    },
+    {
+      "name": "aten::square",
+      "calls": 18,
+      "self_cpu_us": 32.40000000000032,
+      "inclusive_cpu_us": 205.60000000000366
+    },
+    {
+      "name": "aten::detach",
+      "calls": 32,
+      "self_cpu_us": 29.400000000078535,
+      "inclusive_cpu_us": 65.40000000003215
+    },
+    {
+      "name": "SqrtBackward0",
+      "calls": 9,
+      "self_cpu_us": 26.69999999999709,
+      "inclusive_cpu_us": 187.8000000000029
+    },
+    {
+      "name": "aten::_unsafe_view",
+      "calls": 9,
+      "self_cpu_us": 24.299999999999955,
+      "inclusive_cpu_us": 24.299999999999955
+    },
+    {
+      "name": "autograd::engine::evaluate_function: TransposeBackward0",
+      "calls": 9,
+      "self_cpu_us": 23.699999999953434,
+      "inclusive_cpu_us": 184.90000000000873
+    },
+    {
+      "name": "autograd::engine::evaluate_function: TBackward0",
+      "calls": 18,
+      "self_cpu_us": 23.0,
+      "inclusive_cpu_us": 69.19999999999709
+    },
+    {
+      "name": "aten::ones_like",
+      "calls": 9,
+      "self_cpu_us": 19.799999999999272,
+      "inclusive_cpu_us": 41.299999999995634
+    },
+    {
+      "name": "autograd::engine::evaluate_function: ExpandBackward0",
+      "calls": 18,
+      "self_cpu_us": 19.399999999979627,
+      "inclusive_cpu_us": 32.699999999967986
+    },
+    {
+      "name": "SubBackward1",
+      "calls": 108,
+      "self_cpu_us": 18.199999999989814,
+      "inclusive_cpu_us": 18.199999999989814
+    },
+    {
+      "name": "aten::resize_",
+      "calls": 9,
+      "self_cpu_us": 17.70000000000016,
+      "inclusive_cpu_us": 17.70000000000016
+    },
+    {
+      "name": "aten::resolve_conj",
+      "calls": 153,
+      "self_cpu_us": 15.400000000077739,
+      "inclusive_cpu_us": 15.400000000077739
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SigmoidBackward0",
+      "calls": 9,
+      "self_cpu_us": 14.700000000011642,
+      "inclusive_cpu_us": 96.30000000001746
+    },
+    {
+      "name": "ExpandBackward0",
+      "calls": 18,
+      "self_cpu_us": 13.299999999988358,
+      "inclusive_cpu_us": 13.299999999988358
+    },
+    {
+      "name": "TBackward0",
+      "calls": 18,
+      "self_cpu_us": 13.299999999988358,
+      "inclusive_cpu_us": 46.19999999999709
+    },
+    {
+      "name": "autograd::engine::evaluate_function: UnsafeViewBackward0",
+      "calls": 9,
+      "self_cpu_us": 13.10000000000582,
+      "inclusive_cpu_us": 36.90000000000873
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SqrtBackward0",
+      "calls": 9,
+      "self_cpu_us": 12.599999999976717,
+      "inclusive_cpu_us": 200.39999999997963
+    },
+    {
+      "name": "autograd::engine::evaluate_function: RsubBackward1",
+      "calls": 9,
+      "self_cpu_us": 12.500000000014552,
+      "inclusive_cpu_us": 41.30000000000291
+    },
+    {
+      "name": "RsubBackward1",
+      "calls": 9,
+      "self_cpu_us": 11.699999999967986,
+      "inclusive_cpu_us": 28.79999999998836
+    },
+    {
+      "name": "AddBackward1",
+      "calls": 54,
+      "self_cpu_us": 11.099999999983993,
+      "inclusive_cpu_us": 11.099999999983993
+    },
+    {
+      "name": "aten::result_type",
+      "calls": 36,
+      "self_cpu_us": 10.99999999998181,
+      "inclusive_cpu_us": 10.99999999998181
+    },
+    {
+      "name": "aten::detach_",
+      "calls": 9,
+      "self_cpu_us": 10.400000000000205,
+      "inclusive_cpu_us": 14.200000000000387
+    },
+    {
+      "name": "TransposeBackward0",
+      "calls": 9,
+      "self_cpu_us": 9.600000000034925,
+      "inclusive_cpu_us": 24.000000000014552
+    },
+    {
+      "name": "aten::view_as",
+      "calls": 9,
+      "self_cpu_us": 7.800000000000864,
+      "inclusive_cpu_us": 13.500000000000455
+    },
+    {
+      "name": "UnsafeViewBackward0",
+      "calls": 9,
+      "self_cpu_us": 5.80000000000291,
+      "inclusive_cpu_us": 23.80000000000291
+    },
+    {
+      "name": "aten::lift_fresh",
+      "calls": 9,
+      "self_cpu_us": 2.0999999999997954,
+      "inclusive_cpu_us": 2.0999999999997954
+    }
+  ],
+  "contracts": [
+    {
+      "contract": 0,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 1,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 2,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 3,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 4,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 5,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 6,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 7,
+      "aten_calls": 52536
+    },
+    {
+      "contract": 8,
+      "aten_calls": 52536
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+/build/
+/third_party/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+/python/quantlibtorch/_native/
+.venv/

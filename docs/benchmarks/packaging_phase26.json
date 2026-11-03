@@ -1,0 +1,80 @@
+{
+  "platform_scope": "Windows cp313 PyTorch 2.10.0+cu126 local ABI-matched wheel; no portable/Linux claim",
+  "artifacts": {
+    "wheel": {
+      "path": "build/phase26_dist/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+      "bytes": 1318512,
+      "sha256": "64da79db82c904a14e1aeb5919096c5519945eaafc990909d4dbe43445e15464"
+    },
+    "sdist": {
+      "path": "build/phase26_dist/quantlibtorch-0.3.0.tar.gz",
+      "bytes": 457592,
+      "sha256": "a679ab5e07f9f463a68a8e0a8e46740bb92e2a8001256216a7575f1fa2a84e9d"
+    }
+  },
+  "wheel_metadata": "Wheel-Version: 1.0\nGenerator: setuptools (72.1.0)\nRoot-Is-Purelib: false\nTag: cp313-cp313-win_amd64\n\n",
+  "native_build_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "library_sha256": "a025042a65f5954b39151c5d5224d559b6c780ca999efc2d6315a6b6f7de4b0e",
+    "native_source_sha256": "b7e38e31c15dde7c92f36bed389a88c2b0acf3e67258ffa22e02abf357ef0a11"
+  },
+  "source_archive": {
+    "entries": 204,
+    "required_current_bytes_verified": [
+      "CMakeLists.txt",
+      "MANIFEST.in",
+      "pyproject.toml",
+      "setup.py",
+      "_build_support.py",
+      "cmake/quantlib_sources.cmake",
+      "cpp/heston_bridge.inc",
+      "cpp/shout_bridge.inc",
+      "cpp/convention_bridge.inc",
+      "cpp/include/quantlibtorch/fixed_mesh.hpp",
+      "cpp/include/quantlibtorch/financial_curves.hpp",
+      "scripts/prepare_quantlib.py",
+      "python/quantlibtorch/heston.py",
+      "python/quantlibtorch/shout.py",
+      "python/quantlibtorch/conventions.py",
+      "python/quantlibtorch/financial.py",
+      "examples/heston_pricing.ipynb",
+      "examples/shout_pricing.ipynb",
+      "examples/financial_inputs.ipynb",
+      "LICENSES/QuantLib.txt",
+      "README.md",
+      "PROJECT_CONTEXT.md",
+      "docs/architecture.md",
+      "docs/capabilities.md",
+      "docs/install.md",
+      "docs/roadmap.md"
+    ],
+    "native_binaries_and_checkout_excluded": true
+  },
+  "wheel_current_python_and_native_bytes_verified": true,
+  "installed_smoke": {
+    "package_path": "<USER_HOME>\\Documents\\QuantLibTorch\\build\\phase26_installed\\quantlibtorch\\__init__.py",
+    "heston_price": 9.026182982173369,
+    "heston_gradients": [
+      53.54140632417115,
+      0.18136788654316544,
+      53.07418222215122,
+      -2.3282231516030962,
+      0.32567771940293516,
+      58.43659992555318
+    ],
+    "shout_price": 10.997055102816208,
+    "shout_vega": 51.21622354882106,
+    "shout_volga": 1.1371072719207689,
+    "calendar": "TARGET Easter verified"
+  },
+  "commands": [
+    "python -m pip wheel --no-build-isolation --no-deps --no-index --wheel-dir build/phase26_dist .",
+    "python setup.py sdist --dist-dir build/phase26_dist",
+    "python -m pip install --no-deps --no-index --target build/phase26_installed build/phase26_dist/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+    "python -I build/phase26_installed_smoke.py"
+  ]
+}

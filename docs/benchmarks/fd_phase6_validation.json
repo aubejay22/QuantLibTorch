@@ -1,0 +1,258 @@
+{
+  "verified_at_utc": "2026-11-01T06:42:03.994590+00:00",
+  "command": [
+    "scripts/validate_fd_evidence.py",
+    "docs/benchmarks/fd_phase6_baseline.json",
+    "docs/benchmarks/fd_phase6_spline_ablation.json",
+    "docs/benchmarks/fd_phase6_pcr_pilot.json",
+    "docs/benchmarks/fd_phase6_timing.json",
+    "docs/benchmarks/fd_phase6_roll_ablation.json",
+    "docs/benchmarks/fd_phase6_scaling.json",
+    "docs/benchmarks/fd_phase6_events.json",
+    "docs/benchmarks/fd_phase6_memory.json",
+    "docs/benchmarks/fd_phase6_profile.json",
+    "docs/benchmarks/fd_phase6_cpu_time_diagnostic.json",
+    "--require-current",
+    "docs/benchmarks/fd_phase6_timing.json",
+    "--require-current",
+    "docs/benchmarks/fd_phase6_roll_ablation.json",
+    "--require-current",
+    "docs/benchmarks/fd_phase6_scaling.json",
+    "--require-current",
+    "docs/benchmarks/fd_phase6_events.json",
+    "--require-current",
+    "docs/benchmarks/fd_phase6_memory.json",
+    "--require-current",
+    "docs/benchmarks/fd_phase6_profile.json",
+    "--require-current",
+    "docs/benchmarks/fd_phase6_cpu_time_diagnostic.json",
+    "--log",
+    "build/phase6_roll_build.log",
+    "--log",
+    "build/phase6_roll_tests.log",
+    "--overlay-check",
+    "build/phase6_overlay_check",
+    "--tensor-report",
+    "docs/benchmarks/fd_phase6_batched_pcr.json",
+    "--output",
+    "docs/benchmarks/fd_phase6_validation.json"
+  ],
+  "native_source_sha256": {
+    "CMakeLists.txt": "64ed4ab5988152b098df0a9d4f2d89241518becd04a6574892ad0152beafb78c",
+    "scripts/prepare_quantlib.py": "69786316f96dff07cb4ba449302d16a1e3e56e71c1ec00e6abe31ed71b20a432",
+    "cpp/adjoint.cpp": "6fa56841eaf1784e61e9ec44cb9ae98e7521f163d0c8feec5fd45c5ad8508156",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "6bfd1c3a4e37a714be6d1cee5fc05e992e64d285a9cfd2fe791b1923f0d2b79d",
+    "cpp/kernel_checks.cpp": "aad7e0b15c4deac4dd102199f80c5195e2bb7491ca4a191866d0f8ae80f42215",
+    "cpp/parallel_solve.cpp": "6fd7f53fee6fe2dcad3617fa8a47599817e57763703979c539949ded7b1f180e",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/tensor_kernels.cpp": "12567db803db59af925e2a87f8cad3319455bab7cde7fa9a701bf17bbfcfc090",
+    "cpp/include/quantlibtorch/adjoint.hpp": "54c5f266993b98019b67efabe99ca076d69cefae6c9dc99dada0a35a7dd10adb",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "4d83be79de075f51c1741e993f5285d4a825515bad1194dc297c831db498777b",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "native_binary_sha256": {
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "4c34385af2acf44aa80e54afde2043bcf1506a8b90391d0dafcb7312d1ec5fe0"
+  },
+  "python_and_test_sha256": {
+    "python/quantlibtorch/__init__.py": "f451b681c5b61c6e7bd493a4f4b0ac6825d0469bd44aa3d940533c7e60a8c0ff",
+    "python/quantlibtorch/fd.py": "2f9f2e89f186ad55a3004f05dcba1f6b67d51a4e939ce4e2bdc4426babf3b42f",
+    "python/quantlibtorch/kernels.py": "83e88d20b178d5908392c00787c2517f116696edd22d48abf6c21927b79aae26",
+    "python/quantlibtorch/pricing.py": "2ca74eed444761e6f290ca5bfaf0f2bdfe3b9272aacf1258dbc13af3dd7601a3",
+    "python/quantlibtorch/solver.py": "b60d87ac142f3150b809acfdd58c1f68c989a33ad4c23a09eabc89b2df7f6473",
+    "tests/stock_quantlib_reference.py": "c2cd918d6003e82208ca9ce37df16327ba119ee4176987cf03a5e9ee9daa1312",
+    "tests/test_array_kernels.py": "a9a8fe27cd846450009be566d378cc06a6c88d7f8a36d062cb87f6f21f456d7b",
+    "tests/test_fd_adjoint.py": "0a1800ccf077e745a75dd000950400bdc7aa126b6876a6ac6a0598e63f58814e",
+    "tests/test_fd_engine.py": "d009c234c0c42f63ed5f17a653a82ebe317b88abfb9f4e12c7de4ec8e1c1d716",
+    "tests/test_fd_state.py": "6a83f39767ca5eb1254f09dd87bc5aa27cc74a078e988a0c2c172e9dfe69cadd",
+    "tests/test_parallel_solve.py": "5f742a7424cafdea29f04008317a5bd2d79a226a82d445f634e1c06b3ca15ba7",
+    "tests/test_pricing.py": "d5fb22d1d069442d51ec6a1447b058d2b3452ff3d0192cc01cd72877848d1d43",
+    "tests/test_scalar.py": "06ab9124a67263b61e2ce27e365fda18aec41ed4cf938009d2c24a2e4547091f",
+    "tests/test_solver.py": "6f0d807dd69d98224bfe0484737d4876dc38de90f4d9d74d2125bf9fdc42ae7c",
+    "tests/test_spline_kernels.py": "0b9031326209dd187cb4a0ca3a2ba77997e86941fc43c1d61a21c08f88eb0b7e",
+    "tests/test_tensor_kernels.py": "d4a120fa39a2b3402575e6007a23b863c1370980a017a90e5b1e2a16bd1a0385",
+    "scripts/benchmark.py": "a136e8dc8c7066630319918ffe1de2e2b9c1e188618485135a0d8c11444df830",
+    "scripts/benchmark_fd.py": "145484f0ca1e1351bbea7af5b99d505bd77c14d675749c30eee857479206fa2b",
+    "scripts/benchmark_fd_optimizations.py": "d69671a945bd609605e4740f1f28af6c0fc3986b95fff737cd83b4233667ff16",
+    "scripts/benchmark_parallel_solve.py": "ae6ca435cc9ca79e167a464a3e0bc6930b63a8e7b8900dc6610aba4a4664e6b5",
+    "scripts/benchmark_tensor_kernels.py": "5b73a436bd38c0b2eb91bd24a33b8876c76de16409ff4745ac7c52254853ea74",
+    "scripts/bootstrap.py": "0c640d43f6f496dbfbcdaf2ca62722d8341d88441b39b7271e55f778850829ff",
+    "scripts/build.py": "c2cb50d8caa958a72ac993a77c8161eab4173bb7880afd134e2a2a1aef851a9c",
+    "scripts/investigate_fd.py": "7c2a0c000eac719b1111e511367cbd077ce6f80f43b875f20c2a5adcdbb9f49d",
+    "scripts/prepare_quantlib.py": "69786316f96dff07cb4ba449302d16a1e3e56e71c1ec00e6abe31ed71b20a432",
+    "scripts/validate_fd_evidence.py": "9b800433eaa16cf27e9f55fab8055365257c79ba63baf824985613a1e1c5d635"
+  },
+  "generated_patch_sha256": {
+    "build/native/quantlib-overlay/adjoint-hook.patch": "5c9667274ef88d4088f348aed0463cd245d90ec9d01f5cc808edad05bd98f8e1",
+    "build/native/quantlib-overlay/array-kernels.patch": "a93275563c6ed292029b2a2464392c9f6555a89446e4b8e23a17ae5a375695ec",
+    "build/native/quantlib-overlay/math-adl.patch": "14741f7f3ee986ef1c2cbb591485393f474232a3ed2147f81b2a950f6563ca80",
+    "build/native/quantlib-overlay/parallel-solve.patch": "42242aa8274145666f8e150f5ce7bc778b882365886611801c96f8e5ff5b9c82",
+    "build/native/quantlib-overlay/pricing-output.patch": "6e8794e8bb38333f0bfd68b4e96e1450242789f204df224bbc0ec2e3780f6200",
+    "build/native/quantlib-overlay/profiling-scopes.patch": "17798f496e32ef906e4a9d60fb1349ec54f9669919f10650c9e16c848b6fd9ba",
+    "build/native/quantlib-overlay/sampling-kernel.patch": "a1834d6eed687eb01a9e24628097fe9bfc15af07c0ee83a40af4aee8f5de0287",
+    "build/native/quantlib-overlay/spline-kernels.patch": "ad48791039f7c0a69699d6f50af8a26dfb29faa6e4ddec963bd16c4d8716b655",
+    "build/native/quantlib-overlay/tensor-kernels.patch": "70c35bafd867625c210fee1ed526172083c3384ed27128d8f1df42222adf8c33",
+    "build/native/quantlib-overlay/tridiagonal-adjoint.patch": "681668ddac5e1ce85d3a807066b522bdc480237cfe13c8f8ec8181a035926589"
+  },
+  "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+  "quantlib_worktree": "",
+  "performance_environment": {
+    "QLT_PASSIVE_CONSTANTS": null,
+    "QLT_SAMPLE_CACHE": null,
+    "QLT_NATIVE_ADJOINT": null,
+    "QLT_PACKED_ARRAYS": null,
+    "QLT_LAZY_ARRAYS": null,
+    "QLT_VECTOR_SAMPLING": null,
+    "QLT_ARRAY_KERNELS": null,
+    "QLT_PRICE_ONLY": null,
+    "QLT_SPLINE_KERNELS": null,
+    "QLT_TRIDIAGONAL_ADJOINT": null,
+    "QLT_PCR_ROLL": null
+  },
+  "reports": {
+    "docs/benchmarks/fd_phase6_baseline.json": {
+      "sha256": "3dbc2a13f76bc40f3e5d04f0dab0c40173a3b061ac9b7624e05aabadbd9e033f",
+      "matches_current_native_source": false,
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "docs/benchmarks/fd_phase6_spline_ablation.json": {
+      "sha256": "c428a51578123017cc8c9365153caa40d90f3ef17f736eb6c630997b7354e937",
+      "matches_current_native_source": false,
+      "validation": {
+        "comparisons": 16,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 5.861977570020827e-14
+      }
+    },
+    "docs/benchmarks/fd_phase6_pcr_pilot.json": {
+      "sha256": "ef3c3666b9b068de50fe162a7fb060e75e3932cc7a92f0a4882dc82a2ed06219",
+      "matches_current_native_source": false,
+      "validation": {
+        "comparisons": 4,
+        "max_price_difference": 1.0658141036401503e-14,
+        "max_gradient_difference": 6.394884621840902e-14
+      }
+    },
+    "docs/benchmarks/fd_phase6_timing.json": {
+      "sha256": "6be6c612c9b4119822e605122da1400651aa7ba0bb1a2da9a338a801ad12cf33",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 12,
+        "max_price_difference": 1.0658141036401503e-14,
+        "max_gradient_difference": 6.394884621840902e-14
+      }
+    },
+    "docs/benchmarks/fd_phase6_roll_ablation.json": {
+      "sha256": "8c16b8bbcb3feeac55fd26efbe1bb5fea1846caf2dd25e0f613d4901cfe00c2a",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 2,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "docs/benchmarks/fd_phase6_scaling.json": {
+      "sha256": "c9226b27bedb487199abb035e0fbf3722e90e00ccb85ddd2f070ddfdc823dbbb",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 6,
+        "max_price_difference": 1.0658141036401503e-14,
+        "max_gradient_difference": 7.549516567451064e-14
+      }
+    },
+    "docs/benchmarks/fd_phase6_events.json": {
+      "sha256": "9487f6888fa7a784a783fb1588d2441207d18f02d0e4d7029fd9c2a9fd33a63b",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 6,
+        "max_price_difference": 1.4210854715202004e-14,
+        "max_gradient_difference": 9.237055564881302e-14
+      }
+    },
+    "docs/benchmarks/fd_phase6_memory.json": {
+      "sha256": "a9b8d32791cbba572caa729257f5d26184c827717d0bfb1f83caa45fe328ccd6",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 12,
+        "max_price_difference": 1.0658141036401503e-14,
+        "max_gradient_difference": 6.572520305780927e-14
+      }
+    },
+    "docs/benchmarks/fd_phase6_profile.json": {
+      "sha256": "bdddfbaaba7e4d5b9d986e24839dd94643cf6813db5f873332a1127f030b70a0",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "docs/benchmarks/fd_phase6_cpu_time_diagnostic.json": {
+      "sha256": "e9731aadc1ff31a847d2cdb1c29a8585723b6b6e14d373e87f57b30d2f3f6f9d",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 2,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 3.6415315207705135e-14
+      }
+    }
+  },
+  "all_samples_validation": {
+    "comparisons": 1326,
+    "max_price_difference": 1.4210854715202004e-14,
+    "max_gradient_difference": 9.237055564881302e-14
+  },
+  "logs": {
+    "build/phase6_roll_build.log": {
+      "sha256": "d8376a744edcf5d1ecc9aa17fbd94581304a02ae3e9794d3160fef5346d2f40f",
+      "tail": [
+        "-- Build files have been written to: <USER_HOME>/Documents/QuantLibTorch/build/native",
+        "MSBuild version 17.14.23+b0019275e for .NET Framework",
+        "",
+        "  parallel_solve.cpp",
+        "     Creating library <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.lib and object <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.exp",
+        "  quantlibtorch_native.vcxproj -> <USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\_native\\quantlibtorch_native.dll"
+      ]
+    },
+    "build/phase6_roll_tests.log": {
+      "sha256": "5e3efebd366f669f92bbf66bb5abc351b87494d33572e929dca35dd94aef4026",
+      "tail": [
+        "tests/test_parallel_solve.py::test_auto_selection_and_upstream_fallback_preserve_all_vjps[split-dominant]",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\profiler\\profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.",
+        "    _warn_once(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "328 passed, 19 warnings in 60.02s (0:01:00)"
+      ]
+    }
+  },
+  "overlay_comparison": {
+    "directory": "build/phase6_overlay_check",
+    "identical_files": 69
+  },
+  "tensor_reports": {
+    "docs/benchmarks/fd_phase6_batched_pcr.json": {
+      "sha256": "0de27eb894208913c60ecfe04d2c5a02d0fb8f21a5be791c67f625bd5b7dc266",
+      "comparisons": 8,
+      "max_value_difference": 1.1102230246251565e-15,
+      "max_vjp_difference": 1.7763568394002505e-15
+    }
+  },
+  "notes": [
+    "Historical source mismatches are retained and explicitly marked.",
+    "Cross-report validation uses one fixed reference per financial case and includes every raw warmup/timed price/VJP, not timing ratios.",
+    "Hashes associate the current workspace, binary and supplied logs; this script does not rebuild or rerun tests."
+  ]
+}

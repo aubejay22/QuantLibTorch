@@ -1,0 +1,80 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests\\test_backward_duals.py"
+  ],
+  "baseline_source_archive": {
+    "path": "docs/benchmarks/fd_phase11_source.zip",
+    "sha256": "527620bcd606465ede622f9f64f2baa530d1029e786509931ee0d9af9c1dcbcd",
+    "verified_source_files": 74
+  },
+  "native_source_sha256": {
+    "CMakeLists.txt": "4c35f483b87bbb4850afd99620211966a0067a81d9d38b43f5d7fb69e71f5b6a",
+    "scripts/prepare_quantlib.py": "20d79a95b82893b140b002607df7078065fa53ce5fb0b1299e545e0490f5df20",
+    "cpp/adjoint.cpp": "055e4c08d1d57ec2bd2c06ca00c6a6a0efe4d6b96c22c3be5cae814c4bfef45d",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "96a29d77038bad48ce7388092b6e4d7c4b161f52cc674f4a85be4d80eaf761b7",
+    "cpp/kernel_checks.cpp": "c464d24398d7935ccf1dd36b2f939a628df6b73b0802d3525237ab506d750fdd",
+    "cpp/operator_arithmetic.cpp": "596663385edca810432c5d9128ded8582d83987a16aa1cf9407feaf126e0ddbf",
+    "cpp/parallel_solve.cpp": "ad8f3f11e22dec15ab852bf2507943a8d80a5af583d75fbb771a69fb68d0897e",
+    "cpp/pcr_stage.cpp": "6366afd6cf5c9e2d63d0e9f4eb3aa8074ddf9e10aa420977d8b8d6449d907e9e",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/solve_checks.cpp": "94d60e16d108d2016a659cd75b894cab594f25e4c392199d25945b08119c72c2",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "9f9d803342b7ea605a5626cb76ffaf9d47d89847ad039286cd3ab619185661b8",
+    "cpp/step_arithmetic.cpp": "47a69f3801cdf6cd57ab83fb8961cde5f24bcc775f0134ad44e98fc1db93036f",
+    "cpp/tensor_kernels.cpp": "2c1fac02bc7cda6535ddd661c33a0883fe8b696c28bb8c9c20a9389cfcc5c211",
+    "cpp/thomas_arithmetic.cpp": "6c993871ab6c542b0dc68d408d045df4872e2577342fbd67e0688a97badfe38b",
+    "cpp/include/quantlibtorch/adjoint.hpp": "7865a4817f14cf803a921bdb35c343793361cf3aad5c0ab187be4b4fae2fe10d",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/operator_arithmetic.hpp": "f3c384afacc93cbe6431a5b5b8c189c6f707f9a9c1432a99f211e02535985f31",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "4d83be79de075f51c1741e993f5285d4a825515bad1194dc297c831db498777b",
+    "cpp/include/quantlibtorch/pcr_stage.hpp": "d686518c01f68adc16a864e779beb7051b00d248f74a8cff5a22c62a09a58411",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/solve_checks.hpp": "4270af1c4cf34d7495eb8c06c0a0c2fd5c275fcf4d96a9cefd0ce1147c7a6553",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "b7c18bddb9b912e902fcb4dcafb33d455409be0b12183b9d108f2de66abbc3b8",
+    "cpp/include/quantlibtorch/step_arithmetic.hpp": "b2ce9b0c863c4471d9e3c428adfcea47894d2963934d9e2486a4e7f7f80596ee",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/thomas_arithmetic.hpp": "9a1777e1e46a6a250e7d992a981112078e4ae00ffa96f5246c3cdc9978ff353a",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "native_binary_sha256": {
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "1fcb6c41475a5272bc9434f8a5a1809dad0e661a8750ea8bc4ad6f9417d0be04"
+  },
+  "test_sha256": "3c46e45dcafc4a264e2f71b5f2089e88e011a16b985febfe578ba3b7215ba498",
+  "log": "build\\phase12_backward_duals_before.log",
+  "log_sha256": "3f34df43553872ae6ab8d63b11b1896c0704a9eb18ea619c558ae37a22fa0e0f",
+  "failed": 18,
+  "passed": 12,
+  "failures": [
+    "FAILED tests/test_backward_duals.py::test_full_operator_incoming_dual_weights[False-assembly]",
+    "FAILED tests/test_backward_duals.py::test_full_operator_incoming_dual_weights[False-apply]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-0-3-1-2]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-0-8-4-3]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-1-3-1-2]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-1-8-4-3]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-2-3-1-2]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-2-8-4-3]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-3-3-1-2]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-3-8-4-3]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-all-3-1-2]",
+    "FAILED tests/test_backward_duals.py::test_pcr_stage_each_incoming_dual[False-all-8-4-3]",
+    "FAILED tests/test_backward_duals.py::test_complete_pcr_incoming_dual_against_dense[1-3]",
+    "FAILED tests/test_backward_duals.py::test_complete_pcr_incoming_dual_against_dense[1-9]",
+    "FAILED tests/test_backward_duals.py::test_complete_pcr_incoming_dual_against_dense[3-3]",
+    "FAILED tests/test_backward_duals.py::test_complete_pcr_incoming_dual_against_dense[3-9]",
+    "FAILED tests/test_backward_duals.py::test_financial_full_incoming_dual_against_original[auto]",
+    "FAILED tests/test_backward_duals.py::test_financial_full_incoming_dual_against_original[pcr]"
+  ],
+  "notes": [
+    "The new test file was added after the Phase 11 source archive; native source and binary remain that selected baseline.",
+    "To reproduce, add the archived Phase 12 test file to the Phase 11 source snapshot, rebuild, and run the recorded command."
+  ]
+}

@@ -1,0 +1,49 @@
+........................................................................ [  4%]
+........................................................................ [  8%]
+........................................................................ [ 12%]
+........................................................................ [ 16%]
+........................................................................ [ 20%]
+........................................................................ [ 24%]
+........................................................................ [ 28%]
+........................................................................ [ 33%]
+........................................................................ [ 37%]
+........................................................................ [ 41%]
+........................................................................ [ 45%]
+........................................................................ [ 49%]
+........................................................................ [ 53%]
+........................................................................ [ 57%]
+........................................................................ [ 61%]
+........................................................................ [ 66%]
+........................................................................ [ 70%]
+........................................................................ [ 74%]
+........................................................................ [ 78%]
+........................................................................ [ 82%]
+........................................................................ [ 86%]
+........................................................................ [ 90%]
+........................................................................ [ 95%]
+........................................................................ [ 99%]
+..............                                                           [100%]
+============================== warnings summary ===============================
+tests/test_adjoint_arithmetic.py::test_adjoint_arithmetic_financial_dispatch_and_original_reference[False]
+  <USER_HOME>\anaconda3\Lib\site-packages\torch\profiler\profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+    _warn_once(
+
+tests/test_array_kernels.py: 18 warnings
+  <USER_HOME>\anaconda3\Lib\site-packages\torch\jit\_script.py:1480: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_pcr_stage.py::test_pcr_trace_roundtrip_preserves_runtime_shapes_values_and_vjps
+tests/test_pcr_stage.py::test_pcr_trace_roundtrip_preserves_runtime_shapes_values_and_vjps
+  <USER_HOME>\anaconda3\Lib\site-packages\torch\jit\_trace.py:1000: DeprecationWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_pcr_stage.py::test_pcr_trace_roundtrip_preserves_runtime_shapes_values_and_vjps
+  <USER_HOME>\anaconda3\Lib\site-packages\torch\jit\_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.
+    warnings.warn(
+
+tests/test_pcr_stage.py::test_pcr_trace_roundtrip_preserves_runtime_shapes_values_and_vjps
+  <USER_HOME>\anaconda3\Lib\site-packages\torch\jit\_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1742 passed, 23 warnings in 220.80s (0:03:40)

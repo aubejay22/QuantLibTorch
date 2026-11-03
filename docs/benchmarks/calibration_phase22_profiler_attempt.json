@@ -1,0 +1,22 @@
+{
+  "stopped_worker": "full AD, 9 x 5 x 5, three contracts, tensor profiler",
+  "observed_working_set_bytes": 7675006976,
+  "reason": "Stopped own profiler worker after excessive trace bookkeeping memory; ordinary timing/memory workers completed separately.",
+  "failed_commands": [
+    {
+      "name": "workloads",
+      "command": [
+        "<USER_HOME>\\Documents\\QuantLibTorch\\.venv\\Scripts\\python.exe",
+        "scripts/run_calibration_benchmarks.py",
+        "--windows-qos",
+        "high",
+        "--affinity",
+        "8"
+      ],
+      "started_utc": "2026-11-01T22:15:15.361796+00:00",
+      "returncode": 1,
+      "finished_utc": "2026-11-01T22:25:32.798399+00:00"
+    }
+  ],
+  "replacement": "4 x 4 x 4, one contract, both modes; all timing/memory cases unchanged"
+}

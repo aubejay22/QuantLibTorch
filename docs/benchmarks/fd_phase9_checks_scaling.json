@@ -1,0 +1,3634 @@
+{
+  "command": [
+    "scripts/benchmark_fd_optimizations.py",
+    "--levels",
+    "phase8,native_checks",
+    "--kernels",
+    "auto",
+    "--variants",
+    "optimized",
+    "--warmup",
+    "32",
+    "--repeats",
+    "15",
+    "--windows-qos",
+    "high",
+    "--no-stock",
+    "--grids",
+    "60x121",
+    "--surfaces",
+    "surface",
+    "--modes",
+    "full",
+    "--tasks",
+    "timing",
+    "--output",
+    "docs/benchmarks/fd_phase9_checks_scaling.json"
+  ],
+  "levels": {
+    "phase8": {
+      "measured_at_utc": "2026-11-01T09:27:55.896458+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "windows_qos": "high",
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1,
+        "QLT_SPLINE_KERNELS": 1,
+        "QLT_TRIDIAGONAL_ADJOINT": 1,
+        "QLT_PCR_ROLL": 1,
+        "QLT_SPATIAL_CACHE": 1,
+        "QLT_OPERATOR_ADJOINT": 1,
+        "QLT_STEP_ADJOINT": 1,
+        "QLT_ASSEMBLY_ADJOINT": 1,
+        "QLT_PCR_FUSED": 0,
+        "QLT_PCR_NATIVE_STAGE": 1,
+        "QLT_NATIVE_SOLVE_CHECKS": 0
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Process CPU times include all worker threads and may have coarse platform clock resolution; they supplement elapsed wall time.",
+        "Optional high Windows QoS affects only each benchmark worker; no machine power plan or pricing-library policy changes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "native_checks": {
+      "measured_at_utc": "2026-11-01T09:28:07.338518+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "windows_qos": "high",
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1,
+        "QLT_SPLINE_KERNELS": 1,
+        "QLT_TRIDIAGONAL_ADJOINT": 1,
+        "QLT_PCR_ROLL": 1,
+        "QLT_SPATIAL_CACHE": 1,
+        "QLT_OPERATOR_ADJOINT": 1,
+        "QLT_STEP_ADJOINT": 1,
+        "QLT_ASSEMBLY_ADJOINT": 1,
+        "QLT_PCR_FUSED": 0,
+        "QLT_PCR_NATIVE_STAGE": 1,
+        "QLT_NATIVE_SOLVE_CHECKS": 1
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Process CPU times include all worker threads and may have coarse platform clock resolution; they supplement elapsed wall time.",
+        "Optional high Windows QoS affects only each benchmark worker; no machine power plan or pricing-library policy changes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    }
+  },
+  "results": [
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "timing",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "phase8"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "warmup": [
+        {
+          "forward_seconds": 0.05588989984244108,
+          "backward_seconds": 0.579721000045538,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.0625,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015128999948501587,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.6371237998828292,
+          "total_cpu_seconds": 0.125
+        },
+        {
+          "forward_seconds": 0.04645689995959401,
+          "backward_seconds": 0.042857599910348654,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001424900023266673,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.09073939989320934,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.048171899979934096,
+          "backward_seconds": 0.0340104999486357,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0017824000678956509,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08396479999646544,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.050630500074476004,
+          "backward_seconds": 0.036320799961686134,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001873900182545185,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08882520021870732,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.049879200058057904,
+          "backward_seconds": 0.03540650010108948,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0019956999458372593,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08728140010498464,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.049637600081041455,
+          "backward_seconds": 0.03581069991923869,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013855998404324055,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08683389984071255,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.048214799957349896,
+          "backward_seconds": 0.03643040009774268,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001587199978530407,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08623240003362298,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05169200012460351,
+          "backward_seconds": 0.03596089989878237,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013691999483853579,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08902209997177124,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04789819987490773,
+          "backward_seconds": 0.036084000021219254,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0017128000035881996,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08569499989971519,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.05057459999807179,
+          "backward_seconds": 0.03665050002746284,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014132000505924225,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.08863830007612705,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04993460001423955,
+          "backward_seconds": 0.05107299983501434,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015344000421464443,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.10254199989140034,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.051865000044927,
+          "backward_seconds": 0.03482079994864762,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013407999649643898,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08802659995853901,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.049564900109544396,
+          "backward_seconds": 0.03609169996343553,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001491700066253543,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08714830013923347,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.05025160009972751,
+          "backward_seconds": 0.03612710000015795,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001356000080704689,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08773470018059015,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05164729990065098,
+          "backward_seconds": 0.03621960012242198,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013361000455915928,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08920300006866455,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.04966929997317493,
+          "backward_seconds": 0.03582250000908971,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016616999637335539,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08715349994599819,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.049002999905496836,
+          "backward_seconds": 0.0355517000425607,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016442001797258854,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08619890012778342,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.04876420018263161,
+          "backward_seconds": 0.03713759989477694,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013945000246167183,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08729630010202527,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04985870001837611,
+          "backward_seconds": 0.0363920999225229,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013035000301897526,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08755429997108877,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05086540011689067,
+          "backward_seconds": 0.03415759978815913,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015024000313133001,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.0865253999363631,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05161960003897548,
+          "backward_seconds": 0.03671819996088743,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.00176170002669096,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.09009950002655387,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.0484355001244694,
+          "backward_seconds": 0.03665050002746284,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015777999069541693,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08666380005888641,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.049939600052312016,
+          "backward_seconds": 0.034886599984019995,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0019053001888096333,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08673150022514164,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.0515391998924315,
+          "backward_seconds": 0.036979000084102154,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0017865998670458794,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.09030479984357953,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.04933220008388162,
+          "backward_seconds": 0.036327100126072764,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0017197001725435257,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.0873790003824979,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.04951169993728399,
+          "backward_seconds": 0.0370191999245435,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.015625,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016018999740481377,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08813279983587563,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.05052979988977313,
+          "backward_seconds": 0.04055030015297234,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014359999913722277,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.0925161000341177,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05231739999726415,
+          "backward_seconds": 0.03805279987864196,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013361000455915928,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.0917062999214977,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05207649990916252,
+          "backward_seconds": 0.03598550008609891,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012999000027775764,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08936189999803901,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.05581529997289181,
+          "backward_seconds": 0.04335470008663833,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001434100093320012,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.10060410015285015,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.049905800027772784,
+          "backward_seconds": 0.03587989998050034,
+          "forward_cpu_seconds": 0.0625,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012962000910192728,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.0870819000992924,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05032130004838109,
+          "backward_seconds": 0.03727760002948344,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0018032998777925968,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08940219995565712,
+          "total_cpu_seconds": 0.09375
+        }
+      ],
+      "samples": [
+        {
+          "forward_seconds": 0.05458809994161129,
+          "backward_seconds": 0.03594680014066398,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001372799975797534,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.0919077000580728,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.04884319985285401,
+          "backward_seconds": 0.03699910012073815,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015314000193029642,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08737369999289513,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.050000499933958054,
+          "backward_seconds": 0.03836399991996586,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012956000864505768,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.0896600999403745,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.0532084999140352,
+          "backward_seconds": 0.036796400090679526,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014298001769930124,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.09143470018170774,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.04882020014338195,
+          "backward_seconds": 0.035809600027278066,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013705999590456486,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08600040012970567,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04835700010880828,
+          "backward_seconds": 0.036982999881729484,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015124001074582338,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.086852400097996,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.052012600004673004,
+          "backward_seconds": 0.0375173999927938,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0019102999940514565,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.09144029999151826,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05354880006052554,
+          "backward_seconds": 0.03644860000349581,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0018214001320302486,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.0918188001960516,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.05061859986744821,
+          "backward_seconds": 0.036691300105303526,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013896999880671501,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08869959996081889,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04989999998360872,
+          "backward_seconds": 0.03638809989206493,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0017903000116348267,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08807839988730848,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.0496779999230057,
+          "backward_seconds": 0.037450200179591775,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0018130999524146318,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.0889413000550121,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.049085000064224005,
+          "backward_seconds": 0.03993259998969734,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016654001083225012,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.09068300016224384,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04830770008265972,
+          "backward_seconds": 0.03560289996676147,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014200001023709774,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08533060015179217,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.04682749998755753,
+          "backward_seconds": 0.034005000023171306,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001201799837872386,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08203429984860122,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04871909995563328,
+          "backward_seconds": 0.03441429999656975,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013407000806182623,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.0844741000328213,
+          "total_cpu_seconds": 0.09375
+        }
+      ],
+      "median": {
+        "forward_seconds": 0.0496779999230057,
+        "backward_seconds": 0.036691300105303526,
+        "cleanup_seconds": 0.0014298001769930124,
+        "total_seconds": 0.08869959996081889,
+        "total_cpu_seconds": 0.09375
+      },
+      "price": 9.514401686543573,
+      "gradient": [
+        [
+          8.49542920926495e-06,
+          0.5779531678934379,
+          6.2944291574082705,
+          0.587811858630421,
+          2.5821918560126466e-05
+        ],
+        [
+          0.0001670215109534855,
+          2.179733303888911,
+          15.085918449485469,
+          2.2277912667664954,
+          0.0006753869026964658
+        ],
+        [
+          3.497104924710462e-05,
+          0.9952459514539361,
+          9.574936945121326,
+          1.02449584201273,
+          0.00020604024221891772
+        ]
+      ]
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "auto",
+        "contract": "european",
+        "mode": "full",
+        "task": "timing",
+        "repeats": 15,
+        "warmup": 32,
+        "windows_qos": "high",
+        "single_thread_backward": false,
+        "optimization_level": "native_checks"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "worker_qos": {
+        "requested": "high",
+        "before": {
+          "version": 1,
+          "control_mask": 0,
+          "state_mask": 0
+        },
+        "after": {
+          "version": 1,
+          "control_mask": 1,
+          "state_mask": 0
+        }
+      },
+      "gradient_target": "local volatility, NPV",
+      "warmup": [
+        {
+          "forward_seconds": 0.04460100014694035,
+          "backward_seconds": 0.578986199805513,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014360998757183552,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.6250232998281717,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.03684109984897077,
+          "backward_seconds": 0.03397330013103783,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0011837000492960215,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07199810002930462,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.036744299810379744,
+          "backward_seconds": 0.035045200027525425,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001322499942034483,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.07311199977993965,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03765950002707541,
+          "backward_seconds": 0.03464900003746152,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0011489000171422958,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07345740008167922,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.03813139977864921,
+          "backward_seconds": 0.0346514000557363,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012101999018341303,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07399299973621964,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.03856740007176995,
+          "backward_seconds": 0.034375600051134825,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012016999535262585,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07414470007643104,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03883610013872385,
+          "backward_seconds": 0.03386049997061491,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0011076000519096851,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07380420016124845,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.03694109991192818,
+          "backward_seconds": 0.034895400051027536,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013007000088691711,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07313719997182488,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03943290002644062,
+          "backward_seconds": 0.034526800038293004,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016161000821739435,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07557580014690757,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03821619995869696,
+          "backward_seconds": 0.034464700147509575,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012627001851797104,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07394360029138625,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04006560007110238,
+          "backward_seconds": 0.03458889992907643,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016340999864041805,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.076288599986583,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03891979996114969,
+          "backward_seconds": 0.03587240003980696,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001488800160586834,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.07628100016154349,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.040313899982720613,
+          "backward_seconds": 0.03659440018236637,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0017399999778717756,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.07864830014295876,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.039986300049349666,
+          "backward_seconds": 0.04340850003063679,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016254999209195375,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08502030000090599,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.038769900100305676,
+          "backward_seconds": 0.03664609999395907,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014547000173479319,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07687070011161268,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03917199978604913,
+          "backward_seconds": 0.03611420001834631,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014430000446736813,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07672919984906912,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.037950700148940086,
+          "backward_seconds": 0.038412199821323156,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0019084999803453684,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07827139995060861,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.040252899983897805,
+          "backward_seconds": 0.03717179992236197,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001695399871096015,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07912009977735579,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03876469982787967,
+          "backward_seconds": 0.037339100148528814,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001957300119102001,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07806110009551048,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03795679984614253,
+          "backward_seconds": 0.036790900165215135,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014359001070261002,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07618360011838377,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03875229996629059,
+          "backward_seconds": 0.037519299890846014,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001524600200355053,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07779620005749166,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04024320002645254,
+          "backward_seconds": 0.036681999918073416,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016294000670313835,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07855460001155734,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03761180001311004,
+          "backward_seconds": 0.03485779999755323,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001683299895375967,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.07415289990603924,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03907010005787015,
+          "backward_seconds": 0.03611099999397993,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012705998960882425,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07645169994793832,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.038244100054726005,
+          "backward_seconds": 0.03791099996306002,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013687999453395605,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07752389996312559,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.041284200036898255,
+          "backward_seconds": 0.03670930000953376,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012459999416023493,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07923949998803437,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03931839996948838,
+          "backward_seconds": 0.038145000115036964,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014315999578684568,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.0788950000423938,
+          "total_cpu_seconds": 0.09375
+        },
+        {
+          "forward_seconds": 0.03911100002005696,
+          "backward_seconds": 0.03637530002743006,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.002067199908196926,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07755349995568395,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.039711999939754605,
+          "backward_seconds": 0.034967799903824925,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012950999662280083,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07597489980980754,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04053110000677407,
+          "backward_seconds": 0.035721000051125884,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015888998750597239,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07784099993295968,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.039798300014808774,
+          "backward_seconds": 0.035279199946671724,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0011959001421928406,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07627340010367334,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03754309983924031,
+          "backward_seconds": 0.03444269997999072,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012525999918580055,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07323839981108904,
+          "total_cpu_seconds": 0.078125
+        }
+      ],
+      "samples": [
+        {
+          "forward_seconds": 0.038664199877530336,
+          "backward_seconds": 0.03493309998884797,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.001264199847355485,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07486149971373379,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.037607899866998196,
+          "backward_seconds": 0.03545810002833605,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0010857000015676022,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.07415169989690185,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03850939986295998,
+          "backward_seconds": 0.035752300173044205,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0011476001236587763,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07540930015966296,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.04020709986798465,
+          "backward_seconds": 0.03498980007134378,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012933001853525639,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.076490200124681,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.03916800022125244,
+          "backward_seconds": 0.0380428999196738,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013702998403459787,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07858119998127222,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.038828699849545956,
+          "backward_seconds": 0.03621380007825792,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0014621999580413103,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07650469988584518,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04009240004234016,
+          "backward_seconds": 0.03757379995658994,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016823001205921173,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07934850011952221,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.039134399965405464,
+          "backward_seconds": 0.036306099966168404,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0015198998153209686,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07696039974689484,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03807470016181469,
+          "backward_seconds": 0.04213519999757409,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016249001491814852,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08183480030857027,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.038506099954247475,
+          "backward_seconds": 0.03606549999676645,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0016681000124663115,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07623969996348023,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.040829299949109554,
+          "backward_seconds": 0.039057700196281075,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.015625,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0019651998300105333,
+          "cleanup_cpu_seconds": 0.015625,
+          "total_seconds": 0.08185219997540116,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.04167780000716448,
+          "backward_seconds": 0.03889080020599067,
+          "forward_cpu_seconds": 0.015625,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013673000503331423,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.08193590026348829,
+          "total_cpu_seconds": 0.0625
+        },
+        {
+          "forward_seconds": 0.038603900000452995,
+          "backward_seconds": 0.038864600006490946,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0013582000974565744,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07882670010440052,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.03954280004836619,
+          "backward_seconds": 0.03818349982611835,
+          "forward_cpu_seconds": 0.03125,
+          "backward_cpu_seconds": 0.046875,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012825001031160355,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.07900879997760057,
+          "total_cpu_seconds": 0.078125
+        },
+        {
+          "forward_seconds": 0.042131599970161915,
+          "backward_seconds": 0.03708150004968047,
+          "forward_cpu_seconds": 0.046875,
+          "backward_cpu_seconds": 0.03125,
+          "price": 9.514401686543573,
+          "loss": 9.514401686543573,
+          "gradient": [
+            [
+              8.49542920926495e-06,
+              0.5779531678934379,
+              6.2944291574082705,
+              0.587811858630421,
+              2.5821918560126466e-05
+            ],
+            [
+              0.0001670215109534855,
+              2.179733303888911,
+              15.085918449485469,
+              2.2277912667664954,
+              0.0006753869026964658
+            ],
+            [
+              3.497104924710462e-05,
+              0.9952459514539361,
+              9.574936945121326,
+              1.02449584201273,
+              0.00020604024221891772
+            ]
+          ],
+          "cleanup_seconds": 0.0012666000984609127,
+          "cleanup_cpu_seconds": 0.0,
+          "total_seconds": 0.0804797001183033,
+          "total_cpu_seconds": 0.078125
+        }
+      ],
+      "median": {
+        "forward_seconds": 0.039134399965405464,
+        "backward_seconds": 0.03708150004968047,
+        "cleanup_seconds": 0.0013673000503331423,
+        "total_seconds": 0.07858119998127222,
+        "total_cpu_seconds": 0.078125
+      },
+      "price": 9.514401686543573,
+      "gradient": [
+        [
+          8.49542920926495e-06,
+          0.5779531678934379,
+          6.2944291574082705,
+          0.587811858630421,
+          2.5821918560126466e-05
+        ],
+        [
+          0.0001670215109534855,
+          2.179733303888911,
+          15.085918449485469,
+          2.2277912667664954,
+          0.0006753869026964658
+        ],
+        [
+          3.497104924710462e-05,
+          0.9952459514539361,
+          9.574936945121326,
+          1.02449584201273,
+          0.00020604024221891772
+        ]
+      ]
+    }
+  ],
+  "stock": [],
+  "native_source_sha256": {
+    "CMakeLists.txt": "dd33e09f626cbb68490c54233c337765b38fffa80f19f0ac5c0752c0b3d73615",
+    "scripts/prepare_quantlib.py": "70caf909867b60b522fcb456e31757476623dd5c9ea40527ce81ea5e3e2bc60f",
+    "cpp/adjoint.cpp": "ff7c39251a702a1760ba32cd97a4aaf78a304b255dac168bec98bb94fa2a9253",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "96a29d77038bad48ce7388092b6e4d7c4b161f52cc674f4a85be4d80eaf761b7",
+    "cpp/kernel_checks.cpp": "440b6858e7750905c421d0ab6a1b2d60f47ede6f73e6a34fcf84c1a4aebe68c2",
+    "cpp/parallel_solve.cpp": "9e1ba0694f9a85ab7f4426433e2a63305715aeb8e678f0c8ca8861dd2c49bc75",
+    "cpp/pcr_stage.cpp": "6366afd6cf5c9e2d63d0e9f4eb3aa8074ddf9e10aa420977d8b8d6449d907e9e",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/solve_checks.cpp": "9c1ca4f5baf584d1eb7ec1e4e93e185ffc64675cd837f81a50bf16474a4826ac",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "8b9969574df9a0ee0b05392bdfba89cf8accbdceb55e0e96c2d4e54eb82e56a1",
+    "cpp/tensor_kernels.cpp": "12567db803db59af925e2a87f8cad3319455bab7cde7fa9a701bf17bbfcfc090",
+    "cpp/include/quantlibtorch/adjoint.hpp": "c0289beafcca10881f54a7b7e5eab0a62b639e2e8a52e695b9b109eecefa3c27",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "4d83be79de075f51c1741e993f5285d4a825515bad1194dc297c831db498777b",
+    "cpp/include/quantlibtorch/pcr_stage.hpp": "d686518c01f68adc16a864e779beb7051b00d248f74a8cff5a22c62a09a58411",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/solve_checks.hpp": "4270af1c4cf34d7495eb8c06c0a0c2fd5c275fcf4d96a9cefd0ce1147c7a6553",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "b7c18bddb9b912e902fcb4dcafb33d455409be0b12183b9d108f2de66abbc3b8",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "validation": {
+    "comparisons": 2,
+    "max_price_difference": 0.0,
+    "max_gradient_difference": 0.0
+  }
+}

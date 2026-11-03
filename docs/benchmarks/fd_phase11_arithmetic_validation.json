@@ -1,0 +1,286 @@
+{
+  "verified_at_utc": "2026-11-01T11:23:46.067055+00:00",
+  "command": [
+    "scripts/validate_fd_evidence.py",
+    "docs\\benchmarks\\fd_phase11_arithmetic_timing.json",
+    "docs\\benchmarks\\fd_phase11_arithmetic_scaling.json",
+    "docs\\benchmarks\\fd_phase11_arithmetic_events.json",
+    "docs\\benchmarks\\fd_phase11_arithmetic_structure.json",
+    "docs\\benchmarks\\fd_phase11_arithmetic_profile.json",
+    "docs/benchmarks/fd_phase11_baseline_profile.json",
+    "--require-current",
+    "docs\\benchmarks\\fd_phase11_arithmetic_timing.json",
+    "--require-current",
+    "docs\\benchmarks\\fd_phase11_arithmetic_scaling.json",
+    "--require-current",
+    "docs\\benchmarks\\fd_phase11_arithmetic_events.json",
+    "--require-current",
+    "docs\\benchmarks\\fd_phase11_arithmetic_structure.json",
+    "--require-current",
+    "docs\\benchmarks\\fd_phase11_arithmetic_profile.json",
+    "--log",
+    "build/phase11_arithmetic_build.log",
+    "--log",
+    "build/phase11_arithmetic_targeted_tests.log",
+    "--log",
+    "build/phase11_arithmetic_enabled_tests.log",
+    "--log",
+    "build/phase11_arithmetic_fallback_tests.log",
+    "--source-archive",
+    "docs\\benchmarks\\fd_phase11_arithmetic_source.zip",
+    "--overlay-check",
+    "build/phase11_arithmetic_overlay_check",
+    "--output",
+    "docs/benchmarks/fd_phase11_arithmetic_validation.json"
+  ],
+  "native_source_sha256": {
+    "CMakeLists.txt": "e41b6a280a2e763f3a9a3c3182e30fbd0c540ff5f661bc3eebcca0178691d36d",
+    "scripts/prepare_quantlib.py": "20d79a95b82893b140b002607df7078065fa53ce5fb0b1299e545e0490f5df20",
+    "cpp/adjoint.cpp": "3156e74f3feaccb036c1dfe4ef00fc8513e9f3a04bdd7c72123d7f3ef4a78c88",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "96a29d77038bad48ce7388092b6e4d7c4b161f52cc674f4a85be4d80eaf761b7",
+    "cpp/kernel_checks.cpp": "c464d24398d7935ccf1dd36b2f939a628df6b73b0802d3525237ab506d750fdd",
+    "cpp/operator_arithmetic.cpp": "596663385edca810432c5d9128ded8582d83987a16aa1cf9407feaf126e0ddbf",
+    "cpp/parallel_solve.cpp": "ad8f3f11e22dec15ab852bf2507943a8d80a5af583d75fbb771a69fb68d0897e",
+    "cpp/pcr_stage.cpp": "6366afd6cf5c9e2d63d0e9f4eb3aa8074ddf9e10aa420977d8b8d6449d907e9e",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/solve_checks.cpp": "94d60e16d108d2016a659cd75b894cab594f25e4c392199d25945b08119c72c2",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "8b9969574df9a0ee0b05392bdfba89cf8accbdceb55e0e96c2d4e54eb82e56a1",
+    "cpp/tensor_kernels.cpp": "2c1fac02bc7cda6535ddd661c33a0883fe8b696c28bb8c9c20a9389cfcc5c211",
+    "cpp/thomas_arithmetic.cpp": "6c993871ab6c542b0dc68d408d045df4872e2577342fbd67e0688a97badfe38b",
+    "cpp/include/quantlibtorch/adjoint.hpp": "7865a4817f14cf803a921bdb35c343793361cf3aad5c0ab187be4b4fae2fe10d",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/operator_arithmetic.hpp": "f3c384afacc93cbe6431a5b5b8c189c6f707f9a9c1432a99f211e02535985f31",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "4d83be79de075f51c1741e993f5285d4a825515bad1194dc297c831db498777b",
+    "cpp/include/quantlibtorch/pcr_stage.hpp": "d686518c01f68adc16a864e779beb7051b00d248f74a8cff5a22c62a09a58411",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/solve_checks.hpp": "4270af1c4cf34d7495eb8c06c0a0c2fd5c275fcf4d96a9cefd0ce1147c7a6553",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "b7c18bddb9b912e902fcb4dcafb33d455409be0b12183b9d108f2de66abbc3b8",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/thomas_arithmetic.hpp": "9a1777e1e46a6a250e7d992a981112078e4ae00ffa96f5246c3cdc9978ff353a",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "native_binary_sha256": {
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "fa37be7713e95d69c6588b9b1217a69483ec5f41c03381836b9902ed2eddac96"
+  },
+  "python_and_test_sha256": {
+    "python/quantlibtorch/__init__.py": "f451b681c5b61c6e7bd493a4f4b0ac6825d0469bd44aa3d940533c7e60a8c0ff",
+    "python/quantlibtorch/fd.py": "4e1347ff822c13da649d60733c1bbb2597fd4b69f130d7101c9e58e2793e5203",
+    "python/quantlibtorch/kernels.py": "97cedcb635696b0d6b4afc4fca256dc9c593b4c1167305e8f8d044ab89572f36",
+    "python/quantlibtorch/pricing.py": "2ca74eed444761e6f290ca5bfaf0f2bdfe3b9272aacf1258dbc13af3dd7601a3",
+    "python/quantlibtorch/solver.py": "b60d87ac142f3150b809acfdd58c1f68c989a33ad4c23a09eabc89b2df7f6473",
+    "tests/stock_quantlib_reference.py": "c2cd918d6003e82208ca9ce37df16327ba119ee4176987cf03a5e9ee9daa1312",
+    "tests/test_adjoint_arithmetic.py": "bbeb8eba58b774e5656eca284ff51134394d2d7052c61345c6d75b1e7b92f9ae",
+    "tests/test_array_kernels.py": "a9a8fe27cd846450009be566d378cc06a6c88d7f8a36d062cb87f6f21f456d7b",
+    "tests/test_diffusion_adjoint.py": "0db44d9cff895e23549a1b8d9bd39b55b2f5a75d3e5677db896446fe9fd39ba6",
+    "tests/test_diffusion_arithmetic.py": "7e53fae84ccf38798526feea8b4dd17007a11ce34103ee97edb9b81a0fdcca85",
+    "tests/test_fd_adjoint.py": "575b5bc9ac033697d55aed7bb3d9d475bf116530c9ec87177cedf45c2eb7f78d",
+    "tests/test_fd_engine.py": "d009c234c0c42f63ed5f17a653a82ebe317b88abfb9f4e12c7de4ec8e1c1d716",
+    "tests/test_fd_state.py": "6a83f39767ca5eb1254f09dd87bc5aa27cc74a078e988a0c2c172e9dfe69cadd",
+    "tests/test_operator_adjoint.py": "54ea9cbad2775f0042687678aa2922304927ac0c41d891e269ef1b8797fef0d0",
+    "tests/test_operator_arithmetic.py": "74e281394ed0e1a96e4932f6ae3d76a103adb92e4491dbbb20dad83f680d66f1",
+    "tests/test_parallel_solve.py": "ce6cbdf5efd6e340d6e364e5fdda52a3c71966c4f28c4736204f53b15daf2c96",
+    "tests/test_pcr_dispatch.py": "ceeb220044e266c1e41a1c75082db500692a56309847ccd3f41f4b66a04bbcde",
+    "tests/test_pcr_stage.py": "34161aa2140a6a662596b066fd41761bd2610fe08aa0556ce02757eaab3001f7",
+    "tests/test_pricing.py": "d5fb22d1d069442d51ec6a1447b058d2b3452ff3d0192cc01cd72877848d1d43",
+    "tests/test_scalar.py": "06ab9124a67263b61e2ce27e365fda18aec41ed4cf938009d2c24a2e4547091f",
+    "tests/test_solve_checks.py": "f6250d1628726c46283a7018604b5931eb2810f0bd4ab258997c6eb19f037025",
+    "tests/test_solver.py": "6f0d807dd69d98224bfe0484737d4876dc38de90f4d9d74d2125bf9fdc42ae7c",
+    "tests/test_spatial_cache.py": "5ba4e178eb6f458b65081ed36dcd231b7e4c559a3ab3cefef43fa28c027ba296",
+    "tests/test_spline_kernels.py": "0b9031326209dd187cb4a0ca3a2ba77997e86941fc43c1d61a21c08f88eb0b7e",
+    "tests/test_step_adjoint.py": "2f61bc5f0cead4b14f93622cf27626c8dd83d2834bb7dd2be987a55d77a60607",
+    "tests/test_tensor_kernels.py": "d4a120fa39a2b3402575e6007a23b863c1370980a017a90e5b1e2a16bd1a0385",
+    "tests/test_thomas_arithmetic.py": "5690f31f0d64d8de79def1f7c38e49ab11741bf1ae26b2fdc858dca1799ea084",
+    "scripts/benchmark.py": "a136e8dc8c7066630319918ffe1de2e2b9c1e188618485135a0d8c11444df830",
+    "scripts/benchmark_fd.py": "145484f0ca1e1351bbea7af5b99d505bd77c14d675749c30eee857479206fa2b",
+    "scripts/benchmark_fd_curvature.py": "49bf4075c7dfd35c4ebd330d0a8330fa757d4344db16d18079752bdda75b0000",
+    "scripts/benchmark_fd_optimizations.py": "e2f9a6e043dc61572cd095b7034dca1fadd02317ffda723c7d47c29ba2654f36",
+    "scripts/benchmark_parallel_solve.py": "4bcca2484b4cb65545b4cc1e3d5c38c3e3528c603be3bc3b7df9534029b16c5f",
+    "scripts/benchmark_tensor_kernels.py": "5b73a436bd38c0b2eb91bd24a33b8876c76de16409ff4745ac7c52254853ea74",
+    "scripts/bootstrap.py": "0c640d43f6f496dbfbcdaf2ca62722d8341d88441b39b7271e55f778850829ff",
+    "scripts/build.py": "c2cb50d8caa958a72ac993a77c8161eab4173bb7880afd134e2a2a1aef851a9c",
+    "scripts/diagnose_fd_runtime.py": "82b9378879b38f2b1f9d1e7cdc09fb07c2f663e07ae474db880ff5d26c6760a1",
+    "scripts/investigate_fd.py": "1cc1f6634666e5058d0987319824a732873a5106116b2d74fa559bed41c62ced",
+    "scripts/prepare_quantlib.py": "20d79a95b82893b140b002607df7078065fa53ce5fb0b1299e545e0490f5df20",
+    "scripts/runtime_controls.py": "be11510a5139b6935faa3bb088d6d1726d6810839ae7a88622b6158c088269c9",
+    "scripts/validate_fd_evidence.py": "f8ed1014c405da19097bdf8ea50c1735925092688008ae6f13c99947e200aabd"
+  },
+  "build_configuration_sha256": {
+    "CMakeLists.txt": "e41b6a280a2e763f3a9a3c3182e30fbd0c540ff5f661bc3eebcca0178691d36d",
+    "pyproject.toml": "105a6402b1ba5f6e7dee226a84ddbfb0e2ae2e0a45e2bab18ff67581f0c4ee2e",
+    "cmake/quantlib_sources.cmake": "92d4434db8c8ee5d319af2aa17cfa844f44ca41c68c02be08df126a11bd5883a"
+  },
+  "generated_patch_sha256": {
+    "build/native/quantlib-overlay/adjoint-hook.patch": "5c9667274ef88d4088f348aed0463cd245d90ec9d01f5cc808edad05bd98f8e1",
+    "build/native/quantlib-overlay/array-kernels.patch": "a93275563c6ed292029b2a2464392c9f6555a89446e4b8e23a17ae5a375695ec",
+    "build/native/quantlib-overlay/diffusion-adjoint.patch": "b856924a9186f6c6212ac09583fbe9cbe8fbcbf4350b9c2892d9de8f0f7fd993",
+    "build/native/quantlib-overlay/math-adl.patch": "14741f7f3ee986ef1c2cbb591485393f474232a3ed2147f81b2a950f6563ca80",
+    "build/native/quantlib-overlay/operator-adjoint.patch": "f211da519b1773b7defa0ddde10d7df3b41d80ddaecaeacc0aab6b896adedbae",
+    "build/native/quantlib-overlay/operator-arithmetic.patch": "59c878a7830d854bcca38b70760275b0346491c3a4b4321c351a8482f3b6f376",
+    "build/native/quantlib-overlay/parallel-solve.patch": "42242aa8274145666f8e150f5ce7bc778b882365886611801c96f8e5ff5b9c82",
+    "build/native/quantlib-overlay/pricing-output.patch": "6e8794e8bb38333f0bfd68b4e96e1450242789f204df224bbc0ec2e3780f6200",
+    "build/native/quantlib-overlay/profiling-scopes.patch": "783f351f3ec4bb2999ae79a67b7f3ff84f155bff491a5020a7dc1efff45334e9",
+    "build/native/quantlib-overlay/sampling-kernel.patch": "a1834d6eed687eb01a9e24628097fe9bfc15af07c0ee83a40af4aee8f5de0287",
+    "build/native/quantlib-overlay/spline-kernels.patch": "ad48791039f7c0a69699d6f50af8a26dfb29faa6e4ddec963bd16c4d8716b655",
+    "build/native/quantlib-overlay/step-adjoint.patch": "84c2e3ac9a3da1d3ec5d5d0b5513058c5b8572dccbda10778b0b56714a9dba1d",
+    "build/native/quantlib-overlay/tensor-kernels.patch": "70c35bafd867625c210fee1ed526172083c3384ed27128d8f1df42222adf8c33",
+    "build/native/quantlib-overlay/tridiagonal-adjoint.patch": "681668ddac5e1ce85d3a807066b522bdc480237cfe13c8f8ec8181a035926589"
+  },
+  "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+  "quantlib_worktree": "",
+  "performance_environment": {
+    "QLT_PASSIVE_CONSTANTS": null,
+    "QLT_SAMPLE_CACHE": null,
+    "QLT_NATIVE_ADJOINT": null,
+    "QLT_PACKED_ARRAYS": null,
+    "QLT_LAZY_ARRAYS": null,
+    "QLT_VECTOR_SAMPLING": null,
+    "QLT_ARRAY_KERNELS": null,
+    "QLT_PRICE_ONLY": null,
+    "QLT_SPLINE_KERNELS": null,
+    "QLT_TRIDIAGONAL_ADJOINT": null,
+    "QLT_PCR_ROLL": null,
+    "QLT_SPATIAL_CACHE": null,
+    "QLT_OPERATOR_ADJOINT": null,
+    "QLT_STEP_ADJOINT": null,
+    "QLT_ASSEMBLY_ADJOINT": null,
+    "QLT_PCR_FUSED": null,
+    "QLT_PCR_NATIVE_STAGE": null,
+    "QLT_NATIVE_SOLVE_CHECKS": null,
+    "QLT_ASSEMBLY_ARITHMETIC": null,
+    "QLT_OPERATOR_ARITHMETIC": null,
+    "QLT_ARITHMETIC_NATIVE_FORWARD": null,
+    "QLT_THOMAS_ARITHMETIC": null,
+    "QLT_THOMAS_VECTOR_BACKWARD": null,
+    "QLT_ADJOINT_ARITHMETIC_FORWARD": null
+  },
+  "reports": {
+    "docs/benchmarks/fd_phase11_arithmetic_timing.json": {
+      "sha256": "12122adf5593b021271295fee746857bbc77e8a052f6232b8bf06c5ad5021394",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 24,
+        "max_price_difference": 7.105427357601002e-15,
+        "max_gradient_difference": 1.3500311979441904e-13
+      }
+    },
+    "docs/benchmarks/fd_phase11_arithmetic_scaling.json": {
+      "sha256": "e61ccaa590df15b02e96a87ff1ef83946524c66e9031d7abe198f714b8640699",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 8,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "docs/benchmarks/fd_phase11_arithmetic_events.json": {
+      "sha256": "371cb028f5cb37d40b17b4a957dc9d028a5615227dbda21e3d2743115eb1375d",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 4,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "docs/benchmarks/fd_phase11_arithmetic_structure.json": {
+      "sha256": "7c43ee6890184b4ff809fab7c8cf877abd78cd45a1eb512806423c6591ba44e6",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 4,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "docs/benchmarks/fd_phase11_arithmetic_profile.json": {
+      "sha256": "8e7defa901f6d75a522552a9b19da7568751e5d0262813ea43fd7414d989854a",
+      "matches_current_native_source": true,
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "docs/benchmarks/fd_phase11_baseline_profile.json": {
+      "sha256": "a052d84f34a06d719f15aed9d1a67a921058cf5a1601aa555e8169e665a9ae53",
+      "matches_current_native_source": false,
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    }
+  },
+  "all_samples_validation": {
+    "comparisons": 2300,
+    "max_price_difference": 7.105427357601002e-15,
+    "max_gradient_difference": 1.3500311979441904e-13
+  },
+  "logs": {
+    "build/phase11_arithmetic_build.log": {
+      "sha256": "71cbee66b61f2cc919a3360aab6f4f67a78c259f880276124b23f439ba776dcd",
+      "tail": [
+        "MSBuild version 17.14.23+b0019275e for .NET Framework",
+        "",
+        "  adjoint.cpp",
+        "  kernel_checks.cpp",
+        "     Creating library <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.lib and object <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.exp",
+        "  quantlibtorch_native.vcxproj -> <USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\_native\\quantlibtorch_native.dll"
+      ]
+    },
+    "build/phase11_arithmetic_targeted_tests.log": {
+      "sha256": "4dfe46d775f167894c6b7c4fdaceae3b1fd6d41395b2ff0ef2956e002d7eeb68",
+      "tail": [
+        "tests/test_diffusion_arithmetic.py: 18 warnings",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_script.py:1480: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "163 passed, 19 warnings in 22.80s"
+      ]
+    },
+    "build/phase11_arithmetic_enabled_tests.log": {
+      "sha256": "ba119ffeca8cc21fe759076914645dd8d3b697be21ea61f97705b66cf6149ce7",
+      "tail": [
+        "tests/test_pcr_stage.py::test_pcr_trace_roundtrip_preserves_runtime_shapes_values_and_vjps",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "830 passed, 23 warnings in 123.58s (0:02:03)"
+      ]
+    },
+    "build/phase11_arithmetic_fallback_tests.log": {
+      "sha256": "7aaee8e89c455006fa1fbd75f5dc475bc7fe267f63c49c29b8388b90842b9780",
+      "tail": [
+        "tests/test_adjoint_arithmetic.py::test_adjoint_arithmetic_financial_dispatch_and_original_reference[False]",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\profiler\\profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.",
+        "    _warn_once(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "51 passed, 1 warning in 9.02s"
+      ]
+    }
+  },
+  "overlay_comparison": {
+    "directory": "build/phase11_arithmetic_overlay_check",
+    "identical_files": 76
+  },
+  "tensor_reports": {},
+  "runtime_reports": {},
+  "curvature_reports": {},
+  "source_archive": {
+    "path": "docs/benchmarks/fd_phase11_arithmetic_source.zip",
+    "sha256": "45dd0551ede800d2d7829f093b80141e27b61e6dd702c155a8e8841e8122ba14",
+    "verified_source_files": 71
+  },
+  "notes": [
+    "Historical source mismatches are retained and explicitly marked.",
+    "Cross-report validation uses one fixed reference per financial case and includes every raw warmup/timed price/VJP, not timing ratios.",
+    "Hashes associate the current workspace, binary and supplied logs; this script does not rebuild or rerun tests."
+  ]
+}

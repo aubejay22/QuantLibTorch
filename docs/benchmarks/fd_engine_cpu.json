@@ -1,0 +1,155 @@
+{
+  "measured_at_utc": "2026-11-01T01:50:59.117464+00:00",
+  "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cu126",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "torch_threads": 1,
+    "device": "cpu"
+  },
+  "problem": {
+    "engine": "FdBlackScholesVanillaEngine",
+    "scheme": "Douglas",
+    "damping_steps": 2,
+    "dtype": "float64",
+    "volatility": 0.2,
+    "mesh_volatility": 0.2,
+    "repeats": 5
+  },
+  "notes": [
+    "Warmup excluded; tensor-save hooks run separately from timing.",
+    "Saved bytes count all forward saves, including repeated and transient saves; not live storage, graph nodes, or peak RSS.",
+    "Stock QuantLib is measured in a separate process and is never linked to the TorchReal extension.",
+    "CPU only. Tiny scalar tensor dispatch remains a major cost; no GPU result."
+  ],
+  "results": [
+    {
+      "time_steps": 10,
+      "grid_points": 31,
+      "modes": {
+        "full": {
+          "price": 8.870153746418922,
+          "parallel_vol_shift_derivative": 38.92828680804042,
+          "saved_tensor_count": 20358,
+          "saved_tensor_bytes_with_repeated_saves": 162864,
+          "forward_seconds_samples": [
+            0.06911729997955263,
+            0.4212053001392633,
+            0.41450350009836257,
+            0.4203471001237631,
+            0.41996759991161525
+          ],
+          "forward_seconds_median": 0.41996759991161525,
+          "backward_seconds_samples": [
+            0.4315232001245022,
+            0.5844881997909397,
+            0.5833648999687284,
+            0.5908011000137776,
+            0.5892157000489533
+          ],
+          "backward_seconds_median": 0.5844881997909397
+        },
+        "adjoint": {
+          "price": 8.870153746418922,
+          "parallel_vol_shift_derivative": 38.9282868080404,
+          "saved_tensor_count": 14535,
+          "saved_tensor_bytes_with_repeated_saves": 128552,
+          "forward_seconds_samples": [
+            0.40580369997769594,
+            0.40648670005612075,
+            0.4032616999465972,
+            0.4010884999297559,
+            0.4016172999981791
+          ],
+          "forward_seconds_median": 0.4032616999465972,
+          "backward_seconds_samples": [
+            0.5148212998174131,
+            0.5202089999802411,
+            0.5103109001647681,
+            0.5100406999699771,
+            0.5146607998758554
+          ],
+          "backward_seconds_median": 0.5146607998758554
+        }
+      },
+      "stock_quantlib": {
+        "price": 8.870153746418923,
+        "quantlib_version": "1.40",
+        "parallel_vol_shift_derivative": 38.92828680784888,
+        "forward_seconds_samples": [
+          0.00010419986210763454,
+          0.00010950001887977123,
+          0.00010269996710121632,
+          0.00010180007666349411,
+          0.00010060006752610207
+        ],
+        "forward_seconds_median": 0.00010269996710121632
+      }
+    },
+    {
+      "time_steps": 30,
+      "grid_points": 61,
+      "modes": {
+        "full": {
+          "price": 8.839308641136238,
+          "parallel_vol_shift_derivative": 38.774779596714254,
+          "saved_tensor_count": 95068,
+          "saved_tensor_bytes_with_repeated_saves": 760544,
+          "forward_seconds_samples": [
+            1.7676542999688536,
+            1.7006653000134975,
+            1.7165411000605673,
+            1.716977700125426,
+            1.7299295000266284
+          ],
+          "forward_seconds_median": 1.716977700125426,
+          "backward_seconds_samples": [
+            3.106821099994704,
+            3.1197601999156177,
+            3.095157800009474,
+            3.134675999870524,
+            3.129638300044462
+          ],
+          "backward_seconds_median": 3.1197601999156177
+        },
+        "adjoint": {
+          "price": 8.839308641136238,
+          "parallel_vol_shift_derivative": 38.77477959671431,
+          "saved_tensor_count": 65435,
+          "saved_tensor_bytes_with_repeated_saves": 586312,
+          "forward_seconds_samples": [
+            1.6242877000477165,
+            1.6032252998556942,
+            1.6228283001109958,
+            1.5908712998498231,
+            1.6046272001694888
+          ],
+          "forward_seconds_median": 1.6046272001694888,
+          "backward_seconds_samples": [
+            2.694611799903214,
+            2.677815900184214,
+            2.6838320998940617,
+            2.6845416999422014,
+            2.6922122000250965
+          ],
+          "backward_seconds_median": 2.6845416999422014
+        }
+      },
+      "stock_quantlib": {
+        "price": 8.839308641136238,
+        "quantlib_version": "1.40",
+        "parallel_vol_shift_derivative": 38.77477959779441,
+        "forward_seconds_samples": [
+          0.0001933998428285122,
+          0.00017639994621276855,
+          0.00017279991880059242,
+          0.00018289987929165363,
+          0.0001829999964684248
+        ],
+        "forward_seconds_median": 0.00018289987929165363
+      }
+    }
+  ]
+}

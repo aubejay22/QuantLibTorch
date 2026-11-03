@@ -1,0 +1,25 @@
+{"kind": "heston", "windows_qos": "high", "affinity": 8}
+{"kind": "heston_vjp", "mode": "full", "windows_qos": "high", "affinity": 8}
+{"kind": "training", "mode": "full", "latent_dimensions": 1, "windows_qos": "high", "affinity": 8}
+{"kind": "timing", "mode": "full", "latent_dimensions": 1, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "memory", "mode": "full", "latent_dimensions": 1, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "structure", "mode": "full", "latent_dimensions": 1, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "training", "mode": "full", "latent_dimensions": 2, "windows_qos": "high", "affinity": 8}
+{"kind": "timing", "mode": "full", "latent_dimensions": 2, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "memory", "mode": "full", "latent_dimensions": 2, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "structure", "mode": "full", "latent_dimensions": 2, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "timing", "mode": "full", "latent_dimensions": 1, "nx": 21, "ny": 13, "steps": 8, "windows_qos": "high", "affinity": 8}
+{"kind": "memory", "mode": "full", "latent_dimensions": 1, "nx": 21, "ny": 13, "steps": 8, "windows_qos": "high", "affinity": 8}
+{"kind": "structure", "mode": "full", "latent_dimensions": 1, "nx": 21, "ny": 13, "steps": 8, "windows_qos": "high", "affinity": 8}
+{"kind": "heston_vjp", "mode": "adjoint", "windows_qos": "high", "affinity": 8}
+{"kind": "training", "mode": "adjoint", "latent_dimensions": 1, "windows_qos": "high", "affinity": 8}
+{"kind": "timing", "mode": "adjoint", "latent_dimensions": 1, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "memory", "mode": "adjoint", "latent_dimensions": 1, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "structure", "mode": "adjoint", "latent_dimensions": 1, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "training", "mode": "adjoint", "latent_dimensions": 2, "windows_qos": "high", "affinity": 8}
+{"kind": "timing", "mode": "adjoint", "latent_dimensions": 2, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "memory", "mode": "adjoint", "latent_dimensions": 2, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "structure", "mode": "adjoint", "latent_dimensions": 2, "nx": 9, "ny": 5, "steps": 4, "windows_qos": "high", "affinity": 8}
+{"kind": "timing", "mode": "adjoint", "latent_dimensions": 1, "nx": 21, "ny": 13, "steps": 8, "windows_qos": "high", "affinity": 8}
+{"kind": "memory", "mode": "adjoint", "latent_dimensions": 1, "nx": 21, "ny": 13, "steps": 8, "windows_qos": "high", "affinity": 8}
+{"kind": "structure", "mode": "adjoint", "latent_dimensions": 1, "nx": 21, "ny": 13, "steps": 8, "windows_qos": "high", "affinity": 8}

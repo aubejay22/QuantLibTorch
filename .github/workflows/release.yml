@@ -1,0 +1,201 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: 'TestPyPI first; production only after its successful verification and v0.3.0 tag'
+        type: choice
+        options: [testpypi, production]
+        required: true
+      candidate_run_id:
+        description: 'Successful release-candidate run at this exact Git revision'
+        type: string
+        required: true
+      cuda_validated_sha256:
+        description: 'Wheel SHA256 from a successful external validate_wheel.py --require-cuda report'
+        type: string
+        required: true
+      testpypi_run_id:
+        description: 'Production only: successful testpypi stage run from this exact Git revision'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quantlibtorch-publication
+  cancel-in-progress: false
+
+jobs:
+  review-artifact:
+    if: vars.RELEASE_AUDIT_PASSED == 'true'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: candidate-wheel
+          path: reviewed
+          run-id: ${{ inputs.candidate_run_id }}
+          github-token: ${{ github.token }}
+      - name: Verify source run, revision, notices, native provenance and CUDA-reviewed digest
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN: ${{ inputs.candidate_run_id }}
+          CUDA_SHA256: ${{ inputs.cuda_validated_sha256 }}
+          RELEASE_STAGE: ${{ inputs.stage }}
+          TESTPYPI_RUN: ${{ inputs.testpypi_run_id }}
+        run: >-
+          python scripts/release_artifacts.py verify reviewed
+          --candidate-run "$CANDIDATE_RUN" --sha256 "$CUDA_SHA256"
+          --stage "$RELEASE_STAGE" --testpypi-run "$TESTPYPI_RUN"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: reviewed-wheel
+          path: reviewed/*.whl
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: reviewed-manifest
+          path: reviewed/manifest.json
+          if-no-files-found: error
+
+  testpypi:
+    if: inputs.stage == 'testpypi'
+    needs: review-artifact
+    runs-on: ubuntu-24.04
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/quantlibtorch
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: reviewed-wheel
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          packages-dir: dist/
+          skip-existing: true
+
+  verify-testpypi:
+    if: always() && needs.review-artifact.result == 'success' && (needs.testpypi.result == 'success' || inputs.stage == 'production')
+    needs: [review-artifact, testpypi]
+    runs-on: windows-2022
+    timeout-minutes: 30
+    env:
+      PIP_NO_CACHE_DIR: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: reviewed-manifest
+          path: reviewed
+      - run: python scripts/release_artifacts.py download reviewed --index testpypi --output indexed
+      - name: Install the actual TestPyPI download and check prices and gradients
+        shell: pwsh
+        run: |
+          $wheel = (Get-ChildItem indexed/*.whl).FullName
+          python scripts/validate_wheel.py $wheel --output evidence/testpypi-install.json
+          if ($LASTEXITCODE -ne 0) { throw 'TestPyPI installation failed' }
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: testpypi-installation
+          path: evidence/*.json
+          if-no-files-found: error
+
+  github-release:
+    if: always() && inputs.stage == 'production' && needs.verify-testpypi.result == 'success'
+    needs: verify-testpypi
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: reviewed-wheel
+          path: dist
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: reviewed-manifest
+          path: dist
+      - name: Publish the validated tag and wheel as a GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v0.3.0 >/dev/null 2>&1; then
+            gh release download v0.3.0 --pattern '*.whl' --dir existing
+            python -c "from pathlib import Path; import hashlib; a=list(Path('dist').glob('*.whl')); b=list(Path('existing').glob('*.whl')); assert len(a)==len(b)==1 and a[0].name==b[0].name and hashlib.sha256(a[0].read_bytes()).digest()==hashlib.sha256(b[0].read_bytes()).digest(), 'Existing release wheel differs'"
+          else
+            gh release create v0.3.0 dist/*.whl dist/manifest.json --verify-tag --title 'QuantLibTorch 0.3.0' --notes-file docs/release-notes-0.3.0.md
+          fi
+
+  pypi:
+    if: always() && inputs.stage == 'production' && needs.github-release.result == 'success'
+    needs: github-release
+    runs-on: ubuntu-24.04
+    environment:
+      name: pypi
+      url: https://pypi.org/p/quantlibtorch
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: reviewed-wheel
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e
+        with:
+          packages-dir: dist/
+          skip-existing: true
+
+  verify-pypi:
+    if: always() && needs.pypi.result == 'success'
+    needs: pypi
+    runs-on: windows-2022
+    timeout-minutes: 30
+    env:
+      PIP_NO_CACHE_DIR: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: reviewed-manifest
+          path: reviewed
+      - run: python scripts/release_artifacts.py download reviewed --index pypi --output indexed
+      - name: Install the production download and check prices and gradients
+        shell: pwsh
+        run: |
+          $wheel = (Get-ChildItem indexed/*.whl).FullName
+          python scripts/validate_wheel.py $wheel --output evidence/pypi-install.json
+          if ($LASTEXITCODE -ne 0) { throw 'Production PyPI installation failed' }
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: production-installation
+          path: evidence/*.json
+          if-no-files-found: error

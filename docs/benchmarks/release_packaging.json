@@ -1,0 +1,218 @@
+{
+  "release": "0.3.0rc1",
+  "validation_date": "2026-11-02",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "compiler": "MSVC14.44.35207; dumpbin14.44.35219",
+  "boost": "1.82.0",
+  "gpu_driver": "566.36",
+  "wheel": {
+    "path": "build/release/quantlibtorch-0.3.0rc1-cp313-cp313-win_amd64.whl",
+    "bytes": 1387733,
+    "sha256": "b164746150f6a141c3afea74e3ab650887889f7a45e7281b302dcbdacd7fefb5"
+  },
+  "packaging_reproducibility": {
+    "source_date_epoch": 1793577600,
+    "second_wheel_sha256": "b164746150f6a141c3afea74e3ab650887889f7a45e7281b302dcbdacd7fefb5",
+    "identical_from_same_native_binary": true,
+    "native_bit_reproducibility_across_hosts_verified": false
+  },
+  "requires_dist": "torch==2.10.0+cu126",
+  "requires_python": ">=3.13,<3.14",
+  "native_build_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "native_source_sha256": "73dfd1c619493dfdd0dc878617297e01ab6c63441d594fd3f3e332a4356b84cb",
+    "library_sha256": "edeb68149d0ff6c4adfa57ef5a342b0b087fc941e693d90e131ae25fb271d08e"
+  },
+  "native_dependency_inspection": "Microsoft (R) COFF/PE Dumper Version 14.44.35219.0\nCopyright (C) Microsoft Corporation.  All rights reserved.\n\n\nDump of file python\\quantlibtorch\\_native\\quantlibtorch_native.dll\n\nFile Type: DLL\n\n  Image has the following dependencies:\n\n    torch_cpu.dll\n    c10.dll\n    MSVCP140.dll\n    VCRUNTIME140.dll\n    VCRUNTIME140_1.dll\n    api-ms-win-crt-runtime-l1-1-0.dll\n    api-ms-win-crt-heap-l1-1-0.dll\n    api-ms-win-crt-string-l1-1-0.dll\n    api-ms-win-crt-environment-l1-1-0.dll\n    api-ms-win-crt-math-l1-1-0.dll\n    api-ms-win-crt-time-l1-1-0.dll\n    api-ms-win-crt-locale-l1-1-0.dll\n    KERNEL32.dll\n\n  Summary\n\n       19000 .data\n       10000 .pdata\n       9E000 .rdata\n        3000 .reloc\n        1000 .rsrc\n      23F000 .text\n",
+  "wheel_current_python_and_native_bytes_verified": true,
+  "license_notice_sha256": {
+    "Boost.txt": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+    "NOTICE.txt": "ef818f1bf81a00b08cea45b1ac8a7662fc29bf6623ac2fa0db5b9dde7fb54ecf",
+    "PyTorch.txt": "114a3bebc194e8d5b1518f69a5406b5608835f0f5c8478b55744e19a4b3517e2",
+    "QuantLib.txt": "33a785cdb16936a5cc598c5c2115661cc3289f88eac8b4116ba6e18d1deed833"
+  },
+  "clean_install": {
+    "environment": "<USER_HOME>\\AppData\\Local\\Temp\\quantlibtorch-release-f4a9vhr5\\venv",
+    "system_site_packages": false,
+    "initial_wheel_sha256": "1f1b5b1c811f195d4d72d35fd4ea7ccb8408a459f04828bae2c78c03d5565f3a",
+    "final_wheel_force_reinstalled": true,
+    "smoke_working_directory": "<USER_HOME>\\AppData\\Local\\Temp\\quantlibtorch-release-f4a9vhr5",
+    "isolated_python": true,
+    "final_smoke": {
+      "version": "0.3.0rc1",
+      "package_path": "<USER_HOME>\\AppData\\Local\\Temp\\quantlibtorch-release-f4a9vhr5\\venv\\Lib\\site-packages\\quantlibtorch\\__init__.py",
+      "executable": "<USER_HOME>\\AppData\\Local\\Temp\\quantlibtorch-release-f4a9vhr5\\venv\\Scripts\\python.exe",
+      "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+      "torch": "2.10.0+cu126",
+      "native": {
+        "cxx11_abi": true,
+        "native_source_sha256": "73dfd1c619493dfdd0dc878617297e01ab6c63441d594fd3f3e332a4356b84cb",
+        "platform": "win-amd64",
+        "python_tag": "cpython-313",
+        "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+        "torch_version": "2.10.0+cu126"
+      },
+      "analytic": {
+        "price": 8.827321225352126,
+        "delta": 0.573495979027775,
+        "vega": 38.71517541592269
+      },
+      "heston": {
+        "price": 8.973315753997898,
+        "gradients": [
+          53.87286130797464,
+          0.17432669540693688,
+          52.23472319962225,
+          -2.265184833882229,
+          0.2975858391052562
+        ]
+      },
+      "shout": {
+        "price": 11.08334427775533,
+        "vega": 52.06796739020142
+      },
+      "exercise": {
+        "european": {
+          "price": 6.860141153632785,
+          "vega": 38.67907129700737
+        },
+        "american": {
+          "price": 7.025755592428881,
+          "vega": 38.57447195794174
+        },
+        "bermudan": {
+          "price": 6.94129023142691,
+          "vega": 38.63850185732605
+        }
+      },
+      "packed_cpu": {
+        "prices": [
+          [
+            11.558993546719249,
+            6.697852042102854
+          ],
+          [
+            11.558993546719249,
+            6.697852042102854
+          ]
+        ],
+        "vega": 149.94915601934693
+      },
+      "cuda": {
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "prices": [
+          [
+            11.55899354671926,
+            6.697852042102858
+          ],
+          [
+            11.55899354671926,
+            6.697852042102858
+          ]
+        ],
+        "vega": 149.94915601934696
+      }
+    },
+    "pip_check": "passed",
+    "twine_check_strict": "passed",
+    "installed_dependencies": [
+      "asttokens==3.0.2",
+      "attrs==26.1.0",
+      "certifi==2026.10.23",
+      "charset-normalizer==3.5.2",
+      "colorama==0.4.6",
+      "comm==0.2.3",
+      "contourpy==1.4.0",
+      "cycler==0.12.1",
+      "debugpy==1.8.22",
+      "docutils==0.23",
+      "executing==2.3.0",
+      "fastjsonschema==2.22.3",
+      "filelock==4.2.4",
+      "fonttools==4.68.0",
+      "fsspec==2026.9.0",
+      "id==1.6.1",
+      "idna==3.20",
+      "ipykernel==7.4.0",
+      "ipython==9.18.1",
+      "ipython_pygments_lexers==1.1.1",
+      "jaraco.classes==3.4.0",
+      "jaraco.context==6.1.2",
+      "jaraco.functools==4.6.0",
+      "jedi==0.20.1",
+      "Jinja2==3.1.6",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "jupyter_client==8.10.0",
+      "jupyter_core==5.9.1",
+      "keyring==25.7.0",
+      "kiwisolver==1.5.1",
+      "markdown-it-py==4.2.0",
+      "MarkupSafe==3.0.3",
+      "matplotlib==3.11.2",
+      "matplotlib-inline==0.2.2",
+      "mdurl==0.1.2",
+      "more-itertools==11.2.1",
+      "mpmath==1.3.0",
+      "nbclient==0.11.0",
+      "nbformat==5.11.1",
+      "nest-asyncio2==1.7.4",
+      "networkx==3.7",
+      "nh3==0.3.7",
+      "numpy==2.5.4",
+      "packaging==26.3",
+      "parso==0.8.7",
+      "pillow==13.0.0",
+      "pip==25.1.1",
+      "platformdirs==4.14.3",
+      "prompt_toolkit==3.0.53",
+      "psutil==7.2.2",
+      "pure_eval==0.2.4",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "python-dateutil==4.0.0",
+      "pywin32-ctypes==0.2.3",
+      "pyzmq==27.2.0",
+      "quantlibtorch @ file:///<USER_HOME>/Documents/QuantLibTorch/build/release/quantlibtorch-0.3.0rc1-cp313-cp313-win_amd64.whl#sha256=b164746150f6a141c3afea74e3ab650887889f7a45e7281b302dcbdacd7fefb5",
+      "readme_renderer==46.0",
+      "referencing==0.37.0",
+      "requests==2.34.2",
+      "requests-toolbelt==1.0.0",
+      "rfc3986==2.0.0",
+      "rich==15.0.0",
+      "rpds-py==2026.9.1",
+      "setuptools==78.1.0",
+      "stack-data==0.6.3",
+      "sympy==1.14.0",
+      "torch==2.10.0+cu126",
+      "tornado==6.6",
+      "traitlets==5.16.1",
+      "twine==6.1.0",
+      "typing_extensions==4.16.0",
+      "tzdata==2026.6",
+      "urllib3==2.8.0",
+      "wcwidth==0.9.4"
+    ]
+  },
+  "regression": {
+    "passed": 2229,
+    "skipped": 1,
+    "environment": "development venv inherits system packages",
+    "final_packaging_targeted_passed": 16
+  },
+  "sdist_policy": "generation disabled with actionable wheel-first SetupError; regression test passes",
+  "remote_ci_executed": false,
+  "testpypi_uploaded": false,
+  "production_pypi_uploaded": false,
+  "limitations": [
+    "No Git remote configured or remote CI run",
+    "Project license awaits explicit owner approval",
+    "Linux/manylinux and separate CPU Torch wheels unvalidated",
+    "Clean venv is on development Windows host with Anaconda CPython3.13.5; no separate clean-machine or official-python-host claim",
+    "Any new hosted wheel must pass exact-SHA CUDA review before TestPyPI environment approval"
+  ]
+}

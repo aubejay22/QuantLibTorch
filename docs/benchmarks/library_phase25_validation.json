@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "61213467bf1bb5df44b3a44cc13f06e761018335",
+  "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+  "quantlib_checkout_clean": true,
+  "native_build_command": ".venv/Scripts/python.exe scripts/build.py --jobs 2",
+  "native_build_exit_code": 0,
+  "native_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "library_sha256": "d1fbc41de7be9614861379392d76bdb053240ae59befc322dc78073755d95ac6",
+    "native_source_sha256": "76e8ff93ea429f82cbb8176ab791c9b1246e456d071dd803b772d3eb02096c54"
+  },
+  "regression_command": ".venv/Scripts/python.exe -m pytest -q --junitxml=build/phase25_pytest.xml",
+  "regression_exit_code": 0,
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "1",
+    "tests": "2090",
+    "time": "463.428",
+    "timestamp": "2026-11-02T00:24:26.197705-05:00",
+    "hostname": "jayfx2222"
+  },
+  "passed": 2089,
+  "skipped": 1,
+  "new_tests": 149,
+  "skip_reason": "CPU Thomas is not restricted to strict dominance (tests/test_multi_asset.py:263)",
+  "sha256": {
+    "build/phase25_pytest.xml": "80fa1beee63d9d07278b3abc0a56962954ed118bf385d722b543867d98a4889d",
+    "build/phase25_pytest.log": "d51f46a7729e88f23f2300402bb2f38a9174d0e5312629dacd96567742b8cd72",
+    "docs/benchmarks/financial_events_phase25.json": "e88f4cdbb19eb1f4c62df40b608696389de73ffcc3a86945dd890fbb6add128b"
+  },
+  "gates": {
+    "reusable_api": "tests/test_api.py: 30 passing cases; examples/pricing_layer.py analytic and FD full/adjoint executed",
+    "analytic_financial_inputs": "tests/test_analytic.py: independent stock prices/market bumps, gamma, dated curves, gradcheck/gradgradcheck",
+    "fd_configuration": "tests/test_fd_extended.py: independent stock prices and volatility bumps, three added schemes and escrowed dividends, all exercise styles and both modes",
+    "batch_events": "tests/test_batch_exercise.py: 67 CPU/CUDA cases, all four schemes, original scalar and isolated stock references, coincident/maturity events, checkpoint replay and curvature",
+    "packaging": "tests/test_packaging.py: 11 cases; docs/benchmarks/packaging_phase25.json installed wheel execution and archive checks",
+    "documentation": [
+      "README.md",
+      "docs/capabilities.md",
+      "docs/install.md",
+      "docs/roadmap.md",
+      "docs/architecture.md"
+    ]
+  },
+  "scope": "Windows Python 3.13 / PyTorch 2.10.0+cu126. No Linux runtime or portable public-wheel claim.",
+  "benchmark_provenance": "Original event measurement binary hash retained; all recorded event source hashes match current source. Final rebuild identified separately above.",
+  "implementation_commit": "6e3e6a311b48167aa9bcef927c0184da540c817b"
+}

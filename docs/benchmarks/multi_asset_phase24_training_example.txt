@@ -1,0 +1,5 @@
+iteration=0 price_rmse=0.88667508
+iteration=1 price_rmse=0.83151402
+iteration=2 price_rmse=0.77702333
+iteration=3 price_rmse=0.72346149
+iteration=4 price_rmse=0.67101678

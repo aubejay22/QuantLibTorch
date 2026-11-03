@@ -1,0 +1,49 @@
+{
+  "baseline_checkpoint": "6770549",
+  "cleanup_checkpoint": "faa72b7",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.10.0+cu126",
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "full_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest -q --junitxml=build/release_pytest.xml",
+    "passed": 2229,
+    "skipped": 1,
+    "warnings": 23,
+    "seconds": 703.48,
+    "junit": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "1",
+      "tests": "2230",
+      "time": "703.441",
+      "timestamp": "2026-11-02T20:06:28.796588-05:00",
+      "hostname": "jayfx2222"
+    },
+    "skip_reason": "CPU Thomas is not restricted to strict dominance"
+  },
+  "files": {
+    "build/release_pytest.xml": "b68d5d5120b94c6d750e85be6098250f520b9961e27939df20d6cee12a556fff",
+    "build/release_pytest.log": "c69ead48f7bf4fecc73835d10256aed916b6e189fbd263cf156f01490290fc47",
+    "build/release_native_build.log": "641c816219bdfc5b83f40a9446ebda0afee0ee6f9946ddf8430ddde3b0e84fa1",
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "edeb68149d0ff6c4adfa57ef5a342b0b087fc941e693d90e131ae25fb271d08e"
+  },
+  "numerical_algorithms_changed": false,
+  "public_apis_removed": [],
+  "tests_removed": [],
+  "remote_ci_executed": false,
+  "license_approved": false,
+  "uploaded": false,
+  "targeted_followup": {
+    "tests": [
+      "tests/test_packaging.py",
+      "tests/test_tensor_kernels.py"
+    ],
+    "passed": 67,
+    "seconds": 13.9,
+    "reason": "Final dynamic Torch dependency metadata and public kernel annotation review",
+    "log_sha256": "d571e514dd7b33fd1ecca9370f66a4f6b33a94fbf7f53487a9528ce3f867dfa4"
+  }
+}

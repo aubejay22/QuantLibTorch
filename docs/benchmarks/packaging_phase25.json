@@ -1,0 +1,130 @@
+{
+  "platform_scope": "Windows local wheel only; Linux source workflow and portable release wheels not validated here",
+  "commands": [
+    "python scripts/build.py --jobs 2",
+    "python -m pytest tests/test_packaging.py -q",
+    "python -m pip wheel --no-build-isolation --no-deps --wheel-dir build/wheels .",
+    "python setup.py sdist --dist-dir build/sdist",
+    "python -m pip install --no-deps --target build/wheel_install_phase25 build/wheels/quantlibtorch-0.2.0-cp313-cp313-win_amd64.whl",
+    "python -I -c <installed_smoke_code> build/wheel_install_phase25"
+  ],
+  "packaging_unit_tests": {
+    "passed": 11
+  },
+  "editable_wheel_generation": "PEP 660 backend completed successfully before native source fingerprint stamp existed",
+  "artifacts": {
+    "wheel": {
+      "path": "build/wheels/quantlibtorch-0.2.0-cp313-cp313-win_amd64.whl",
+      "bytes": 1140399,
+      "sha256": "a2cc3935f0800fe4a71eaba5e0a1bd49727e13b841e5936c28d20e033655e3e4"
+    },
+    "sdist": {
+      "path": "build/sdist/quantlibtorch-0.2.0.tar.gz",
+      "bytes": 417200,
+      "sha256": "e92ceec37e2e20c8247b7e3f63cc31dfb54c290cefca9fc5da55185cf34f5f66"
+    }
+  },
+  "wheel_metadata": "Wheel-Version: 1.0\nGenerator: setuptools (72.1.0)\nRoot-Is-Purelib: false\nTag: cp313-cp313-win_amd64\n\n",
+  "native_build_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "library_sha256": "d1fbc41de7be9614861379392d76bdb053240ae59befc322dc78073755d95ac6",
+    "native_source_sha256": "76e8ff93ea429f82cbb8176ab791c9b1246e456d071dd803b772d3eb02096c54"
+  },
+  "source_archive": {
+    "entries": 183,
+    "required_files_checked": [
+      "CMakeLists.txt",
+      "setup.py",
+      "_build_support.py",
+      "MANIFEST.in",
+      "cmake/quantlib_sources.cmake",
+      "cpp/include/quantlibtorch/torch_real.hpp",
+      "scripts/build.py",
+      "scripts/bootstrap.py",
+      "scripts/prepare_quantlib.py",
+      "scripts/prepare_packed.py",
+      "LICENSES/QuantLib.txt",
+      "docs/install.md",
+      "docs/capabilities.md",
+      "docs/roadmap.md",
+      "python/quantlibtorch/api.py",
+      "python/quantlibtorch/analytic.py",
+      "tests/test_packaging.py",
+      "README.md",
+      "PROJECT_CONTEXT.md",
+      "docs/architecture.md"
+    ],
+    "excluded_native_binaries_checkout_benchmarks": true,
+    "current_documentation_bytes_verified": [
+      "README.md",
+      "PROJECT_CONTEXT.md",
+      "docs/architecture.md",
+      "docs/capabilities.md",
+      "docs/roadmap.md",
+      "docs/install.md"
+    ]
+  },
+  "installed_smoke_code": "\nfrom pathlib import Path\nfrom datetime import date\nimport json, math, sys\nsite = Path(sys.argv[1]).resolve()\nsys.path.insert(0, str(site))\nimport torch\nimport quantlibtorch as qlt\nassert Path(qlt.__file__).is_relative_to(site), qlt.__file__\ntorch.set_num_threads(1)\nvol = torch.tensor(.2, dtype=torch.float64, requires_grad=True)\nspot = torch.tensor(100., dtype=torch.float64, requires_grad=True)\nprice = qlt.analytic_european(vol, spot=spot)\ndelta, vega = torch.autograd.grad(price, (spot, vol))\nassert abs(price.item()-8.827321225352) < 1e-10\nassert delta.isfinite() and vega.isfinite()\nfd_price = qlt.fd_vanilla(vol, time_steps=5, grid_points=11)\nfd_vega, = torch.autograd.grad(fd_price, (vol,))\nassert fd_price.isfinite() and fd_vega.isfinite()\naxes = [torch.linspace(math.log(50.), math.log(170.), 9).tolist(), [.01,.03,.05,.09]]\nn = 36\ndrift = torch.zeros((1,1,n,1), dtype=torch.float64)\nload = torch.tensor([[.2,0.],[0.,.01]], dtype=torch.float64, requires_grad=True)\nfactor = load.expand(1,1,n,2,2)\ninitial = torch.tensor([[math.log(100.), .04]], dtype=torch.float64, requires_grad=True)\nplan = qlt.MultiAssetBatch([dict(strikes=[95.,105.], option_types=['put','put'])], axes=axes,\n    time_steps=3, exercise='american', cash_dividends=[(date(2025,7,1),1.)])\nprices = plan.price(drift, factor, initial, mode='adjoint')\nloading_grad, initial_grad = torch.autograd.grad(prices.sum(), (load, initial))\nassert torch.isfinite(prices).all() and torch.isfinite(loading_grad).all() and torch.isfinite(initial_grad).all()\nprint(json.dumps(dict(imported_package=str(qlt.__file__), torch_version=str(torch.__version__),\n    analytic_price=price.item(), delta=delta.item(), vega=vega.item(),\n    fd_price=fd_price.item(), fd_vega=fd_vega.item(),\n    american_dividend_batch_prices=prices.tolist(),\n    american_dividend_batch_initial_gradient=initial_grad.tolist(),\n    american_dividend_batch_loading_gradient=loading_grad.tolist())))\n",
+  "installed_smoke": {
+    "imported_package": "<USER_HOME>\\Documents\\QuantLibTorch\\build\\wheel_install_phase25\\quantlibtorch\\__init__.py",
+    "torch_version": "2.10.0+cu126",
+    "analytic_price": 8.827321225352126,
+    "delta": 0.573495979027775,
+    "vega": 38.71517541592269,
+    "fd_price": 9.294365137534946,
+    "fd_vega": 41.088656559452964,
+    "american_dividend_batch_prices": [
+      [
+        5.247036691607418,
+        10.370338458279896
+      ]
+    ],
+    "american_dividend_batch_initial_gradient": [
+      [
+        -89.43964544594807,
+        4.04121180963557e-13
+      ]
+    ],
+    "american_dividend_batch_loading_gradient": [
+      [
+        74.12156862155658,
+        -2.3710668606221472e-15
+      ],
+      [
+        -4.742133721244295e-14,
+        4.7560523037410064e-15
+      ]
+    ]
+  },
+  "documentation_refresh": {
+    "implementation_checkpoint": "6e3e6a3",
+    "source_regression": {
+      "passed": 2089,
+      "skipped": 1
+    },
+    "previous_installed_wheel_sha256": "d07cc931bf1f0f1adf80c6604d97f6c6d6aea68a606073c76d379f7c7b2d3cab",
+    "installed_smoke_reused": true,
+    "reason": "Refreshed README metadata and source documentation; every packaged Python/native/build-metadata file is byte-identical to the previously installed and smoke-tested wheel.",
+    "installed_package_files_compared": [
+      "quantlibtorch/__init__.py",
+      "quantlibtorch/analytic.py",
+      "quantlibtorch/api.py",
+      "quantlibtorch/batch.py",
+      "quantlibtorch/calibration.py",
+      "quantlibtorch/fd.py",
+      "quantlibtorch/fd_basket.py",
+      "quantlibtorch/kernels.py",
+      "quantlibtorch/latent.py",
+      "quantlibtorch/multi_asset.py",
+      "quantlibtorch/pricing.py",
+      "quantlibtorch/solver.py",
+      "quantlibtorch/_native/build_info.json",
+      "quantlibtorch/_native/quantlibtorch_native.dll"
+    ],
+    "current_readme_verified_in_wheel_metadata": true
+  }
+}

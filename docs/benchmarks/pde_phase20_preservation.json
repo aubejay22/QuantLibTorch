@@ -1,0 +1,467 @@
+{
+  "preserved_at_utc": "2026-11-01T18:32:51.664044+00:00",
+  "baseline_git_commit": "5b0de25e50246abdd3cd939fca1ae7a6678589d9",
+  "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+  "quantlib_worktree": "",
+  "native_source_and_test_sha256": {
+    "CMakeLists.txt": "2c34615dab6104875ff9ecfffb414e7e1e09b362ccba35c7410eac208fa909a0",
+    "scripts/prepare_quantlib.py": "7390597183edcf1674537f02ad7836d71fbb68f1a1f31968d0d063ed0692c967",
+    "cpp/adjoint.cpp": "e0e318d7a90e1a7a0698f44bd5d9fe177532cebfb7444ee7c62b6e37d663b61d",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "3a0ade185a460f83bea790d42e7c09d48cb403e03b2d857f8b01d318365b1168",
+    "cpp/kernel_checks.cpp": "cbe10a5b0ef8793f32ffe016f4475c28d0ab45146a95377ce60b3ff742e2cea0",
+    "cpp/operator_arithmetic.cpp": "596663385edca810432c5d9128ded8582d83987a16aa1cf9407feaf126e0ddbf",
+    "cpp/parallel_solve.cpp": "088f6f384c79f8c556f6d989049ed75827b4eb4be6febbb62d39240210d3972f",
+    "cpp/pcr_stage.cpp": "4b86c6d63ed87d967bdaaf12064e73da2cc4644b26a66038904f271471f4a766",
+    "cpp/pde_probe.cpp": "c2a73b519dc789d45ff968ed38b1d8b9988efe83c5708d74af817b4e892a5e74",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/solve_checks.cpp": "94d60e16d108d2016a659cd75b894cab594f25e4c392199d25945b08119c72c2",
+    "cpp/spline_checks.cpp": "18537048d1971bc003150cf3cab17066f8af685ab99921e755b45eab1fe38e32",
+    "cpp/spline_kernels.cpp": "9a80b52369e498ac4f76632b48baa0d1c74bae3b2850060f5a849446088ff3d0",
+    "cpp/step_adjoint.cpp": "a5f1af2dc2f3096a060d6f0f992d40e630a6f4edb356552f8ae6f5d7317bf407",
+    "cpp/step_arithmetic.cpp": "19dbdf93a0e670a160beb1930b26ed4969720eba5880424f0ab9569530e27332",
+    "cpp/step_preparation.cpp": "652e7a2158103357e9a3d9586750fd181006363ff89ac557f37aeef641e43427",
+    "cpp/structured_ops.cpp": "0db5f21a8ddcc6761262053ad575710b258d55d74f06d597db79781840f48940",
+    "cpp/tensor_kernels.cpp": "2c1fac02bc7cda6535ddd661c33a0883fe8b696c28bb8c9c20a9389cfcc5c211",
+    "cpp/thomas_arithmetic.cpp": "6c993871ab6c542b0dc68d408d045df4872e2577342fbd67e0688a97badfe38b",
+    "cpp/time_variance.cpp": "54e46200fc8207cfc5a04f51d6ae4938b96c81502046c3baa05ff91052ec6d9f",
+    "cpp/include/quantlibtorch/adjoint.hpp": "f2b285019e83e9363d6bc175932820e0375014e4437676be5c759c9107a57591",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/operator_arithmetic.hpp": "f3c384afacc93cbe6431a5b5b8c189c6f707f9a9c1432a99f211e02535985f31",
+    "cpp/include/quantlibtorch/parallel_solve.hpp": "17d85de3e63876b37a985b0c2e6e31d828f4b58037cf11037caad01fbf0a3afb",
+    "cpp/include/quantlibtorch/pcr_stage.hpp": "d686518c01f68adc16a864e779beb7051b00d248f74a8cff5a22c62a09a58411",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/solve_checks.hpp": "4270af1c4cf34d7495eb8c06c0a0c2fd5c275fcf4d96a9cefd0ce1147c7a6553",
+    "cpp/include/quantlibtorch/spline_kernels.hpp": "8210129d00282bf64f5412fd9757e01ea5c1133132bc50e725cc5e2d71cfefa0",
+    "cpp/include/quantlibtorch/step_adjoint.hpp": "2a6b99d2174265e66e53c5bbd7d5c9c1e3d385287bbb523a96974f43ab065eb1",
+    "cpp/include/quantlibtorch/step_arithmetic.hpp": "248917398fe240615c780a47fa7434267f39b16398eea6f25a4b729d95a8dde9",
+    "cpp/include/quantlibtorch/step_preparation.hpp": "f136c21fbca15942a86522590022a44c9b816195614ee229b3b04f734d40404f",
+    "cpp/include/quantlibtorch/structured_ops.hpp": "6d1c520f621f9a80aa84f44083c892a1edb53a9e28febf9dd52e82b60f52a643",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "e3d80297588e0f0176ade4b72b6a1a0054930337c27ec6a186a97758b438a33f",
+    "cpp/include/quantlibtorch/thomas_arithmetic.hpp": "9a1777e1e46a6a250e7d992a981112078e4ae00ffa96f5246c3cdc9978ff353a",
+    "cpp/include/quantlibtorch/time_variance.hpp": "0d47c278abc4f8c304b028e07c3bb5f9b46312dbb384e79c36dedfab0ab54cc0",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7",
+    "python/quantlibtorch/fd.py": "f2fafc41bc0d985c444d753f6e3f265d71f364070215f0bccf3681ad803e995b",
+    "python/quantlibtorch/fd_basket.py": "9e893ef4d60e7dfa21101ed8ba12306ffa8c202a12dc662eaf96d3d6f1f2674f",
+    "python/quantlibtorch/kernels.py": "97cedcb635696b0d6b4afc4fca256dc9c593b4c1167305e8f8d044ab89572f36",
+    "python/quantlibtorch/pricing.py": "2ca74eed444761e6f290ca5bfaf0f2bdfe3b9272aacf1258dbc13af3dd7601a3",
+    "python/quantlibtorch/solver.py": "b60d87ac142f3150b809acfdd58c1f68c989a33ad4c23a09eabc89b2df7f6473",
+    "python/quantlibtorch/__init__.py": "02106b2a0a0708b166cb32918d0e298d38a0554a295178f161be053a8313f2f0",
+    "tests/stock_basket_reference.py": "0c46c3f77f41b2cd742c16d344b3c540b7407798eed0b24380d9007e895c9a16",
+    "tests/stock_quantlib_reference.py": "c2cd918d6003e82208ca9ce37df16327ba119ee4176987cf03a5e9ee9daa1312",
+    "tests/test_adjoint_arithmetic.py": "373ac85e3e528b75e54bc711940098ccc626eaca63705add7ada0171ca66a62a",
+    "tests/test_adjoint_bands.py": "b7a1966b2dfb16f98d9631cfc329f82813bbb7a622b47cda21e6f20208bb41dc",
+    "tests/test_array_kernels.py": "a9a8fe27cd846450009be566d378cc06a6c88d7f8a36d062cb87f6f21f456d7b",
+    "tests/test_assembled_bands.py": "6388da42d0bef84c76afb71282c00e139056c7f273095e6895ab4a57b0c3f40e",
+    "tests/test_backward_duals.py": "3c46e45dcafc4a264e2f71b5f2089e88e011a16b985febfe578ba3b7215ba498",
+    "tests/test_basis_cache.py": "ec5bfc486143bb7db5c8416441b9d38972919b485ceafb5b9ae1f29941d44e5f",
+    "tests/test_diffusion_adjoint.py": "0db44d9cff895e23549a1b8d9bd39b55b2f5a75d3e5677db896446fe9fd39ba6",
+    "tests/test_diffusion_arithmetic.py": "7e53fae84ccf38798526feea8b4dd17007a11ce34103ee97edb9b81a0fdcca85",
+    "tests/test_diffusion_selected_grads.py": "50a660f3e505f1f362011bbbebbfb4144badebdd5680c52c65ce065c888712c8",
+    "tests/test_fd_adjoint.py": "575b5bc9ac033697d55aed7bb3d9d475bf116530c9ec87177cedf45c2eb7f78d",
+    "tests/test_fd_basket.py": "8aefaf38701da68349708b9592fbe4883de583e224e1e87d528423dad52b8165",
+    "tests/test_fd_engine.py": "d009c234c0c42f63ed5f17a653a82ebe317b88abfb9f4e12c7de4ec8e1c1d716",
+    "tests/test_fd_state.py": "6a83f39767ca5eb1254f09dd87bc5aa27cc74a078e988a0c2c172e9dfe69cadd",
+    "tests/test_full_tensor_step.py": "492e68679f46f89939472083bd803c6625dc56d11a006ae8969e52b21a833905",
+    "tests/test_operator_adjoint.py": "e8e1f3eee7cc275d104b36fd947b067e8857720f8cf88469976ee5823a3715e3",
+    "tests/test_operator_arithmetic.py": "47e27e38d07ae3f20ec47a6d0b93e047328f80f6cf192729a9cabdc2305d1712",
+    "tests/test_parallel_solve.py": "ce6cbdf5efd6e340d6e364e5fdda52a3c71966c4f28c4736204f53b15daf2c96",
+    "tests/test_pcr_dispatch.py": "ceeb220044e266c1e41a1c75082db500692a56309847ccd3f41f4b66a04bbcde",
+    "tests/test_pcr_stage.py": "34161aa2140a6a662596b066fd41761bd2610fe08aa0556ce02757eaab3001f7",
+    "tests/test_pde_adjoint.py": "d69b5cbfb3af82ba46613f87b9049b7d0bc3b4df03030862b9b8bccae5dffcb8",
+    "tests/test_pricing.py": "d5fb22d1d069442d51ec6a1447b058d2b3452ff3d0192cc01cd72877848d1d43",
+    "tests/test_scalar.py": "06ab9124a67263b61e2ce27e365fda18aec41ed4cf938009d2c24a2e4547091f",
+    "tests/test_solver.py": "6f0d807dd69d98224bfe0484737d4876dc38de90f4d9d74d2125bf9fdc42ae7c",
+    "tests/test_solve_checks.py": "f6250d1628726c46283a7018604b5931eb2810f0bd4ab258997c6eb19f037025",
+    "tests/test_spatial_cache.py": "5ba4e178eb6f458b65081ed36dcd231b7e4c559a3ab3cefef43fa28c027ba296",
+    "tests/test_spline_kernels.py": "0b9031326209dd187cb4a0ca3a2ba77997e86941fc43c1d61a21c08f88eb0b7e",
+    "tests/test_step_adjoint.py": "2f61bc5f0cead4b14f93622cf27626c8dd83d2834bb7dd2be987a55d77a60607",
+    "tests/test_step_arithmetic.py": "569799c7a0b74b0defe6414030fba945cdaceec047abb7178f5d531eaa2b44e0",
+    "tests/test_step_preparation.py": "8f62f7f7ce9a91049f7d634217dda6d058c009dcb52c90800cf073bc7a78f9a6",
+    "tests/test_structured_ops.py": "af0cc5db73c034e481ac92669bd5a3fc65333938b7d6279d812815d0adebeee0",
+    "tests/test_tensor_kernels.py": "d4a120fa39a2b3402575e6007a23b863c1370980a017a90e5b1e2a16bd1a0385",
+    "tests/test_thomas_arithmetic.py": "5690f31f0d64d8de79def1f7c38e49ab11741bf1ae26b2fdc858dca1799ea084",
+    "tests/test_time_variance.py": "25b875aa071ccb3ad17b1bbb94ae0c62d41e8ae8e34777e2ec462eb5977e2dd9",
+    "scripts/benchmark.py": "a136e8dc8c7066630319918ffe1de2e2b9c1e188618485135a0d8c11444df830",
+    "scripts/benchmark_fd.py": "145484f0ca1e1351bbea7af5b99d505bd77c14d675749c30eee857479206fa2b",
+    "scripts/benchmark_fd_curvature.py": "873720d6d7956fe78aee75908e6f04c11984b89b8ba2a1fbc9bb13d3fc8d2e80",
+    "scripts/benchmark_fd_optimizations.py": "7bdf1b35e07b27c34b0899fcae79eab48350646f4a046b1039521b6e1649f35e",
+    "scripts/benchmark_parallel_solve.py": "4bcca2484b4cb65545b4cc1e3d5c38c3e3528c603be3bc3b7df9534029b16c5f",
+    "scripts/benchmark_pde_milestone.py": "2d49359ef015ac6587c2eb459edac5c20043dc7feb0316fad88b9965042e8b99",
+    "scripts/benchmark_tensor_kernels.py": "5b73a436bd38c0b2eb91bd24a33b8876c76de16409ff4745ac7c52254853ea74",
+    "scripts/bootstrap.py": "0c640d43f6f496dbfbcdaf2ca62722d8341d88441b39b7271e55f778850829ff",
+    "scripts/build.py": "c2cb50d8caa958a72ac993a77c8161eab4173bb7880afd134e2a2a1aef851a9c",
+    "scripts/diagnose_fd_runtime.py": "12307182fadfce818bd4bc3c74d9e20e0e82d962d12f1249d81ec2478bacd4fb",
+    "scripts/investigate_fd.py": "47881105e2b2e4caa339b3ffb9585a26a3a5df921711dbfe9c75ad8832027b90",
+    "scripts/runtime_controls.py": "f6658f30e599476b5c911038ba6ee8efae66296739f7b62d0671ffc447a01b25",
+    "scripts/validate_fd_evidence.py": "2d084a5615c07a2fb11b1782bfaa434e6395d496128b233160e53a51b990d111",
+    "scripts/validate_pde_milestone.py": "d28a861b32dfd289bfe17df2cd613dfcbf5ccc2cd65670e48259f8cbe0af2a0d",
+    "pyproject.toml": "105a6402b1ba5f6e7dee226a84ddbfb0e2ae2e0a45e2bab18ff67581f0c4ee2e",
+    "cmake/quantlib_sources.cmake": "ca8df6a3d6a85115d10dbef3475a34a3c5c95b582c825811f18351ae02c4f7ca"
+  },
+  "native_binary_sha256": {
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "a0ac5a6954b7cad6a3f2aa51f5a195de0ac73689200e38f01ef7c5fdd41b2c12"
+  },
+  "source_archive": {
+    "path": "docs/benchmarks/pde_phase20_source.zip",
+    "verified_source_files": 96,
+    "sha256": "5f582f7508e5852f6d0cb7d3c2b1f09d03e6e974057298db20fe06168a06f20f"
+  },
+  "regenerated_overlay": {
+    "path": "build/phase20_overlay_final",
+    "identical_files": 84
+  },
+  "numerical_validation": {
+    "path": "docs/benchmarks/pde_phase20_numerical_validation.json",
+    "sha256": "ed9b60edf6196bcb8af0775798ad1f45fc0c732c2f6c0ec0932da63a5b443a21",
+    "summaries": {
+      "directional": {
+        "cases": 28,
+        "max_solution_difference": 6.661338147750939e-16,
+        "max_vjp_difference": 2.220446049250313e-15,
+        "max_normalized_primal_residual": 4.5888147266147355e-17,
+        "max_normalized_adjoint_residual": 3.500881165534712e-17
+      },
+      "adi": {
+        "cases": 32,
+        "max_solution_difference": 8.881784197001252e-16,
+        "max_vjp_difference": 1.1102230246251565e-15
+      },
+      "manufactured": {
+        "cases": 8,
+        "max_solution_difference": 1.1102230246251565e-16,
+        "max_vjp_difference": 1.682681771697503e-16
+      },
+      "stock_basket": {
+        "cases": 8,
+        "max_solution_difference": 0.0,
+        "max_vjp_difference": 5.047451345774334e-09
+      }
+    }
+  },
+  "unchanged_existing_numerical_files": 33,
+  "baseline": {
+    "git_commit": "5b0de25e50246abdd3cd939fca1ae7a6678589d9",
+    "source_archive_sha256": "7e5106894378c1d34c6e8807b81b483ce18fd3156dc72ecb3682f9d76ed17ed7",
+    "native_binary_sha256": "64fb8100c2b148674e8554c65c6d636cd280b7c33dc7483cf2cc3189c7b951a8",
+    "python_files": [
+      "python/quantlibtorch/__init__.py",
+      "python/quantlibtorch/fd.py",
+      "python/quantlibtorch/kernels.py",
+      "python/quantlibtorch/pricing.py",
+      "python/quantlibtorch/solver.py"
+    ]
+  },
+  "reports": {
+    "pde_phase20_basket_pilot.json": {
+      "sha256": "14d2dbcd98601fe11b4066cfbcb2cddeb79753d36255875e95fc6deb0f6c5f62",
+      "workers": 12,
+      "validation": {
+        "gradient_comparisons": 48,
+        "price_comparisons": 48,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 1.0658141036401503e-14
+      },
+      "command": [
+        "scripts/benchmark_pde_milestone.py",
+        "--kind",
+        "basket",
+        "--grids",
+        "3x7x5,6x15x11",
+        "--tasks",
+        "timing,graph,memory",
+        "--warmup",
+        "3",
+        "--repeats",
+        "7",
+        "--output",
+        "docs/benchmarks/pde_phase20_basket_pilot.json"
+      ]
+    },
+    "pde_phase20_basket_scaling.json": {
+      "sha256": "43ad3d03b08ac22c1ad5995cd3b5feb8eb93a34fbfa2833462521cce24e2f259",
+      "workers": 6,
+      "validation": {
+        "gradient_comparisons": 18,
+        "price_comparisons": 18,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 1.4210854715202004e-14
+      },
+      "command": [
+        "scripts/benchmark_pde_milestone.py",
+        "--kind",
+        "basket",
+        "--grids",
+        "10x31x21",
+        "--tasks",
+        "timing,graph,memory",
+        "--warmup",
+        "2",
+        "--repeats",
+        "5",
+        "--output",
+        "docs/benchmarks/pde_phase20_basket_scaling.json"
+      ]
+    },
+    "pde_phase20_basket_profile.json": {
+      "sha256": "5cac60e8006dd87507f7c043216a8485df7780938eb970613da83540325017b6",
+      "workers": 2,
+      "validation": {
+        "gradient_comparisons": 2,
+        "price_comparisons": 2,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 1.0658141036401503e-14
+      },
+      "command": [
+        "scripts/benchmark_pde_milestone.py",
+        "--kind",
+        "basket",
+        "--grids",
+        "3x7x5",
+        "--tasks",
+        "profile",
+        "--warmup",
+        "3",
+        "--repeats",
+        "1",
+        "--output",
+        "docs/benchmarks/pde_phase20_basket_profile.json"
+      ]
+    },
+    "pde_phase20_vanilla_controls.json": {
+      "sha256": "503e399c0bcf18f9ac32a02db38603019954deb7320ecd72233617a295b11ca3",
+      "workers": 12,
+      "validation": {
+        "gradient_comparisons": 376,
+        "price_comparisons": 564,
+        "max_price_difference": 3.552713678800501e-15,
+        "max_gradient_difference": 1.7763568394002505e-14
+      },
+      "command": [
+        "scripts/benchmark_pde_milestone.py",
+        "--kind",
+        "vanilla",
+        "--grids",
+        "30x61",
+        "--modes",
+        "full,adjoint,inference",
+        "--tasks",
+        "timing",
+        "--baseline-root",
+        "build/phase20_baseline",
+        "--warmup",
+        "32",
+        "--repeats",
+        "15",
+        "--output",
+        "docs/benchmarks/pde_phase20_vanilla_controls.json"
+      ]
+    },
+    "pde_phase20_vanilla_controls_final.json": {
+      "sha256": "4815dabc5f4e49885ba8f5033349a05812e904969a4d94a0a361b89dfcfe47c8",
+      "workers": 12,
+      "validation": {
+        "gradient_comparisons": 376,
+        "price_comparisons": 564,
+        "max_price_difference": 3.552713678800501e-15,
+        "max_gradient_difference": 1.7763568394002505e-14
+      },
+      "command": [
+        "scripts/benchmark_pde_milestone.py",
+        "--kind",
+        "vanilla",
+        "--grids",
+        "30x61",
+        "--modes",
+        "full,adjoint,inference",
+        "--tasks",
+        "timing",
+        "--baseline-root",
+        "build/phase20_baseline",
+        "--warmup",
+        "32",
+        "--repeats",
+        "15",
+        "--output",
+        "docs/benchmarks/pde_phase20_vanilla_controls_final.json"
+      ]
+    }
+  },
+  "combined_validation": {
+    "gradient_comparisons": 444,
+    "price_comparisons": 632,
+    "max_price_difference": 3.552713678800501e-15,
+    "max_gradient_difference": 1.7763568394002505e-14
+  },
+  "matched_1d": {
+    "samples": 282,
+    "max_price_difference": 0.0,
+    "max_gradient_difference": 0.0
+  },
+  "logs": {
+    "build": {
+      "path": "build/phase20_build.log",
+      "sha256": "af4941717d085942a042e0c76b580cd967a4260f4c628ea8483cc266d1469776",
+      "tail": [
+        "  fdm2dblackscholesop.cpp",
+        "  ninepointlinearop.cpp",
+        "  secondordermixedderivativeop.cpp",
+        "  triplebandlinearop.cpp",
+        "  fdm2dimsolver.cpp",
+        "  fdm2dblackscholessolver.cpp",
+        "  fd2dblackscholesvanillaengine.cpp",
+        "     Creating library <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.lib and object <USER_HOME>/Documents/QuantLibTorch/build/native/Release/quantlibtorch_native.exp",
+        "  quantlibtorch_native.vcxproj -> <USER_HOME>\\Documents\\QuantLibTorch\\python\\quantlibtorch\\_native\\quantlibtorch_native.dll"
+      ]
+    },
+    "targeted_tests": {
+      "path": "build/phase20_targeted_tests.log",
+      "sha256": "df20af2cd4f3b634d18429b5c67289a710f38e4748f109413a389b698c96ee0d",
+      "tail": [
+        "........................................................................ [ 86%]",
+        "......................                                                   [100%]",
+        "============================== warnings summary ===============================",
+        "tests/test_structured_ops.py: 18 warnings",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_script.py:1480: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "166 passed, 18 warnings in 46.36s"
+      ]
+    },
+    "initial_full_tests": {
+      "path": "build/phase20_full_tests.log",
+      "sha256": "54a378911140bf9f1c031868d9f8a28ed51a3d9463e47a779ac58c05973dc881",
+      "tail": [
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "tests/test_pcr_stage.py::test_pcr_trace_roundtrip_preserves_runtime_shapes_values_and_vjps",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "1638 passed, 23 warnings in 174.85s (0:02:54)"
+      ]
+    },
+    "structured_final_tests": {
+      "path": "build/phase20_structured_final_tests.log",
+      "sha256": "22c5a8f5e574c711b1c2f81dce6b5148520d5c425d319e6c0e8223e57cf12840",
+      "tail": [
+        "............................................................             [100%]",
+        "============================== warnings summary ===============================",
+        "tests/test_structured_ops.py: 18 warnings",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_script.py:1480: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "60 passed, 18 warnings in 2.32s"
+      ]
+    },
+    "final_full_tests": {
+      "path": "build/phase20_final_full_tests.log",
+      "sha256": "dcb710926c74eba214d4fd347489431298495eb4c9efa41afbf3fde570ac82bf",
+      "tail": [
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_serialization.py:89: DeprecationWarning: `torch.jit.save` is deprecated. Please switch to `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "tests/test_pcr_stage.py::test_pcr_trace_roundtrip_preserves_runtime_shapes_values_and_vjps",
+        "  <USER_HOME>\\anaconda3\\Lib\\site-packages\\torch\\jit\\_serialization.py:176: DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+        "    warnings.warn(",
+        "",
+        "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+        "1640 passed, 23 warnings in 174.53s (0:02:54)"
+      ]
+    },
+    "numerical_validation": {
+      "path": "build/phase20_numerical_validation.log",
+      "sha256": "d0103bb4bcc169a65f31021e0e6f1bceb1e66c0d98d1fe5921b381e62e651fad",
+      "tail": [
+        "    \"max_solution_difference\": 1.1102230246251565e-16,",
+        "    \"max_vjp_difference\": 1.682681771697503e-16",
+        "  },",
+        "  \"stock_basket\": {",
+        "    \"cases\": 8,",
+        "    \"max_solution_difference\": 0.0,",
+        "    \"max_vjp_difference\": 5.047451345774334e-09",
+        "  }",
+        "}"
+      ]
+    },
+    "basket_pilot": {
+      "path": "build/phase20_basket_pilot.log",
+      "sha256": "8cb9ad90682b779d65c9b76a5573da01014a9772e5fe64e0e7405553a8d5da69",
+      "tail": [
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 3, \"nx\": 7, \"ny\": 5}, \"median\": {\"forward_seconds\": 0.023525299970060587, \"backward_seconds\": 0.030086199985817075, \"cleanup_seconds\": 0.0008443000260740519, \"total_seconds\": 0.05500399996526539}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"graph\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 3, \"nx\": 7, \"ny\": 5}, \"median\": null, \"graph_nodes\": 5712, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"memory\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 3, \"nx\": 7, \"ny\": 5}, \"median\": null, \"graph_nodes\": null, \"peak_rss_growth_bytes\": 27385856}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 6, \"nx\": 15, \"ny\": 11}, \"median\": {\"forward_seconds\": 0.27489939983934164, \"backward_seconds\": 0.64627750008367, \"cleanup_seconds\": 0.03389340010471642, \"total_seconds\": 0.9578138003125787}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"graph\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 6, \"nx\": 15, \"ny\": 11}, \"median\": null, \"graph_nodes\": 122178, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"memory\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 6, \"nx\": 15, \"ny\": 11}, \"median\": null, \"graph_nodes\": null, \"peak_rss_growth_bytes\": 201887744}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 6, \"nx\": 15, \"ny\": 11}, \"median\": {\"forward_seconds\": 0.11852080002427101, \"backward_seconds\": 0.23826860007829964, \"cleanup_seconds\": 0.010976599995046854, \"total_seconds\": 0.36607749992981553}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"graph\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 6, \"nx\": 15, \"ny\": 11}, \"median\": null, \"graph_nodes\": 39538, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"memory\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 7, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 6, \"nx\": 15, \"ny\": 11}, \"median\": null, \"graph_nodes\": null, \"peak_rss_growth_bytes\": 78565376}"
+      ]
+    },
+    "basket_scaling": {
+      "path": "build/phase20_basket_scaling.log",
+      "sha256": "8698ce94a252e74d5671046bcef649d5fa2e936c0b7a609b81fad9011e8bf941",
+      "tail": [
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 2, \"repeats\": 5, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 10, \"nx\": 31, \"ny\": 21}, \"median\": {\"forward_seconds\": 1.6552094998769462, \"backward_seconds\": 4.513882600003853, \"cleanup_seconds\": 0.2601161999627948, \"total_seconds\": 6.425294799963012}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"graph\", \"scheme\": \"hundsdorfer\", \"warmup\": 2, \"repeats\": 5, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 10, \"nx\": 31, \"ny\": 21}, \"median\": null, \"graph_nodes\": 751046, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"memory\", \"scheme\": \"hundsdorfer\", \"warmup\": 2, \"repeats\": 5, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 10, \"nx\": 31, \"ny\": 21}, \"median\": null, \"graph_nodes\": null, \"peak_rss_growth_bytes\": 1153261568}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 2, \"repeats\": 5, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 10, \"nx\": 31, \"ny\": 21}, \"median\": {\"forward_seconds\": 0.6307920999825001, \"backward_seconds\": 1.5545089999213815, \"cleanup_seconds\": 0.07389370002783835, \"total_seconds\": 2.2535405000671744}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"graph\", \"scheme\": \"hundsdorfer\", \"warmup\": 2, \"repeats\": 5, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 10, \"nx\": 31, \"ny\": 21}, \"median\": null, \"graph_nodes\": 236264, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"memory\", \"scheme\": \"hundsdorfer\", \"warmup\": 2, \"repeats\": 5, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 10, \"nx\": 31, \"ny\": 21}, \"median\": null, \"graph_nodes\": null, \"peak_rss_growth_bytes\": 359923712}"
+      ]
+    },
+    "basket_profile": {
+      "path": "build/phase20_basket_profile.log",
+      "sha256": "38dc42392037b0993f324e970a40633852d959b4d4e7501693267100ff311418",
+      "tail": [
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"profile\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 1, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 3, \"nx\": 7, \"ny\": 5}, \"median\": null, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"basket\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"profile\", \"scheme\": \"hundsdorfer\", \"warmup\": 3, \"repeats\": 1, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 3, \"nx\": 7, \"ny\": 5}, \"median\": null, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}"
+      ]
+    },
+    "vanilla_controls": {
+      "path": "build/phase20_vanilla_controls.log",
+      "sha256": "33a85961f6b24a1edab44e198a9eb26eb6f5ac5fcd1ac2fae1bcce31461255c7",
+      "tail": [
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\\\\build\\\\phase20_baseline\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004217699868604541, \"backward_seconds\": 0.0016824000049382448, \"cleanup_seconds\": 5.450006574392319e-05, \"total_seconds\": 0.00598699995316565, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\\\\build\\\\phase20_baseline\", \"mode\": \"inference\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.0036511998623609543, \"backward_seconds\": 1.2998934835195541e-06, \"cleanup_seconds\": 1.200009137392044e-06, \"total_seconds\": 0.0036535998806357384, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\\\\build\\\\phase20_baseline\", \"mode\": \"inference\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.003803499974310398, \"backward_seconds\": 1.500127837061882e-06, \"cleanup_seconds\": 9.0012326836586e-07, \"total_seconds\": 0.0038058997597545385, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004338100086897612, \"backward_seconds\": 0.002301800064742565, \"cleanup_seconds\": 7.500010542571545e-05, \"total_seconds\": 0.006741699995473027, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004417999880388379, \"backward_seconds\": 0.0023805000819265842, \"cleanup_seconds\": 7.6299998909235e-05, \"total_seconds\": 0.006867100019007921, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004101900150999427, \"backward_seconds\": 0.0015714000910520554, \"cleanup_seconds\": 5.110003985464573e-05, \"total_seconds\": 0.005751000018790364, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.003924000076949596, \"backward_seconds\": 0.0016348999924957752, \"cleanup_seconds\": 5.4800184443593025e-05, \"total_seconds\": 0.0056455000303685665, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"inference\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.003637599991634488, \"backward_seconds\": 1.2998934835195541e-06, \"cleanup_seconds\": 1.200009137392044e-06, \"total_seconds\": 0.003640300128608942, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"inference\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"hundsdorfer\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.003763000015169382, \"backward_seconds\": 1.400010660290718e-06, \"cleanup_seconds\": 9.0012326836586e-07, \"total_seconds\": 0.00376540026627481, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}"
+      ]
+    },
+    "vanilla_controls_final": {
+      "path": "build/phase20_vanilla_controls_final.log",
+      "sha256": "2e5679589ba07237a19efeedd89caffb6be94ac9e26445856afde7f3cc312b7b",
+      "tail": [
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\\\\build\\\\phase20_baseline\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004277599975466728, \"backward_seconds\": 0.0017953000497072935, \"cleanup_seconds\": 5.660019814968109e-05, \"total_seconds\": 0.0061132998671382666, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\\\\build\\\\phase20_baseline\", \"mode\": \"inference\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.0036938998382538557, \"backward_seconds\": 1.500127837061882e-06, \"cleanup_seconds\": 1.2998934835195541e-06, \"total_seconds\": 0.0036964998580515385, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\\\\build\\\\phase20_baseline\", \"mode\": \"inference\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.0035822000354528427, \"backward_seconds\": 1.4998950064182281e-06, \"cleanup_seconds\": 1.00000761449337e-06, \"total_seconds\": 0.003584600053727627, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004402599995955825, \"backward_seconds\": 0.0024250000715255737, \"cleanup_seconds\": 7.409998215734959e-05, \"total_seconds\": 0.006978899706155062, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"full\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004578599939122796, \"backward_seconds\": 0.0025269000325351954, \"cleanup_seconds\": 8.210004307329655e-05, \"total_seconds\": 0.00725199980661273, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004354800097644329, \"backward_seconds\": 0.0016713000368326902, \"cleanup_seconds\": 5.140015855431557e-05, \"total_seconds\": 0.006100000347942114, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"adjoint\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.004235600121319294, \"backward_seconds\": 0.001728300005197525, \"cleanup_seconds\": 5.619996227324009e-05, \"total_seconds\": 0.006048999959602952, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"inference\", \"surface\": \"surface\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.0038044999819248915, \"backward_seconds\": 1.4998950064182281e-06, \"cleanup_seconds\": 1.300126314163208e-06, \"total_seconds\": 0.0038071000017225742, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}",
+        "{\"case\": {\"kind\": \"vanilla\", \"package_root\": \"<USER_HOME>\\\\Documents\\\\QuantLibTorch\", \"mode\": \"inference\", \"surface\": \"neural\", \"task\": \"timing\", \"scheme\": \"douglas\", \"warmup\": 32, \"repeats\": 15, \"affinity\": 8, \"windows_qos\": \"high\", \"steps\": 30, \"nodes\": 61, \"variant\": \"optimized\", \"kernels\": \"auto\", \"contract\": \"european\"}, \"median\": {\"forward_seconds\": 0.0038258000276982784, \"backward_seconds\": 1.600012183189392e-06, \"cleanup_seconds\": 1.100124791264534e-06, \"total_seconds\": 0.00382860004901886, \"total_cpu_seconds\": 0.0}, \"graph_nodes\": null, \"peak_rss_growth_bytes\": null}"
+      ]
+    }
+  },
+  "notes": [
+    "All previous 1D numerical kernel/header files are byte-identical; fd_bridge only adds the basket endpoint/includes.",
+    "The baseline Git commit was clean before implementation; archived compiled-code hashes identify this milestone before its final commit.",
+    "The first 1D benchmark used Douglas but inherited a wrong 'hundsdorfer' case label; the corrected final repeat is authoritative.",
+    "The original benchmark script is preserved in pde_phase20_pilot_benchmark_source.zip.",
+    "The benchmark metadata correction did not change any numerical or timing operation.",
+    "Saved-tensor bytes are repeated-save counts; process peak growth is not tensor-only memory."
+  ]
+}

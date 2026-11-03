@@ -1,0 +1,913 @@
+{
+  "created_at_utc": "2026-11-02T03:17:18.021022+00:00",
+  "configuration": {
+    "task": "profile",
+    "execution": "multi",
+    "device": "cpu",
+    "assets": 8,
+    "contracts": 16,
+    "nx": 21,
+    "ny": 9,
+    "steps": 12,
+    "latents": 1,
+    "checkpoint_steps": 4,
+    "mode": "adjoint",
+    "warmup": 1,
+    "repeats": 3,
+    "output": "<USER_HOME>\\Documents\\QuantLibTorch\\docs\\benchmarks\\multi_asset_phase24_workloads\\profile_8x16_21x9_12_multi_cpu_1_adjoint_k4.json",
+    "affinity": 8
+  },
+  "runtime": {
+    "requested": "high",
+    "before": {
+      "version": 1,
+      "control_mask": 0,
+      "state_mask": 0
+    },
+    "after": {
+      "version": 1,
+      "control_mask": 1,
+      "state_mask": 0
+    },
+    "affinity": {
+      "requested": 8,
+      "before": {
+        "mask": 16777215,
+        "system_mask": 16777215,
+        "processor": 8
+      },
+      "after": {
+        "mask": 256,
+        "system_mask": 16777215,
+        "processor": 8
+      }
+    }
+  },
+  "torch": "2.10.0+cu126",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "source_sha256": {
+    "cpp/packed_pde.cpp": "9ae650360c4ea35c7da0516412285e245afa8b72be6581d217f85688cb1330d2",
+    "cpp/multi_asset.inc": "66b2b49ac32f54fbc3488ba3b5c465c337b752842fb0af475594c2abb32cdd8a",
+    "cpp/parallel_solve.cpp": "088f6f384c79f8c556f6d989049ed75827b4eb4be6febbb62d39240210d3972f",
+    "python/quantlibtorch/batch.py": "00ec8a8bd2228db3c537dcedd883b51aa5b0ed6d71bb768f32c7b6a20f064ff2",
+    "python/quantlibtorch/multi_asset.py": "3252bc3ac935c9660fec29bfff04c4269de59a6d1d75437643836d35cc9a5295",
+    "examples/multi_asset_neural_sde.py": "33765b15fcfc396cde7792cb043965a56c05495d6dd657a046330f626e95dad2",
+    "scripts/prepare_packed.py": "eef08f5d71ee4f199bb8d5d10bc23f91cd4bf5eb607a1dec9ce96ca15d8c4001",
+    "scripts/benchmark_multi_asset.py": "8b1734a420d62287973c256d64aec81eb3498512e55c30706a10805475308727"
+  },
+  "binary_sha256": "899b6b60d8b80d84e0c77934c56cfd277eb53f2c6c5faf6600d98b65697cfabd",
+  "device_name": "CPU",
+  "setup_seconds": 0.07365089980885386,
+  "baseline_memory": {
+    "rss_bytes": 520470528,
+    "peak_rss_bytes": 523087872,
+    "private_bytes": 783228928
+  },
+  "nodes": 189,
+  "numerical_note": "Fixed small-grid workload; throughput is not a convergence certificate.",
+  "evaluation": {
+    "seconds": 0.24689280008897185,
+    "forward_seconds": 0.04317070008255541,
+    "backward_seconds": 0.15112200006842613,
+    "cleanup_seconds": 0.052534000016748905,
+    "contracts_per_second": 518.4436320292576
+  },
+  "events": [
+    {
+      "name": "aten::unsqueeze",
+      "count": 1790,
+      "self_cpu_us": 2438.0999999995793,
+      "device_us": 0
+    },
+    {
+      "name": "aten::as_strided",
+      "count": 10755,
+      "self_cpu_us": 2678.200000000369,
+      "device_us": 0
+    },
+    {
+      "name": "aten::expand",
+      "count": 10,
+      "self_cpu_us": 30.300000000005184,
+      "device_us": 0
+    },
+    {
+      "name": "aten::cat",
+      "count": 188,
+      "self_cpu_us": 992.8000000000186,
+      "device_us": 0
+    },
+    {
+      "name": "aten::narrow",
+      "count": 162,
+      "self_cpu_us": 158.8000000002378,
+      "device_us": 0
+    },
+    {
+      "name": "aten::slice",
+      "count": 687,
+      "self_cpu_us": 1189.9999999998654,
+      "device_us": 0
+    },
+    {
+      "name": "aten::linear",
+      "count": 2,
+      "self_cpu_us": 138.89999999999964,
+      "device_us": 0
+    },
+    {
+      "name": "aten::view",
+      "count": 680,
+      "self_cpu_us": 942.9000000000069,
+      "device_us": 0
+    },
+    {
+      "name": "aten::t",
+      "count": 10,
+      "self_cpu_us": 20.499999999970896,
+      "device_us": 0
+    },
+    {
+      "name": "aten::transpose",
+      "count": 14,
+      "self_cpu_us": 20.90000000008149,
+      "device_us": 0
+    },
+    {
+      "name": "aten::addmm",
+      "count": 2,
+      "self_cpu_us": 90.00000000000023,
+      "device_us": 0
+    },
+    {
+      "name": "aten::copy_",
+      "count": 1402,
+      "self_cpu_us": 3903.700000000158,
+      "device_us": 0
+    },
+    {
+      "name": "aten::resolve_conj",
+      "count": 20,
+      "self_cpu_us": 2.500000000052296,
+      "device_us": 0
+    },
+    {
+      "name": "aten::tanh",
+      "count": 4,
+      "self_cpu_us": 371.29999999999995,
+      "device_us": 0
+    },
+    {
+      "name": "aten::mul",
+      "count": 4058,
+      "self_cpu_us": 28388.900000000147,
+      "device_us": 0
+    },
+    {
+      "name": "aten::add",
+      "count": 1265,
+      "self_cpu_us": 7158.999999999927,
+      "device_us": 0
+    },
+    {
+      "name": "aten::eye",
+      "count": 2,
+      "self_cpu_us": 204.4000000000001,
+      "device_us": 0
+    },
+    {
+      "name": "aten::empty",
+      "count": 4317,
+      "self_cpu_us": 1478.1999999983686,
+      "device_us": 0
+    },
+    {
+      "name": "aten::resize_",
+      "count": 1,
+      "self_cpu_us": 4.599999999999909,
+      "device_us": 0
+    },
+    {
+      "name": "aten::zero_",
+      "count": 826,
+      "self_cpu_us": 1070.0999999996989,
+      "device_us": 0
+    },
+    {
+      "name": "aten::reshape",
+      "count": 492,
+      "self_cpu_us": 614.8999999999646,
+      "device_us": 0
+    },
+    {
+      "name": "aten::_reshape_alias",
+      "count": 2,
+      "self_cpu_us": 11.700000000000273,
+      "device_us": 0
+    },
+    {
+      "name": "qlt::multi_asset_price",
+      "count": 1,
+      "self_cpu_us": 2620.2999999999956,
+      "device_us": 0
+    },
+    {
+      "name": "aten::isfinite",
+      "count": 789,
+      "self_cpu_us": 2996.8000000005527,
+      "device_us": 0
+    },
+    {
+      "name": "aten::abs",
+      "count": 1578,
+      "self_cpu_us": 4528.40000000009,
+      "device_us": 0
+    },
+    {
+      "name": "aten::ne",
+      "count": 789,
+      "self_cpu_us": 6739.1000000000895,
+      "device_us": 0
+    },
+    {
+      "name": "aten::eq",
+      "count": 789,
+      "self_cpu_us": 6610.800000000016,
+      "device_us": 0
+    },
+    {
+      "name": "aten::all",
+      "count": 793,
+      "self_cpu_us": 6014.499999999864,
+      "device_us": 0
+    },
+    {
+      "name": "aten::fill_",
+      "count": 1577,
+      "self_cpu_us": 655.099999999898,
+      "device_us": 0
+    },
+    {
+      "name": "aten::select",
+      "count": 6629,
+      "self_cpu_us": 9081.399999999228,
+      "device_us": 0
+    },
+    {
+      "name": "aten::lt",
+      "count": 2,
+      "self_cpu_us": 4.800000000000182,
+      "device_us": 0
+    },
+    {
+      "name": "aten::gt",
+      "count": 2,
+      "self_cpu_us": 3.300000000000182,
+      "device_us": 0
+    },
+    {
+      "name": "aten::bitwise_and",
+      "count": 2,
+      "self_cpu_us": 5.699999999999363,
+      "device_us": 0
+    },
+    {
+      "name": "aten::matmul",
+      "count": 1,
+      "self_cpu_us": 7.699999999999363,
+      "device_us": 0
+    },
+    {
+      "name": "aten::bmm",
+      "count": 3,
+      "self_cpu_us": 133.3999999999828,
+      "device_us": 0
+    },
+    {
+      "name": "aten::_unsafe_view",
+      "count": 1,
+      "self_cpu_us": 2.599999999999909,
+      "device_us": 0
+    },
+    {
+      "name": "qlt::multi_asset_assembly",
+      "count": 26,
+      "self_cpu_us": 1192.299999999866,
+      "device_us": 0
+    },
+    {
+      "name": "aten::sub",
+      "count": 239,
+      "self_cpu_us": 1256.1000000001327,
+      "device_us": 0
+    },
+    {
+      "name": "aten::div",
+      "count": 54,
+      "self_cpu_us": 332.39999999994643,
+      "device_us": 0
+    },
+    {
+      "name": "aten::to",
+      "count": 116,
+      "self_cpu_us": 63.30000000010932,
+      "device_us": 0
+    },
+    {
+      "name": "aten::_to_copy",
+      "count": 56,
+      "self_cpu_us": 120.50000000002865,
+      "device_us": 0
+    },
+    {
+      "name": "aten::empty_strided",
+      "count": 241,
+      "self_cpu_us": 214.40000000006012,
+      "device_us": 0
+    },
+    {
+      "name": "aten::stack",
+      "count": 186,
+      "self_cpu_us": 761.7000000000389,
+      "device_us": 0
+    },
+    {
+      "name": "aten::zeros_like",
+      "count": 184,
+      "self_cpu_us": 491.7999999999074,
+      "device_us": 0
+    },
+    {
+      "name": "aten::empty_like",
+      "count": 497,
+      "self_cpu_us": 805.5000000004638,
+      "device_us": 0
+    },
+    {
+      "name": "aten::index_select",
+      "count": 1950,
+      "self_cpu_us": 14837.600000000304,
+      "device_us": 0
+    },
+    {
+      "name": "qlt::multi_asset_solve",
+      "count": 104,
+      "self_cpu_us": 4081.499999999707,
+      "device_us": 0
+    },
+    {
+      "name": "aten::item",
+      "count": 782,
+      "self_cpu_us": 681.600000000054,
+      "device_us": 0
+    },
+    {
+      "name": "aten::_local_scalar_dense",
+      "count": 782,
+      "self_cpu_us": 133.29999999983193,
+      "device_us": 0
+    },
+    {
+      "name": "qlt::thomas_arithmetic_forward",
+      "count": 156,
+      "self_cpu_us": 6557.900000000259,
+      "device_us": 0
+    },
+    {
+      "name": "aten::contiguous",
+      "count": 312,
+      "self_cpu_us": 272.59999999976844,
+      "device_us": 0
+    },
+    {
+      "name": "aten::clone",
+      "count": 312,
+      "self_cpu_us": 600.50000000006,
+      "device_us": 0
+    },
+    {
+      "name": "qlt::multi_asset_device_spline",
+      "count": 1,
+      "self_cpu_us": 341.0,
+      "device_us": 0
+    },
+    {
+      "name": "aten::ge",
+      "count": 2,
+      "self_cpu_us": 14.099999999998545,
+      "device_us": 0
+    },
+    {
+      "name": "aten::sum",
+      "count": 783,
+      "self_cpu_us": 23562.200000000135,
+      "device_us": 0
+    },
+    {
+      "name": "aten::clamp",
+      "count": 2,
+      "self_cpu_us": 33.900000000001455,
+      "device_us": 0
+    },
+    {
+      "name": "aten::gather",
+      "count": 4,
+      "self_cpu_us": 60.400000000001455,
+      "device_us": 0
+    },
+    {
+      "name": "aten::squeeze",
+      "count": 73,
+      "self_cpu_us": 127.10000000012951,
+      "device_us": 0
+    },
+    {
+      "name": "aten::unbind",
+      "count": 1,
+      "self_cpu_us": 9.400000000001455,
+      "device_us": 0
+    },
+    {
+      "name": "aten::square",
+      "count": 1,
+      "self_cpu_us": 1.4000000000014552,
+      "device_us": 0
+    },
+    {
+      "name": "aten::pow",
+      "count": 2,
+      "self_cpu_us": 13.0,
+      "device_us": 0
+    },
+    {
+      "name": "aten::result_type",
+      "count": 2,
+      "self_cpu_us": 0.6999999999970896,
+      "device_us": 0
+    },
+    {
+      "name": "aten::ones_like",
+      "count": 1,
+      "self_cpu_us": 1.499999999992724,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: DivBackward0",
+      "count": 1,
+      "self_cpu_us": 3.900000000001455,
+      "device_us": 0
+    },
+    {
+      "name": "DivBackward0",
+      "count": 1,
+      "self_cpu_us": 2.7999999999956344,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SumBackward0",
+      "count": 1,
+      "self_cpu_us": 1.5999999999985448,
+      "device_us": 0
+    },
+    {
+      "name": "SumBackward0",
+      "count": 1,
+      "self_cpu_us": 1.1999999999970896,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: PowBackward0",
+      "count": 1,
+      "self_cpu_us": 3.1999999999970896,
+      "device_us": 0
+    },
+    {
+      "name": "PowBackward0",
+      "count": 1,
+      "self_cpu_us": 2.900000000001455,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SubBackward0",
+      "count": 107,
+      "self_cpu_us": 213.39999999994325,
+      "device_us": 0
+    },
+    {
+      "name": "SubBackward0",
+      "count": 107,
+      "self_cpu_us": 110.10000000002037,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: StackBackward0",
+      "count": 27,
+      "self_cpu_us": 112.20000000003347,
+      "device_us": 0
+    },
+    {
+      "name": "StackBackward0",
+      "count": 27,
+      "self_cpu_us": 53.40000000012515,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: UnbindBackward0",
+      "count": 1,
+      "self_cpu_us": 2.0,
+      "device_us": 0
+    },
+    {
+      "name": "UnbindBackward0",
+      "count": 1,
+      "self_cpu_us": 1.8000000000029104,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: ViewBackward0",
+      "count": 166,
+      "self_cpu_us": 246.20000000016444,
+      "device_us": 0
+    },
+    {
+      "name": "ViewBackward0",
+      "count": 166,
+      "self_cpu_us": 185.70000000025902,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SumBackward1",
+      "count": 2,
+      "self_cpu_us": 2.1999999999970896,
+      "device_us": 0
+    },
+    {
+      "name": "SumBackward1",
+      "count": 2,
+      "self_cpu_us": 2.900000000001455,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: MulBackward0",
+      "count": 89,
+      "self_cpu_us": 312.6000000000131,
+      "device_us": 0
+    },
+    {
+      "name": "MulBackward0",
+      "count": 89,
+      "self_cpu_us": 201.39999999985594,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: AddBackward0",
+      "count": 164,
+      "self_cpu_us": 391.19999999991705,
+      "device_us": 0
+    },
+    {
+      "name": "AddBackward0",
+      "count": 164,
+      "self_cpu_us": 82.20000000007713,
+      "device_us": 0
+    },
+    {
+      "name": "aten::add_",
+      "count": 531,
+      "self_cpu_us": 1653.8000000002503,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: UnsqueezeBackward0",
+      "count": 69,
+      "self_cpu_us": 111.20000000000437,
+      "device_us": 0
+    },
+    {
+      "name": "UnsqueezeBackward0",
+      "count": 69,
+      "self_cpu_us": 51.59999999999127,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SelectBackward0",
+      "count": 379,
+      "self_cpu_us": 712.0999999993219,
+      "device_us": 0
+    },
+    {
+      "name": "SelectBackward0",
+      "count": 379,
+      "self_cpu_us": 344.4000000002634,
+      "device_us": 0
+    },
+    {
+      "name": "aten::select_backward",
+      "count": 379,
+      "self_cpu_us": 1082.1999999997424,
+      "device_us": 0
+    },
+    {
+      "name": "aten::zeros",
+      "count": 485,
+      "self_cpu_us": 1178.2000000001572,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: struct torch::autograd::CppNode<class quantlibtorch::packed::MultiRollbackAdjoint>",
+      "count": 1,
+      "self_cpu_us": 13.300000000017462,
+      "device_us": 0
+    },
+    {
+      "name": "struct torch::autograd::CppNode<class quantlibtorch::packed::MultiRollbackAdjoint>",
+      "count": 1,
+      "self_cpu_us": 4.099999999976717,
+      "device_us": 0
+    },
+    {
+      "name": "qlt::multi_asset_checkpoint_adjoint",
+      "count": 1,
+      "self_cpu_us": 10500.800000000221,
+      "device_us": 0
+    },
+    {
+      "name": "aten::detach",
+      "count": 20,
+      "self_cpu_us": 13.600000000056752,
+      "device_us": 0
+    },
+    {
+      "name": "detach",
+      "count": 20,
+      "self_cpu_us": 13.099999999983993,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: IndexSelectBackward0",
+      "count": 156,
+      "self_cpu_us": 322.9000000003143,
+      "device_us": 0
+    },
+    {
+      "name": "IndexSelectBackward0",
+      "count": 156,
+      "self_cpu_us": 185.29999999986467,
+      "device_us": 0
+    },
+    {
+      "name": "aten::index_select_backward",
+      "count": 156,
+      "self_cpu_us": 386.2000000002736,
+      "device_us": 0
+    },
+    {
+      "name": "aten::new_zeros",
+      "count": 156,
+      "self_cpu_us": 416.2000000000917,
+      "device_us": 0
+    },
+    {
+      "name": "aten::new_empty",
+      "count": 156,
+      "self_cpu_us": 99.70000000004075,
+      "device_us": 0
+    },
+    {
+      "name": "aten::index_add_",
+      "count": 156,
+      "self_cpu_us": 2615.100000000137,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: struct torch::autograd::CppNode<class quantlibtorch::packed::MultiSolveAdjoint>",
+      "count": 52,
+      "self_cpu_us": 284.3999999999796,
+      "device_us": 0
+    },
+    {
+      "name": "struct torch::autograd::CppNode<class quantlibtorch::packed::MultiSolveAdjoint>",
+      "count": 52,
+      "self_cpu_us": 2188.100000000224,
+      "device_us": 0
+    },
+    {
+      "name": "aten::neg",
+      "count": 234,
+      "self_cpu_us": 617.3999999996449,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: SliceBackward0",
+      "count": 106,
+      "self_cpu_us": 157.5999999998603,
+      "device_us": 0
+    },
+    {
+      "name": "SliceBackward0",
+      "count": 106,
+      "self_cpu_us": 132.20000000025902,
+      "device_us": 0
+    },
+    {
+      "name": "aten::slice_backward",
+      "count": 106,
+      "self_cpu_us": 308.69999999994616,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: AddBackward1",
+      "count": 52,
+      "self_cpu_us": 65.80000000010477,
+      "device_us": 0
+    },
+    {
+      "name": "AddBackward1",
+      "count": 52,
+      "self_cpu_us": 17.699999999917054,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: MulBackward1",
+      "count": 221,
+      "self_cpu_us": 340.9999999999418,
+      "device_us": 0
+    },
+    {
+      "name": "MulBackward1",
+      "count": 221,
+      "self_cpu_us": 190.5000000000291,
+      "device_us": 0
+    },
+    {
+      "name": "aten::scatter_add_",
+      "count": 52,
+      "self_cpu_us": 400.89999999982683,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: struct torch::autograd::CppNode<class quantlibtorch::packed::MultiStencilAdjoint>",
+      "count": 130,
+      "self_cpu_us": 759.7999999998428,
+      "device_us": 0
+    },
+    {
+      "name": "struct torch::autograd::CppNode<class quantlibtorch::packed::MultiStencilAdjoint>",
+      "count": 130,
+      "self_cpu_us": 4249.599999999969,
+      "device_us": 0
+    },
+    {
+      "name": "aten::index_add",
+      "count": 546,
+      "self_cpu_us": 12798.600000000435,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: torch::autograd::AccumulateGrad",
+      "count": 18,
+      "self_cpu_us": 14.000000000101863,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: UnsafeViewBackward0",
+      "count": 1,
+      "self_cpu_us": 3.2999999999883585,
+      "device_us": 0
+    },
+    {
+      "name": "UnsafeViewBackward0",
+      "count": 1,
+      "self_cpu_us": 1.400000000023283,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: BmmBackward0",
+      "count": 1,
+      "self_cpu_us": 3.8999999999941792,
+      "device_us": 0
+    },
+    {
+      "name": "BmmBackward0",
+      "count": 1,
+      "self_cpu_us": 5.600000000005821,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: ReshapeAliasBackward0",
+      "count": 2,
+      "self_cpu_us": 3.499999999970896,
+      "device_us": 0
+    },
+    {
+      "name": "ReshapeAliasBackward0",
+      "count": 2,
+      "self_cpu_us": 1.7000000000116415,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: ExpandBackward0",
+      "count": 3,
+      "self_cpu_us": 4.5,
+      "device_us": 0
+    },
+    {
+      "name": "ExpandBackward0",
+      "count": 3,
+      "self_cpu_us": 2.7000000000116415,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: TransposeBackward0",
+      "count": 1,
+      "self_cpu_us": 5.7000000000116415,
+      "device_us": 0
+    },
+    {
+      "name": "TransposeBackward0",
+      "count": 1,
+      "self_cpu_us": 0.8999999999650754,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: CatBackward0",
+      "count": 2,
+      "self_cpu_us": 4.5,
+      "device_us": 0
+    },
+    {
+      "name": "CatBackward0",
+      "count": 2,
+      "self_cpu_us": 4.899999999965075,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: TanhBackward0",
+      "count": 4,
+      "self_cpu_us": 8.000000000058208,
+      "device_us": 0
+    },
+    {
+      "name": "TanhBackward0",
+      "count": 4,
+      "self_cpu_us": 9.199999999982538,
+      "device_us": 0
+    },
+    {
+      "name": "aten::tanh_backward",
+      "count": 4,
+      "self_cpu_us": 39.69999999998254,
+      "device_us": 0
+    },
+    {
+      "name": "torch::autograd::AccumulateGrad",
+      "count": 6,
+      "self_cpu_us": 9.19999999992433,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: AddmmBackward0",
+      "count": 2,
+      "self_cpu_us": 20.39999999999418,
+      "device_us": 0
+    },
+    {
+      "name": "AddmmBackward0",
+      "count": 2,
+      "self_cpu_us": 10.999999999970896,
+      "device_us": 0
+    },
+    {
+      "name": "aten::mm",
+      "count": 4,
+      "self_cpu_us": 84.89999999999418,
+      "device_us": 0
+    },
+    {
+      "name": "autograd::engine::evaluate_function: TBackward0",
+      "count": 2,
+      "self_cpu_us": 2.900000000023283,
+      "device_us": 0
+    },
+    {
+      "name": "TBackward0",
+      "count": 2,
+      "self_cpu_us": 1.4999999999417923,
+      "device_us": 0
+    }
+  ],
+  "transfers": [],
+  "trace_file": "docs/benchmarks/multi_asset_phase24_workloads/profile_8x16_21x9_12_multi_cpu_1_adjoint_k4.trace.json.gz",
+  "cuda_trace_available": false,
+  "host_final": {
+    "rss_bytes": 975421440,
+    "peak_rss_bytes": 988266496,
+    "private_bytes": 1237729280
+  },
+  "host_peak_growth_bytes": 465178624,
+  "trace_preservation": {
+    "compression": "gzip",
+    "uncompressed_sha256": "0b93938d9229d94ff5809436d3adce2a2eaba064f7fd137f9a1d5a58d341f7b5",
+    "compressed_sha256": "4870ac734212b8926032dfe29d87c6d161f2c035715030a7df30379a36c4136d"
+  }
+}

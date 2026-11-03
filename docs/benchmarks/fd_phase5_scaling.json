@@ -1,0 +1,770 @@
+{
+  "command": [
+    "scripts/benchmark_fd_optimizations.py",
+    "--levels",
+    "baseline,final",
+    "--variants",
+    "optimized",
+    "--kernels",
+    "vectorized",
+    "--grids",
+    "60x121",
+    "--surfaces",
+    "surface",
+    "--modes",
+    "adjoint",
+    "--tasks",
+    "timing",
+    "--warmup",
+    "3",
+    "--repeats",
+    "5",
+    "--output",
+    "docs/benchmarks/fd_phase5_scaling.json"
+  ],
+  "levels": {
+    "baseline": {
+      "measured_at_utc": "2026-11-01T05:38:49.338349+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 0,
+        "QLT_PACKED_ARRAYS": 0,
+        "QLT_LAZY_ARRAYS": 0,
+        "QLT_VECTOR_SAMPLING": 0,
+        "QLT_ARRAY_KERNELS": 0,
+        "QLT_PRICE_ONLY": 0
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    },
+    "final": {
+      "measured_at_utc": "2026-11-01T05:39:59.515882+00:00",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cu126",
+        "os": "Windows-11-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "torch_threads": 1,
+        "torch_interop_threads": 1,
+        "dtype": "float64",
+        "device": "cpu"
+      },
+      "optimization_flags": {
+        "QLT_NATIVE_ADJOINT": 1,
+        "QLT_PACKED_ARRAYS": 1,
+        "QLT_LAZY_ARRAYS": 1,
+        "QLT_VECTOR_SAMPLING": 1,
+        "QLT_ARRAY_KERNELS": 1,
+        "QLT_PRICE_ONLY": 1
+      },
+      "quantlib_source_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "variants": {
+        "eager": {
+          "passive_constants": 0,
+          "sample_cache": 0
+        },
+        "constants": {
+          "passive_constants": 1,
+          "sample_cache": 0
+        },
+        "cache": {
+          "passive_constants": 0,
+          "sample_cache": 1
+        },
+        "optimized": {
+          "passive_constants": 1,
+          "sample_cache": 1
+        }
+      },
+      "notes": [
+        "Fresh subprocess for every case/task; process startup and imports excluded from timing.",
+        "Timing samples exclude warmup. Memory, graph census and profiler are separate processes.",
+        "Memory is a cold first price after import; OS peak working set includes interpreter, LibTorch, allocator retention and all native allocations.",
+        "Peak growth subtracts the pre-price process high water; it is not graph memory or unique tensor storage.",
+        "Graph census counts reachable autograd nodes; saved bytes count repeated forward saves, including unused engine Greeks.",
+        "Profiler scopes are nested; do not add inclusive durations. Profiler timings include instrumentation overhead.",
+        "Stock construction plus forward uses LocalConstantVol in an isolated QuantLib process; no stock gradient timing.",
+        "Surface workload is a deterministic 3x5 nonuniform field; stock oracle only covers constant workload.",
+        "Neural workload includes a deterministic 2-4-1 tanh network, bounded sigmoid volatility, squared NPV loss, and all 17 parameter VJPs in timed work."
+      ],
+      "validation": {
+        "comparisons": 0,
+        "max_price_difference": 0.0,
+        "max_gradient_difference": 0.0
+      }
+    }
+  },
+  "results": [
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "timing",
+        "repeats": 5,
+        "warmup": 3,
+        "single_thread_backward": false,
+        "optimization_level": "baseline"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "warmup": [
+        {
+          "forward_seconds": 0.5190782998688519,
+          "backward_seconds": 4.137542000040412,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.13162360014393926,
+          "total_seconds": 4.788243900053203
+        },
+        {
+          "forward_seconds": 2.9717369999270886,
+          "backward_seconds": 5.342577700037509,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.1334483998361975,
+          "total_seconds": 8.447763099800795
+        },
+        {
+          "forward_seconds": 2.987874000100419,
+          "backward_seconds": 5.34800019999966,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.1374276999849826,
+          "total_seconds": 8.473301900085062
+        }
+      ],
+      "samples": [
+        {
+          "forward_seconds": 2.958448600023985,
+          "backward_seconds": 5.2892291999887675,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.12389330007135868,
+          "total_seconds": 8.371571100084111
+        },
+        {
+          "forward_seconds": 2.990749399876222,
+          "backward_seconds": 5.240589800057933,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.13796509988605976,
+          "total_seconds": 8.369304299820215
+        },
+        {
+          "forward_seconds": 2.964261000044644,
+          "backward_seconds": 5.4248093999922276,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.13774200016632676,
+          "total_seconds": 8.526812400203198
+        },
+        {
+          "forward_seconds": 2.981434900080785,
+          "backward_seconds": 5.313558100024238,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.13597790012136102,
+          "total_seconds": 8.430970900226384
+        },
+        {
+          "forward_seconds": 2.9472870000172406,
+          "backward_seconds": 5.483851399971172,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264954e-06,
+              0.5779531678934392,
+              6.294429157408185,
+              0.5878118586304286,
+              2.5821918560124802e-05
+            ],
+            [
+              0.00016702151095348533,
+              2.179733303888903,
+              15.085918449485368,
+              2.2277912667664737,
+              0.000675386902697048
+            ],
+            [
+              3.497104924710454e-05,
+              0.9952459514539368,
+              9.574936945121317,
+              1.0244958420127193,
+              0.0002060402422179683
+            ]
+          ],
+          "cleanup_seconds": 0.13792130001820624,
+          "total_seconds": 8.569059700006619
+        }
+      ],
+      "median": {
+        "forward_seconds": 2.964261000044644,
+        "backward_seconds": 5.313558100024238,
+        "cleanup_seconds": 0.13774200016632676,
+        "total_seconds": 8.430970900226384
+      },
+      "price": 9.514401686543584,
+      "gradient": [
+        [
+          8.495429209264954e-06,
+          0.5779531678934392,
+          6.294429157408185,
+          0.5878118586304286,
+          2.5821918560124802e-05
+        ],
+        [
+          0.00016702151095348533,
+          2.179733303888903,
+          15.085918449485368,
+          2.2277912667664737,
+          0.000675386902697048
+        ],
+        [
+          3.497104924710454e-05,
+          0.9952459514539368,
+          9.574936945121317,
+          1.0244958420127193,
+          0.0002060402422179683
+        ]
+      ]
+    },
+    {
+      "case": {
+        "steps": 60,
+        "nodes": 121,
+        "surface": "surface",
+        "variant": "optimized",
+        "kernels": "vectorized",
+        "contract": "european",
+        "mode": "adjoint",
+        "task": "timing",
+        "repeats": 5,
+        "warmup": 3,
+        "single_thread_backward": false,
+        "optimization_level": "final"
+      },
+      "performance_config": [
+        true,
+        true
+      ],
+      "gradient_target": "local volatility, NPV",
+      "warmup": [
+        {
+          "forward_seconds": 0.04565720004029572,
+          "backward_seconds": 0.5103553999215364,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.0010577000211924314,
+          "total_seconds": 0.5570702999830246
+        },
+        {
+          "forward_seconds": 0.04185140016488731,
+          "backward_seconds": 0.0333638999145478,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.0010506000835448503,
+          "total_seconds": 0.07626590016297996
+        },
+        {
+          "forward_seconds": 0.04692230001091957,
+          "backward_seconds": 0.033153500175103545,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.0011297999881207943,
+          "total_seconds": 0.08120560017414391
+        }
+      ],
+      "samples": [
+        {
+          "forward_seconds": 0.0442153001204133,
+          "backward_seconds": 0.03403569990769029,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.0011567999608814716,
+          "total_seconds": 0.07940779998898506
+        },
+        {
+          "forward_seconds": 0.04554099985398352,
+          "backward_seconds": 0.03416729997843504,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.001046299934387207,
+          "total_seconds": 0.08075459976680577
+        },
+        {
+          "forward_seconds": 0.048619400011375546,
+          "backward_seconds": 0.03488470008596778,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.001070499885827303,
+          "total_seconds": 0.08457459998317063
+        },
+        {
+          "forward_seconds": 0.048399899853393435,
+          "backward_seconds": 0.035503300139680505,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.0010857998859137297,
+          "total_seconds": 0.08498899987898767
+        },
+        {
+          "forward_seconds": 0.047772099962458014,
+          "backward_seconds": 0.036584399873390794,
+          "price": 9.514401686543584,
+          "loss": 9.514401686543584,
+          "gradient": [
+            [
+              8.495429209264949e-06,
+              0.577953167893439,
+              6.294429157408193,
+              0.5878118586304284,
+              2.5821918560124785e-05
+            ],
+            [
+              0.00016702151095348552,
+              2.1797333038889084,
+              15.085918449485364,
+              2.227791266766464,
+              0.0006753869026970475
+            ],
+            [
+              3.497104924710459e-05,
+              0.9952459514539357,
+              9.57493694512131,
+              1.0244958420127193,
+              0.0002060402422179686
+            ]
+          ],
+          "cleanup_seconds": 0.0012425999157130718,
+          "total_seconds": 0.08559909975156188
+        }
+      ],
+      "median": {
+        "forward_seconds": 0.047772099962458014,
+        "backward_seconds": 0.03488470008596778,
+        "cleanup_seconds": 0.0010857998859137297,
+        "total_seconds": 0.08457459998317063
+      },
+      "price": 9.514401686543584,
+      "gradient": [
+        [
+          8.495429209264949e-06,
+          0.577953167893439,
+          6.294429157408193,
+          0.5878118586304284,
+          2.5821918560124785e-05
+        ],
+        [
+          0.00016702151095348552,
+          2.1797333038889084,
+          15.085918449485364,
+          2.227791266766464,
+          0.0006753869026970475
+        ],
+        [
+          3.497104924710459e-05,
+          0.9952459514539357,
+          9.57493694512131,
+          1.0244958420127193,
+          0.0002060402422179686
+        ]
+      ]
+    }
+  ],
+  "stock": [],
+  "native_source_sha256": {
+    "CMakeLists.txt": "bc82c3fe9a4f02d5ce5af8a8a1ab77d561583895f8bb2052a7ce0a9c13135f23",
+    "scripts/prepare_quantlib.py": "afec0256de7f9fa82c6ddfe68e57453eaeef081a2c50c32298a7da27d0209de3",
+    "cpp/adjoint.cpp": "2ca5a606f88580ead816b9bc65dd2930d18c49b331b647b740f0b56d9a569b83",
+    "cpp/bridge.cpp": "106eaf2cc2657f53bd33cef2bcca2bebd14c2b566a050d6d5f8d68a4b66f1577",
+    "cpp/fd_bridge.cpp": "93c711ea7c18a6b241fcc79281c3d2d4c1766d0160dba7b8c64bb8dfe32ae38f",
+    "cpp/kernel_checks.cpp": "aad7e0b15c4deac4dd102199f80c5195e2bb7491ca4a191866d0f8ae80f42215",
+    "cpp/scalar_checks.cpp": "37f3b9fb34ee67988ee133676feb358da1f76f4345a4a890cd7afc137ec9a739",
+    "cpp/tensor_kernels.cpp": "66d226dc1f82e0cb74aa52ade80fc634f9fc75670de0963fcd3f88a2295a1192",
+    "cpp/include/quantlibtorch/adjoint.hpp": "d5b77b95400439c9eec7f3d6fbedb0f94e1f67aa381750b602e41dd63db1dcd0",
+    "cpp/include/quantlibtorch/array_kernels.hpp": "70afa243b296e43746ab74c203efe9bee7651d6f005a0f1547dbfff322114def",
+    "cpp/include/quantlibtorch/local_vol.hpp": "ce113723526aa2a90f4dc6814581c0502e3e9fd62905dfa040c5fc485a66ed8c",
+    "cpp/include/quantlibtorch/performance.hpp": "c28a30110cf7902c9a57ef22a244d82114d74b0dc4f9f716b8b4eae03980d32b",
+    "cpp/include/quantlibtorch/pricing_output.hpp": "6884ad6f276c3ed21ce308b391cfe39f7ea60816ce530f8a22ea95022576dfdb",
+    "cpp/include/quantlibtorch/tensor_kernels.hpp": "2dc3d0990ac254d5af92ff2438a4af3400acea30db39f255085514363620b6b1",
+    "cpp/include/quantlibtorch/torch_real.hpp": "d5583a9b1066c04876c1a34e7bd6fbb4302c65c373e43d2e1ddc8ce0704568a7"
+  },
+  "validation": {
+    "comparisons": 2,
+    "max_price_difference": 0.0,
+    "max_gradient_difference": 9.769962616701378e-15
+  }
+}

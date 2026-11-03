@@ -1,0 +1,83 @@
+{
+  "baseline_commit": "092abf1842162b8a4ad62c64b516536edddb0e49",
+  "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+  "quantlib_checkout_clean": true,
+  "native_build_command": ".venv/Scripts/python.exe scripts/build.py --jobs 2",
+  "native_build_exit_code": 0,
+  "native_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "library_sha256": "a025042a65f5954b39151c5d5224d559b6c780ca999efc2d6315a6b6f7de4b0e",
+    "native_source_sha256": "b7e38e31c15dde7c92f36bed389a88c2b0acf3e67258ffa22e02abf357ef0a11"
+  },
+  "native_source_fingerprint_verified": true,
+  "regression_command": ".venv/Scripts/python.exe -m pytest -q --junitxml=build/phase26_pytest.xml",
+  "regression_exit_code": 0,
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "1",
+    "tests": "2225",
+    "time": "689.550",
+    "timestamp": "2026-11-02T08:00:08.558637-05:00",
+    "hostname": "jayfx2222"
+  },
+  "passed": 2224,
+  "skipped": 1,
+  "new_tests": 135,
+  "sha256": {
+    "build/phase26_pytest.xml": "7c0baa24dc69b1730beaaaddfdbdc7ae2b677e8f168b372ba9c6929b4c948bab",
+    "build/phase26_pytest.log": "e64bdf3958fbbf1606666fb630bb1753a52e54d349b9b738d7d3fcb2c8e9715c",
+    "build/final_phase26_build.log": "589057c48ec4b947caf92be780bfafbccd2e7aff3eee6c683c6274944c8a0bfc",
+    "build/native/quantlib-overlay/heston-process-compatibility.patch": "97aa9f5cec67116ab38719a5e4632730ed003528f9e384243f745a77cb06d500",
+    "build/native/quantlib-overlay/engine-mesh-hooks.patch": "4b474a1c0eb4afbf27985d30eabaf96a1a990a2a3f32f9746572df0913761374",
+    "tests/test_heston.py": "ae030935f01da2b839c65e6e2bda3b97c4e766785ec0f9b2bd52964da13f7b9b",
+    "tests/test_heston_api.py": "dcccca9d8a0b0d0a18ecc580e83e3467ba7e0b5b56a6ddbb48904c942e8e868a",
+    "tests/test_shout.py": "23503ef92fee37c59c6027bb85ac4c4fc55649950a9d4f0c9dc6b1254197dbfb",
+    "tests/test_financial_inputs.py": "f2b90542a919daf5072d077a9da71e1c81f522a6df3569437c64ff2da4199f7b",
+    "tests/test_conventions.py": "31c920ef30a3a1e18172220d343ecc844ca81768db6c4da181bfd924cd685fa9",
+    "tests/stock_heston_reference.py": "88713e12f8d6188a24fd30bbd1f7e96dedccfaca99a1e0ea672503597eb9254f",
+    "tests/stock_shout_reference.py": "0a8fee6dfa1bc9e25653d86ae8bf1b39de272e1b839298b364a68f240c8d1676",
+    "tests/stock_financial_reference.py": "cc003ac0ddbf0e91cd3a4e1b2d5061c1ea8dbc5737837af977f33ceee72ff5d9",
+    "tests/stock_conventions_reference.py": "eb9914c3468bbefb442af81ba5f55e27dd971638a9e6c7badd7a9bf4d6b73f2d"
+  },
+  "notebooks": {
+    "examples/financial_inputs.ipynb": {
+      "code_cells": 4,
+      "all_executed": true,
+      "sha256": "f926a9bb7969d95349c986db56d2d44ccb0f58305fd9b6e456868748fe50c3ca"
+    },
+    "examples/heston_pricing.ipynb": {
+      "code_cells": 6,
+      "all_executed": true,
+      "sha256": "aa997f3952893d163c66c2834f174b12ad2b1e393feac793f2bdbd28f5defdca"
+    },
+    "examples/shout_pricing.ipynb": {
+      "code_cells": 5,
+      "all_executed": true,
+      "sha256": "89e0719e8b946f6d4f0208621abed8febb9703583c72fd9a9664b7f20254af98"
+    }
+  },
+  "gates": {
+    "original_heston": "Original engine and frozen-mesh stock oracle; five model/market/curve sensitivities, E/A/B, cash, four schemes, damping, custom axes, Feller/positive-rho regimes, full higher derivatives",
+    "original_shout": "Original stock engine prices; fixed-mesh finite differences, scalar/full/adjoint VJPs, E/A/B, cash/curves, six schemes, damping and full curvature",
+    "financial_inputs": "Original stock curve/market bumps; scalar/packed/multi-asset, CPU/CUDA events, fresh graphs, full higher AD, checkpoint market VJPs and conditional requested gradients",
+    "conventions": "75 original stock date adjustments, 216 advances, leap/negative/zero year fractions; Actual360 price/VJP and PricingLayer tests",
+    "api": "Heston model parameter/buffer registration, graph freshness, immutable/passive meshes and explicit domain errors",
+    "baseline": "Entire existing test suite retained, including optimized backends, CUDA batching and neural models"
+  },
+  "boundaries": [
+    "Explicit fixed geometry; no automatic mesher derivatives",
+    "Heston/shout scalar engines CPU float64 only",
+    "Heston adjoint damping unsupported; full damping tested",
+    "Equation adjoints first order; higher reverse derivatives require full mode",
+    "Stock Python lacks shout fixed-mesh calculator; rebuilt-mesh bumps are distinct",
+    "Heston MC/density methods explicitly fail in separate compatibility overlay",
+    "No new speedup, portable Linux wheel or whole-library coverage claim"
+  ],
+  "implementation_commit": "c80448a817ae1bb92ef138e73c758be744c40706"
+}

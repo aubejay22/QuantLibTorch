@@ -1,0 +1,72 @@
+{
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cu126",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "torch_threads": 1,
+    "device": "cpu"
+  },
+  "problem": {
+    "steps": 20,
+    "nodes": 31,
+    "repeats": 7,
+    "dtype": "float64",
+    "scheme": "backward Euler"
+  },
+  "notes": "Saved bytes count repeated saves; not peak memory or unique storage. No GPU measurement.",
+  "results": {
+    "full": {
+      "forward_seconds_median": 0.02183119999244809,
+      "backward_seconds_median": 0.04275579983368516,
+      "forward_seconds_samples": [
+        0.019590500043705106,
+        0.021122600184753537,
+        0.021271900041028857,
+        0.022482099942862988,
+        0.02183119999244809,
+        0.022283799946308136,
+        0.02202740008942783
+      ],
+      "backward_seconds_samples": [
+        0.03913909988477826,
+        0.04275579983368516,
+        0.040827699936926365,
+        0.043921499978750944,
+        0.04317610012367368,
+        0.04355540010146797,
+        0.04242879990488291
+      ],
+      "price": 8.549035358754084,
+      "parallel_vol_shift_derivative": 39.70723284769058,
+      "saved_tensor_count": 6821,
+      "saved_tensor_bytes_with_repeated_saves": 88000
+    },
+    "adjoint": {
+      "forward_seconds_median": 0.06959760002791882,
+      "backward_seconds_median": 0.08484359993599355,
+      "forward_seconds_samples": [
+        0.014837600057944655,
+        0.013633000198751688,
+        0.01385490014217794,
+        0.08448979980312288,
+        0.08444280014373362,
+        0.08408539998345077,
+        0.06959760002791882
+      ],
+      "backward_seconds_samples": [
+        0.014875699998810887,
+        0.015432599931955338,
+        0.0185485000256449,
+        0.09375310014002025,
+        0.08484359993599355,
+        0.094783800188452,
+        0.0854362000245601
+      ],
+      "price": 8.549035358754084,
+      "parallel_vol_shift_derivative": 39.70723284769058,
+      "saved_tensor_count": 141,
+      "saved_tensor_bytes_with_repeated_saves": 29760
+    }
+  }
+}
