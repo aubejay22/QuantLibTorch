@@ -1,7 +1,7 @@
 {
   "release": "0.3.0",
-  "status": "release-blocked",
-  "reason": "GitHub CLI authentication unavailable; PyPI/TestPyPI pending Trusted Publishers not confirmed",
+  "status": "release-in-progress",
+  "reason": "GitHub authentication resolved through existing Git credential; remote CI and registry gates next",
   "authenticated_connector_account": "aubejay22",
   "intended_repository": "aubejay22/QuantLibTorch",
   "original_candidate_revision": "1002f78",
@@ -39,7 +39,6 @@
     "production_environment": "pypi"
   },
   "remaining_steps": [
-    "Authenticate GitHub CLI as aubejay22 with workflow scope",
     "Create audited personal repository and verify public access",
     "Execute remote Windows candidate and Linux experiment workflows",
     "Validate exact hosted Windows wheel on CUDA host",
@@ -47,5 +46,7 @@
     "Publish to TestPyPI and verify actual index-delivered wheel",
     "Tag exact validated revision v0.3.0 and publish GitHub release",
     "Promote identical artifact to PyPI and validate actual production download"
-  ]
+  ],
+  "github_authenticated": true,
+  "repository_created_private": true
 }

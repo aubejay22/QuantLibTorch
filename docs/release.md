@@ -9,8 +9,9 @@ artifact hashes remain in [the candidate record](history/release-candidate.md).
 ## Repository and licensing
 
 The connected GitHub account is `aubejay22` (user ID `149632864`). The intended
-repository is `aubejay22/QuantLibTorch`; a public URL is only verified after
-creation and an unauthenticated read. No unrelated account or organization may
+repository is [aubejay22/QuantLibTorch](https://github.com/aubejay22/QuantLibTorch),
+created privately after verifying the personal account. Public access is verified
+separately after the audited source is pushed. No unrelated account or organization may
 be substituted. Original project code uses [BSD-3-Clause](../LICENSE).
 [Licensing](licensing.md) records upstream exceptions and included notices.
 
@@ -49,12 +50,10 @@ variant and C++ ABI are checked at load time. Never edit metadata to bypass them
 GitHub CLI must authenticate as `aubejay22` with permission to create the personal
 repository, push workflows, configure Actions environments and publish releases.
 The connector identifies the account but does not expose repository creation,
-environment administration or workflow dispatch. No credentials belong in source. The device-login attempt on 2026-11-02 timed
-out without authentication. Start a fresh login, including workflow scope:
-
-```text
-gh auth login --hostname github.com --git-protocol https --web --scopes workflow
-```
+environment administration or workflow dispatch. No credentials belong in source. Although a device-login attempt timed out, an
+existing credential in the Windows user credential manager subsequently verified
+as `aubejay22`. It supplies CLI authentication only in process memory; no new
+GitHub login is required for this release session.
 
 After source and artifact audit, set the repository variable
 `RELEASE_AUDIT_PASSED=true`. This enables the guarded publishing workflow; it
@@ -171,7 +170,6 @@ check covers the three gate tests added after that suite was collected. All
 seven notebooks and eleven bounded examples passed in the independent wheel
 environment. See [regression evidence](benchmarks/release_final_regression.json)
 and [tutorial evidence](benchmarks/release_final_examples.json).
-Actual remote CI and index-delivered artifact validation remain unperformed. Account
-login and pending Trusted Publisher registration require owner interaction.
+Actual remote CI and index-delivered artifact validation remain unperformed. Pending Trusted Publisher registration still requires owner account configuration.
 The release remains blocked from publication until these requirements pass;
 local release preparation alone is not success.

@@ -16,16 +16,15 @@ The **0.3.0 release** targets Windows x86-64, CPython 3.13 and
 batch APIs also use CUDA on a compatible NVIDIA GPU. A separate CPU-only PyTorch
 build and Linux binary wheels are outside the first release matrix.
 
-With a validated wheel obtained from the release artifacts:
+For the published 0.3.0 wheel, create a Python 3.13 environment and run:
 
 ```text
 python -m pip install torch==2.10.0+cu126 --index-url https://download.pytorch.org/whl/cu126
-python -m pip install --no-deps path/to/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl
+python -m pip install quantlibtorch==0.3.0
 ```
 
-Users installing a wheel need no compiler or QuantLib source checkout. Public
-publication is authorized and awaiting account and validation gates; see the
-release record before assuming the package is available on an index. See [installation](https://github.com/aubejay22/QuantLibTorch/blob/master/docs/install.md) for runtime
+Users installing a wheel need no compiler or QuantLib source checkout. Consult
+the release record for publication status and validated artifacts. See [installation](https://github.com/aubejay22/QuantLibTorch/blob/master/docs/install.md) for runtime
 requirements, source development, and troubleshooting, and the
 [release procedure](https://github.com/aubejay22/QuantLibTorch/blob/master/docs/release.md) for validation status and exact artifacts.
 

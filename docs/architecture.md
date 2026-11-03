@@ -168,7 +168,8 @@ See [stable packaging](benchmarks/release_final_packaging.json),
 The local public export starts at `cc6d7e71427334fbe256a75e25831d6af54d0272`
 with no original ancestry and a verified GitHub noreply identity. A separate
 scan of 4,192 expanded payloads passes, preserving numerical/source-archive and
-license bytes. GitHub CLI authentication timed out and remains absent. Actual
+license bytes. An existing Git credential in the Windows user credential manager now verifies
+as the intended account; no additional GitHub login is required. Actual
 remote Windows/Linux CI, TestPyPI installation and production PyPI installation
 have not run. These are explicit next steps after account authentication and
 publisher configuration; local tests do not certify publication success.

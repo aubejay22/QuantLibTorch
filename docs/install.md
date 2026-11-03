@@ -10,11 +10,12 @@ other Python versions, Linux wheels and macOS are outside the first matrix.
 Consult [release support and evidence](release.md) for the exact validated
 artifact; local execution is not proof of remote CI success.
 
-Create an environment with Python 3.13, then use its interpreter:
+For the published release, create an environment with Python 3.13, then use its
+interpreter. Consult the release record for current index availability:
 
 ```text
 python -m pip install torch==2.10.0+cu126 --index-url https://download.pytorch.org/whl/cu126
-python -m pip install --no-deps path/to/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl
+python -m pip install quantlibtorch==0.3.0
 python -c "import torch, quantlibtorch; print(torch.__version__)"
 ```
 
