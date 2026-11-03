@@ -1,6 +1,6 @@
 # QuantLibTorch — current project context
 
-## Current mission: finish the authorized public release
+## Current state: published and validated 0.3.0
 
 Prepare a maintainable, documented Python package with executable examples and
 validated binary wheels. Preserve existing numerical functionality. New pricing
@@ -8,14 +8,13 @@ engines, unrelated numerical research and architecture pivots are outside this
 mission. The pre-cleanup checkpoint is `6770549`, based on validated Phase 26
 evidence checkpoint `b128a95` and implementation `c80448a`.
 
-The stable release target is **0.3.0**, based on preserved candidate checkpoint
+The published stable release is **0.3.0**, based on preserved candidate checkpoint
 `1002f78` (**0.3.0rc1**). The public repository is
 https://github.com/aubejay22/QuantLibTorch. Its tested release revision is
 `291a09ebe024a47bf4d917f0f57fbbddf7bde5ba`, with successful hosted candidate
-run `41574726134`. Keep public master at this revision until the TestPyPI stage
-finishes; the promotion workflow requires that exact revision. The separate
-public checkout is `build/public-release`; never push the original local history.
-Final evidence documentation is staged on `docs/release-0.3-evidence` instead. The initial target is Windows
+run `41574726134`. The immutable release tag is `v0.3.0`. The separate public
+checkout is `build/public-release`; never push the original local history.
+Final publication evidence is recorded in `docs/release.md`. The supported platform is Windows
 x86-64, CPython 3.13, PyTorch 2.10.0+cu126, with CPU and supported CUDA execution.
 Consult [release support and validation](docs/release.md) before making any
 compatibility claim. Linux development/CI preparation is not a validated Linux
@@ -69,12 +68,18 @@ The hidden Conda JSON header dependency discovered by actual CI is now explicitl
 pinned, checksum-verified, and covered by seven retained license/notice files.
 The earlier local `396250...` wheel is superseded and must not be published.
 
-The owner confirmed that pending Trusted Publishers cannot be registered now.
-No TestPyPI/PyPI upload, GitHub release or `v0.3.0` tag has been created. Account
-registration is the external blocker, not general release authorization. Once
-configured, perform actual TestPyPI download/install checks, tag the tested
-public revision, publish GitHub and PyPI, then validate a production-index
-installation. The complete goal remains unfinished until those gates pass.
+The owner manually verified both saved Trusted Publisher registrations against
+`aubejay22/QuantLibTorch`, workflow `release.yml`, environments `testpypi` and
+`pypi`. Both OIDC uploads succeeded. TestPyPI run `41695264905` and independent
+index-installed CPU/CUDA checks passed before the tag was created. The public
+GitHub `v0.3.0` release and production PyPI 0.3.0 wheel now exist with the exact
+validated hash. Production run `41696532378` and independent production-index
+CPU/CUDA installation checks passed. The installed README example returns price
+8.827321225352126, delta 0.573495979027775 and vega 38.71517541592269. Both index
+installations used fresh environments outside the source checkout; direct pip
+delivery, native import, representative financial behavior and gradients passed.
+See `docs/release.md` and its linked evidence for public URLs and all measured
+compatibility limits. The release source/tag must remain unchanged.
 
 Linux CPU build/tests/installation passed on isolated branch `ci/linux-compat`
 (commit `f565a2f64d1ecd010cf4b0a8d6babdf8dd290da7`); it is unmerged and not a

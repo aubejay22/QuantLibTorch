@@ -109,9 +109,12 @@ six-contract event workload favored CPU. These historical measured settings
 and raw reports are in the archive; they are not release-wide speed claims.
 Calibration error does not certify PDE discretization accuracy.
 
-### Release candidate regression
+### Historical candidate regression (superseded)
 
-The rebuilt Windows CPython 3.13 / PyTorch 2.10.0+cu126 candidate passes
+These measurements describe the earlier local candidate. The stable artifact
+and completed publication evidence in the next section supersede its wheel.
+
+The rebuilt Windows CPython 3.13 / PyTorch 2.10.0+cu126 candidate passed
 **2,229 tests, with one intentional skip and 23 warnings in 703.48 seconds**.
 The skip is the existing CPU Thomas strict-dominance exception; warnings concern
 existing PyTorch tracing/profiling APIs. CUDA was available on the RTX 4060
@@ -120,21 +123,22 @@ Laptop GPU. All 2,224 prior tests remain, with five additional packaging cases.
 the native library and test-log hashes. Native changes only add compiled build
 provenance and distribution configuration; numerical algorithms are unchanged.
 
-The final wheel passes CPU/CUDA financial pricing and backward smoke checks in
-an external venv with system packages disabled. All seven notebooks and eleven
-bounded script configurations also pass in that environment without MKL/OMP
+That candidate wheel passed CPU/CUDA financial pricing and backward smoke checks
+in an external venv with system packages disabled. All seven notebooks and eleven
+bounded script configurations also passed in that environment without MKL/OMP
 overrides. The inverse-volatility tutorial recovers the synthetic constant
 volatility 0.24 and fits its two-parameter local-volatility example; the neural
 example propagates gradients to drift and diffusion network outputs. These are
 teaching experiments, not uniqueness or real-world dynamics claims. See
 [example evidence](benchmarks/release_examples.json) and
 [wheel evidence](benchmarks/release_packaging.json). Repeated packaging of the
-same native binary is byte-identical; cross-host native bit reproducibility and
-remote CI remain unverified.
+same native binary was byte-identical. At that stage, cross-host native bit
+reproducibility and remote CI had not been verified.
 
 The owner has authorized BSD-3-Clause, public GitHub, TestPyPI and production
 PyPI publication. Remote authentication, publisher configuration and actual
-index-artifact validation remain release gates. Linux binary portability and extra
+index-artifact validation were still pending at that stage; their completed
+results follow below. Linux binary portability and extra
 Python/PyTorch variants are outside the first release claim. Further numerical
 engines are not part of this release preparation.
 
@@ -188,14 +192,20 @@ revision. The raw Linux wheel's symbol constraint is manylinux_2_34, but a
 manylinux build/repair, oldest-distribution install and Linux CUDA have not been
 validated. Linux portability therefore remains outside the initial PyPI claim.
 
-The owner has authorized TestPyPI and production uploads, but confirmed that
-Trusted Publisher account registration cannot be completed now. Publishing is
-blocked on that external requirement. The next steps are registration, actual
-TestPyPI upload/download validation, the exact `v0.3.0` tag and GitHub release,
-then production upload/download validation. No registry upload or release tag
-has been created. Public master remains at the tested revision so the guarded
-promotion workflow can consume its exact artifact; evidence docs are prepared
-separately for publication afterward.
+The owner manually verified the saved Trusted Publisher fields for both indexes.
+The values match the live GitHub owner, repository, `release.yml` workflow and
+separate `testpypi`/`pypi` environments. Both OIDC uploads succeeded. Actual
+TestPyPI delivery passed hosted Windows installation and a separate uncached
+pip download/direct-install check with CPU/CUDA pricing and gradients. Only then
+was `v0.3.0` created at the validated source revision. The public GitHub release
+and production PyPI wheel expose identical artifact hashes. Production workflow
+`41696532378` passed actual indexed-wheel installation on hosted Windows. A
+separate fresh external venv then installed directly from production PyPI and
+passed CPU/CUDA pricing, VJPs, full/adjoint checks and `pip check`. Its analytic
+example returns price 8.827321225352126, delta 0.573495979027775 and vega
+38.71517541592269. Both direct-index reports retain served URLs, exact artifact
+hashes and isolated-environment evidence. Release code and native bytes remain
+at the tested tag; final documentation changes do not alter them.
 
 See [the release record](release.md), [hosted build evidence](benchmarks/release_hosted_windows.json),
 [exact hosted GPU evidence](benchmarks/release_hosted_cuda.json),

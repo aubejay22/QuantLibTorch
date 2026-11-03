@@ -1,9 +1,12 @@
 # QuantLibTorch 0.3.0 release record
 
-**Publication is blocked on TestPyPI/PyPI Trusted Publisher registration.** The
-owner authorized the release and confirmed that account configuration cannot be
-completed during this session. No further general publication approval is needed.
-No `v0.3.0` tag, GitHub release or registry upload has been created.
+**QuantLibTorch 0.3.0 is published.** The
+[GitHub release](https://github.com/aubejay22/QuantLibTorch/releases/tag/v0.3.0),
+[production PyPI wheel](https://pypi.org/project/quantlibtorch/0.3.0/), and
+[TestPyPI rehearsal](https://test.pypi.org/project/quantlibtorch/0.3.0/) contain
+the same validated artifact. Actual TestPyPI and production PyPI installations
+pass on hosted Windows and in independent external environments on the CPU/CUDA
+host. All publication, installation, pricing and gradient gates passed.
 
 The [official public repository](https://github.com/aubejay22/QuantLibTorch) is
 owned by the verified personal account `aubejay22`. Unauthenticated reads verify
@@ -18,23 +21,23 @@ seven included notices and retained algorithm attribution.
 | --- | --- |
 | Public source revision | `291a09ebe024a47bf4d917f0f57fbbddf7bde5ba` |
 | Successful Windows candidate | [Actions run 41574726134](https://github.com/aubejay22/QuantLibTorch/actions/runs/41574726134) |
+| TestPyPI publication and installation | [Actions run 41695264905](https://github.com/aubejay22/QuantLibTorch/actions/runs/41695264905) |
+| Production publication and installation | [Actions run 41696532378](https://github.com/aubejay22/QuantLibTorch/actions/runs/41696532378) |
 | Wheel | `quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl` |
 | Bytes | 1,395,361 |
 | SHA256 | `b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded` |
 | Local preserved download | `build/hosted-candidate-41574726134/` |
 
-This wheel was downloaded from the successful GitHub Actions run. A fresh
-external environment then validated those exact bytes on the CUDA host. The
-release workflow's remote candidate verification also passes against the real
-run, revision, manifest and CUDA-validated digest. This is **not** a TestPyPI or
-production-index installation; those gates remain outstanding.
+The candidate, actual GitHub release download, TestPyPI and production PyPI
+wheel digests match. Both registries expose only this Windows wheel; no source
+distribution or Linux wheel was uploaded. The annotated `v0.3.0` tag resolves
+to the exact source revision above. Documentation commits after publication do
+not change that tag or artifact. [Publication evidence](benchmarks/release_publication.json)
+records the public URLs, asset digests, package metadata and source binding.
 
-Keep public `master` at this revision until the TestPyPI stage completes. The
-promotion workflow requires its dispatch revision to match the candidate run.
-Final evidence documentation is prepared separately on `docs/release-0.3-evidence`;
-merge it only after the staged publication sequence, updating the status first.
-The original local repository retains private history and must not be pushed.
-Use the separate public checkout at `build/public-release` for public Git work.
+Original local history remains preserved privately. Public history is maintained
+in the separate `build/public-release` checkout; never push the original local
+repository. The earlier evidence branch contains documentation only.
 
 ## Compatibility and measured validation
 
@@ -58,7 +61,7 @@ smoke checks. See [hosted Windows evidence](benchmarks/release_hosted_windows.js
 [remote promotion preflight](benchmarks/release_hosted_preflight.json), and
 [corrected local regression](benchmarks/release_json_regression.json).
 
-From the independently installed hosted wheel, the README example produces:
+From the independently installed production PyPI wheel, the README example produces:
 
 | Quantity | Result |
 | --- | --- |
@@ -77,9 +80,10 @@ CPU workloads without a GPU. Other Python/Torch variants, macOS and ARM are not
 validated. Source distributions are disabled; use the explicit source-build
 procedure in [install.md](install.md). No stock-double QuantLib library is linked.
 
-## Account setup still required
+## Trusted Publishing
 
-Register pending GitHub Trusted Publishers using the two account Publishing pages:
+The owner manually verified both saved registrations. Their values match the
+live GitHub configuration, and both registries accepted the OIDC publication:
 
 | Field | TestPyPI | Production PyPI |
 | --- | --- | --- |
@@ -97,40 +101,44 @@ default to read-only repository permissions. `RELEASE_AUDIT_PASSED=true` enables
 the audited release workflow; it does not replace artifact or registry checks.
 No permanent PyPI credentials are stored in the repository or workflow.
 
-The owner confirmed that publisher registration is unavailable for now. Standard
-Twine credential-store entries are also absent. No authentication control is
-bypassed, and no upload is attempted. Both project JSON endpoints returned 404;
-a pending publisher does not reserve a package name.
+The connected tools did not read the private account pages. The saved field
+comparison uses the values supplied by the owner, with successful OIDC exchanges
+as independent operational evidence. [Publisher verification](benchmarks/release_publisher_verification.json)
+records that distinction.
 
-## Resume publication after registration
+## Publication and installed-package evidence
 
-1. Verify `master` is still the exact candidate revision and preserve the wheel
-   digest above. Dispatch the already authorized rehearsal:
+The TestPyPI workflow reviewed the successful candidate run, source revision,
+native provenance, seven notices and CUDA-tested wheel digest before upload.
+Its Windows job downloaded the actual indexed artifact and installed it outside
+the checkout. A separate GPU-host check used uncached `pip download` and direct
+`pip install` from TestPyPI in another fresh environment, recording the served
+URL and hash. CPU/CUDA financial checks and `pip check` passed.
 
-   ```text
-   gh workflow run release.yml --repo aubejay22/QuantLibTorch --ref master -f stage=testpypi -f candidate_run_id=41574726134 -f cuda_validated_sha256=b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded
-   ```
+Only then was `v0.3.0` created at the validated source revision. The production
+workflow required the successful TestPyPI run at the same revision, repeated its
+indexed-install check, published the GitHub release, and uploaded identical bytes
+to production PyPI. Its actual production-download installation passed on the
+hosted Windows runner. A second fresh external environment used uncached pip
+download and direct installation from production PyPI; the served URL and hash
+matched the candidate. Import, version reporting, analytic pricing, Heston,
+shout, exercise styles, full/adjoint agreement, packed CPU/CUDA prices and
+gradients, and dependency consistency all passed. The GPU host used the NVIDIA
+GeForce RTX 4060 Laptop GPU. No source checkout was needed by either install.
 
-2. Require the TestPyPI upload and actual index-download installation jobs to
-   succeed. Download the TestPyPI wheel separately, compare its SHA256, and run
-   `scripts/validate_wheel.py --require-cuda` on that downloaded artifact.
-3. Only after all those gates pass, create `v0.3.0` at the exact public revision
-   above. Dispatch `release.yml` on that tag with `stage=production`, the same
-   candidate run/digest, and the actual successful `testpypi_run_id`.
-4. The workflow revalidates the TestPyPI download, creates the public GitHub
-   release, promotes identical bytes to production PyPI using OIDC, then tests
-   the production download in a new environment. Validate the production wheel
-   on the GPU host and test normal pip installation from the production index.
-5. Verify actual GitHub/PyPI project and release links, update the documentation
-   with both publication runs and final installed results, then merge the evidence
-   documentation. Only then is the release goal complete.
+- [Hosted TestPyPI installation](benchmarks/release_testpypi_hosted.json)
+- [Independent TestPyPI CPU/CUDA installation](benchmarks/release_testpypi_install.json)
+- [Hosted production PyPI installation](benchmarks/release_production_hosted.json)
+- [Independent production PyPI CPU/CUDA installation](benchmarks/release_production_install.json)
+- [Public releases, metadata and artifact hashes](benchmarks/release_publication.json)
 
 The workflows cannot publish from pull requests. Publishing jobs have only
 OIDC permission; the GitHub release job has repository write permission. Action
 revisions and build dependencies are pinned. GitHub Actions artifacts have a
-30-day retention period; exact local copies and manifests are preserved. If the
-candidate artifact is no longer downloadable from Actions, rebuild and revalidate
-at the reviewed revision before using the guarded promotion workflow.
+30-day retention period; evidence and manifests are preserved separately. The
+published wheel and manifest are also attached to the GitHub release. Future
+releases require new version-specific tags, environment policies and validated
+artifacts; this workflow deliberately permits only the initial 0.3.0 release.
 
 ## Dependency and Linux findings
 

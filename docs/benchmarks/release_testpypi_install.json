@@ -1,0 +1,137 @@
+{
+  "release": "0.3.0",
+  "created_utc": "2026-11-03T18:41:49.345916+00:00",
+  "index": "testpypi",
+  "index_url": "https://test.pypi.org/simple",
+  "project_url": "https://test.pypi.org/project/quantlibtorch/0.3.0/",
+  "git_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "candidate_run_id": 41574726134,
+  "validation_host_platform": "Windows-11-10.0.26200-SP0",
+  "validated_wheel": {
+    "filename": "quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+    "sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+    "size": 1395361,
+    "version": "0.3.0",
+    "requires_python": "<3.14,>=3.13",
+    "notices_sha256": {
+      "LICENSE": "00234f3c2491ec26807205639027b9b59c926af289d8a4113bf6b84a2a5dca35",
+      "QuantLib.txt": "33a785cdb16936a5cc598c5c2115661cc3289f88eac8b4116ba6e18d1deed833",
+      "Boost.txt": "beb8e42e9d6b4284e03304d05a81a0755200a965fc8d0a5e0aea1e84cf805d6e",
+      "PyTorch.txt": "114a3bebc194e8d5b1518f69a5406b5608835f0f5c8478b55744e19a4b3517e2",
+      "JSON.txt": "6f48a03625699eea99e599744efea0bf9c9dd67a669e65554df1cd726b8a2477",
+      "Abseil.txt": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+      "NOTICE.txt": "f6bf9252c4537ec8d6d03e456c8d23c37dce242d3635955bc358f43b81ea0b7b"
+    },
+    "native": {
+      "torch_version": "2.10.0+cu126",
+      "python_tag": "cpython-313",
+      "platform": "win-amd64",
+      "cxx11_abi": true,
+      "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "native_source_sha256": "da42aa58f2a2f0a7f64e0e967aaf2dbfa1ce81a964651cd919cd2124370b45ae",
+      "library_sha256": "c45a898bc856771d34ea30ca37d6fddd5a8ff72c06a74463a8c0593816f240f7"
+    }
+  },
+  "actual_index_delivery": {
+    "uncached_pip_download": "passed",
+    "direct_uncached_pip_install": "passed",
+    "install_url": "https://test-files.pythonhosted.org/packages/13/f8/b3df3a0511ea1b5265d57ce7af349759f2abadbf51a2fd86ad9621eb904c/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+    "install_sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+    "index_download_matches_hosted_candidate": true
+  },
+  "clean_install": {
+    "fresh_venv": true,
+    "system_site_packages": false,
+    "working_directory_outside_checkout": true,
+    "isolated_python": true,
+    "dependencies": "Exact torch==2.10.0+cu126 installed from previously validated offline wheelhouse",
+    "require_cuda": true,
+    "pip_check": "passed",
+    "smoke": {
+      "version": "0.3.0",
+      "package_path": "<fresh-external-venv>/Lib/site-packages/quantlibtorch/__init__.py",
+      "executable": "<fresh-external-venv>/Scripts/python.exe",
+      "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+      "torch": "2.10.0+cu126",
+      "native": {
+        "cxx11_abi": true,
+        "native_source_sha256": "da42aa58f2a2f0a7f64e0e967aaf2dbfa1ce81a964651cd919cd2124370b45ae",
+        "platform": "win-amd64",
+        "python_tag": "cpython-313",
+        "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+        "torch_version": "2.10.0+cu126"
+      },
+      "analytic": {
+        "price": 8.827321225352126,
+        "delta": 0.573495979027775,
+        "vega": 38.71517541592269
+      },
+      "heston": {
+        "price": 8.973315753997898,
+        "gradients": [
+          53.87286130797464,
+          0.17432669540693688,
+          52.23472319962225,
+          -2.265184833882229,
+          0.2975858391052562
+        ]
+      },
+      "shout": {
+        "price": 11.08334427775533,
+        "vega": 52.06796739020142
+      },
+      "exercise": {
+        "european": {
+          "price": 6.860141153632785,
+          "vega": 38.67907129700737
+        },
+        "american": {
+          "price": 7.025755592428881,
+          "vega": 38.57447195794174
+        },
+        "bermudan": {
+          "price": 6.94129023142691,
+          "vega": 38.63850185732605
+        }
+      },
+      "packed_cpu": {
+        "prices": [
+          [
+            11.558993546719249,
+            6.697852042102854
+          ],
+          [
+            11.558993546719249,
+            6.697852042102854
+          ]
+        ],
+        "vega": 149.94915601934693
+      },
+      "cuda": {
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "prices": [
+          [
+            11.55899354671926,
+            6.697852042102858
+          ],
+          [
+            11.55899354671926,
+            6.697852042102858
+          ]
+        ],
+        "vega": 149.94915601934696
+      }
+    }
+  },
+  "raw_report_sha256": "e7c589093fb5ee60b987d1b2088c063a64310c63aa88d748a0b976447c09f60a",
+  "result": "passed",
+  "testpypi_artifact_validated": true,
+  "production_pypi_artifact_validated": false,
+  "limitations": [
+    "Independent venv is on the Windows validation host using Anaconda CPython3.13.5",
+    "Exact hosted artifact CPU/CUDA financial smoke; full repository regression is recorded separately"
+  ],
+  "publication_workflow_run_id": 41695264905,
+  "publication_workflow_run_url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41695264905",
+  "publication_job_id": 126124168049
+}

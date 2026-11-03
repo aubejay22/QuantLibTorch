@@ -2,16 +2,17 @@
 
 ## Release wheel
 
-The first release targets **Windows x86-64, CPython 3.13 and PyTorch
+The published [0.3.0 wheel](https://pypi.org/project/quantlibtorch/0.3.0/)
+targets **Windows x86-64, CPython 3.13 and PyTorch
 2.10.0+cu126**. This CUDA-enabled PyTorch build can execute CPU pricing without
 an NVIDIA GPU. CUDA financial execution requires a compatible NVIDIA GPU/driver
 and uses only the supported packed APIs. A separate CPU-only PyTorch variant,
 other Python versions, Linux wheels and macOS are outside the first matrix.
 Consult [release support and evidence](release.md) for the exact validated
-artifact; local execution is not proof of remote CI success.
+artifact and the [GitHub release](https://github.com/aubejay22/QuantLibTorch/releases/tag/v0.3.0)
+for the matching downloadable wheel.
 
-For the published release, create an environment with Python 3.13, then use its
-interpreter. Consult the release record for current index availability:
+Create an environment with Python 3.13, then use its interpreter:
 
 ```text
 python -m pip install torch==2.10.0+cu126 --index-url https://download.pytorch.org/whl/cu126
@@ -24,11 +25,9 @@ PyTorch's installed libraries; it does not bundle PyTorch or require users to
 compile QuantLib. Windows needs the compatible Microsoft Visual C++ runtime.
 No CUDA toolkit is required for this package's tensor-based CUDA execution.
 
-Distribution is **wheel-first**. Public-index publication is authorized but awaits the account and validation
-gates recorded in [release.md](release.md). Do not assume `pip install quantlibtorch` downloads the release
-until a verified index publication has occurred. Source distributions are not
-published because an unbuilt archive is not directly pip-installable; use the
-explicit checkout development procedure below.
+Distribution is **wheel-first**. The supported wheel is published on production
+PyPI. Source distributions are not published because an unbuilt archive is not
+directly pip-installable; use the explicit checkout development procedure below.
 
 ## Compatibility checks
 
@@ -62,8 +61,9 @@ it is never linked into QuantLibTorch.
 Use Git, CMake 3.24+, Boost headers and a C++17 compiler compatible with the
 installed PyTorch. Windows uses Visual Studio 2022 C++ Build Tools. Linux source
 development requires a compatible compiler and C++ ABI; Ubuntu commonly supplies
-`build-essential cmake git libboost-dev`. Linux is experimental until its full
-build, test and clean-install validation is recorded.
+`build-essential cmake git libboost-dev`. An isolated Ubuntu CI build passed
+CPU tests and clean-install checks. Portable Linux wheels remain unsupported;
+see [the release record](release.md) for the measured configuration and limits.
 
 With PyTorch installed in the chosen environment:
 

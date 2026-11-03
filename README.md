@@ -11,7 +11,9 @@ the complete QuantLib Python API is not exposed.
 
 ## Install
 
-The **0.3.0 release** targets Windows x86-64, CPython 3.13 and
+**QuantLibTorch 0.3.0** is available on [PyPI](https://pypi.org/project/quantlibtorch/0.3.0/)
+and in the [GitHub release](https://github.com/aubejay22/QuantLibTorch/releases/tag/v0.3.0).
+The supported wheel targets Windows x86-64, CPython 3.13 and
 **PyTorch 2.10.0+cu126**. This PyTorch build supports CPU execution; supported
 batch APIs also use CUDA on a compatible NVIDIA GPU. A separate CPU-only PyTorch
 build and Linux binary wheels are outside the first release matrix.
@@ -23,10 +25,11 @@ python -m pip install torch==2.10.0+cu126 --index-url https://download.pytorch.o
 python -m pip install quantlibtorch==0.3.0
 ```
 
-Users installing a wheel need no compiler or QuantLib source checkout. Consult
-the release record for publication status and validated artifacts. See [installation](https://github.com/aubejay22/QuantLibTorch/blob/master/docs/install.md) for runtime
-requirements, source development, and troubleshooting, and the
-[release procedure](https://github.com/aubejay22/QuantLibTorch/blob/master/docs/release.md) for validation status and exact artifacts.
+Users installing a wheel need no compiler or QuantLib source checkout. See
+[installation](https://github.com/aubejay22/QuantLibTorch/blob/master/docs/install.md)
+for runtime requirements, source development and troubleshooting, and the
+[release record](https://github.com/aubejay22/QuantLibTorch/blob/master/docs/release.md)
+for artifact hashes and validation evidence.
 
 ## Price and differentiate
 

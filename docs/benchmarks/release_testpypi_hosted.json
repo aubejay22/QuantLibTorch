@@ -1,0 +1,77 @@
+{
+  "release": "0.3.0",
+  "index": "testpypi",
+  "result": "passed",
+  "workflow_run": 41695264905,
+  "workflow_url": "https://github.com/aubejay22/QuantLibTorch/actions/runs/41695264905",
+  "installation_job": 126124348348,
+  "git_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "artifact_origin": "Actual TestPyPI wheel downloaded by release_artifacts.py and digest-checked against reviewed manifest",
+  "wheel_sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+  "system_site_packages": false,
+  "fresh_external_venv": true,
+  "runner": "windows-2022",
+  "smoke": {
+    "version": "0.3.0",
+    "package_path": "<fresh-external-venv>/Lib/site-packages/quantlibtorch/__init__.py",
+    "executable": "<fresh-external-venv>/Scripts/python.exe",
+    "python": "3.13.17 (tags/v3.13.17:64e080d, Oct 21 2026, 14:08:53) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.10.0+cu126",
+    "native": {
+      "cxx11_abi": true,
+      "native_source_sha256": "da42aa58f2a2f0a7f64e0e967aaf2dbfa1ce81a964651cd919cd2124370b45ae",
+      "platform": "win-amd64",
+      "python_tag": "cpython-313",
+      "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "torch_version": "2.10.0+cu126"
+    },
+    "analytic": {
+      "price": 8.827321225352126,
+      "delta": 0.573495979027775,
+      "vega": 38.71517541592269
+    },
+    "heston": {
+      "price": 8.973315753997898,
+      "gradients": [
+        53.87286130797464,
+        0.17432669540693688,
+        52.23472319962225,
+        -2.265184833882229,
+        0.2975858391052562
+      ]
+    },
+    "shout": {
+      "price": 11.083344277755332,
+      "vega": 52.06796739020176
+    },
+    "exercise": {
+      "european": {
+        "price": 6.860141153632785,
+        "vega": 38.67907129700737
+      },
+      "american": {
+        "price": 7.025755592428881,
+        "vega": 38.57447195794174
+      },
+      "bermudan": {
+        "price": 6.94129023142691,
+        "vega": 38.63850185732605
+      }
+    },
+    "packed_cpu": {
+      "prices": [
+        [
+          11.558993546719249,
+          6.697852042102854
+        ],
+        [
+          11.558993546719249,
+          6.697852042102854
+        ]
+      ],
+      "vega": 149.94915601934693
+    },
+    "cuda": null
+  },
+  "raw_report_sha256": "d7354ddabd65f30b608d637e3b63e32f87805eef96e8f4f68f1a7ad819b487c1"
+}

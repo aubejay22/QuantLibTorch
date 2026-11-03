@@ -1,0 +1,90 @@
+{
+  "release": "0.3.0",
+  "checked_utc": "2026-11-03T18:48:50.013974+00:00",
+  "status": "published-validated",
+  "git_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "testpypi_run_id": 41695264905,
+  "production_run_id": 41696532378,
+  "github_release": {
+    "url": "https://github.com/aubejay22/QuantLibTorch/releases/tag/v0.3.0",
+    "tag": "v0.3.0",
+    "published_at": "2026-11-03T18:46:44Z",
+    "draft": false,
+    "prerelease": false,
+    "annotated_tag_commit": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+    "assets": [
+      {
+        "name": "manifest.json",
+        "size": 1410,
+        "digest": "sha256:1342b888cd08db22a8037efcb38adf2edb8d8526761398708ebd7b478e870996",
+        "url": "https://github.com/aubejay22/QuantLibTorch/releases/download/v0.3.0/manifest.json"
+      },
+      {
+        "name": "quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+        "size": 1395361,
+        "digest": "sha256:b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+        "url": "https://github.com/aubejay22/QuantLibTorch/releases/download/v0.3.0/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl"
+      }
+    ],
+    "actual_release_wheel_download_sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded"
+  },
+  "registries": {
+    "testpypi": {
+      "project_url": "https://test.pypi.org/project/quantlibtorch/",
+      "filename": "quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+      "sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+      "size": 1395361,
+      "uploaded_at": "2026-11-03T18:36:02.745033Z",
+      "yanked": false,
+      "requires_python": "<3.14,>=3.13",
+      "requires_dist": [
+        "torch==2.10.0+cu126",
+        "build==1.2.2.post1; extra == \"release\"",
+        "twine==6.1.0; extra == \"release\"",
+        "pytest>=8; extra == \"test\"",
+        "QuantLib==1.40; extra == \"test\"",
+        "matplotlib>=3.10; extra == \"tutorials\"",
+        "nbformat>=5.10; extra == \"tutorials\"",
+        "nbclient>=0.10; extra == \"tutorials\"",
+        "ipykernel>=6.29; extra == \"tutorials\""
+      ],
+      "project_urls": {
+        "Documentation": "https://github.com/aubejay22/QuantLibTorch/blob/master/docs/user-guide.md",
+        "Homepage": "https://github.com/aubejay22/QuantLibTorch",
+        "Issues": "https://github.com/aubejay22/QuantLibTorch/issues",
+        "Repository": "https://github.com/aubejay22/QuantLibTorch"
+      }
+    },
+    "pypi": {
+      "project_url": "https://pypi.org/project/quantlibtorch/",
+      "filename": "quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+      "sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+      "size": 1395361,
+      "uploaded_at": "2026-11-03T18:47:08.991942Z",
+      "yanked": false,
+      "requires_python": "<3.14,>=3.13",
+      "requires_dist": [
+        "torch==2.10.0+cu126",
+        "build==1.2.2.post1; extra == \"release\"",
+        "twine==6.1.0; extra == \"release\"",
+        "pytest>=8; extra == \"test\"",
+        "QuantLib==1.40; extra == \"test\"",
+        "matplotlib>=3.10; extra == \"tutorials\"",
+        "nbformat>=5.10; extra == \"tutorials\"",
+        "nbclient>=0.10; extra == \"tutorials\"",
+        "ipykernel>=6.29; extra == \"tutorials\""
+      ],
+      "project_urls": {
+        "Documentation": "https://github.com/aubejay22/QuantLibTorch/blob/master/docs/user-guide.md",
+        "Homepage": "https://github.com/aubejay22/QuantLibTorch",
+        "Issues": "https://github.com/aubejay22/QuantLibTorch/issues",
+        "Repository": "https://github.com/aubejay22/QuantLibTorch"
+      }
+    }
+  },
+  "testpypi_workflow_conclusion": "success",
+  "production_workflow_conclusion": "success",
+  "hosted_production_installation": "passed",
+  "independent_production_cpu_cuda_installation": "passed",
+  "validation_completed_utc": "2026-11-03T18:54:56.911642+00:00"
+}

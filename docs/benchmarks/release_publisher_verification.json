@@ -1,0 +1,58 @@
+{
+  "release": "0.3.0",
+  "publication_state_checked_at": "2026-11-03T18:54:56.911642+00:00",
+  "status": "saved-fields-matched-and-both-oidc-uploads-succeeded",
+  "owner_reported_both_pending_publishers_registered": true,
+  "owner_requires_comparison_before_publication": true,
+  "saved_private_registration_fields_available": true,
+  "github_configuration_verified": {
+    "personal_owner": "aubejay22",
+    "repository": "QuantLibTorch",
+    "visibility": "public",
+    "workflow_path": ".github/workflows/release.yml",
+    "workflow_filename_for_pypi": "release.yml",
+    "testpypi_environment": "testpypi",
+    "testpypi_branch_policy": {
+      "name": "master",
+      "type": "branch"
+    },
+    "production_environment": "pypi",
+    "production_branch_policy": {
+      "name": "v0.3.0",
+      "type": "tag"
+    },
+    "release_audit_passed_variable": true
+  },
+  "expected_registry_project": "quantlibtorch",
+  "validated_public_revision": "291a09ebe024a47bf4d917f0f57fbbddf7bde5ba",
+  "candidate_run_id": 41574726134,
+  "wheel_sha256": "b0a1c5dd652c08c755440313083ed4f5ef05607a0dcc860081a4de476d3d6ded",
+  "publication_state": {
+    "release_workflow_runs": 2,
+    "live_release_job": false,
+    "testpypi_run_id": 41695264905,
+    "production_run_id": 41696532378,
+    "both_workflows_conclusion": "success",
+    "github_release_found": true,
+    "both_registry_projects_verified": true
+  },
+  "verification_limit": "Saved private fields were supplied by the owner after manual inspection; tools independently verified live GitHub settings and both successful OIDC publication runs.",
+  "next_action": null,
+  "comparison_completed_at": "2026-11-03T18:35:24.784353+00:00",
+  "registration_evidence_source": "Owner manually inspected both private account registrations and provided the saved field values in the conversation",
+  "registrations": {
+    "testpypi": {
+      "owner": "aubejay22",
+      "repository": "QuantLibTorch",
+      "workflow": "release.yml",
+      "environment": "testpypi"
+    },
+    "pypi": {
+      "owner": "aubejay22",
+      "repository": "QuantLibTorch",
+      "workflow": "release.yml",
+      "environment": "pypi"
+    }
+  },
+  "comparison_passed": true
+}
