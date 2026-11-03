@@ -1,0 +1,51 @@
+{
+  "release": "0.3.0",
+  "status": "release-blocked",
+  "reason": "GitHub CLI authentication unavailable; PyPI/TestPyPI pending Trusted Publishers not confirmed",
+  "authenticated_connector_account": "aubejay22",
+  "intended_repository": "aubejay22/QuantLibTorch",
+  "original_candidate_revision": "1002f78",
+  "reviewed_preparation_revision": "29dfb0ec0be349009c0f0c6f49d786afaf769e4e",
+  "sanitized_public_source_root": "cc6d7e71427334fbe256a75e25831d6af54d0272",
+  "original_local_history_preserved": true,
+  "public_repository_verified": false,
+  "github_v0_3_0_release_verified": false,
+  "testpypi_upload_verified": false,
+  "production_pypi_upload_verified": false,
+  "remote_linux_ci_executed": false,
+  "remote_windows_ci_executed": false,
+  "wheel_sha256": "3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de",
+  "local_gates": {
+    "security_and_provenance": "passed",
+    "licensing": "BSD-3-Clause original code with upstream exceptions and notices",
+    "native_build": "passed",
+    "pytest": {
+      "passed": 2256,
+      "skipped": 1,
+      "warnings": 23,
+      "seconds": 739.2
+    },
+    "final_release_export_tests": 30,
+    "independent_cpu_cuda_install": "passed",
+    "notebooks": 7,
+    "script_runs": 11
+  },
+  "trusted_publisher": {
+    "project": "quantlibtorch",
+    "owner": "aubejay22",
+    "repository": "QuantLibTorch",
+    "workflow": "release.yml",
+    "testpypi_environment": "testpypi",
+    "production_environment": "pypi"
+  },
+  "remaining_steps": [
+    "Authenticate GitHub CLI as aubejay22 with workflow scope",
+    "Create audited personal repository and verify public access",
+    "Execute remote Windows candidate and Linux experiment workflows",
+    "Validate exact hosted Windows wheel on CUDA host",
+    "Configure both pending Trusted Publishers and environment restrictions",
+    "Publish to TestPyPI and verify actual index-delivered wheel",
+    "Tag exact validated revision v0.3.0 and publish GitHub release",
+    "Promote identical artifact to PyPI and validate actual production download"
+  ]
+}

@@ -49,7 +49,16 @@ variant and C++ ABI are checked at load time. Never edit metadata to bypass them
 GitHub CLI must authenticate as `aubejay22` with permission to create the personal
 repository, push workflows, configure Actions environments and publish releases.
 The connector identifies the account but does not expose repository creation,
-environment administration or workflow dispatch. No credentials belong in source.
+environment administration or workflow dispatch. No credentials belong in source. The device-login attempt on 2026-11-02 timed
+out without authentication. Start a fresh login, including workflow scope:
+
+```text
+gh auth login --hostname github.com --git-protocol https --web --scopes workflow
+```
+
+After source and artifact audit, set the repository variable
+`RELEASE_AUDIT_PASSED=true`. This enables the guarded publishing workflow; it
+is not a substitute for any of its validation checks.
 
 Create pending GitHub Trusted Publishers through each account's Publishing page:
 
@@ -107,9 +116,9 @@ Follow [source development](install.md#source-development), then:
 python scripts/build.py --boost-include C:/path/to/boost_1_82_0
 python -m pytest
 $env:SOURCE_DATE_EPOCH = '1793577600'
-python -m build --wheel --no-isolation --outdir build/release-final
-python -m twine check --strict build/release-final/*.whl
-python scripts/validate_wheel.py build/release-final/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl --require-cuda
+python -m build --wheel --no-isolation --outdir build/release_final
+python -m twine check --strict build/release_final/*.whl
+python scripts/validate_wheel.py build/release_final/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl --require-cuda
 ```
 
 `validate_wheel.py` creates a venv outside the checkout without system packages,
@@ -124,11 +133,45 @@ Native path remapping prevents developer home paths in shipped assertion strings
 Deterministic wheel packaging from the same binary does not establish identical
 compiler output across hosts. Exact-artifact hashes remain authoritative.
 
+## Measured local stable artifact
+
+`build/release_final/quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl` is
+1,389,778 bytes, SHA256
+`3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de`.
+It was packaged from clean preparation checkpoint
+`29dfb0ec0be349009c0f0c6f49d786afaf769e4e` and repackaged byte-identically.
+Its package source, native inputs, README and metadata match the separately
+sanitized source root `cc6d7e71427334fbe256a75e25831d6af54d0272`.
+The public source currently exists locally only, under `build/public-release`.
+
+The wheel passes strict Twine checks and independent contents/licensing/privacy
+audit. Its 28 members include all five project/upstream notices and no extra
+binaries. Compiler mapping reduced detected personal home paths in the native
+DLL from 174 to zero. A fresh environment outside the repository, without system
+packages, passes pricing/backward, full/adjoint, exercise, Heston, shout and
+CPU/CUDA smoke checks plus `pip check`. With the README's market inputs:
+
+| Quantity | Independently installed result |
+| --- | --- |
+| Option price | 8.827321225352126 |
+| Spot delta | 0.573495979027775 |
+| Volatility vega | 38.71517541592269 |
+
+[Stable packaging evidence](benchmarks/release_final_packaging.json) records
+source bindings, hashes, CPU/CUDA output and the tested environment. This is a
+local artifact; it is not evidence of a TestPyPI or production-index download.
+
 ## Current publication status
 
 No GitHub release, TestPyPI upload or production PyPI upload is yet verified.
-The native rebuild and regression, source/history audit, final wheel privacy
-check, external installation and actual remote CI are release gates. Account
+The native rebuild, source/history and wheel audits, and external installation
+have passed locally. The full rebuilt native regression passed 2,256 tests, one intentional skip and
+23 existing warnings in 739.20 seconds. A subsequent 30-test release/export
+check covers the three gate tests added after that suite was collected. All
+seven notebooks and eleven bounded examples passed in the independent wheel
+environment. See [regression evidence](benchmarks/release_final_regression.json)
+and [tutorial evidence](benchmarks/release_final_examples.json).
+Actual remote CI and index-delivered artifact validation remain unperformed. Account
 login and pending Trusted Publisher registration require owner interaction.
 The release remains blocked from publication until these requirements pass;
 local release preparation alone is not success.

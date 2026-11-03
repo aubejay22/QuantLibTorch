@@ -1,9 +1,25 @@
 # Changelog
 
+## 0.3.0 — authorized release, publication pending
+
+- Apply BSD-3-Clause to original code and retain QuantLib-derived attribution
+  plus QuantLib, Boost and PyTorch notices.
+- Remove developer paths from native diagnostics through compiler prefix maps.
+- Preserve the original local history and prepare a separate audited public
+  snapshot with private report metadata sanitized.
+- Add revision-bound Windows wheel validation, secure OIDC publication through
+  separate TestPyPI/PyPI environments, and fresh index-download installation
+  checks. Linux remains an experimental CI target.
+- Preserve the existing financial engines, AD modes, CUDA APIs and notebooks.
+
+Public availability and exact measured validation are recorded in
+[the release record](docs/release.md). General owner publication authorization
+is granted; authentication and artifact validation remain mandatory.
+
 ## 0.3.0rc1 — controlled distribution candidate
 
-First release candidate; not yet published. Project license approval and an
-explicit TestPyPI upload authorization remain separate release gates.
+Historical first release candidate, preserved at `1002f78`. Its pending license
+and publication decisions were subsequently authorized for 0.3.0.
 
 - Retain original QuantLib analytic, vanilla FD, Heston, shout, basket and latent
   pricing, full reverse AD, first-order discrete adjoints, and CPU/CUDA batches.

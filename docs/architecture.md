@@ -150,3 +150,25 @@ third-party notices retain their original attribution. Native compiler path
 mapping removes personal paths from assertion strings without numerical changes.
 The supported binary scope remains Windows CPython 3.13 / Torch 2.10.0+cu126.
 Measured final results and pending external gates are recorded in [release.md](release.md).
+
+
+The final mapped Windows native build passes **2,256 tests**, one intentional
+skip and 23 existing warnings in **739.20 seconds**. A 30-test follow-up covers
+the final publishing/export safeguards, including three tests added after full
+suite collection. The 0.3.0 wheel passes independent external CPU/CUDA pricing
+and gradients; all seven notebooks and eleven script configurations pass in
+that installed environment. The wheel SHA256 is
+`3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de`.
+Repeated packaging is byte-identical. The native compiler mapping reduces
+private home-path findings from 174 to zero; no numerical algorithm changed.
+See [stable packaging](benchmarks/release_final_packaging.json),
+[regression](benchmarks/release_final_regression.json) and
+[examples](benchmarks/release_final_examples.json) for measured evidence.
+
+The local public export starts at `cc6d7e71427334fbe256a75e25831d6af54d0272`
+with no original ancestry and a verified GitHub noreply identity. A separate
+scan of 4,192 expanded payloads passes, preserving numerical/source-archive and
+license bytes. GitHub CLI authentication timed out and remains absent. Actual
+remote Windows/Linux CI, TestPyPI installation and production PyPI installation
+have not run. These are explicit next steps after account authentication and
+publisher configuration; local tests do not certify publication success.

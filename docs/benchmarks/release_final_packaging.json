@@ -1,0 +1,191 @@
+{
+  "release": "0.3.0",
+  "created_utc": "2026-11-03T03:21:53.601536+00:00",
+  "artifact_kind": "locally-built wheel; not uploaded to any package index",
+  "wheel": {
+    "filename": "quantlibtorch-0.3.0-cp313-cp313-win_amd64.whl",
+    "sha256": "3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de",
+    "size": 1389778,
+    "version": "0.3.0",
+    "requires_python": "<3.14,>=3.13",
+    "notices_sha256": {
+      "LICENSE": "9d8185109e3083928c27336f271b5085c955cb31ae32c20eef7d70749d154706",
+      "QuantLib.txt": "33a785cdb16936a5cc598c5c2115661cc3289f88eac8b4116ba6e18d1deed833",
+      "Boost.txt": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "PyTorch.txt": "114a3bebc194e8d5b1518f69a5406b5608835f0f5c8478b55744e19a4b3517e2",
+      "NOTICE.txt": "e1326365a7b6f12d20058887dc31f0311dcd0560940be4fcd58af5e91ba484bf"
+    },
+    "native": {
+      "torch_version": "2.10.0+cu126",
+      "python_tag": "cpython-313",
+      "platform": "win-amd64",
+      "cxx11_abi": true,
+      "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+      "native_source_sha256": "38dd1dba75baf2f40aa94fe7d5cca143eb133c267b14b118813cd97190e7d1e0",
+      "library_sha256": "bdfc33fa7212ba5408ee8ba9b6c562e6239707b8db9f345b245783280ad4eef6"
+    }
+  },
+  "source_binding": {
+    "git_revision": "29dfb0ec0be349009c0f0c6f49d786afaf769e4e",
+    "tracked_checkout_clean_at_packaging": true,
+    "wheel_sha256": "3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de",
+    "repeat_wheel_sha256": "3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de",
+    "all_package_members_equal_checkout": true,
+    "readme_equals_checkout_normalized_newlines": true,
+    "package_members_sha256": {
+      "quantlibtorch/__init__.py": "4c5f311ef92a2d0c94d1d341108d5a0dddd9567f422eb2b068ddbb7902829377",
+      "quantlibtorch/_version.py": "32bb8fb0b0606623be43c6c70c68c0924bb7ad26b89e9156aa422a2f582524a0",
+      "quantlibtorch/analytic.py": "79f925990aac30e2aa4a33a16660736bbf6e6b4e6d5abd8dd367a76eeaa4640d",
+      "quantlibtorch/api.py": "1243cda31686c4ca94e6f1e4705df72401b0b59904f00d4e90687be9e3f97d46",
+      "quantlibtorch/batch.py": "19fa22809b24af1a80bc788cfe18764eb29950e569668377329e0b2c47020100",
+      "quantlibtorch/calibration.py": "6a042b91065f7409fcf79c2435dc20ed9dee9be3d2d7e88de2072f73bad8dd19",
+      "quantlibtorch/conventions.py": "ce4867ee02b32f57a8eec0bd9179b2fa8bc8588489d5c390ff4b1bbaf253fd89",
+      "quantlibtorch/fd.py": "f41b310c353baa22e912010704204a82995f1c553546b1c8ed5e8d56e47eab7f",
+      "quantlibtorch/fd_basket.py": "9e893ef4d60e7dfa21101ed8ba12306ffa8c202a12dc662eaf96d3d6f1f2674f",
+      "quantlibtorch/financial.py": "40c9f631aa72a1cb041897bc7290af6f58294a3b61be6b3c3a2cb5839c714f7b",
+      "quantlibtorch/heston.py": "c92bdf1b82e4ecdee95379df1e928dd40ea5a5f8f1b0da07598684914a31e971",
+      "quantlibtorch/kernels.py": "d1d5180fbd5159f3e9513c9a992d63f8581e9b63fc93dc66645ac4390b4d41a4",
+      "quantlibtorch/latent.py": "cad826f9b1276a24a76fcf0e5107f58cdb483b3815190ef8c7d1cdda38bf43e0",
+      "quantlibtorch/multi_asset.py": "a56bac414633098a831c23533fa5ec6f483f8ba3e92aba1617f82cb8dc0bbffb",
+      "quantlibtorch/pricing.py": "2ca74eed444761e6f290ca5bfaf0f2bdfe3b9272aacf1258dbc13af3dd7601a3",
+      "quantlibtorch/shout.py": "b0aacfcfd259c8bd7f4f259ffb0a57dc8edc275a7093ac1334de9150265c46ea",
+      "quantlibtorch/solver.py": "3e34664c388618a39bb7e5cc14698d699ca5b167becbdc92fbbfa2b45ce9ce8c",
+      "quantlibtorch/_native/build_info.json": "f6eb6581fef50f2117f5a2403ebadb8c8335eee7bb4b814fbb7d881a6c2a0350",
+      "quantlibtorch/_native/quantlibtorch_native.dll": "bdfc33fa7212ba5408ee8ba9b6c562e6239707b8db9f345b245783280ad4eef6"
+    },
+    "source_date_epoch": 1793577600,
+    "public_export_revision": "cc6d7e71427334fbe256a75e25831d6af54d0272",
+    "public_export_native_source_sha256": "38dd1dba75baf2f40aa94fe7d5cca143eb133c267b14b118813cd97190e7d1e0",
+    "public_export_package_source_readme_metadata_equal": true
+  },
+  "clean_install": {
+    "system_site_packages": false,
+    "working_directory_outside_checkout": true,
+    "isolated_python": true,
+    "dependency_install": "offline existing wheelhouse; exact torch==2.10.0+cu126",
+    "pip_check": "passed",
+    "smoke": {
+      "version": "0.3.0",
+      "package_path": "<external-venv>/Lib/site-packages/quantlibtorch/__init__.py",
+      "executable": "<external-venv>/Scripts/python.exe",
+      "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+      "torch": "2.10.0+cu126",
+      "native": {
+        "cxx11_abi": true,
+        "native_source_sha256": "38dd1dba75baf2f40aa94fe7d5cca143eb133c267b14b118813cd97190e7d1e0",
+        "platform": "win-amd64",
+        "python_tag": "cpython-313",
+        "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+        "torch_version": "2.10.0+cu126"
+      },
+      "analytic": {
+        "price": 8.827321225352126,
+        "delta": 0.573495979027775,
+        "vega": 38.71517541592269
+      },
+      "heston": {
+        "price": 8.973315753997898,
+        "gradients": [
+          53.87286130797464,
+          0.17432669540693688,
+          52.23472319962225,
+          -2.265184833882229,
+          0.2975858391052562
+        ]
+      },
+      "shout": {
+        "price": 11.08334427775533,
+        "vega": 52.06796739020142
+      },
+      "exercise": {
+        "european": {
+          "price": 6.860141153632785,
+          "vega": 38.67907129700737
+        },
+        "american": {
+          "price": 7.025755592428881,
+          "vega": 38.57447195794174
+        },
+        "bermudan": {
+          "price": 6.94129023142691,
+          "vega": 38.63850185732605
+        }
+      },
+      "packed_cpu": {
+        "prices": [
+          [
+            11.558993546719249,
+            6.697852042102854
+          ],
+          [
+            11.558993546719249,
+            6.697852042102854
+          ]
+        ],
+        "vega": 149.94915601934693
+      },
+      "cuda": {
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "prices": [
+          [
+            11.55899354671926,
+            6.697852042102858
+          ],
+          [
+            11.55899354671926,
+            6.697852042102858
+          ]
+        ],
+        "vega": 149.94915601934696
+      }
+    },
+    "pip_check_after_tutorial_dependencies": "passed"
+  },
+  "twine_check_strict": "passed",
+  "release_artifact_inspection": "passed",
+  "native_direct_dependencies": [
+    "torch_cpu.dll",
+    "c10.dll",
+    "MSVCP140.dll",
+    "VCRUNTIME140.dll",
+    "VCRUNTIME140_1.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-environment-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-time-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "KERNEL32.dll"
+  ],
+  "security": {
+    "private_home_paths_in_initial_binary": 174,
+    "private_home_paths_after_compiler_prefix_mapping": 0,
+    "all_wheel_members_private_home_scan": "passed",
+    "wheel_allowed_members_and_no_duplicate_or_traversal_paths": "passed"
+  },
+  "reproducibility": {
+    "same_native_binary_packaged_twice": "byte-identical",
+    "native_compiler_across_hosts": "not established"
+  },
+  "sdist_policy": "disabled by WheelOnlySdist; wheel-only public distribution",
+  "remote_ci_executed": false,
+  "testpypi_uploaded": false,
+  "production_pypi_uploaded": false,
+  "limitations": [
+    "Local Windows 11 x86-64 / Anaconda CPython 3.13.5; independent venv on same host, not a separate clean machine",
+    "Only exact PyTorch 2.10.0+cu126 validated; CPU execution and supported CUDA APIs tested",
+    "Linux experiment awaits actual authenticated remote CI",
+    "Publication gates remain pending; public export revision identifies prepared source, not an uploaded repository"
+  ],
+  "build_tools": {
+    "setuptools": "72.1.0",
+    "wheel": "0.45.1",
+    "build": "1.2.2.post1",
+    "twine": "6.1.0",
+    "cmake": "cmake version 3.29.2",
+    "msvc": "14.44.35207 (Visual Studio 2022 Build Tools)",
+    "boost": "1.82.0"
+  },
+  "build_host_platform": "Windows-11-10.0.26200-SP0"
+}

@@ -1,0 +1,68 @@
+{
+  "release": "0.3.0",
+  "created_utc": "2026-11-03T03:27:38.428587+00:00",
+  "baseline_checkpoint": "1002f78",
+  "validated_local_source_checkpoint": "29dfb0ec0be349009c0f0c6f49d786afaf769e4e",
+  "matching_public_export_revision": "cc6d7e71427334fbe256a75e25831d6af54d0272",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.10.0+cu126",
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "environment": "development venv inherits system packages; separate wheel smoke and notebooks use fresh external venv without system packages",
+  "full_regression": {
+    "command": ".venv/Scripts/python.exe -m pytest -q --junitxml=build/release_final_pytest.xml",
+    "passed": 2256,
+    "skipped": 1,
+    "warnings": 23,
+    "seconds": 739.2,
+    "junit": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "1",
+      "tests": "2257",
+      "time": "739.162",
+      "timestamp": "2026-11-02T22:14:40.319310-05:00"
+    },
+    "skip_reason": "CPU Thomas is not restricted to strict dominance"
+  },
+  "final_workflow_followup": {
+    "command": ".venv/Scripts/python.exe -m pytest -q tests/test_release_artifacts.py tests/test_public_export.py --junitxml=build/release_final_workflow_tests.xml",
+    "passed": 30,
+    "seconds": 0.45,
+    "junit": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "30",
+      "time": "0.417",
+      "timestamp": "2026-11-02T22:27:10.776438-05:00"
+    },
+    "reason": "Final three wheel-content rejection cases were added after full-suite collection; final 25 release gates and five public-export tests all pass"
+  },
+  "native_metadata": {
+    "torch_version": "2.10.0+cu126",
+    "python_tag": "cpython-313",
+    "platform": "win-amd64",
+    "cxx11_abi": true,
+    "quantlib_commit": "06edddbdb85f006c43a449b5fc846a00c67477f3",
+    "native_source_sha256": "38dd1dba75baf2f40aa94fe7d5cca143eb133c267b14b118813cd97190e7d1e0",
+    "library_sha256": "bdfc33fa7212ba5408ee8ba9b6c562e6239707b8db9f345b245783280ad4eef6"
+  },
+  "files_sha256": {
+    "build/release_final_pytest.xml": "16c4ee9e28c9fdb9779f09c0a20ef81567f4aa095ac5ce22b626340f873fe1c2",
+    "build/logs/release_final_pytest.log": "e25fc6be58884fb58e22dfe7a5772d499b1e4bffed1d1bc347b5dac2142c217e",
+    "build/release_final_workflow_tests.xml": "55305fd53579d0f58ee75ee6e8b1765ed318f6bacd70c974dc4827abe12d9a15",
+    "build/logs/release_final_workflow_tests.log": "fd90ac3c377ae8c4ab9e549c9a34d3d8d46c2f8de14d9e090d1869b606a56945",
+    "build/logs/release_final_build.log": "a558cce76c3a61ad2bab2af196d89b8a47409594786e739a59705e6b778114d5",
+    "python/quantlibtorch/_native/quantlibtorch_native.dll": "bdfc33fa7212ba5408ee8ba9b6c562e6239707b8db9f345b245783280ad4eef6"
+  },
+  "numerical_algorithms_changed": false,
+  "native_build_change": "Compiler prefix maps remove developer paths from __FILE__ diagnostics; source and Torch/Boost headers retain stable relative labels",
+  "tests_removed": [],
+  "remote_ci_executed": false,
+  "testpypi_uploaded": false,
+  "production_pypi_uploaded": false
+}

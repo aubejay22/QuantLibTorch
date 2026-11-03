@@ -1,0 +1,346 @@
+{
+  "created_utc": "2026-11-03T03:23:53.476264+00:00",
+  "python": "3.13.5",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.10.0+cu126",
+  "quantlibtorch": "0.3.0",
+  "python_executable": "<external-venv>\\Scripts\\python.exe",
+  "torch_location": "<external-venv>\\Lib\\site-packages\\torch\\__init__.py",
+  "quantlibtorch_location": "<external-venv>\\Lib\\site-packages\\quantlibtorch\\__init__.py",
+  "tutorial_dependencies": {
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "runtime_environment": {
+    "MKL_THREADING_LAYER": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null
+  },
+  "notebooks": [
+    {
+      "notebook": "financial_inputs.ipynb",
+      "passed": true,
+      "results": {},
+      "seconds": 11.325711800018325,
+      "executed_sha256": "230d43c9aacbb9fc3eabf8fb439cf696b5ebe97d4ce4c9ff5e2ec1cc21ca6b58",
+      "source_sha256": "940faa88e2ed36f9222744b17e1654aa619ad353f8e2fff8277595c0057b4c42"
+    },
+    {
+      "notebook": "heston_pricing.ipynb",
+      "passed": true,
+      "results": {},
+      "seconds": 22.165180700132623,
+      "executed_sha256": "47afcecbe6892ed941e6a0bf6d06e48cc7db80502375f229737daa97ce58be7c",
+      "source_sha256": "6aaecb54fbc9612afe5aaee314a7f04923f7f48ff1d215cc3fd5d22a99e2df98"
+    },
+    {
+      "notebook": "inverse_volatility_calibration.ipynb",
+      "passed": true,
+      "results": {
+        "true_sigma": 0.24,
+        "recovered_sigma": 0.2399999994507288,
+        "true_local_parameters": [
+          -0.3,
+          0.7
+        ],
+        "recovered_local_parameters": [
+          -0.29999993140384446,
+          0.6999999764140045
+        ],
+        "local_price_rmse": 1.597784770903651e-07,
+        "local_closure_evaluations": 14
+      },
+      "seconds": 18.244780600070953,
+      "executed_sha256": "bca41b09256b149106239cf28205896fcabf0e55086b32a7376fb364134b59ca",
+      "source_sha256": "f90cfe8b64d2a35abee403862280210706aa6b124ebe2bce9d1dec287a39f1b1"
+    },
+    {
+      "notebook": "multi_asset_gpu.ipynb",
+      "passed": true,
+      "results": {
+        "assets": 4,
+        "contracts_per_asset": 3,
+        "cuda_executed": true,
+        "median_price_backward_seconds": {
+          "cpu": 0.44072939991019666,
+          "cuda": 1.8524894998408854
+        },
+        "prices": [
+          [
+            12.940154006519666,
+            7.686150605745832,
+            4.212567717240361
+          ],
+          [
+            14.957035772584353,
+            9.131587648081556,
+            5.189728623499931
+          ],
+          [
+            17.08947026895527,
+            10.698363238935691,
+            6.282721972439222
+          ],
+          [
+            19.330730764925974,
+            12.378627867170433,
+            7.485471879625496
+          ]
+        ],
+        "parameter_gradients": [
+          4.259631813330351,
+          4.835786064142088,
+          5.321731107920044,
+          5.687716544264568
+        ],
+        "spot_deltas": [
+          1.7013356028127042,
+          1.7293455163174902,
+          1.7556355887431467,
+          1.7803417764360294
+        ]
+      },
+      "seconds": 16.05956399999559,
+      "executed_sha256": "44c970ee90f26b954311d018473bb16a5302773f541f04e0384cb7ca2cefbad1",
+      "source_sha256": "e787b9fb4ccb73bb600ed5f98545412ad0a37c0e873cc8efcb15c720b7a703cd"
+    },
+    {
+      "notebook": "neural_latent_sde.ipynb",
+      "passed": true,
+      "results": {
+        "initial_rmse": 1.1021122672719401,
+        "final_rmse": 6.67942645109937e-05,
+        "network_gradient_norm": 6.205201401958163,
+        "output_bias_gradients": [
+          -0.1250095706585844,
+          -3.867894309062802,
+          -0.0009006379449689268
+        ],
+        "closure_evaluations": 15,
+        "target_prices": [
+          15.88017618379427,
+          10.273908881514272,
+          6.296533853707457
+        ],
+        "fitted_prices": [
+          15.880123624343689,
+          10.274000098251104,
+          6.296485880460839
+        ]
+      },
+      "seconds": 13.754219100112095,
+      "executed_sha256": "9c94b9cc0df378eaaf02560f48dacdd8402e6254d06e52dc25a8dc92e0c3bb22",
+      "source_sha256": "ad2ce75b7722eb4545be0857616681149d8f67c2bc7b91810594e309c6443b39"
+    },
+    {
+      "notebook": "option_pricing_greeks.ipynb",
+      "passed": true,
+      "results": {
+        "call": 8.827321225352126,
+        "delta": 0.573495979027775,
+        "vega": 38.71517541592269,
+        "gamma": 0.01935758770796135,
+        "early_exercise_puts": [
+          [
+            "european",
+            7.637166742437628,
+            37.74213389933449
+          ],
+          [
+            "bermudan",
+            8.273569188269844,
+            35.66727180832935
+          ],
+          [
+            "american",
+            8.431773550414146,
+            35.544653522078704
+          ]
+        ],
+        "parameter_sensitivity": 7.062629150618317
+      },
+      "seconds": 3.1145440998952836,
+      "executed_sha256": "69ff2b8f7e82d8f1b7f6b1fd27c31b7224d0dc96b61eb679565d609ae1fb2a3d",
+      "source_sha256": "bbff5e24064ea834d206a665567c814c9d3b8e9e4cb8b84365349145fc10ffc0"
+    },
+    {
+      "notebook": "shout_pricing.ipynb",
+      "passed": true,
+      "results": {},
+      "seconds": 10.160892500076443,
+      "executed_sha256": "77c67e952ebebb2972c3ced955e176f01b5dfd3a046f6c8e7ef09830f4e4af10",
+      "source_sha256": "ed6d5c6b9ffd5a647eaa041559252133ed6977d25cd593adec39e16743db694c"
+    }
+  ],
+  "scripts": [
+    {
+      "script": "neural_local_vol.py",
+      "arguments": [
+        "--mode",
+        "full"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "82eb73d20443176269e4b96fecb46920c60943e171c8d42dedf13e60b9696b8b",
+      "seconds": 1.7788572998251766,
+      "output_sha256": "baf9e7f591fc1736354ac02a34c635caf0758974e2f6982faf171529ec0963e6"
+    },
+    {
+      "script": "neural_local_vol.py",
+      "arguments": [
+        "--mode",
+        "adjoint"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "82eb73d20443176269e4b96fecb46920c60943e171c8d42dedf13e60b9696b8b",
+      "seconds": 1.7286137999035418,
+      "output_sha256": "f86d6d0bac6ffc9fc6c6a95b5b7fcd2bf465054e424761e81d5c78bea384ccc3"
+    },
+    {
+      "script": "neural_fd_engine.py",
+      "arguments": [
+        "--mode",
+        "full"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "9972dc51af4a503f853eb4dd11d6fa6fe590be66b7c2c1f6c68efdb6904e5cac",
+      "seconds": 1.7468694997951388,
+      "output_sha256": "f95842f47889a4c60def13b439eb22cee484e9d96be9425cfec29436a00b01e8"
+    },
+    {
+      "script": "neural_fd_engine.py",
+      "arguments": [
+        "--mode",
+        "adjoint"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "9972dc51af4a503f853eb4dd11d6fa6fe590be66b7c2c1f6c68efdb6904e5cac",
+      "seconds": 1.7220957002136856,
+      "output_sha256": "cb3e277fdb8670d059ca48ca628eef5644a601678f963d80cb87d05613d0c77d"
+    },
+    {
+      "script": "pricing_layer.py",
+      "arguments": [
+        "--engine",
+        "analytic"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "6971943c65f900e573569d8c3634e2ee80df65207da9ab454a2b153ef0046a5f",
+      "seconds": 1.7431242000311613,
+      "output_sha256": "14ea850438f87f2228a5e03f6cb092dbc6e29bd0e4ae5f2a0356f1a0cf756661"
+    },
+    {
+      "script": "pricing_layer.py",
+      "arguments": [
+        "--engine",
+        "fd",
+        "--mode",
+        "adjoint"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "6971943c65f900e573569d8c3634e2ee80df65207da9ab454a2b153ef0046a5f",
+      "seconds": 1.7911783999297768,
+      "output_sha256": "63e79759ef5dc64107fd40b743052d6739f51322589ce7cd3a14beb2da2e1e32"
+    },
+    {
+      "script": "neural_latent_sde.py",
+      "arguments": [
+        "--mode",
+        "full",
+        "--iterations",
+        "2"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "1d8f6126b763c41dc4e110ea3b70e1134e58cc7e14ca7342c2a75438a303d418",
+      "seconds": 3.4527299001347274,
+      "output_sha256": "c03a62822dc1e15ece542515cf908a83eca967fc446c9a38ce904a2a7060ed16"
+    },
+    {
+      "script": "neural_latent_sde.py",
+      "arguments": [
+        "--mode",
+        "adjoint",
+        "--iterations",
+        "2"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "1d8f6126b763c41dc4e110ea3b70e1134e58cc7e14ca7342c2a75438a303d418",
+      "seconds": 2.830141199985519,
+      "output_sha256": "75cd00a96e196b880ad212a38d041144edbb7f15925a05cf693a5bcb16da64a2"
+    },
+    {
+      "script": "multi_asset_neural_sde.py",
+      "arguments": [
+        "--device",
+        "cpu",
+        "--assets",
+        "2",
+        "--contracts",
+        "3",
+        "--iterations",
+        "2"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "33765b15fcfc396cde7792cb043965a56c05495d6dd657a046330f626e95dad2",
+      "seconds": 2.8091902998276055,
+      "output_sha256": "f1e53e6c87417a1cdcd58761910ac11ed1958b7b378ab733e702a03d3ef3f06d"
+    },
+    {
+      "script": "calibrate_neural_sde.py",
+      "arguments": [
+        "<checkout>\\docs\\benchmarks\\calibration_phase22_market.json",
+        "--mesh",
+        "diagnostic",
+        "--iterations",
+        "2",
+        "--execution",
+        "batched",
+        "--output",
+        "<checkout>\\build\\release_final\\examples\\calibration_smoke.json"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "c89129bb474595ace18fdc63490fe40f20dd9fabcda014a9b3194e8b50fc7130",
+      "seconds": 3.0565079001244158,
+      "output_sha256": "58c9d80e85013374c416c91c14c6ff4587f67d8f9e4ad87f9e893654abbf10d3"
+    },
+    {
+      "script": "multi_asset_neural_sde.py",
+      "arguments": [
+        "--device",
+        "cuda",
+        "--assets",
+        "2",
+        "--contracts",
+        "3",
+        "--iterations",
+        "2"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "source_sha256": "33765b15fcfc396cde7792cb043965a56c05495d6dd657a046330f626e95dad2",
+      "seconds": 6.473453799961135,
+      "output_sha256": "f1e53e6c87417a1cdcd58761910ac11ed1958b7b378ab733e702a03d3ef3f06d"
+    }
+  ],
+  "passed": true,
+  "wheel_sha256": "3962507cedc6f852588163ef0fd9d7183d68fd3718007b10d90735bb36eab7de",
+  "source_local_checkpoint": "29dfb0ec0be349009c0f0c6f49d786afaf769e4e",
+  "matching_public_export_revision": "cc6d7e71427334fbe256a75e25831d6af54d0272",
+  "raw_report_sha256": "fcff8d654c54a0c6a8460ff088ec210ae9bce8df5613b63f5db7421cebd976a4",
+  "system_site_packages": false,
+  "installed_wheel_origin": "local built wheel, not downloaded from a package index"
+}
